@@ -3,7 +3,7 @@ import { StyleSheet } from 'react-native';
 import PropTypes from 'prop-types';
 
 import { 
-  MessageLeft,
+  ResponseMessages,
   NameText,
   MessageText,
   DateText,
@@ -15,11 +15,11 @@ const Response = ({ data }) => {
 
   return (
     <Menu data={data}>
-      <MessageLeft style={styles.shadow}>
+      <ResponseMessages style={styles.shadow}>
         <NameText>{data?.name}</NameText>
         <MessageText>{data?.text}</MessageText>
         <DateText>{time}</DateText>
-      </MessageLeft>
+      </ResponseMessages>
     </Menu>
   );
 };

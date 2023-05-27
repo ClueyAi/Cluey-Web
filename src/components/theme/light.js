@@ -11,7 +11,7 @@ export default {
   textGray: '#757575',
   textDark: '#454545',
   link: '#FFBF0090',
-  border: '#ECECECAA',
+  border: '#0000001F',
   error: '#FF0000',
   inputError: '#EEBBBB',
   placeholder: '#A4A4A4',

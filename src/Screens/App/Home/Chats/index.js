@@ -6,7 +6,7 @@ import PropTypes from "prop-types";
 import { FirestoreContext } from '../../../../api/firebase';
 import { LocaleContext } from '../../../../components/locale';
 import { ThemeContext, shadow } from '../../../../components/theme';
-import { Container, H3, ButtonEmpyte } from '../../../../components/styles';
+import { Container, H3, ButtonEmpyte, CardsEmpyte } from '../../../../components/styles';
 
 import Cluey from './Cluey';
 import Suggests from './Suggests';
@@ -85,23 +85,9 @@ const Chats = ({navigation}) => {
       style={{width: '100%', paddingTop: 10, maxHeight: '40%'}}
       keyExtractor={(item) => item.id}
       renderItem={({ item }) => (
-        <ButtonEmpyte 
-          style={{
-            ...shadow,
-            alignSelf: 'center',
-            alignContent: 'center',
-            justifyContent: 'center',
-            width: '92%',
-            paddingHorizontal: 10,
-            marginTop: 5,
-            marginBottom: 5,
-            borderRadius: 30,
-            backgroundColor: theme.background
-          }} 
-          onPress={() => handlerChat(item)}
-        >
+        <CardsEmpyte style={shadow} onPress={() => handlerChat(item)}>
           <Cluey item={item} handlerDeleteChat={handlerDeleteChat} handlerEditChatName={handlerEditChatName}/>
-        </ButtonEmpyte>
+        </CardsEmpyte>
       )}
       ListFooterComponent={<MoreButton />}
     />
@@ -112,23 +98,9 @@ const Chats = ({navigation}) => {
       style={{width: '100%', paddingTop: 10}}
       keyExtractor={(item) => item.id}
       renderItem={({ item }) => (
-        <ButtonEmpyte 
-          style={{
-            ...shadow,
-            alignSelf: 'center',
-            alignContent: 'center',
-            justifyContent: 'center',
-            width: '92%',
-            paddingHorizontal: 10,
-            marginTop: 5,
-            marginBottom: 5,
-            borderRadius: 30,
-            backgroundColor: theme.background
-          }} 
-          onPress={() => handlerSuggests(item)}
-        >
+        <CardsEmpyte style={shadow} onPress={() => handlerSuggests(item)}>
           <Suggests item={item} />
-        </ButtonEmpyte>
+        </CardsEmpyte>
       )}
       ListFooterComponent={<MoreButton />}
     />

@@ -64,7 +64,7 @@ const New = ({ putContact }) => {
       borderRadius: 20,
       backgroundColor: theme.background, 
       borderWidth: 0.1,
-      borderColor: theme.background,
+      borderColor: theme.border,
     },
     input: {
       flexDirection: 'row',
@@ -76,7 +76,6 @@ const New = ({ putContact }) => {
       marginTop: 5,
       marginBottom: 5,
       borderRadius: 20,
-      borderWidth: 0,
       backgroundColor: theme.background, 
     },
     chatBox: {

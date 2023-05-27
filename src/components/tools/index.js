@@ -135,6 +135,7 @@ AboutButton.propTypes = {
 };
 
 export const LanguageSelector = () => {
+  const {theme} = useContext(ThemeContext);
   // eslint-disable-next-line no-unused-vars
   const {locale, changeLocale} = useContext(LocaleContext);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -173,7 +174,7 @@ export const LanguageSelector = () => {
           <Flag code={iso} size={16}/>
         </TouchableOpacity>
       </MenuTrigger>
-      <MenuOptions customStyles={{ optionsContainer: { flex: 1, marginTop: 30, marginRight: 15, borderRadius: 15, width: 220, padding: 10}}} >
+      <MenuOptions customStyles={{ optionsContainer: { flex: 1, marginTop: 30, marginRight: 15, borderRadius: 15, width: 220, padding: 10, borderWidth: 0.1, borderColor: theme.border}}} >
         <View style={{flexDirection: 'row'}}>
           <View style={{flex: 1}}>
             {optionsLeft.map((option) => (

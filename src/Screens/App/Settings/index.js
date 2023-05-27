@@ -1,5 +1,5 @@
 import React, { useState, useContext, useEffect, useCallback } from "react";
-import { Alert, TouchableWithoutFeedback, Keyboard } from "react-native";
+import { TouchableWithoutFeedback, Keyboard } from "react-native";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import UserAvatar from "react-native-user-avatar";
 import * as ImagePicker from "expo-image-picker";
@@ -39,56 +39,24 @@ const Settings = ({ navigation }) => {
   const [userName, setUserName] = useState("");
 
   const handleEditPhoto = async () => {
-    Alert.alert(
-      locale.alert.photo_change.title,
-      locale.alert.photo_change.message,
-      [
-        {
-          text: "cancel",
-          style: "cancel",
-        },
-        {
-          text: locale.alert.photo_change.camera,
-          onPress: () => {
-            pickImage("camera");
-          },
-        },
-        {
-          text: locale.alert.photo_change.library,
-          onPress: () => {
-            pickImage("library");
-          },
-        },
-      ],
-      { cancelable: true }
-    );
+    pickImage();
   };
-
-  const pickImage = async (sourceType) => {
-    let result;
-    if (sourceType === "camera") {
-      const permissionResult =
-        await ImagePicker.requestCameraPermissionsAsync();
-      if (permissionResult.granted === false) {
-        alert(locale.settings.photo_button.camera_permission);
-        return;
-      }
-      result = await ImagePicker.launchCameraAsync({});
-    } else if (sourceType === "library") {
-      const permissionResult =
-        await ImagePicker.requestMediaLibraryPermissionsAsync();
-      if (permissionResult.granted === false) {
-        alert(locale.settings.photo_button.library_permission);
-        return;
-      }
-      result = await ImagePicker.launchImageLibraryAsync({
-        mediaTypes: ImagePicker.MediaTypeOptions.Images,
-        allowsMultipleSelection: false,
-        allowsEditing: true,
-        aspect: [4, 4],
-        quality: 1,
-      });
+  
+  const pickImage = async () => {
+    const permissionResult = await ImagePicker.requestMediaLibraryPermissionsAsync();
+    if (permissionResult.granted === false) {
+      alert(locale.settings.photo_button.library_permission);
+      return;
     }
+  
+    const result = await ImagePicker.launchImageLibraryAsync({
+      mediaTypes: ImagePicker.MediaTypeOptions.Images,
+      allowsMultipleSelection: false,
+      allowsEditing: true,
+      aspect: [4, 4],
+      quality: 1,
+    });
+  
     if (!result.canceled) {
       const uri = result.assets[0].uri;
       try {

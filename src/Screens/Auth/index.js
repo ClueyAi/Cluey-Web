@@ -21,7 +21,6 @@ const AuthStack = createStackNavigator();
 const Auth = () => {
   return (
     <AuthStack.Navigator screenOptions={({navigation}) => ({
-      gestureEnabled: true,
       headerRight: () => <LanguageSelector/>,
       headerLeft: () => <AboutButton navigation={navigation}/>,
       headerShadowVisible: false,

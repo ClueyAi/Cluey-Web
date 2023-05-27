@@ -9,7 +9,6 @@ import { FirestoreContext } from "../../../../api/firebase";
 import { ThemeContext } from "../../../../components/theme";
 import { LocaleContext } from "../../../../components/locale";
 import {
-  Avoiding,
   Container,
   Content,
   Heading,
@@ -219,7 +218,6 @@ const SignIn = ({ navigation }) => {
           <Input
             style={{
               ...styles.shadow,
-              borderColor: theme.text,
               marginBottom: 15,
               backgroundColor: `${
                 error === errorEmail && emailValid == false
@@ -269,7 +267,6 @@ const SignIn = ({ navigation }) => {
           <Input
             style={{
               ...styles.shadow,
-              borderColor: theme.text,
               marginBottom: 10,
               backgroundColor: `${
                 passwordValid == false ? theme.inputError : theme.backgroundSecondary

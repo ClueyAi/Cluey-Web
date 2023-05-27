@@ -3,7 +3,7 @@ import { StyleSheet } from 'react-native';
 import PropTypes from 'prop-types';
 
 import { 
-  MessageRight,
+  RequestMessages,
   MessageText,
   DateText
 } from '../../../../../../components/styles';
@@ -14,10 +14,10 @@ const Request = ({ data }) => {
 
   return (
     <Menu data={data}>
-    <MessageRight style={styles.shadow}>
+    <RequestMessages style={styles.shadow}>
       <MessageText>{data?.text}</MessageText>
       <DateText>{time}</DateText>
-    </MessageRight>
+    </RequestMessages>
     </Menu>
   );
 };

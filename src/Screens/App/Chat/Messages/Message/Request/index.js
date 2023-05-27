@@ -1,9 +1,9 @@
 import React from 'react';
-import { StyleSheet } from 'react-native';
 import PropTypes from 'prop-types';
 
+import { shadow } from '../../../../../../components/theme';
 import { 
-  MessageRight,
+  RequestMessages,
   MessageText,
   DateText
 } from '../../../../../../components/styles';
@@ -14,23 +14,13 @@ const Request = ({ data }) => {
 
   return (
     <Menu data={data}>
-    <MessageRight style={styles.shadow}>
+    <RequestMessages style={shadow}>
       <MessageText>{data?.text}</MessageText>
       <DateText>{time}</DateText>
-    </MessageRight>
+    </RequestMessages>
     </Menu>
   );
 };
-
-const styles = StyleSheet.create({
-  shadow: {
-    shadowColor: "#000000",
-    shadowOffset: {width: 1, height: 2},
-    shadowOpacity:  0.17,
-    shadowRadius: 2.05,
-    elevation: 4
-  }
-});
 
 Request.propTypes = {
   data: PropTypes.object.isRequired

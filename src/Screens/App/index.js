@@ -1,11 +1,10 @@
 import React from 'react';
-import { createStackNavigator, TransitionPresets } from "@react-navigation/stack";
-import { isAndroid } from '@freakycoder/react-native-helpers';
+import { createStackNavigator } from "@react-navigation/stack";
 import Ionicons from '@expo/vector-icons/Ionicons';
 
 import { LocaleContext } from '../../components/locale';
 import { ThemeContext } from '../../components/theme';
-import { MainTitle, TalkTitle, ContactsMenuButton, LogoutButton, LanguageSelector, SettingsButton, CloseModal } from '../../components/tools';
+import { MainTitle, TalkTitle, ContactsMenuButton, LogoutButton, LanguageSelector, SettingsButton, BackButton } from '../../components/tools';
 
 import Home from './Home';
 import Contacts from './Contacts';
@@ -30,14 +29,7 @@ const App = () => {
 
   return (
     <AppStack.Navigator screenOptions={{
-      gestureEnabled: true,
-      headerStyle: {
-        shadowColor: "#000",
-        shadowOffset: {width: 0, height: 1},
-        shadowOpacity:  0.10,
-        shadowRadius: 1.51,
-        elevation: 4
-      },
+      headerShadowVisible: false,
       headerBackTitleVisible: true,
       headerTitleAlign: 'center',
       headerBackImage: () => <Ionicons name="chevron-back" size={28} color={theme.primary}/>,
@@ -118,21 +110,11 @@ const App = () => {
           headerBackTitleVisible: false,
         })}
       />
-      <AppStack.Group screenOptions={{
-        headerLeft: null,
-        headerTitle: () => <CloseModal/>,
-        headerStyle: {
-          height: 40,
-          shadowColor: "#000",
-          shadowOffset: {width: 0, height: 1},
-          shadowOpacity:  0.10,
-          shadowRadius: 1.51,
-          elevation: 4
-        },
-        headerTitleAlign: 'center',
-        presentation: 'modal',
-        ...( isAndroid && TransitionPresets.ModalPresentationIOS )
-      }}>
+      <AppStack.Group screenOptions={({navigation}) => ({
+        headerLeft: () => <BackButton navigation={navigation}/>,
+        headerBackTitleVisible: true,
+        headerTitle: '',
+      })}>
         <AppStack.Screen name="Email" component={Email}/>
         <AppStack.Screen name="Password" component={Password}/>
         <AppStack.Screen name="About" component={About}/>

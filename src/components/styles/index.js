@@ -9,7 +9,7 @@ const generateColor = () => {
   return `#${randomColor}`;
 };
 
-export const Avoiding = styled.KeyboardAvoidingView``;
+
 export const Web = styled.View`
   width: 100%;
   height: 100%;
@@ -86,6 +86,8 @@ export const Input = styled.View`
   justify-content: space-between;
   align-items: center;
   border-radius: 30px;
+  border-width: 0.1px;
+  border-color: ${light.border};
   background-color: ${light.background};
 `;
 export const TextInput = styled.TextInput`
@@ -283,6 +285,20 @@ export const AbsoluteButton = styled.TouchableOpacity`
   align-items: center;
 `;
 export const ButtonEmpyte = styled.TouchableOpacity``;
+export const CardsEmpyte = styled.TouchableOpacity`
+  align-self: center;
+  align-content: center;
+  justify-content: center;
+  height: 40px;
+  width: 92%;
+  border-width: 0.1px;
+  border-color: ${light.border};
+  padding: 0 10px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  border-radius: 30px;
+  background-color: ${light.background};
+`;
 
 // cunstoms
 export const InterestsBtn = styled.View`
@@ -316,6 +332,8 @@ export const ChatInput = styled.View`
   justify-content: space-between;
   align-items: center;
   border-radius: 30px;
+  border-width: 0.1px;
+  border-color: ${light.border};
   background-color: ${light.background};
 `;
 export const ChatTextInput = styled.TextInput`
@@ -333,15 +351,7 @@ export const ChatMessages = styled.View`
   margin: 5px 20px 20px 20px;
 `;
 export const RequestMessages = styled.View`
-  flex-direction: row;
-  align-self: flex-end;
-`;
-export const ResponseMessages = styled.View`
-  flex-direction: row;
-  align-self: flex-start;
-`;
-export const MessageRight = styled.View`
-  max-width: 95%;
+  max-width: 92%;
   min-width: 100px;
   align-self: flex-end;
   padding: 10px;
@@ -349,8 +359,8 @@ export const MessageRight = styled.View`
   margin-left: 10px;
   background-color: ${light.secondarySoft};
 `;
-export const MessageLeft = styled.View`
-  max-width: 95%;
+export const ResponseMessages = styled.View`
+  max-width: 92%;
   min-width: 100px;
   align-self: flex-start;
   padding: 10px;

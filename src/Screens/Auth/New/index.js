@@ -17,7 +17,6 @@ import { FirestoreContext } from "../../../api/firebase/firestore";
 import { ThemeContext, shadow } from "../../../components/theme";
 import { LocaleContext } from "../../../components/locale";
 import {
-  Avoiding,
   Container,
   Content,
   Body,
@@ -287,7 +286,6 @@ const New = ({ navigation }) => {
           <Input
             style={{
               ...shadow,
-              borderColor: theme.text,
               marginBottom: 15,
               backgroundColor: `${
                 error === errorEmail && emailValid == false
@@ -336,7 +334,6 @@ const New = ({ navigation }) => {
           <Input
             style={{
               ...shadow,
-              borderColor: theme.text,
               marginBottom: 10,
               backgroundColor: `${
                 error === errorPassword && passwordValid == false
@@ -403,7 +400,6 @@ const New = ({ navigation }) => {
           <Input
             style={{
               ...shadow,
-              borderColor: theme.text,
               marginBottom: 10,
               backgroundColor: `${
                 error === errorPassword && rePasswordValid == false

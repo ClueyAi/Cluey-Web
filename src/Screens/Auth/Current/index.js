@@ -10,7 +10,6 @@ import { ProvidersContext } from "../../../api/providers";
 import { FirestoreContext } from "../../../api/firebase";
 import { ThemeContext } from "../../../components/theme";
 import {
-  Avoiding,
   Container,
   Content,
   Heading,
@@ -213,7 +212,6 @@ const Current = ({ navigation }) => {
           <Input
             style={{
               ...styles.shadow,
-              borderColor: theme.text,
               marginBottom: 15,
               backgroundColor: `${
                 error === errorEmail && emailValid == false
@@ -263,7 +261,6 @@ const Current = ({ navigation }) => {
           <Input
             style={{
               ...styles.shadow,
-              borderColor: theme.text,
               marginBottom: 10,
               backgroundColor: `${
                 passwordValid == false ? theme.inputError : theme.backgroundSecondary

@@ -7,29 +7,28 @@ import Mark from '../../../../components/mark';
 
 import Message from './Message';
 
-const Messages = ({chat}) => {
-  const messages = chat?.messages;
+const Messages = ({messages}) => {
+  const reversedMessages = messages ? [...messages].reverse() : [];
 
   return (
     <Main>
       <Mark/>
-      {messages?
+      {reversedMessages.length > 0 ? (
         <FlatList
-          data={messages.reverse()}
+          data={reversedMessages}
           inverted
-          style={{scaleY: -1}}
-          keyExtractor={(item, index) => index.toString() + messages.length.toString()}
-          renderItem={({ item }) => (
-            <Message data={item}/>
-          )}
+          style={{ transform: [{ scaleY: -1 }] }}
+          keyExtractor={(item, index) => `${index}-${messages.length}`}
+          renderItem={({ item }) => <Message data={item} />}
         />
-      :null}
+      ) : null}
     </Main>
   );
 };
 
 Messages.propTypes = {
   chat: PropTypes.object,
+  messages: PropTypes.array
 };
 
 export default Messages;

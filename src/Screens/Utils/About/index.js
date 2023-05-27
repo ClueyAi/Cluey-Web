@@ -1,5 +1,4 @@
 import React, { useContext } from 'react'
-import { Linking } from 'react-native';
 import FontAwesome5 from '@expo/vector-icons/FontAwesome5';
 import UserAvatar from 'react-native-user-avatar';
 import PropTypes from "prop-types";
@@ -25,20 +24,15 @@ import {
 const About = ({ navigation }) => {
   const {locale} = useContext(LocaleContext);
 
-  const handleDesigner = async () => {Linking.openURL(locale.global.team.designer.site_url)};
-  const handleDeveloper = async () => {Linking.openURL(locale.global.team.developer.site_url)};
-  const handleTester = async () => {Linking.openURL(locale.global.team.tester.site_url)};
+  const openInNewTab = (url) => {
+    window.open(url, '_blank');
+  };
 
-  const handleMentor1 = async () => {Linking.openURL(locale.global.mentor.mentor1.site_url)};
-  const handleMentor2 = async () => {Linking.openURL(locale.global.mentor.mentor2.site_url)};
-  const handleMentor3 = async () => {Linking.openURL(locale.global.mentor.mentor3.site_url)};
+  const handleOpenLink = (url) => {
+    openInNewTab(url);
+  };
 
-  const handleIslagaia = async () => {Linking.openURL(locale.global.partners.islagaia.site_url)};
   const handlePolicy = async () => {navigation.navigate("Rules")};
-  const handleWebsite = async () => {Linking.openURL(locale.global.app.contact_us.website)};
-  const handleGithub = async () => {Linking.openURL(locale.global.app.contact_us.github)};
-  const handleFacebook = async () => {Linking.openURL(locale.global.app.contact_us.facebook)};
-  
 
   return (
     <Container>
@@ -47,7 +41,7 @@ const About = ({ navigation }) => {
           <ScrollView style={{paddingTop: 20}}>
             <H3>{locale.global.team.title}</H3>
             <Team>
-              <ButtonEmpyte onPress={handleDesigner}>
+              <ButtonEmpyte onPress={() => handleOpenLink(locale.global.team.designer.site_url)}>
                 <Picture>
                 <ProfileTeam>
                   <UserAvatar size={65} style={{width: 65, height: 65, borderRadius: 100}} name={locale.global.team.designer.name} src={locale.global.team.designer.photo_url}/>
@@ -56,7 +50,7 @@ const About = ({ navigation }) => {
                 <H5>{locale.global.team.designer.name}</H5>
                 <PMini>{locale.global.team.designer.office}</PMini>             
               </ButtonEmpyte>
-              <ButtonEmpyte onPress={handleDeveloper}>
+              <ButtonEmpyte onPress={() => handleOpenLink(locale.global.team.developer.site_url)}>
                 <Picture>
                   <ProfileTeam>
                     <UserAvatar size={65} style={{width: 65, height: 65, borderRadius: 100}} name={locale.global.team.developer.name} src={locale.global.team.developer.photo_url}/>
@@ -65,7 +59,7 @@ const About = ({ navigation }) => {
                 <H5>{locale.global.team.developer.name}</H5>
                 <PMini>{locale.global.team.developer.office}</PMini>           
               </ButtonEmpyte>
-              <ButtonEmpyte onPress={handleTester}>
+              <ButtonEmpyte onPress={() => handleOpenLink(locale.global.team.tester.site_url)}>
                 <Picture>
                 <ProfileTeam>
                   <UserAvatar size={65} style={{width: 65, height: 65, borderRadius: 100}} name={locale.global.team.tester.name} src={locale.global.team.tester.photo_url}/>
@@ -77,7 +71,7 @@ const About = ({ navigation }) => {
             </Team>
             <H3 style={{marginTop: 20}}>{locale.global.mentor.title}</H3>
             <Mentor>
-              <ButtonEmpyte onPress={handleMentor1}>
+              <ButtonEmpyte onPress={() => handleOpenLink(locale.global.mentor.mentor1.site_url)}>
                 <Picture>
                 <ProfileTeam>
                   <UserAvatar size={65} style={{width: 65, height: 65, borderRadius: 100}} name={locale.global.mentor.mentor1.name} src={locale.global.mentor.mentor1.photo_url}/>
@@ -85,7 +79,7 @@ const About = ({ navigation }) => {
                 </Picture>
                 <H5>{locale.global.mentor.mentor1.name}</H5>           
               </ButtonEmpyte>
-              <ButtonEmpyte onPress={handleMentor2}>
+              <ButtonEmpyte onPress={() => handleOpenLink(locale.global.mentor.mentor2.site_url)}>
                 <Picture>
                   <ProfileTeam>
                     <UserAvatar size={65} style={{width: 65, height: 65, borderRadius: 100}} name={locale.global.mentor.mentor2.name} src={locale.global.mentor.mentor2.photo_url}/>
@@ -93,7 +87,7 @@ const About = ({ navigation }) => {
                 </Picture>
                 <H5>{locale.global.mentor.mentor2.name}</H5>         
               </ButtonEmpyte>
-              <ButtonEmpyte onPress={handleMentor3}>
+              <ButtonEmpyte onPress={() => handleOpenLink(locale.global.mentor.mentor3.site_url)}>
                 <Picture>
                 <ProfileTeam>
                   <UserAvatar size={65} style={{width: 65, height: 65, borderRadius: 100}} name={locale.global.mentor.mentor3.name} src={locale.global.mentor.mentor3.photo_url}/>
@@ -104,7 +98,7 @@ const About = ({ navigation }) => {
             </Mentor>
             <H3 style={{marginTop: 20}}>{locale.global.partners.title}</H3>
             <Partners>
-              <ButtonEmpyte onPress={handleIslagaia}>
+              <ButtonEmpyte onPress={() => handleOpenLink(locale.global.partners.islagaia.site_url)}>
                 <Picture>
                   <Image style = {{ width: 216, height: 91.2 }} source={{uri: locale.global.partners.islagaia.logo_url}}/>
                 </Picture>   
@@ -133,13 +127,13 @@ const About = ({ navigation }) => {
           </ButtonEmpyte>
           <H3 style={{marginTop: 5}}>{locale.global.app.contact_us.title}</H3>
           <Div style={{flexDirection: 'row', padding: 5}}>
-            <ButtonEmpyte style={{color: '#fff', paddingHorizontal: 5}} onPress={handleWebsite}>
+            <ButtonEmpyte style={{color: '#fff', paddingHorizontal: 5}} onPress={() => handleOpenLink(locale.global.app.contact_us.website)}>
               <FontAwesome5 name="globe" size={28} color="#757575" />
             </ButtonEmpyte>
-            <ButtonEmpyte style={{color: '#fff', paddingHorizontal: 5}} onPress={handleGithub}>
+            <ButtonEmpyte style={{color: '#fff', paddingHorizontal: 5}} onPress={() => handleOpenLink(locale.global.app.contact_us.github)}>
               <FontAwesome5 name="github" size={28} color="#757575" />
             </ButtonEmpyte>
-            <ButtonEmpyte style={{color: '#fff', paddingHorizontal: 5}} onPress={handleFacebook}>
+            <ButtonEmpyte style={{color: '#fff', paddingHorizontal: 5}} onPress={() => handleOpenLink(locale.global.app.contact_us.facebook)}>
               <FontAwesome5 name="facebook" size={28} color="#757575" />
             </ButtonEmpyte>
           </Div>

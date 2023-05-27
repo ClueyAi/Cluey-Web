@@ -11,6 +11,7 @@ export const FirestoreProvider = ({ children }) => {
   const [app, setApp] = useState(null);
   const [user, setUser] = useState(null);
   const [chats, setChats] = useState(null);
+  const [messages, setMessages] = useState(null);
   const [contacts, setContacts] = useState(null);
   const [talks, setTalks] = useState(null);
   const [whisps, setWhisps] = useState(null);
@@ -35,11 +36,16 @@ export const FirestoreProvider = ({ children }) => {
        
       const getChats = firestore.collection('users').doc(authUser?.uid).collection('cluey')
       .orderBy('updatedAt', 'desc').onSnapshot((querySnapshot) => {
-          const data = querySnapshot.docs.map(doc => ({
-            id: doc.id,
-            ...doc.data(),
-          }));
-          setChats(data);
+        const data = querySnapshot.docs.map(doc => ({
+          id: doc.id,
+          ...doc.data(),
+        }));
+        setChats(data);
+
+        data.forEach((chat) => {
+          const item = chat.messages.sort((a, b) => a.createdAt - b.createdAt);
+          setMessages(item);
+        });
       });
 
       const putUser = async () => {
@@ -289,6 +295,7 @@ export const FirestoreProvider = ({ children }) => {
     user,
     contacts,
     chats,
+    messages,
     talks,
     whisps,
     updateUserPhoto,
