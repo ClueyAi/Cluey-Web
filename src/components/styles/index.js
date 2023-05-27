@@ -11,8 +11,16 @@ const generateColor = () => {
 
 export const Avoiding = styled.KeyboardAvoidingView``;
 export const Web = styled.View`
-  width: 400px;
+  width: 100%;
+  height: 100%;
   margin: 0 auto;
+  background: #121214;
+`;
+export const WebContainer = styled.View`
+  justify-self: center;
+  align-self: center;
+  width: 550px;
+  height: 100%;
 `;
 export const Container = styled.View`
   flex: 1;
@@ -79,17 +87,16 @@ export const Input = styled.View`
   align-items: center;
   border-radius: 30px;
   background-color: ${light.background};
-  border-width: 0.1px;
-  border-color: ${light.text};
 `;
 export const TextInput = styled.TextInput`
   flex: 1;
   font-family: 'Nunito';
   width: 100%;
-  height: 100%;
   padding: 10px;
   margin-left: 10px;
   color: ${light.text};
+  outline-width: 0;
+  outline-style: none;
 `;
 
 // Texts

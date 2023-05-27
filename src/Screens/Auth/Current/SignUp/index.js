@@ -4,14 +4,13 @@ import React, {
   useEffect,
   useRef,
 } from "react";
-import { StyleSheet, Platform } from "react-native";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 import PropTypes from "prop-types";
 
 import { AuthContext } from "../../../../api/firebase";
 import { FirestoreContext } from "../../../../api/firebase";
-import { ThemeContext } from "../../../../components/theme";
+import { ThemeContext, shadow } from "../../../../components/theme";
 import { LocaleContext } from "../../../../components/locale";
 import {
   Avoiding,
@@ -181,294 +180,274 @@ const SignUp = ({ navigation }) => {
 
   return (
     <Container>
-      <Avoiding
-        behavior={Platform.OS === "ios" ? "padding" : null}
-        keyboardVerticalOffset={88}
-      >
-        <Content>
-          <Body>
-            <Heading style={{ marginBottom: 15, marginTop: 10 }}>
-              <H0 style={{ marginBottom: 10 }}>{locale.global.app.name}</H0>
-              <P>{locale.signup.description}</P>
-            </Heading>
-            {/*
-            <Providers>
-              <ButtonProvider
-                style={styles.shadow}
-                onPress={handleGoogle}
-                accessibilityLabel={
-                  locale.providers.button_google.accessibility
-                }
-              >
-                <TxtProvider style={{ left: 30 }}>
-                  {locale.providers.button_google.text}
-                </TxtProvider>
-                <FontAwesome
-                  style={{ right: 30 }}
-                  name="google"
-                  size={22}
-                  color={theme.text}
-                />
-              </ButtonProvider>
-              <ButtonProvider
-                style={{ ...styles.shadow, marginTop: 15 }}
-                onPress={handleFacebook}
-                accessibilityLabel={
-                  locale.providers.button_facebook.accessibility
-                }
-              >
-                <TxtProvider style={{ left: 30 }}>
-                  {locale.providers.button_facebook.text}
-                </TxtProvider>
-                <FontAwesome
-                  style={{ right: 34 }}
-                  name="facebook"
-                  size={22}
-                  color={theme.text}
-                />
-              </ButtonProvider>
-              <ButtonProvider
-                style={{ ...styles.shadow, marginTop: 15 }}
-                onPress={handleGithub}
-                accessibilityLabel={
-                  locale.providers.button_github.accessibility
-                }
-              >
-                <TxtProvider style={{ left: 30 }}>
-                  {locale.providers.button_github.text}
-                </TxtProvider>
-                <FontAwesome
-                  style={{ right: 30 }}
-                  name="github"
-                  size={24}
-                  color={theme.text}
-                />
-              </ButtonProvider>
-            </Providers>
-            <View
-              style={{
-                width: "90%",
-                flexDirection: "row",
-                justifiContents: "center",
-                alignItems: "center",
-                marginTop: 20,
-              }}
-            >
-              <Divider />
-              <H2Mini>{locale.providers.or}</H2Mini>
-              <Divider />
-            </View>
-            */}
-            <Form style={{ marginTop: 10 }}>
-              <Input
-                style={{
-                  ...styles.shadow,
-                  borderWidth: 0.1,
-                  borderColor: theme.text,
-                  marginBottom: 15,
-                  backgroundColor: `${
-                    error === errorEmail && emailValid == false
-                      ? theme.inputError
-                      : theme.backgroundSecondary
-                  }`,
-                }}
-              >
-                <TextInput
-                  ref={emailRef}
-                  placeholder={locale.signup.text_input.email}
-                  placeholderTextColor={theme.placeholder}
-                  selectionColor={theme.primary}
-                  autoCapitalize="none"
-                  autoCorrect={false}
-                  inputMode="email"
-                  autoComplete="email"
-                  maxLength={100}
-                  returnKeyType="next"
-                  onChangeText={emailValidate}
-                  onSubmitEditing={() => passwordRef.current.focus()}
-                />
-                {emailValid == false && email !== "" ? (
-                  <Ionicons
-                    style={{ padding: 10, marginRight: 5 }}
-                    name="alert-circle-outline"
-                    size={20}
-                    color={theme.error}
-                  />
-                ) : emailValid == null && email !== "" ? (
-                  <Ionicons
-                    style={{ padding: 10, marginRight: 5 }}
-                    name="alert-circle-outline"
-                    size={20}
-                    color={theme.transparent}
-                  />
-                ) : emailValid == true && email !== "" ? (
-                  <Ionicons
-                    style={{ padding: 10, marginRight: 5 }}
-                    name="checkmark-circle-outline"
-                    size={20}
-                    color={theme.secondary}
-                  />
-                ) : null}
-              </Input>
-              <Input
-                style={{
-                  ...styles.shadow,
-                  borderWidth: 0.1,
-                  borderColor: theme.text,
-                  marginBottom: 10,
-                  backgroundColor: `${
-                    error === errorPassword && passwordValid == false
-                      ? theme.inputError
-                      : theme.backgroundSecondary
-                  }`,
-                }}
-              >
-                <TextInput
-                  ref={passwordRef}
-                  placeholder={locale.signup.text_input.password}
-                  placeholderTextColor={theme.placeholder}
-                  selectionColor={theme.primary}
-                  autoCapitalize="none"
-                  autoComplete="new-password"
-                  maxLength={22}
-                  secureTextEntry={secureTextEntry}
-                  returnKeyType="next"
-                  onChangeText={passwordValidate}
-                  onSubmitEditing={() => rePasswordRef.current.focus()}
-                />
-                {passwordStrong == false && passwordValid == true ? (
-                  <Ionicons
-                    style={{ padding: 10 }}
-                    name="alert-circle-outline"
-                    size={20}
-                    color={theme.primary}
-                  />
-                ) : passwordValid == false && password !== "" ? (
-                  <Ionicons
-                    style={{ padding: 10 }}
-                    name="alert-circle-outline"
-                    size={20}
-                    color={theme.error}
-                  />
-                ) : passwordStrong == true && password !== "" ? (
-                  <Ionicons
-                    style={{ padding: 10 }}
-                    name="checkmark-circle-outline"
-                    size={20}
-                    color={theme.secondary}
-                  />
-                ) : (
-                  <Ionicons
-                    style={{ padding: 10 }}
-                    name="alert-circle-outline"
-                    size={20}
-                    color={theme.transparent}
-                  />
-                )}
-                <ButtonEmpyte style={{marginRight: 15}} onPress={handleShowPassword}>
-                  <Ionicons name={secureTextEntry? 'eye-outline': 'eye-off-outline'} size={20} color={theme.text} />
-                </ButtonEmpyte>
-              </Input>
-              {passwordStrong == false && passwordValid == true ? (
-                <TextAlert>Password medium</TextAlert>
-              ) : passwordValid == false && password !== "" ? (
-                <TextError>Password weak</TextError>
-              ) : passwordStrong == true && password !== "" ? (
-                <TextValid>Password strong</TextValid>
-              ) : (
-                <TextError></TextError>
-              )}
-              <Input
-                style={{
-                  ...styles.shadow,
-                  borderWidth: 0.1,
-                  borderColor: theme.text,
-                  marginBottom: 10,
-                  backgroundColor: `${
-                    error === errorPassword && rePasswordValid == false
-                      ? theme.inputError
-                      : theme.backgroundSecondary
-                  }`,
-                }}
-              >
-                <TextInput
-                  ref={rePasswordRef}
-                  placeholder={locale.signup.text_input.confirm_password}
-                  placeholderTextColor={theme.placeholder}
-                  selectionColor={theme.primary}
-                  autoCapitalize="none"
-                  autoComplete="new-password"
-                  maxLength={22}
-                  secureTextEntry={secureTextEntry}
-                  returnKeyType="done"
-                  onChangeText={rePasswordValidate}
-                  onSubmitEditing={handleSignUp}
-                />
-                {rePasswordValid == false && rePassword !== "" ? (
-                  <Ionicons
-                    style={{ padding: 10 }}
-                    name="alert-circle-outline"
-                    size={20}
-                    color={theme.error}
-                  />
-                ) : (
-                  <Ionicons
-                    style={{ padding: 10 }}
-                    name="alert-circle-outline"
-                    size={20}
-                    color={theme.transparent}
-                  />
-                )}
-                {rePasswordValid == true && rePassword !== "" ? (
-                  <Ionicons
-                    style={{ padding: 10 }}
-                    name="checkmark-circle-outline"
-                    size={20}
-                    color={theme.secondary}
-                  />
-                ) : null}
-                <ButtonEmpyte style={{marginRight: 15}} onPress={handleShowPassword}>
-                  <Ionicons name={secureTextEntry? 'eye-outline': 'eye-off-outline'} size={20} color={theme.text} />
-                </ButtonEmpyte>
-              </Input>
-              {error ? (
-                <TextError>{errorMsg}</TextError>
-              ) : (
-                <TextError></TextError>
-              )}
-              <ButtonPrimary
-                style={styles.shadow}
-                onPress={handleSignUp}
-                accessibilityLabel={locale.signup.button.accessibility}
-              >
-                <TxtButton>{locale.signup.title}</TxtButton>
-              </ButtonPrimary>
-            </Form>
-          </Body>
-          <View style={{ marginTop: "15%", alignItems: "center" }}>
-            <PMini>{locale.welcome.footer}</PMini>
-            <ButtonEmpyte
-              onPress={handlePolicy}
-              ccessibilityLabel={locale.global.app.policy_terms.accessibility}
-            >
-              <Link>{locale.global.app.policy_terms.title}</Link>
+      <Body>
+        <Heading style={{ marginBottom: 15, marginTop: 10 }}>
+          <H0 style={{ marginBottom: 10 }}>{locale.global.app.name}</H0>
+          <P>{locale.signup.description}</P>
+        </Heading>
+        {/*
+        <Providers>
+          <ButtonProvider
+            style={shadow}
+            onPress={handleGoogle}
+            accessibilityLabel={
+              locale.providers.button_google.accessibility
+            }
+          >
+            <TxtProvider style={{ left: 30 }}>
+              {locale.providers.button_google.text}
+            </TxtProvider>
+            <FontAwesome
+              style={{ right: 30 }}
+              name="google"
+              size={22}
+              color={theme.text}
+            />
+          </ButtonProvider>
+          <ButtonProvider
+            style={{ ...shadow, marginTop: 15 }}
+            onPress={handleFacebook}
+            accessibilityLabel={
+              locale.providers.button_facebook.accessibility
+            }
+          >
+            <TxtProvider style={{ left: 30 }}>
+              {locale.providers.button_facebook.text}
+            </TxtProvider>
+            <FontAwesome
+              style={{ right: 34 }}
+              name="facebook"
+              size={22}
+              color={theme.text}
+            />
+          </ButtonProvider>
+          <ButtonProvider
+            style={{ ...shadow, marginTop: 15 }}
+            onPress={handleGithub}
+            accessibilityLabel={
+              locale.providers.button_github.accessibility
+            }
+          >
+            <TxtProvider style={{ left: 30 }}>
+              {locale.providers.button_github.text}
+            </TxtProvider>
+            <FontAwesome
+              style={{ right: 30 }}
+              name="github"
+              size={24}
+              color={theme.text}
+            />
+          </ButtonProvider>
+        </Providers>
+        <View
+          style={{
+            width: "90%",
+            flexDirection: "row",
+            justifiContents: "center",
+            alignItems: "center",
+            marginTop: 20,
+          }}
+        >
+          <Divider />
+          <H2Mini>{locale.providers.or}</H2Mini>
+          <Divider />
+        </View>
+        */}
+        <Form style={{ marginTop: 10 }}>
+          <Input
+            style={{
+              ...shadow,
+              borderColor: theme.text,
+              marginBottom: 15,
+              backgroundColor: `${
+                error === errorEmail && emailValid == false
+                  ? theme.inputError
+                  : theme.backgroundSecondary
+              }`,
+            }}
+          >
+            <TextInput
+              ref={emailRef}
+              placeholder={locale.signup.text_input.email}
+              placeholderTextColor={theme.placeholder}
+              selectionColor={theme.primary}
+              autoCapitalize="none"
+              autoCorrect={false}
+              inputMode="email"
+              autoComplete="email"
+              maxLength={100}
+              returnKeyType="next"
+              onChangeText={emailValidate}
+              onSubmitEditing={() => passwordRef.current.focus()}
+            />
+            {emailValid == false && email !== "" ? (
+              <Ionicons
+                style={{ padding: 10, marginRight: 5 }}
+                name="alert-circle-outline"
+                size={20}
+                color={theme.error}
+              />
+            ) : emailValid == null && email !== "" ? (
+              <Ionicons
+                style={{ padding: 10, marginRight: 5 }}
+                name="alert-circle-outline"
+                size={20}
+                color={theme.transparent}
+              />
+            ) : emailValid == true && email !== "" ? (
+              <Ionicons
+                style={{ padding: 10, marginRight: 5 }}
+                name="checkmark-circle-outline"
+                size={20}
+                color={theme.secondary}
+              />
+            ) : null}
+          </Input>
+          <Input
+            style={{
+              ...shadow,
+              borderColor: theme.text,
+              marginBottom: 10,
+              backgroundColor: `${
+                error === errorPassword && passwordValid == false
+                  ? theme.inputError
+                  : theme.backgroundSecondary
+              }`,
+            }}
+          >
+            <TextInput
+              ref={passwordRef}
+              placeholder={locale.signup.text_input.password}
+              placeholderTextColor={theme.placeholder}
+              selectionColor={theme.primary}
+              autoCapitalize="none"
+              autoComplete="new-password"
+              maxLength={22}
+              secureTextEntry={secureTextEntry}
+              returnKeyType="next"
+              onChangeText={passwordValidate}
+              onSubmitEditing={() => rePasswordRef.current.focus()}
+            />
+            {passwordStrong == false && passwordValid == true ? (
+              <Ionicons
+                style={{ padding: 10 }}
+                name="alert-circle-outline"
+                size={20}
+                color={theme.primary}
+              />
+            ) : passwordValid == false && password !== "" ? (
+              <Ionicons
+                style={{ padding: 10 }}
+                name="alert-circle-outline"
+                size={20}
+                color={theme.error}
+              />
+            ) : passwordStrong == true && password !== "" ? (
+              <Ionicons
+                style={{ padding: 10 }}
+                name="checkmark-circle-outline"
+                size={20}
+                color={theme.secondary}
+              />
+            ) : (
+              <Ionicons
+                style={{ padding: 10 }}
+                name="alert-circle-outline"
+                size={20}
+                color={theme.transparent}
+              />
+            )}
+            <ButtonEmpyte style={{marginRight: 15}} onPress={handleShowPassword}>
+              <Ionicons name={secureTextEntry? 'eye-outline': 'eye-off-outline'} size={20} color={theme.text} />
             </ButtonEmpyte>
-          </View>
-        </Content>
-      </Avoiding>
+          </Input>
+          {passwordStrong == false && passwordValid == true ? (
+            <TextAlert>Password medium</TextAlert>
+          ) : passwordValid == false && password !== "" ? (
+            <TextError>Password weak</TextError>
+          ) : passwordStrong == true && password !== "" ? (
+            <TextValid>Password strong</TextValid>
+          ) : (
+            <TextError></TextError>
+          )}
+          <Input
+            style={{
+              ...shadow,
+              borderColor: theme.text,
+              marginBottom: 10,
+              backgroundColor: `${
+                error === errorPassword && rePasswordValid == false
+                  ? theme.inputError
+                  : theme.backgroundSecondary
+              }`,
+            }}
+          >
+            <TextInput
+              ref={rePasswordRef}
+              placeholder={locale.signup.text_input.confirm_password}
+              placeholderTextColor={theme.placeholder}
+              selectionColor={theme.primary}
+              autoCapitalize="none"
+              autoComplete="new-password"
+              maxLength={22}
+              secureTextEntry={secureTextEntry}
+              returnKeyType="done"
+              onChangeText={rePasswordValidate}
+              onSubmitEditing={handleSignUp}
+            />
+            {rePasswordValid == false && rePassword !== "" ? (
+              <Ionicons
+                style={{ padding: 10 }}
+                name="alert-circle-outline"
+                size={20}
+                color={theme.error}
+              />
+            ) : (
+              <Ionicons
+                style={{ padding: 10 }}
+                name="alert-circle-outline"
+                size={20}
+                color={theme.transparent}
+              />
+            )}
+            {rePasswordValid == true && rePassword !== "" ? (
+              <Ionicons
+                style={{ padding: 10 }}
+                name="checkmark-circle-outline"
+                size={20}
+                color={theme.secondary}
+              />
+            ) : null}
+            <ButtonEmpyte style={{marginRight: 15}} onPress={handleShowPassword}>
+              <Ionicons name={secureTextEntry? 'eye-outline': 'eye-off-outline'} size={20} color={theme.text} />
+            </ButtonEmpyte>
+          </Input>
+          {error ? (
+            <TextError>{errorMsg}</TextError>
+          ) : (
+            <TextError></TextError>
+          )}
+          <ButtonPrimary
+            style={shadow}
+            onPress={handleSignUp}
+            accessibilityLabel={locale.signup.button.accessibility}
+          >
+            <TxtButton>{locale.signup.title}</TxtButton>
+          </ButtonPrimary>
+        </Form>
+      </Body>
+      <View style={{ marginBottom: "10%", alignItems: "center" }}>
+        <PMini>{locale.welcome.footer}</PMini>
+        <ButtonEmpyte
+          onPress={handlePolicy}
+          ccessibilityLabel={locale.global.app.policy_terms.accessibility}
+        >
+          <Link>{locale.global.app.policy_terms.title}</Link>
+        </ButtonEmpyte>
+      </View>
     </Container>
   );
 };
-
-const styles = StyleSheet.create({
-  shadow: {
-    shadowColor: "#000000",
-    shadowOffset: { width: 0, height: 3 },
-    shadowOpacity: 0.17,
-    shadowRadius: 3.05,
-    elevation: 4,
-  },
-});
 
 SignUp.propTypes = {
   navigation: PropTypes.object.isRequired,

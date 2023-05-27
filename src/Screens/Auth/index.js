@@ -1,9 +1,8 @@
 import React from 'react';
-import { createStackNavigator, TransitionPresets } from "@react-navigation/stack";
-import { isAndroid } from '@freakycoder/react-native-helpers';
+import { createStackNavigator } from "@react-navigation/stack";
 import Ionicons from '@expo/vector-icons/Ionicons';
 
-import { LanguageSelector, LogoutButton, AboutButton, CloseModal } from '../../components/tools';
+import { LanguageSelector, LogoutButton, AboutButton, BackButton } from '../../components/tools';
 
 import New from './New';
 import Welcome from './New/Welcome';
@@ -57,23 +56,10 @@ const Auth = () => {
           headerTitle: '',
         })}
       />
-      <AuthStack.Group screenOptions={{
-        headerLeft: null,
-        headerRight: null,
-        headerTitle: () => <CloseModal/>,
-        headerShadowVisible: true,
-        headerStyle: {
-          height: 40,
-          shadowColor: "#000",
-          shadowOffset: {width: 0, height: 1},
-          shadowOpacity:  0.10,
-          shadowRadius: 1.51,
-          elevation: 4
-        },
-        headerTitleAlign: 'center',
-        presentation: 'modal',
-        ...( isAndroid && TransitionPresets.ModalPresentationIOS )
-      }}>
+      <AuthStack.Group screenOptions={({navigation}) => ({
+        headerLeft: () => <BackButton navigation={navigation}/>,
+        headerBackTitleVisible: true,
+      })}>
         <AuthStack.Screen name="SignIn" component={SignIn}/>
         <AuthStack.Screen name="SignUp" component={SignUp}/>
         <AuthStack.Screen name="Forgot" component={Forgot}/>

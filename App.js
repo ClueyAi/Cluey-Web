@@ -8,6 +8,8 @@ import {ProvidersProvider} from './src/api/providers';
 import {ThemeProvider} from './src/components/theme';
 import Screens from './src/Screens/';
 
+import { Web, WebContainer } from './src/components/styles'
+
 const App = () => {
   const [loaded] = useFonts({
     'Nunito': require('./assets/fonts/Nunito/static/Nunito-Regular.ttf'),
@@ -22,17 +24,21 @@ const App = () => {
   }
 
   return (
-    <LocaleProvider>
-      <Firebase>
-        <ProvidersProvider>
-          <ThemeProvider>
-            <MenuProvider>
-              <Screens/>
-            </MenuProvider>
-          </ThemeProvider>
-        </ProvidersProvider>
-      </Firebase>
-    </LocaleProvider>
+    <Web>
+      <WebContainer>
+        <LocaleProvider>
+          <Firebase>
+            <ProvidersProvider>
+              <ThemeProvider>
+                <MenuProvider>
+                  <Screens/>
+                </MenuProvider>
+              </ThemeProvider>
+            </ProvidersProvider>
+          </Firebase>
+        </LocaleProvider>
+      </WebContainer>
+    </Web>
   );
 };
 

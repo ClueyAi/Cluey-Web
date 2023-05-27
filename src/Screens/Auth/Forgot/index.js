@@ -1,16 +1,13 @@
 import React, { useState, useContext } from "react";
-import { Platform, StyleSheet } from "react-native";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import PropTypes from "prop-types";
 
 import { AuthContext } from "../../../api/firebase";
-import { ThemeContext } from "../../../components/theme";
+import { ThemeContext, shadow } from "../../../components/theme";
 
 import { LocaleContext } from "../../../components/locale";
 import {
-  Avoiding,
   Container,
-  Content,
   Heading,
   Body,
   View,
@@ -79,91 +76,83 @@ const Forgot = ({ navigation }) => {
   if (sendRecovery == false) {
     return (
       <Container>
-        <Avoiding
-          behavior={Platform.OS === "ios" ? "padding" : null}
-          keyboardVerticalOffset={88}
-        >
-          <Content>
-            <Body>
-              <Heading style={{ marginTop: "45%", marginBottom: 15 }}>
-                <H1 style={{ marginBottom: 10 }}>{locale.forgot.title}</H1>
-                <P>{locale.forgot.description}</P>
-              </Heading>
-              <Form>
-                <Input
-                  style={{
-                  ...styles.shadow,
-                  borderWidth: 0.1,
-                  marginBottom: 10,
-                  backgroundColor: `${
-                    error === errorEmail && emailValid == false
-                      ? theme.inputError
-                      : theme.backgroundSecondary
-                  }`,
-                }}
-                >
-                  <TextInput
-                    placeholder={locale.forgot.text_input.email}
-                    placeholderTextColor={theme.placeholder}
-                    selectionColor={theme.primary}
-                    autoCapitalize="none"
-                    autoCorrect={false}
-                    inputMode="email"
-                    autoComplete="email"
-                    maxLength={100}
-                    returnKeyType="done"
-                    onChangeText={emailValidate}
-                    onSubmitEditing={handleForgot}
-                  />
-                  {emailValid == false ? (
-                    <Ionicons
-                      style={{ padding: 10, marginRight: 10 }}
-                      name="alert-circle-outline"
-                      size={20}
-                      color={theme.error}
-                    />
-                  ) : (
-                    <Ionicons
-                      style={{ padding: 10, marginRight: 10 }}
-                      name="alert-circle-outline"
-                      size={20}
-                      color={theme.transparent}
-                    />
-                  )}
-                  {emailValid == true ? (
-                    <Ionicons
-                      style={{ padding: 10, marginRight: 10 }}
-                      name="checkmark-circle-outline"
-                      size={20}
-                      color={theme.secondary}
-                    />
-                  ) : null}
-                </Input>
-                {error ? (
-                  <TextError>{errorMsg}</TextError>
-                ) : (
-                  <TextError></TextError>
-                )}
-                <ButtonPrimary
-                  style={styles.shadow}
-                  onPress={handleForgot}
-                  accessibilityLabel={locale.forgot.button.accessibility}
-                >
-                  <TxtButton>{locale.forgot.button.text}</TxtButton>
-                </ButtonPrimary>
-              </Form>
-            </Body>
-            <View style={{ marginTop: "70%", alignItems: "center" }}>
-              <PMini>{locale.welcome.footer}</PMini>
-              <ButtonEmpyte
-                onPress={handlePolicy}
-                ccessibilityLabel={locale.global.app.policy_terms.accessibility}
-              >
-                <Link>{locale.global.app.policy_terms.title}</Link>
-              </ButtonEmpyte>
-            </View>
-          </Content>
-        </Avoiding>
+        <Body>
+          <Heading style={{  marginBottom: 15, marginTop: 10 }}>
+            <H1 style={{ marginBottom: 10 }}>{locale.forgot.title}</H1>
+            <P>{locale.forgot.description}</P>
+          </Heading>
+          <Form>
+            <Input
+              style={{
+              ...shadow,
+              marginBottom: 10,
+              backgroundColor: `${
+                error === errorEmail && emailValid == false
+                  ? theme.inputError
+                  : theme.backgroundSecondary
+              }`,
+            }}
+            >
+              <TextInput
+                placeholder={locale.forgot.text_input.email}
+                placeholderTextColor={theme.placeholder}
+                selectionColor={theme.primary}
+                autoCapitalize="none"
+                autoCorrect={false}
+                inputMode="email"
+                autoComplete="email"
+                maxLength={100}
+                returnKeyType="done"
+                onChangeText={emailValidate}
+                onSubmitEditing={handleForgot}
+              />
+              {emailValid == false ? (
+                <Ionicons
+                  style={{ padding: 10, marginRight: 10 }}
+                  name="alert-circle-outline"
+                  size={20}
+                  color={theme.error}
+                />
+              ) : (
+                <Ionicons
+                  style={{ padding: 10, marginRight: 10 }}
+                  name="alert-circle-outline"
+                  size={20}
+                  color={theme.transparent}
+                />
+              )}
+              {emailValid == true ? (
+                <Ionicons
+                  style={{ padding: 10, marginRight: 10 }}
+                  name="checkmark-circle-outline"
+                  size={20}
+                  color={theme.secondary}
+                />
+              ) : null}
+            </Input>
+            {error ? (
+              <TextError>{errorMsg}</TextError>
+            ) : (
+              <TextError></TextError>
+            )}
+            <ButtonPrimary
+              style={shadow}
+              onPress={handleForgot}
+              accessibilityLabel={locale.forgot.button.accessibility}
+            >
+              <TxtButton>{locale.forgot.button.text}</TxtButton>
+            </ButtonPrimary>
+          </Form>
+        </Body>
+        <View style={{ marginBottom: "10%", alignItems: "center" }}>
+          <PMini>{locale.welcome.footer}</PMini>
+          <ButtonEmpyte
+            onPress={handlePolicy}
+            ccessibilityLabel={locale.global.app.policy_terms.accessibility}
+          >
+            <Link>{locale.global.app.policy_terms.title}</Link>
+          </ButtonEmpyte>
+        </View>
       </Container>
     );
   } else {
@@ -180,7 +169,7 @@ const Forgot = ({ navigation }) => {
           <PMini>{locale.forgot.success.alert_msg}</PMini>
         </Heading>
         <ButtonPrimary
-          style={{...styles.shadow, marginTop: 10, marginBottom: "40%" }}
+          style={{...shadow, marginTop: 10, marginBottom: "40%" }}
           onPress={handleContinue}
           accessibilityLabel={locale.forgot.success.Button.accessibility}
         >
@@ -193,16 +182,6 @@ const Forgot = ({ navigation }) => {
     );
   }
 };
-
-const styles = StyleSheet.create({
-  shadow: {
-    shadowColor: "#000000",
-    shadowOffset: { width: 0, height: 3 },
-    shadowOpacity: 0.17,
-    shadowRadius: 3.05,
-    elevation: 4,
-  },
-});
 
 Forgot.propTypes = {
   navigation: PropTypes.object.isRequired,

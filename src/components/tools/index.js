@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { View, Text, TouchableOpacity, Alert, StyleSheet } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import { Menu, MenuOption, MenuOptions, MenuTrigger } from 'react-native-popup-menu';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import Flag from 'react-native-flags';
@@ -18,28 +18,18 @@ export const LogoutButton = ({ navigation }) => {
   const {theme} = useContext(ThemeContext);
 
   const confirmation = () => {
-    return Alert.alert(
-      locale.alert.logout.title,
-      locale.alert.logout.message,
-      [
-        {
-          text: locale.alert.yes,
-          onPress: async () => {
-            try {
-              await signOut();
-              navigation.navigate('Loading');
-            } catch (error) {
-              Alert.alert(error.message)
-            }
-          },
-        },
-        {
-          text: locale.alert.no,
-        },
-      ],
-      { cancelable: true }
-    );
+    const confirmLogout = window.confirm(locale.alert.logout.message);
+  
+    if (confirmLogout) {
+      try {
+        signOut();
+        navigation.navigate('Loading');
+      } catch (error) {
+        alert(error.message);
+      }
+    }
   };
+  
 
   return (
     <TouchableOpacity style={styles.buttonRight} onPress={() =>{
@@ -91,6 +81,19 @@ export const CloseMenuButton = ({ navigation }) => {
 }
 
 CloseMenuButton.propTypes = {
+  navigation: PropTypes.object.isRequired,
+};
+
+export const BackButton = ({ navigation }) => {
+  const {theme} = useContext(ThemeContext);
+  return(
+    <TouchableOpacity style={{...styles.buttonLeft, alignItems: 'center', justifyContent: 'center'}} onPress={() => navigation.goBack()}>
+      <Ionicons name="chevron-back" size={24} color={theme.primary} />
+    </TouchableOpacity>
+  )
+}
+
+BackButton.propTypes = {
   navigation: PropTypes.object.isRequired,
 };
 

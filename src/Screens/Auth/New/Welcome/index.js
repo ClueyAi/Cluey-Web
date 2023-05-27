@@ -4,7 +4,7 @@ import Lottie from 'react-lottie';
 import PropTypes from "prop-types";
 
 import { LocaleContext } from '../../../../components/locale'
-import { ThemeContext } from '../../../../components/theme'
+import { ThemeContext, shadow } from '../../../../components/theme'
 import { 
   Container,
   Heading,
@@ -34,7 +34,6 @@ const Welcome = ({ navigation }) => {
             loop: true,
             autoplay: true,
           }}
-          width={'50%'}
         />
       </View>
       {/*
@@ -44,14 +43,14 @@ const Welcome = ({ navigation }) => {
       />
       */}
       <View style={{marginBottom: "10%"}}>
-        <ButtonMulti onPress={handleStart} accessibilityLabel={locale.welcome.button.accessibility}>
+        <ButtonMulti style={shadow} onPress={handleStart} accessibilityLabel={locale.welcome.button.accessibility}>
           <Ionicons name="arrow-forward-outline" size={22} color={theme.transparent} />
           <TxtButton>{locale.welcome.button.text}</TxtButton>
           <Ionicons name="arrow-forward-outline" size={22} color={theme.background} />
         </ButtonMulti>
         <View style={{marginTop: 50, alignItems: 'center'}}>
           <PMini>{locale.welcome.footer}</PMini>
-          <ButtonEmpyte style={{color: theme.background}} onPress={handlePolicy} ccessibilityLabel={locale.global.app.policy_terms.accessibility}>
+          <ButtonEmpyte style={{ color: theme.background}} onPress={handlePolicy} ccessibilityLabel={locale.global.app.policy_terms.accessibility}>
             <Link>{locale.global.app.policy_terms.title}</Link>
           </ButtonEmpyte>
         </View>
