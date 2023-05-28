@@ -7,8 +7,11 @@ Cluey App for Web
 
 > #### Install
 > git clone https://github.com/ClueyAi/Cluey-Web.git
+> 
 > <code>cd Cluey-Web</code>
+> 
 > <code>yarn install / npm install</code>
+> 
 > <code>yarn start / npm start</code>
 
 > #### Build
