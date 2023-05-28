@@ -192,14 +192,13 @@ const New = ({ navigation }) => {
 
       BackHandler.addEventListener("hardwareBackPress", onBackPress);
 
-      return () =>
-        BackHandler.removeEventListener("hardwareBackPress", onBackPress);
+      return () => {BackHandler.removeEventListener("hardwareBackPress", onBackPress)};
     }, [navigation])
   );
 
   useLayoutEffect(() => {
     navigation.setOptions({
-      headerLeft: () => <View />,
+      headerLeft: () => {<View />},
     });
   }, [navigation]);
 
@@ -306,7 +305,7 @@ const New = ({ navigation }) => {
               maxLength={100}
               returnKeyType="next"
               onChangeText={emailValidate}
-              onSubmitEditing={() => passwordRef.current.focus()}
+              onSubmitEditing={() => {passwordRef.current.focus()}}
             />
             {emailValid == false && email !== "" ? (
               <Ionicons
@@ -353,7 +352,7 @@ const New = ({ navigation }) => {
               secureTextEntry={secureTextEntry}
               returnKeyType="next"
               onChangeText={passwordValidate}
-              onSubmitEditing={() => rePasswordRef.current.focus()}
+              onSubmitEditing={() => {rePasswordRef.current.focus()}}
             />
             {passwordStrong == false && passwordValid ? (
               <Ionicons

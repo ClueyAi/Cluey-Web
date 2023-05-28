@@ -16,7 +16,6 @@ node_modules/
 dist/
 public/*
 public_bkp/
-public
 .firebase/
 npm-debug.*
 *.jks
