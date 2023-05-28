@@ -13,7 +13,6 @@ module.exports = {
   plugins: ["react"],
   rules: {
     "prefer-arrow-callback": "error",
-    "arrow-body-style": ["error", "always"],
     "no-var": "error",
     "indent": ["warn", 2],
     "no-unused-vars": "warn",

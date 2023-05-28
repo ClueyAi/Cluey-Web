@@ -18,24 +18,21 @@ export const FirestoreProvider = ({ children }) => {
 
   useEffect(() => {
     if (isAuth) {
-      const getApp = firestore.collection('app').doc('info')
-      .onSnapshot((doc) => {
+      const getApp = firestore.collection('app').doc('info').onSnapshot((doc) => {
         if (doc.exists) {
           const data = doc.data();
           setApp(data);
         }
       });
 
-      const getUser = firestore.collection('users').doc(authUser?.uid)
-      .onSnapshot((doc) => {
+      const getUser = firestore.collection('users').doc(authUser?.uid).onSnapshot((doc) => {
         if (doc.exists) {
           const data = doc.data();
           setUser(data);
         } 
       });
        
-      const getChats = firestore.collection('users').doc(authUser?.uid).collection('cluey')
-      .orderBy('updatedAt', 'desc').onSnapshot((querySnapshot) => {
+      const getChats = firestore.collection('users').doc(authUser?.uid).collection('cluey').orderBy('updatedAt', 'desc').onSnapshot((querySnapshot) => {
         const data = querySnapshot.docs.map(doc => ({
           id: doc.id,
           ...doc.data(),
@@ -105,16 +102,16 @@ export const FirestoreProvider = ({ children }) => {
 
   const getContacts = async () => {
     if (user?.contacts?.length > 0) {
-    const querySnapshot = await firestore.collection('users')
-      .where('profile.email', 'in', user?.contacts)
-      .get();
+      const querySnapshot = await firestore.collection('users')
+        .where('profile.email', 'in', user?.contacts)
+        .get();
+    
+      const contactsData = querySnapshot.docs.map((doc) => {
+        const data = doc.data();
+        return { ...data, id: doc.id };
+      });
   
-    const contactsData = querySnapshot.docs.map((doc) => {
-      const data = doc.data();
-      return { ...data, id: doc.id };
-    });
-  
-     setContacts(contactsData);
+      setContacts(contactsData);
     }
   };
 
@@ -163,14 +160,11 @@ export const FirestoreProvider = ({ children }) => {
       createdAt: timestamp,
       text: text,
     };
-    await firestore.collection('users').doc(authUser?.uid).collection('cluey').doc(chatId).set(chat, { merge: true })
-      .then(() => {
-        firestore.collection('users').doc(authUser?.uid).collection('cluey').doc(chatId)
-        .update({
-          messages: arrayUnion(message),
-        });
-      }
-    );
+    await firestore.collection('users').doc(authUser?.uid).collection('cluey').doc(chatId).set(chat, { merge: true }).then(() => {
+      firestore.collection('users').doc(authUser?.uid).collection('cluey').doc(chatId).update({
+        messages: arrayUnion(message),
+      });
+    });
   };
 
   const createAiMessage = async (chatId, text) => {
@@ -184,14 +178,11 @@ export const FirestoreProvider = ({ children }) => {
       createdAt: timestamp,
       text: response,
     };
-    await firestore.collection('users').doc(authUser?.uid).collection('cluey').doc(chatId).set(chat, { merge: true })
-      .then(() => {
-        firestore.collection('users').doc(authUser?.uid).collection('cluey').doc(chatId)
-        .update({
-          messages: arrayUnion(message),
-        });
-      }
-    );
+    await firestore.collection('users').doc(authUser?.uid).collection('cluey').doc(chatId).set(chat, { merge: true }).then(() => {
+      firestore.collection('users').doc(authUser?.uid).collection('cluey').doc(chatId).update({
+        messages: arrayUnion(message),
+      });
+    });
   };
 
   const editChat = async (chatId, newName) => {
@@ -279,14 +270,11 @@ export const FirestoreProvider = ({ children }) => {
       createdAt: timestamp,
       text: text,
     };
-    await firestore.collection('talks').doc(talkId).set(talk, { merge: true })
-      .then(() => {
-        firestore.collection('talks').doc(talkId)
-        .update({
-          messages: arrayUnion(message),
-        });
-      }
-    );
+    await firestore.collection('talks').doc(talkId).set(talk, { merge: true }).then(() => {
+      firestore.collection('talks').doc(talkId).update({
+        messages: arrayUnion(message),
+      });
+    });
   };
   
 

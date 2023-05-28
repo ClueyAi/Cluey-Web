@@ -1,7 +1,8 @@
-import React from 'react';
+import React, {useContext, useEffect} from 'react';
 import { createStackNavigator } from "@react-navigation/stack";
 import Ionicons from '@expo/vector-icons/Ionicons';
 
+import { LocaleContext } from '../../components/locale';
 import { LanguageSelector, LogoutButton, AboutButton, BackButton } from '../../components/tools';
 
 import New from './New';
@@ -19,13 +20,19 @@ import Rules from '../Utils/Rules';
 const AuthStack = createStackNavigator();
 
 const Auth = () => {
+  const {locale} = useContext(LocaleContext);
+
+  useEffect(() => {
+    document.title = locale.global.app.name;
+  }, []);
+
   return (
     <AuthStack.Navigator screenOptions={({navigation}) => ({
-      headerRight: () => <LanguageSelector/>,
-      headerLeft: () => <AboutButton navigation={navigation}/>,
+      headerRight: () => {<LanguageSelector/>},
+      headerLeft: () => {<AboutButton navigation={navigation}/>},
       headerShadowVisible: false,
       headerTitle: '',
-      headerBackImage: () => <Ionicons name="chevron-back" size={28} color="#FFBF00"/>,
+      headerBackImage: () => {<Ionicons name="chevron-back" size={28} color="#FFBF00"/>},
       headerTintColor: '#FFBF00',
     })}>
       <AuthStack.Screen
@@ -38,7 +45,7 @@ const Auth = () => {
         name="Verify"
         component={Verify}
         options={({navigation}) => ({
-          headerRight: () => <LogoutButton navigation={navigation}/>,
+          headerRight: () => {<LogoutButton navigation={navigation}/>},
           headerShown: true,
           headerShadowVisible: false,
           headerTitle: '',
@@ -54,9 +61,7 @@ const Auth = () => {
           headerTitle: '',
         })}
       />
-      <AuthStack.Group screenOptions={({navigation}) => ({
-        headerLeft: () => <BackButton navigation={navigation}/>
-      })}>
+      <AuthStack.Group screenOptions={({navigation}) => {{() => {<BackButton navigation={navigation}/>}}}}>
         <AuthStack.Screen name="SignIn" component={SignIn}/>
         <AuthStack.Screen name="SignUp" component={SignUp}/>
         <AuthStack.Screen name="Forgot" component={Forgot}/>

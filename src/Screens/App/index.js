@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { createStackNavigator } from "@react-navigation/stack";
 import Ionicons from '@expo/vector-icons/Ionicons';
 
@@ -26,6 +26,10 @@ const AppStack = createStackNavigator();
 const App = () => {
   const {locale} = React.useContext(LocaleContext);
   const {theme} = React.useContext(ThemeContext);
+
+  useEffect(() => {
+    document.title = locale.global.app.name;
+  }, []);
 
   return (
     <AppStack.Navigator screenOptions={{
@@ -77,8 +81,8 @@ const App = () => {
           },
           headerTintColor: theme.primary,
           headerTitleStyle: {
-          fontFamily: 'Nunito-Bold',
-          fontSize: 24,
+            fontFamily: 'Nunito-Bold',
+            fontSize: 24,
           },
         }}
       />
@@ -90,8 +94,8 @@ const App = () => {
           headerRight: () => <LogoutButton navigation={navigation}/>,
           headerTintColor: theme.primary,
           headerTitleStyle: {
-          fontFamily: 'Nunito-Bold',
-          fontSize: 24,
+            fontFamily: 'Nunito-Bold',
+            fontSize: 24,
           }
         })}
       />
@@ -102,8 +106,8 @@ const App = () => {
           headerTitle: locale.preferences.title,
           headerTintColor: theme.primary,
           headerTitleStyle: {
-          fontFamily: 'Nunito-Bold',
-          fontSize: 24,
+            fontFamily: 'Nunito-Bold',
+            fontSize: 24,
           }
         })}
       />
