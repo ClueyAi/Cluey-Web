@@ -10,9 +10,9 @@ Cluey App for Web
 > 
 > <code>cd Cluey-Web</code>
 > 
-> <code>yarn install / npm install</code>
+> <code>yarn install</code> / <code>npm install</code>
 > 
-> <code>yarn start / npm start</code>
+> <code>yarn start</code> / <code>npm start</code>
 
 > #### Build
 > <code>yarn build</code>
