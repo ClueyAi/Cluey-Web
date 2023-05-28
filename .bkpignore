@@ -2,6 +2,7 @@
 .bkps/
 .apk/
 node_modules/
+web-build/
 
 # macOS
 .DS_Store

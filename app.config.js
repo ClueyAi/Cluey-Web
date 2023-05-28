@@ -5,7 +5,7 @@ export default {
     name: "Cluey",
     slug: "cluey",
     scheme: "cluey",
-    version: "0.0.1",
+    version: "0.0.9",
     main: "index.js",
     orientation: "portrait",
     icon: "./assets/images/icon.png",
@@ -21,7 +21,7 @@ export default {
     ios: {
       supportsTablet: true,
       bundleIdentifier: "com.gustavofalcao1.cluey",
-      buildNumber: "0.0.1",
+      buildNumber: "0.0.9",
     },
     android: {
       adaptiveIcon: {

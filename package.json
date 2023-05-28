@@ -1,14 +1,15 @@
 {
   "name": "cluey-web",
-  "version": "1.0.0",
+  "version": "0.0.9",
   "main": "node_modules/expo/AppEntry.js",
   "scripts": {
     "start": "expo start --web",
-    "android": "expo start --android",
-    "ios": "expo start --ios",
+    "dev": "expo start --dev-client",
+    "bkp": "node bkp.js",
     "web": "expo start --web",
     "build": "npx expo export:web",
-    "deploy": "firebase deploy"
+    "deploy": "firebase deploy",
+    "publish": "npx expo export:web && node bkp_publish.js && rm -rf public/ && cp -r web-build/* public/ && rm -rf web-build && firebase deploy"
   },
   "dependencies": {
     "@eslint/create-config": "0.4.3",
