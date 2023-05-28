@@ -15,6 +15,7 @@ node_modules/
 .expo/
 dist/
 public/
+.firebase/
 npm-debug.*
 *.jks
 *.p8

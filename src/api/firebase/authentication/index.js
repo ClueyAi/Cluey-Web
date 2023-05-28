@@ -26,6 +26,18 @@ export const AuthProvider = ({ children }) => {
     await auth.signInWithEmailAndPassword(email, password)
     .then(() => {
       notNew();
+      if ('credentials' in navigator) {
+        // eslint-disable-next-line no-undef
+        navigator.credentials.store(new PasswordCredential({
+          id: email,
+          password: password,
+          name: 'Cluey'
+        })).then(() => {
+          console.log('Credentials seved!');
+        }).catch((error) => {
+          console.error('Error to credentials seve:', error);
+        });
+      }
     });
   };
 
@@ -33,6 +45,18 @@ export const AuthProvider = ({ children }) => {
     return await auth.createUserWithEmailAndPassword(email, password)
     .then(() => {
       notNew();
+      if ('credentials' in navigator) {
+        // eslint-disable-next-line no-undef
+        navigator.credentials.store(new PasswordCredential({
+          id: email,
+          password: password,
+          name: 'Cluey'
+        })).then(() => {
+          console.log('Credentials seved!');
+        }).catch((error) => {
+          console.error('Error to credentials seve:', error);
+        });
+      }
     });
   };
 

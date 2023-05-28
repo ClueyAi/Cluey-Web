@@ -30,7 +30,6 @@ const App = () => {
   return (
     <AppStack.Navigator screenOptions={{
       headerShadowVisible: false,
-      headerBackTitleVisible: true,
       headerTitleAlign: 'center',
       headerBackImage: () => <Ionicons name="chevron-back" size={28} color={theme.primary}/>,
       headerTintColor: theme.primary,
@@ -93,8 +92,7 @@ const App = () => {
           headerTitleStyle: {
           fontFamily: 'Nunito-Bold',
           fontSize: 24,
-          },
-          headerBackTitleVisible: false,
+          }
         })}
       />
       <AppStack.Screen
@@ -106,13 +104,11 @@ const App = () => {
           headerTitleStyle: {
           fontFamily: 'Nunito-Bold',
           fontSize: 24,
-          },
-          headerBackTitleVisible: false,
+          }
         })}
       />
       <AppStack.Group screenOptions={({navigation}) => ({
         headerLeft: () => <BackButton navigation={navigation}/>,
-        headerBackTitleVisible: true,
         headerTitle: '',
       })}>
         <AppStack.Screen name="Email" component={Email}/>

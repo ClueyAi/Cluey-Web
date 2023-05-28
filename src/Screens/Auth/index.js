@@ -25,7 +25,6 @@ const Auth = () => {
       headerLeft: () => <AboutButton navigation={navigation}/>,
       headerShadowVisible: false,
       headerTitle: '',
-      headerBackTitleVisible: true,
       headerBackImage: () => <Ionicons name="chevron-back" size={28} color="#FFBF00"/>,
       headerTintColor: '#FFBF00',
     })}>
@@ -56,8 +55,7 @@ const Auth = () => {
         })}
       />
       <AuthStack.Group screenOptions={({navigation}) => ({
-        headerLeft: () => <BackButton navigation={navigation}/>,
-        headerBackTitleVisible: true,
+        headerLeft: () => <BackButton navigation={navigation}/>
       })}>
         <AuthStack.Screen name="SignIn" component={SignIn}/>
         <AuthStack.Screen name="SignUp" component={SignUp}/>
