@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import FontAwesome5 from '@expo/vector-icons/FontAwesome5';
+import AntDesign from '@expo/vector-icons/AntDesign';
 import UserAvatar from 'react-native-user-avatar';
 import PropTypes from "prop-types";
 
@@ -128,13 +128,13 @@ const About = ({ navigation }) => {
           <H3 style={{marginTop: 5}}>{locale.global.app.contact_us.title}</H3>
           <Div style={{flexDirection: 'row', padding: 5}}>
             <ButtonEmpyte style={{color: '#fff', paddingHorizontal: 5}} onPress={() => handleOpenLink(locale.global.app.contact_us.website)}>
-              <FontAwesome5 name="globe" size={28} color="#757575" />
+              <AntDesign name="earth" size={28} color="#757575" />
             </ButtonEmpyte>
             <ButtonEmpyte style={{color: '#fff', paddingHorizontal: 5}} onPress={() => handleOpenLink(locale.global.app.contact_us.github)}>
-              <FontAwesome5 name="github" size={28} color="#757575" />
+              <AntDesign name="github" size={28} color="#757575" />
             </ButtonEmpyte>
             <ButtonEmpyte style={{color: '#fff', paddingHorizontal: 5}} onPress={() => handleOpenLink(locale.global.app.contact_us.facebook)}>
-              <FontAwesome5 name="facebook" size={28} color="#757575" />
+              <AntDesign name="facebook-square" size={28} color="#757575" />
             </ButtonEmpyte>
           </Div>
         </Footer>
