@@ -1,10 +1,10 @@
 import React, { useState, useContext, useEffect } from 'react';
-import { Platform, StyleSheet } from 'react-native';
+import { Platform } from 'react-native';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import PropTypes from "prop-types";
 
 import { FirestoreContext } from '../../../../api/firebase';
-import { ThemeContext } from '../../../../components/theme';
+import { ThemeContext, shadow } from '../../../../components/theme';
 import { LocaleContext } from '../../../../components/locale';
 import { 
   ChatTextInput,
@@ -18,7 +18,7 @@ const New = ({chatId}) => {
   const {theme} = useContext(ThemeContext);
   const {user, createUserMessage, createAiMessage} = useContext(FirestoreContext);
   const [name, setName] = useState('');
-  const [textValue, setTextValue] = useState(null);
+  const [textValue, setTextValue] = useState('');
 
   const profile = user?.profile;
 
@@ -52,7 +52,7 @@ const New = ({chatId}) => {
   }, [profile]);
   return (
     <ChatBox style={Platform.OS === "ios" ? {paddingBottom: '8%'} : {paddingBottom: '5%'}}>
-      <ChatInput style={{...styles.shadow, flex: 1}}>
+      <ChatInput style={{...shadow, flex: 1}}>
         <ChatTextInput
           style={{fontSize: 15}}
           placeholder={locale.home.chat_box.placeholder1+name+locale.home.chat_box.placeholder2}
@@ -68,7 +68,7 @@ const New = ({chatId}) => {
           <Button style={{paddingRight: 15}} onPress={handleSpeech} accessibilityLabel={locale.home.send_button.accessibility}>
             <Ionicons name="mic" size={28} color={theme.primary} />
           </Button>
-        :
+          :
           <Button style={{paddingRight: 15}} onPress={handleSend} accessibilityLabel={locale.home.send_button.accessibility}>
             <Ionicons name="send" size={24} color={theme.primary} />
           </Button>
@@ -77,16 +77,6 @@ const New = ({chatId}) => {
     </ChatBox>
   );
 };
-
-const styles = StyleSheet.create({
-  shadow: {
-    shadowColor: "#000000",
-    shadowOffset: {width: 0, height: 3},
-    shadowOpacity:  0.17,
-    shadowRadius: 3.05,
-    elevation: 4
-  }
-});
 
 New.propTypes = {
   chatId: PropTypes.string.isRequired

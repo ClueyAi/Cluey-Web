@@ -18,7 +18,7 @@ import {
 const Cluey = ({ item, handlerEditChatName, handlerDeleteChat }) => {
   const { theme } = useContext(ThemeContext);
   const [editing, setEditing] = useState(false);
-  const [chatName, setChatName] = useState(item.name);
+  const [chatName, setChatName] = useState(item.name? item.name : '');
 
   const chatNameValidation = (text) => {
     setChatName(text);
@@ -35,7 +35,7 @@ const Cluey = ({ item, handlerEditChatName, handlerDeleteChat }) => {
     setChatName(item.name);
   };
 
-	const styles = StyleSheet.create({
+  const styles = StyleSheet.create({
     cards: {
       flex: 1,
       flexDirection: 'row',
@@ -84,14 +84,13 @@ const Cluey = ({ item, handlerEditChatName, handlerDeleteChat }) => {
                 autoFocus
                 onChangeText={chatNameValidation}
                 onSubimiyEditing={handlerConfirmNameEdit}
-              />  
-            :
+              />:
               <H4>{item.name}</H4>
             }
           </Infor>
         </Profile>
       </View>
-        {editing?
+      {editing?
         <View style={styles.actions}>
           <ButtonEmpyte onPress={handlerConfirmNameEdit}>
             <MaterialIcons style={{marginRight: 10}} name="check" size={18} color={theme.secondary} />
@@ -102,17 +101,17 @@ const Cluey = ({ item, handlerEditChatName, handlerDeleteChat }) => {
           <ButtonEmpyte onPress={handlerEdit}>
             <MaterialIcons style={{marginRight: 10}} name="edit" size={18} color={theme.text} />
           </ButtonEmpyte>
-          <ButtonEmpyte onPress={() => handlerDeleteChat(item.id)}>
+          <ButtonEmpyte onPress={() => {handlerDeleteChat(item.id)}}>
             <MaterialIcons name="delete-outline" size={18} color={theme.text} />
           </ButtonEmpyte>
         </View>
-        }
+      }
     </Main>
   );
 };
 
 Cluey.propTypes = {
-	item: PropTypes.object.isRequired,
+  item: PropTypes.object.isRequired,
   handlerDeleteChat: PropTypes.func.isRequired,
   handlerEditChatName: PropTypes.func.isRequired,
 };

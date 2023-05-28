@@ -40,15 +40,15 @@ const Email = ({ navigation }) => {
   const { theme } = useContext(ThemeContext);
   const emailRef = useRef(null);
   const passwordRef = useRef(null);
-  const [newEmail, setNewEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [newEmail, setNewEmail] = useState('');
+  const [password, setPassword] = useState('');
 
   const [emailValid, setEmailValid] = useState(null);
   const [passwordValid, setPasswordValid] = useState(null);
 
-  const [error, setError] = useState("");
-  const [errorMsg, setErrorMsg] = useState("");
-  const [errorEmail, setErrorEmail] = useState("");
+  const [error, setError] = useState('');
+  const [errorMsg, setErrorMsg] = useState('');
+  const [errorEmail, setErrorEmail] = useState('');
 
   const emailValidate = (text) => {
     // eslint-disable-next-line no-useless-escape
@@ -183,7 +183,7 @@ const Email = ({ navigation }) => {
                   autoComplete="email"
                   returnKeyType="next"
                   onChangeText={emailValidate}
-                  onSubmitEditing={() => passwordRef.current.focus()}
+                  onSubmitEditing={() => {passwordRef.current.focus()}}
                 />
                 {emailValid == false && newEmail !== "" ? (
                   <Ionicons

@@ -30,12 +30,12 @@ const Forgot = ({ navigation }) => {
   const { locale } = useContext(LocaleContext);
   const { forgot } = useContext(AuthContext);
   const { theme } = useContext(ThemeContext);
-  const [email, setEmail] = useState("");
+  const [email, setEmail] = useState('');
   const [emailValid, setEmailValid] = useState(null);
 
-  const [error, setError] = useState("");
-  const [errorMsg, setErrorMsg] = useState("");
-  const [errorEmail, setErrorEmail] = useState("");
+  const [error, setError] = useState('');
+  const [errorMsg, setErrorMsg] = useState('');
+  const [errorEmail, setErrorEmail] = useState('');
 
   const [sendRecovery, setSendRecovery] = useState(false);
 
@@ -84,14 +84,14 @@ const Forgot = ({ navigation }) => {
           <Form>
             <Input
               style={{
-              ...shadow,
-              marginBottom: 10,
-              backgroundColor: `${
-                error === errorEmail && emailValid == false
-                  ? theme.inputError
-                  : theme.backgroundSecondary
-              }`,
-            }}
+                ...shadow,
+                marginBottom: 10,
+                backgroundColor: `${
+                  error === errorEmail && emailValid == false
+                    ? theme.inputError
+                    : theme.backgroundSecondary
+                }`,
+              }}
             >
               <TextInput
                 placeholder={locale.forgot.text_input.email}
@@ -106,35 +106,35 @@ const Forgot = ({ navigation }) => {
                 onChangeText={emailValidate}
                 onSubmitEditing={handleForgot}
               />
-              {emailValid == false ? (
+              {emailValid == false ?
                 <Ionicons
                   style={{ padding: 10, marginRight: 10 }}
                   name="alert-circle-outline"
                   size={20}
                   color={theme.error}
                 />
-              ) : (
+                :
                 <Ionicons
                   style={{ padding: 10, marginRight: 10 }}
                   name="alert-circle-outline"
                   size={20}
                   color={theme.transparent}
                 />
-              )}
-              {emailValid == true ? (
+              }
+              {emailValid == true ?
                 <Ionicons
                   style={{ padding: 10, marginRight: 10 }}
                   name="checkmark-circle-outline"
                   size={20}
                   color={theme.secondary}
                 />
-              ) : null}
+                : null}
             </Input>
-            {error ? (
+            {error ?
               <TextError>{errorMsg}</TextError>
-            ) : (
+              :
               <TextError></TextError>
-            )}
+            }
             <ButtonPrimary
               style={shadow}
               onPress={handleForgot}

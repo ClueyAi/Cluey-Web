@@ -5,7 +5,6 @@ import React, {
   useRef,
 } from "react";
 import Ionicons from "@expo/vector-icons/Ionicons";
-import FontAwesome from "@expo/vector-icons/FontAwesome";
 import PropTypes from "prop-types";
 
 import { AuthContext } from "../../../../api/firebase";
@@ -14,28 +13,22 @@ import { ThemeContext, shadow } from "../../../../components/theme";
 import { LocaleContext } from "../../../../components/locale";
 import {
   Container,
-  Content,
   Body,
   Heading,
   View,
   Form,
-  Providers,
-  Divider,
   Input,
   TextInput,
   H0,
-  H2Mini,
   P,
   PMini,
   Link,
   ButtonPrimary,
   TxtButton,
-  TxtProvider,
   TextError,
   TextValid,
   TextAlert,
   ButtonEmpyte,
-  ButtonProvider,
 } from "../../../../components/styles";
 
 const SignUp = ({ navigation }) => {
@@ -46,9 +39,9 @@ const SignUp = ({ navigation }) => {
   const emailRef = useRef(null);
   const passwordRef = useRef(null);
   const rePasswordRef = useRef(null);
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [rePassword, setRePassword] = useState("");
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [rePassword, setRePassword] = useState('');
 
   const [secureTextEntry, setSecureTextEntry] = useState(true);
 
@@ -57,31 +50,31 @@ const SignUp = ({ navigation }) => {
   const [passwordStrong, setPasswordStrong] = useState(null);
   const [rePasswordValid, setRePasswordValid] = useState(null);
 
-  const [error, setError] = useState("");
-  const [errorMsg, setErrorMsg] = useState("");
+  const [error, setError] = useState('');
+  const [errorMsg, setErrorMsg] = useState('');
   const [errorEmail, setErrorEmail] = useState("errorEmail");
   const [errorPassword, setErrorPassword] = useState("errorPassword");
 
   const emailValidate = (text) => {
-    if (text !== "") {
+    if (text !== '') {
       // eslint-disable-next-line no-useless-escape
       const reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w\w+)+$/;
       setEmailValid(reg.test(text));
-      setEmail(text ? text : "");
+      setEmail(text ? text : '');
     }
   };
 
   const passwordValidate = (text) => {
-    if (text !== "") {
+    if (text !== '') {
       const regV = /^(?=.*[a-z])(?=.*[0-9]).{6,22}$/;
       setPasswordValid(regV.test(text));
       const regS = /^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[@$!%*#?&]).{6,22}$/;
       setPasswordStrong(regS.test(text));
-      setPassword(text ? text : "");
+      setPassword(text ? text : '');
     }
   };
   const rePasswordValidate = (text) => {
-    if (passwordValid == true && text !== "") {
+    if (passwordValid == true && text !== '') {
       const reg = text === password ? text : rePassword;
       setRePasswordValid(text === password ? true : false);
       setRePassword(reg);
@@ -140,6 +133,7 @@ const SignUp = ({ navigation }) => {
     }
   };
 
+  // eslint-disable-next-line no-unused-vars
   const handleGoogle = async () => {
     try {
       await signGoogle();
@@ -148,6 +142,7 @@ const SignUp = ({ navigation }) => {
       alert(error.code);
     }
   };
+  // eslint-disable-next-line no-unused-vars
   const handleFacebook = async () => {
     try {
       await signFacebook();
@@ -156,6 +151,7 @@ const SignUp = ({ navigation }) => {
       alert(error.code);
     }
   };
+  // eslint-disable-next-line no-unused-vars
   const handleGithub = async () => {
     try {
       await signGithub();
@@ -276,23 +272,23 @@ const SignUp = ({ navigation }) => {
               maxLength={100}
               returnKeyType="next"
               onChangeText={emailValidate}
-              onSubmitEditing={() => passwordRef.current.focus()}
+              onSubmitEditing={() => {passwordRef.current.focus()}}
             />
-            {emailValid == false && email !== "" ? (
+            {emailValid == false && email !== '' ? (
               <Ionicons
                 style={{ padding: 10, marginRight: 5 }}
                 name="alert-circle-outline"
                 size={20}
                 color={theme.error}
               />
-            ) : emailValid == null && email !== "" ? (
+            ) : emailValid == null && email !== '' ? (
               <Ionicons
                 style={{ padding: 10, marginRight: 5 }}
                 name="alert-circle-outline"
                 size={20}
                 color={theme.transparent}
               />
-            ) : emailValid == true && email !== "" ? (
+            ) : emailValid == true && email !== '' ? (
               <Ionicons
                 style={{ padding: 10, marginRight: 5 }}
                 name="checkmark-circle-outline"
@@ -323,7 +319,7 @@ const SignUp = ({ navigation }) => {
               secureTextEntry={secureTextEntry}
               returnKeyType="next"
               onChangeText={passwordValidate}
-              onSubmitEditing={() => rePasswordRef.current.focus()}
+              onSubmitEditing={() => {rePasswordRef.current.focus()}}
             />
             {passwordStrong == false && passwordValid == true ? (
               <Ionicons
@@ -332,14 +328,14 @@ const SignUp = ({ navigation }) => {
                 size={20}
                 color={theme.primary}
               />
-            ) : passwordValid == false && password !== "" ? (
+            ) : passwordValid == false && password !== '' ? (
               <Ionicons
                 style={{ padding: 10 }}
                 name="alert-circle-outline"
                 size={20}
                 color={theme.error}
               />
-            ) : passwordStrong == true && password !== "" ? (
+            ) : passwordStrong == true && password !== '' ? (
               <Ionicons
                 style={{ padding: 10 }}
                 name="checkmark-circle-outline"
@@ -360,9 +356,9 @@ const SignUp = ({ navigation }) => {
           </Input>
           {passwordStrong == false && passwordValid == true ? (
             <TextAlert>Password medium</TextAlert>
-          ) : passwordValid == false && password !== "" ? (
+          ) : passwordValid == false && password !== '' ? (
             <TextError>Password weak</TextError>
-          ) : passwordStrong == true && password !== "" ? (
+          ) : passwordStrong == true && password !== '' ? (
             <TextValid>Password strong</TextValid>
           ) : (
             <TextError></TextError>
@@ -391,7 +387,7 @@ const SignUp = ({ navigation }) => {
               onChangeText={rePasswordValidate}
               onSubmitEditing={handleSignUp}
             />
-            {rePasswordValid == false && rePassword !== "" ? (
+            {rePasswordValid == false && rePassword !== '' ? (
               <Ionicons
                 style={{ padding: 10 }}
                 name="alert-circle-outline"
@@ -406,7 +402,7 @@ const SignUp = ({ navigation }) => {
                 color={theme.transparent}
               />
             )}
-            {rePasswordValid == true && rePassword !== "" ? (
+            {rePasswordValid == true && rePassword !== '' ? (
               <Ionicons
                 style={{ padding: 10 }}
                 name="checkmark-circle-outline"

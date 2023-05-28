@@ -10,6 +10,7 @@ const Focus = ({ setFocusItens }) => {
   const { locale } = useContext(LocaleContext);
   const { theme } = useContext(ThemeContext);
   const [selectedButtons, setSelectedButtons] = useState({});
+  // eslint-disable-next-line no-unused-vars
   const [otherItens, setOtherItens] = useState({});
   const [other, setOther] = useState(false);
   const buttons = [
@@ -39,7 +40,7 @@ const Focus = ({ setFocusItens }) => {
   
   };
 
-  const renderItem = ({ item }) => (
+  const renderItem = ({ item }) => {(
     <ButtonEmpyte
       style={[
         styles.button,
@@ -48,11 +49,11 @@ const Focus = ({ setFocusItens }) => {
           opacity: selectedButtons[item.title] ? 0.5 : 1,
         },
       ]}
-      onPress={() => handleSelect(item.title)}
+      onPress={() => {handleSelect(item.title)}}
     >
       <TxtButton>{item.title}</TxtButton>
     </ButtonEmpyte>
-  );
+  )};
 
   const styles = StyleSheet.create({
     button: {
@@ -64,13 +65,6 @@ const Focus = ({ setFocusItens }) => {
       margin: 10,
       borderRadius: 30,
       backgroundColor: theme.primary,
-    },
-    shadow: {
-      shadowColor: "#000000",
-      shadowOffset: {width: 0, height: 3},
-      shadowOpacity:  0.17,
-      shadowRadius: 3.05,
-      elevation: 4
     }
   });
 
@@ -79,7 +73,7 @@ const Focus = ({ setFocusItens }) => {
       <FlatList
         data={buttons}
         renderItem={renderItem}
-        keyExtractor={(item) => item.title}
+        keyExtractor={(item) => {item.title}}
         numColumns={2}
       />
       {other?
@@ -88,11 +82,11 @@ const Focus = ({ setFocusItens }) => {
             <TextInput 
               placeholder={locale.preferences.focus.other_input.placeholder}
               placeholderTextColor={theme.primary}
-              onChangeText={(text) => setOtherItens(text)}
+              onChangeText={(text) => {setOtherItens(text)}}
             />
           </Input>
         </View>
-    :null}
+        :null}
     </View>
   );
 };

@@ -1,11 +1,11 @@
 import React, { useState, useContext, useRef } from "react";
-import { TouchableWithoutFeedback, Keyboard, StyleSheet, Alert } from "react-native";
+import { TouchableWithoutFeedback, Keyboard, Alert } from "react-native";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import UserAvatar from "react-native-user-avatar";
 import PropTypes from "prop-types";
 
 import { UserContext, FirestoreContext } from "../../../../../api/firebase";
-import { ThemeContext } from "../../../../../components/theme";
+import { ThemeContext, shadow } from "../../../../../components/theme";
 import { LocaleContext } from "../../../../../components/locale";
 import {
   Container,
@@ -41,17 +41,17 @@ const Password = ({ navigation }) => {
   const currentPasswordRef = useRef(null);
   const passwordRef = useRef(null);
   const rePasswordRef = useRef(null);
-  const [currentPassword, setCurrentPassword] = useState("");
-  const [password, setPassword] = useState("");
-  const [rePassword, setRePassword] = useState("");
+  const [currentPassword, setCurrentPassword] = useState('');
+  const [password, setPassword] = useState('');
+  const [rePassword, setRePassword] = useState('');
 
   const [currentPasswordValid, setCurrentPasswordValid] = useState(null);
   const [passwordValid, setPasswordValid] = useState(null);
   const [passwordStrong, setPasswordStrong] = useState(null);
   const [rePasswordValid, setRePasswordValid] = useState(null);
 
-  const [error, setError] = useState("");
-  const [errorMsg, setErrorMsg] = useState("");
+  const [error, setError] = useState('');
+  const [errorMsg, setErrorMsg] = useState('');
   const [errorPassword, setErrorPassword] = useState("errorPassword");
 
 
@@ -60,16 +60,16 @@ const Password = ({ navigation }) => {
   };
 
   const passwordValidate = (text) => {
-    if (text !== "") {
+    if (text !== '') {
       const regV = /^(?=.*[a-z])(?=.*[0-9]).{6,22}$/;
       setPasswordValid(regV.test(text));
       const regS = /^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[@$!%*#?&]).{6,22}$/;
       setPasswordStrong(regS.test(text));
-      setPassword(text ? text : "");
+      setPassword(text ? text : '');
     }
   };
   const rePasswordValidate = (text) => {
-    if (passwordValid == true && text !== "") {
+    if (passwordValid == true && text !== '') {
       const reg = text === password ? text : rePassword;
       setRePasswordValid(text === password ? true : false);
       setRePassword(reg);
@@ -159,9 +159,9 @@ const Password = ({ navigation }) => {
               </Infor>
             </Profile>
             <Form style={{flex: 1, marginTop: 40, alignSelf: 'center'}}>
-            <Input
+              <Input
                 style={{
-                  ...styles.shadow,
+                  ...shadow,
     
                   marginBottom: 15,
                   backgroundColor: `${
@@ -179,12 +179,12 @@ const Password = ({ navigation }) => {
                   secureTextEntry={true}
                   returnKeyType="done"
                   onChangeText={currentPasswordValidate}
-                  onSubmitEditing={() => passwordRef.current.focus()}
+                  onSubmitEditing={() => {passwordRef.current.focus()}}
                 />
               </Input>
               <Input
                 style={{
-                  ...styles.shadow,
+                  ...shadow,
                   marginBottom: 10,
                   backgroundColor: `${
                     error === errorPassword && passwordValid == false
@@ -203,7 +203,7 @@ const Password = ({ navigation }) => {
                   secureTextEntry={true}
                   returnKeyType="next"
                   onChangeText={passwordValidate}
-                  onSubmitEditing={() => rePasswordRef.current.focus()}
+                  onSubmitEditing={() => {rePasswordRef.current.focus()}}
                 />
                 {passwordStrong == false && passwordValid == true ? (
                   <Ionicons
@@ -212,14 +212,14 @@ const Password = ({ navigation }) => {
                     size={20}
                     color={theme.primary}
                   />
-                ) : passwordValid == false && password !== "" ? (
+                ) : passwordValid == false && password !== '' ? (
                   <Ionicons
                     style={{ padding: 10, marginRight: 10 }}
                     name="alert-circle-outline"
                     size={20}
                     color={theme.error}
                   />
-                ) : passwordStrong == true && password !== "" ? (
+                ) : passwordStrong == true && password !== '' ? (
                   <Ionicons
                     style={{ padding: 10, marginRight: 10 }}
                     name="checkmark-circle-outline"
@@ -237,16 +237,16 @@ const Password = ({ navigation }) => {
               </Input>
               {passwordStrong == false && passwordValid == true ? (
                 <TextAlert>Password medium</TextAlert>
-              ) : passwordValid == false && password !== "" ? (
+              ) : passwordValid == false && password !== '' ? (
                 <TextError>Password weak</TextError>
-              ) : passwordStrong == true && password !== "" ? (
+              ) : passwordStrong == true && password !== '' ? (
                 <TextValid>Password strong</TextValid>
               ) : (
                 <TextError></TextError>
               )}
               <Input
                 style={{
-                  ...styles.shadow,
+                  ...shadow,
                   marginBottom: 10,
                   backgroundColor: `${
                     error === errorPassword && rePasswordValid == false
@@ -267,7 +267,7 @@ const Password = ({ navigation }) => {
                   onChangeText={rePasswordValidate}
                   onSubmitEditing={handleChange}
                 />
-                {rePasswordValid == false && rePassword !== "" ? (
+                {rePasswordValid == false && rePassword !== '' ? (
                   <Ionicons
                     style={{ padding: 10, marginRight: 10 }}
                     name="alert-circle-outline"
@@ -282,7 +282,7 @@ const Password = ({ navigation }) => {
                     color={theme.transparent}
                   />
                 )}
-                {rePasswordValid == true && rePassword !== "" ? (
+                {rePasswordValid == true && rePassword !== '' ? (
                   <Ionicons
                     style={{ padding: 10, marginRight: 10 }}
                     name="checkmark-circle-outline"
@@ -297,7 +297,7 @@ const Password = ({ navigation }) => {
                 <TextError></TextError>
               )}
               <ButtonPrimary
-                style={styles.shadow}
+                style={shadow}
                 onPress={handleChange}
                 accessibilityLabel={locale.password_config.change_button.accessibility}
               >
@@ -315,16 +315,6 @@ const Password = ({ navigation }) => {
     </TouchableWithoutFeedback>
   );
 };
-
-const styles = StyleSheet.create({
-  shadow: {
-    shadowColor: "#000000",
-    shadowOffset: { width: 0, height: 3 },
-    shadowOpacity: 0.17,
-    shadowRadius: 3.05,
-    elevation: 4,
-  },
-});
 
 Password.propTypes = {
   navigation: PropTypes.object.isRequired,

@@ -18,7 +18,7 @@ const New = ({navigation}) => {
   const {theme} = useContext(ThemeContext);
   const {user, createChat, createUserMessage, createAiMessage} = useContext(FirestoreContext);
   const [name, setName] = useState('');
-  const [textValue, setTextValue] = useState(null);
+  const [textValue, setTextValue] = useState('');
 
   const profile = user?.profile;
 
@@ -73,7 +73,7 @@ const New = ({navigation}) => {
           <Button style={{paddingRight: 15}} onPress={handleSpeech} accessibilityLabel={locale.home.send_button.accessibility}>
             <Ionicons name="mic" size={28} color={theme.primary} />
           </Button>
-        :
+          :
           <Button style={{paddingRight: 15}} onPress={handleSend} accessibilityLabel={locale.home.send_button.accessibility}>
             <Ionicons name="send" size={24} color={theme.primary} />
           </Button>

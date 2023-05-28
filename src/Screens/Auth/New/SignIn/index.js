@@ -1,34 +1,26 @@
 import React, { useState, useContext, useRef } from "react";
-import { StyleSheet, Platform } from "react-native";
 import Ionicons from "@expo/vector-icons/Ionicons";
-import FontAwesome from "@expo/vector-icons/FontAwesome";
 import PropTypes from "prop-types";
 
 import { AuthContext } from "../../../../api/firebase";
 import { FirestoreContext } from "../../../../api/firebase";
-import { ThemeContext } from "../../../../components/theme";
+import { ThemeContext, shadow } from "../../../../components/theme";
 import { LocaleContext } from "../../../../components/locale";
 import {
   Container,
-  Content,
   Heading,
   Body,
-  Providers,
   View,
   Form,
-  Divider,
   Input,
   TextInput,
   H0,
-  H2Mini,
   P,
   PMini,
   Link,
   TxtLink,
   ButtonPrimary,
   ButtonEmpyte,
-  ButtonProvider,
-  TxtProvider,
   TxtButton,
   TextError,
 } from "../../../../components/styles";
@@ -40,19 +32,19 @@ const SignIn = ({ navigation }) => {
   const { theme } = useContext(ThemeContext);
   const emailRef = useRef(null);
   const passwordRef = useRef(null);
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
   const [secureTextEntry, setSecureTextEntry] = useState(true);
 
   const [emailValid, setEmailValid] = useState(null);
   const [passwordValid, setPasswordValid] = useState(null);
 
-  const [error, setError] = useState("");
-  const [errorMsg, setErrorMsg] = useState("");
-  const [errorEmail, setErrorEmail] = useState("");
+  const [error, setError] = useState('');
+  const [errorMsg, setErrorMsg] = useState('');
+  const [errorEmail, setErrorEmail] = useState('');
   // eslint-disable-next-line no-unused-vars
-  const [errorPassword, setErrorPassword] = useState("");
+  const [errorPassword, setErrorPassword] = useState('');
 
   const emailValidate = (text) => {
     // eslint-disable-next-line no-useless-escape
@@ -103,6 +95,7 @@ const SignIn = ({ navigation }) => {
     }
   };
 
+  // eslint-disable-next-line no-unused-vars
   const handleGoogle = async () => {
     try {
       await signGoogle();
@@ -111,6 +104,7 @@ const SignIn = ({ navigation }) => {
       alert(error.code);
     }
   };
+  // eslint-disable-next-line no-unused-vars
   const handleFacebook = async () => {
     try {
       await signFacebook();
@@ -119,6 +113,7 @@ const SignIn = ({ navigation }) => {
       alert(error.code);
     }
   };
+  // eslint-disable-next-line no-unused-vars
   const handleGithub = async () => {
     try {
       await signGithub();
@@ -149,7 +144,7 @@ const SignIn = ({ navigation }) => {
         {/*
         <Providers>
           <ButtonProvider
-            style={styles.shadow}
+            style={shadow}
             onPress={handleGoogle}
             accessibilityLabel={
               locale.providers.button_google.accessibility
@@ -166,7 +161,7 @@ const SignIn = ({ navigation }) => {
             />
           </ButtonProvider>
           <ButtonProvider
-            style={{ ...styles.shadow, marginTop: 15 }}
+            style={{ ...shadow, marginTop: 15 }}
             onPress={handleFacebook}
             accessibilityLabel={
               locale.providers.button_facebook.accessibility
@@ -183,7 +178,7 @@ const SignIn = ({ navigation }) => {
             />
           </ButtonProvider>
           <ButtonProvider
-            style={{ ...styles.shadow, marginTop: 15 }}
+            style={{ ...shadow, marginTop: 15 }}
             onPress={handleGithub}
             accessibilityLabel={
               locale.providers.button_github.accessibility
@@ -217,7 +212,7 @@ const SignIn = ({ navigation }) => {
         <Form style={{ marginTop: 20 }}>
           <Input
             style={{
-              ...styles.shadow,
+              ...shadow,
               marginBottom: 15,
               backgroundColor: `${
                 error === errorEmail && emailValid == false
@@ -238,35 +233,35 @@ const SignIn = ({ navigation }) => {
               maxLength={100}
               returnKeyType="next"
               onChangeText={emailValidate}
-              onSubmitEditing={() => passwordRef.current.focus()}
+              onSubmitEditing={() => {passwordRef.current.focus()}}
             />
-            {emailValid == false && email !== "" ? (
+            {emailValid == false && email !== '' ?
               <Ionicons
                 style={{ padding: 10, marginRight: 10 }}
                 name="alert-circle-outline"
                 size={20}
                 color={theme.error}
               />
-            ) : (
+              : 
               <Ionicons
                 style={{ padding: 10, marginRight: 10 }}
                 name="alert-circle-outline"
                 size={20}
                 color={theme.transparent}
               />
-            )}
-            {emailValid == true && email !== "" ? (
+            }
+            {emailValid == true && email !== '' ?
               <Ionicons
                 style={{ padding: 10, marginRight: 10 }}
                 name="checkmark-circle-outline"
                 size={20}
                 color={theme.secondary}
               />
-            ) : null}
+              : null}
           </Input>
           <Input
             style={{
-              ...styles.shadow,
+              ...shadow,
               marginBottom: 10,
               backgroundColor: `${
                 passwordValid == false ? theme.inputError : theme.backgroundSecondary
@@ -293,13 +288,13 @@ const SignIn = ({ navigation }) => {
           <ButtonEmpyte onPress={handleForgot}>
             <TxtLink>{locale.forgot.title}</TxtLink>
           </ButtonEmpyte>
-          {error ? (
+          {error ? 
             <TextError>{errorMsg}</TextError>
-          ) : (
+            : 
             <TextError> </TextError>
-          )}
+          }
           <ButtonPrimary
-            style={styles.shadow}
+            style={shadow}
             onPress={handleSignIn}
             accessibilityLabel={locale.signin.button.accessibility}
           >
@@ -319,16 +314,6 @@ const SignIn = ({ navigation }) => {
     </Container>
   );
 };
-
-const styles = StyleSheet.create({
-  shadow: {
-    shadowColor: "#000000",
-    shadowOffset: { width: 0, height: 3 },
-    shadowOpacity: 0.17,
-    shadowRadius: 3.05,
-    elevation: 4,
-  },
-});
 
 SignIn.propTypes = {
   navigation: PropTypes.object.isRequired,

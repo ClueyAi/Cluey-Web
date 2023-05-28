@@ -14,9 +14,8 @@ module.exports = {
   rules: {
     "prefer-arrow-callback": "error",
     "arrow-body-style": ["error", "always"],
-    "indent": ["error", 2],
     "no-var": "error",
+    "indent": ["warn", 2],
     "no-unused-vars": "warn",
-    "no-console": "warn",
   },
 };

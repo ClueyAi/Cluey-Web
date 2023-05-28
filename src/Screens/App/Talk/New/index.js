@@ -17,7 +17,7 @@ const New = ({talkId}) => {
   const {locale} = useContext(LocaleContext);
   const {theme} = useContext(ThemeContext);
   const {createUserWhisp} = useContext(FirestoreContext);
-  const [textValue, setTextValue] = useState(null);
+  const [textValue, setTextValue] = useState('');
 
   const requestValidation = async (text) => {
     setTextValue(text);
@@ -56,7 +56,7 @@ const New = ({talkId}) => {
           <Button style={{paddingRight: 15}} onPress={handleSpeech} accessibilityLabel={locale.home.send_button.accessibility}>
             <Ionicons name="mic" size={28} color={theme.primary} />
           </Button>
-        :
+          :
           <Button style={{paddingRight: 15}} onPress={handleSend} accessibilityLabel={locale.home.send_button.accessibility}>
             <Ionicons name="send" size={24} color={theme.primary} />
           </Button>

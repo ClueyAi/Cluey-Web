@@ -36,7 +36,7 @@ const Settings = ({ navigation }) => {
   const { updateUserName } = useContext(UserContext);
   const { user, updateUserPhoto } = useContext(FirestoreContext);
   const [editingName, setEditingName] = useState(false);
-  const [userName, setUserName] = useState("");
+  const [userName, setUserName] = useState('');
 
   const handleEditPhoto = async () => {
     pickImage();
@@ -135,7 +135,7 @@ const Settings = ({ navigation }) => {
                   <Ionicons name="camera" size={14} color={theme.text} />
                 </PictureEdit>
               </Picture>
-              {editingName ? (
+              {editingName ?
                 <Infor style={{marginTop: 10}}>
                   <Input style={{ width: "50%", height: 30 }}>
                     <TextInput
@@ -159,7 +159,7 @@ const Settings = ({ navigation }) => {
                     </ButtonEmpyte>
                   </Input>
                 </Infor>
-              ) : (
+                :
                 <Infor style={{marginTop: 10}}>
                   <ButtonEmpyte
                     style={{
@@ -174,7 +174,7 @@ const Settings = ({ navigation }) => {
                     <Ionicons name="create-outline" size={19} color={theme.textGray} />
                   </ButtonEmpyte>
                 </Infor>
-              )}
+              }
             </Profile>
             <ScrollView style={{ marginTop: 30 }}>
               <WideButton onPress={handleAccount}>
