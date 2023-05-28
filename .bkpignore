@@ -3,6 +3,7 @@
 .apk/
 node_modules/
 web-build/
+public/*
 
 # macOS
 .DS_Store

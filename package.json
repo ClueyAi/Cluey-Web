@@ -9,7 +9,7 @@
     "web": "expo start --web",
     "build": "npx expo export:web",
     "deploy": "firebase deploy",
-    "publish": "npx expo export:web && node bkp_publish.js && rm -rf public/ && cp -r web-build/* public/ && rm -rf web-build && firebase deploy"
+    "prod": "npx expo export:web && node bkp_public.js && rm -rf public/* && cp -r web-build/* public/ && rm -rf web-build && firebase deploy"
   },
   "dependencies": {
     "@eslint/create-config": "0.4.3",
@@ -80,6 +80,7 @@
     "babel-eslint": "^10.1.0",
     "eslint": "^8.39.0",
     "eslint-plugin-react": "^7.32.2",
+    "ncp": "^2.0.0",
     "react-app-rewired": "^2.2.1",
     "readline-sync": "^1.4.10"
   },

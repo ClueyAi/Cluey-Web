@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+const ncp = require('ncp').ncp;
 
 const backupFolderPath = 'public_bkp';
 
@@ -14,13 +15,12 @@ const timestampFolderName = `backup_${now.getTime()}`;
 const timestampFolderPath = path.join(backupFolderPath, timestampFolderName);
 fs.mkdirSync(timestampFolderPath);
 
-// Copia os arquivos da pasta "public" para a pasta com o timestamp atual
+// Copia todos os arquivos e pastas da pasta "public" para a pasta com o timestamp atual
 const publicFolderPath = 'public';
-const files = fs.readdirSync(publicFolderPath);
-files.forEach((file) => {
-  const sourcePath = path.join(publicFolderPath, file);
-  const targetPath = path.join(timestampFolderPath, file);
-  fs.copyFileSync(sourcePath, targetPath);
+ncp(publicFolderPath, timestampFolderPath, (error) => {
+  if (error) {
+    console.error('Erro ao copiar os arquivos:', error);
+  } else {
+    console.log(`Backup criado em ${timestampFolderPath}`);
+  }
 });
-
-console.log(`Backup criado em ${timestampFolderPath}`);
