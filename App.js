@@ -11,7 +11,7 @@ import Screens from './src/Screens/';
 import { Web, WebContainer } from './src/components/styles'
 
 import {LogBox} from 'react-native';
-LogBox.ignoreLogs(['setNativeProps*']);
+LogBox.ignoreLogs(['setNativeProps']);
 const App = () => {
   const [loaded] = useFonts({
     'Nunito': require('./assets/fonts/Nunito/static/Nunito-Regular.ttf'),
