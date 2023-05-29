@@ -79,7 +79,7 @@ const Verify = ({ navigation }) => {
           left: 100,
           zIndex: 9999,
           padding: 20,
-          backgroundColor: dev ? "#000000" : null,
+          backgroundColor: dev ? "#000000" : '#00FFFF',
         }}
         onPress={handleDev1}
       ></ButtonEmpyte>
@@ -90,7 +90,7 @@ const Verify = ({ navigation }) => {
           right: 100,
           zIndex: 9999,
           padding: 20,
-          backgroundColor: devSure ? "#000000" : null,
+          backgroundColor: devSure ? "#000000" : '#00FFFF',
         }}
         onPress={handleDev2}
         onLongPress={handleDev3}

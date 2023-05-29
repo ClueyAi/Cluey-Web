@@ -14,8 +14,7 @@
 node_modules/
 .expo/
 dist/
-public/*
-public_bkp/
+.public_bkp/
 .firebase/
 npm-debug.*
 *.jks

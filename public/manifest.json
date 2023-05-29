@@ -1,0 +1,9 @@
+{
+  "background_color": "#FFBF00",
+  "display": "standalone",
+  "lang": "en",
+  "name": "Cluey",
+  "short_name": "Cluey",
+  "start_url": "/?utm_source=web_app_manifest",
+  "orientation": "portrait"
+}
