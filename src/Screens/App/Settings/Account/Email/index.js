@@ -143,8 +143,8 @@ const Email = ({ navigation }) => {
                   <UserAvatar
                     size={72}
                     style={{ width: 72, height: 72, borderRadius: 100 }}
-                    name={user?.profile?.displayName}
-                    src={user?.profile?.photoURL ? user?.profile?.photoURL : null}
+                    name={user?.profile.displayName}
+                    src={user?.profile.photoURL}
                   />
                 </ProfilePicture>
               </Picture>

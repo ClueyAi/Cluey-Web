@@ -141,7 +141,7 @@ const Password = ({ navigation }) => {
                     size={72}
                     style={{ width: 72, height: 72, borderRadius: 100 }}
                     name={user?.profile?.displayName}
-                    src={user?.profile?.photoURL}
+                    src={user?.profile.photoURL}
                   />
                 </ProfilePicture>
               </Picture>
