@@ -37,7 +37,6 @@ const Settings = ({ navigation }) => {
   const { user, updateUserPhoto } = useContext(FirestoreContext);
   const [editingName, setEditingName] = useState(false);
   const [userName, setUserName] = useState('');
-  const [avatarKey, setAvatarKey] = useState(0);
 
   const handleEditPhoto = async () => {
     pickImage();
@@ -65,7 +64,7 @@ const Settings = ({ navigation }) => {
       } catch (error) {
         console.log(error.code);
       }
-      setAvatarKey(avatarKey + 1);
+      window.location.reload();
     }
   };
 
@@ -129,7 +128,7 @@ const Settings = ({ navigation }) => {
                       size={102}
                       style={{ width: 102, height: 102, borderRadius: 100 }}
                       name={user?.profile.displayName}
-                      src={user?.profile.photoURL ? `${user?.profile.photoURL}?key=${avatarKey}` : null}
+                      src={user?.profile.photoURL}
                     />
                   </ProfilePicture>
                 </ButtonEmpyte>
