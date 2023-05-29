@@ -3,16 +3,16 @@
   "version": "0.0.9",
   "main": "node_modules/expo/AppEntry.js",
   "scripts": {
-    "start": "expo start --web",
-    "dev": "expo start --dev-client",
+    "start": "npx expo start --web",
+    "dev": "npx expo start --dev-client",
+    "doctor": "npx expo-doctor",
+    "fix": "npx expo-doctor --fix-dependencies",
     "bkp": "node bkp.js",
-    "web": "expo start --web",
     "build": "npx expo export:web",
     "deploy": "firebase deploy",
     "prod": "npx expo export:web && node bkp_public.js && rm -rf public/* && cp -r web-build/* public/ && rm -rf web-build && firebase deploy"
   },
   "dependencies": {
-    "@eslint/create-config": "0.4.3",
     "@expo/config-plugins": "^6.0.1",
     "@expo/webpack-config": "^18.0.4",
     "@freakycoder/react-native-helpers": "^2.0.2",
@@ -24,10 +24,9 @@
     "@react-navigation/native": "^6.1.6",
     "@react-navigation/stack": "^6.3.16",
     "@react-navigation/web": "^1.0.0-alpha.9",
-    "archiver": "^5.3.1",
     "axios": "^1.4.0",
-    "babel-plugin-inline-dotenv": "^1.7.0",
     "bulma": "^0.9.4",
+    "crypto-js": "^4.1.1",
     "dotenv": "^16.0.3",
     "expo": "~48.0.15",
     "expo-application": "^5.1.1",
@@ -40,7 +39,6 @@
     "expo-font": "^11.1.1",
     "expo-image-picker": "^14.1.1",
     "expo-media-library": "^15.2.3",
-    "expo-modules-autolinking": "^1.2.0",
     "expo-random": "^13.1.1",
     "expo-speech": "^11.1.1",
     "expo-splash-screen": "~0.18.2",
@@ -77,12 +75,19 @@
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
+    "@eslint/create-config": "0.4.3",
+    "archiver": "^5.3.1",
     "babel-eslint": "^10.1.0",
+    "babel-plugin-inline-dotenv": "^1.7.0",
     "eslint": "^8.39.0",
     "eslint-plugin-react": "^7.32.2",
     "ncp": "^2.0.0",
     "react-app-rewired": "^2.2.1",
-    "readline-sync": "^1.4.10"
+    "readline-sync": "^1.4.10",
+    "webpack-bundle-analyzer": "^4.8.0",
+    "webpack-cli": "^5.1.1",
+    "webpack-dev-server": "^4.15.0",
+    "webpack-merge": "^5.9.0"
   },
   "private": true
 }

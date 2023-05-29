@@ -23,8 +23,7 @@ export const AuthProvider = ({ children }) => {
   }, []);
 
   const signIn = async (email, password) => {
-    await auth.signInWithEmailAndPassword(email, password)
-    .then(() => {
+    await auth.signInWithEmailAndPassword(email, password).then(() => {
       notNew();
       if ('credentials' in navigator) {
         // eslint-disable-next-line no-undef
@@ -32,18 +31,13 @@ export const AuthProvider = ({ children }) => {
           id: email,
           password: password,
           name: 'Cluey'
-        })).then(() => {
-          console.log('Credentials seved!');
-        }).catch((error) => {
-          console.error('Error to credentials seve:', error);
-        });
+        }))
       }
     });
   };
 
   const signUp = async (email, password) => {
-    return await auth.createUserWithEmailAndPassword(email, password)
-    .then(() => {
+    return await auth.createUserWithEmailAndPassword(email, password).then(() => {
       notNew();
       if ('credentials' in navigator) {
         // eslint-disable-next-line no-undef

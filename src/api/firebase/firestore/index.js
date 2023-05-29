@@ -1,5 +1,7 @@
 import React, { createContext, useState, useEffect, useContext } from 'react';
 import PropTypes from "prop-types";
+import CryptoJS from 'crypto-js';
+import Constants from 'expo-constants';
 
 import { firestore, storage, arrayUnion } from '../config';
 import { sendMessageToOpenAI } from '../../openai';
@@ -15,6 +17,9 @@ export const FirestoreProvider = ({ children }) => {
   const [contacts, setContacts] = useState(null);
   const [talks, setTalks] = useState(null);
   const [whisps, setWhisps] = useState(null);
+
+  const secretKey = Constants.manifest.extra.app.secretKeyPhrase;
+  
 
   useEffect(() => {
     if (isAuth) {
@@ -286,6 +291,7 @@ export const FirestoreProvider = ({ children }) => {
     messages,
     talks,
     whisps,
+    secretKey,
     updateUserPhoto,
     putPreferences,
     getContacts,

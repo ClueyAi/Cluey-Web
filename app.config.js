@@ -32,7 +32,8 @@ export default {
       versionCode: 1,
     },
     web: {
-      favicon: "./assets/images/favicon.png"
+      favicon: "./assets/images/favicon.png",
+      bundler: "metro"
     },
     "plugins": [
       [
@@ -44,6 +45,9 @@ export default {
       ],
     ],
     extra: {
+      app: {
+        secretKeyPhrase: process.env.SECRET_KEY_PHRASE,
+      },
       eas: {
         projectId: process.env.EXPO_PROJECT_ID,
       },

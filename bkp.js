@@ -5,7 +5,7 @@ const fs = require('fs');
 
 const name = readlineSync.question('Name (backup name): ');
 const version = readlineSync.question('Version (ex.: 1.0.1, 0.1): ');
-const type = readlineSync.question('Type (ex.: dev, apha, realese): ');
+const type = readlineSync.question('Type (ex.: dev, alpha, realese): ');
 const comment = readlineSync.question('Comment (for info file): ');
 const dateTime = new Date().toLocaleString();
 
@@ -62,9 +62,7 @@ archive.on('error', (err) => {
 });
 
 const bkpsDir = path.join(__dirname, pathFile);
-if (!fs.existsSync(bkpsDir)) {
-  fs.mkdirSync(bkpsDir);
-}
+fs.mkdirSync(bkpsDir, { recursive: true });
 
 archive.pipe(output);
 archive.glob('**/*', { ignore: archiveIgnores });
