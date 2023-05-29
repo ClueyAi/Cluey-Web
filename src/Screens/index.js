@@ -22,7 +22,10 @@ const Screens = () => {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator screenOptions={{headerShown: false, headerBackTitleVisible: false}}>
+      <Stack.Navigator screenOptions={{
+        headerShown: false,
+        headerBackTitleVisible: false
+      }}>
         <Stack.Screen name="Loading" component={Loading} />
         <Stack.Screen name="AuthStackNavigator" component={AuthStackNavigator} />
         <Stack.Screen name="AppStackNavigator" component={AppStackNavigator} />

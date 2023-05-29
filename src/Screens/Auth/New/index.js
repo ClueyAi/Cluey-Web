@@ -194,7 +194,7 @@ const New = ({ navigation }) => {
 
   useLayoutEffect(() => {
     navigation.setOptions({
-      headerLeft: () => {<View />},
+      headerLeft: () => <View />,
     });
   }, [navigation]);
 
