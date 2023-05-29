@@ -18,22 +18,9 @@ export default {
     assetBundlePatterns: [
       "**/*"
     ],
-    ios: {
-      supportsTablet: true,
-      bundleIdentifier: "com.gustavofalcao1.cluey",
-      buildNumber: "0.0.9",
-    },
-    android: {
-      adaptiveIcon: {
-        foregroundImage: "./assets/images/adaptive-icon.png",
-        backgroundColor: "#FFBF00"
-      },
-      package: "com.gustavofalcao1.cluey",
-      versionCode: 1,
-    },
     web: {
       favicon: "./assets/images/favicon.png",
-      bundler: "metro"
+      //bundler: "metro"
     },
     "plugins": [
       [

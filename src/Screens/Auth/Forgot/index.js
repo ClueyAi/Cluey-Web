@@ -4,7 +4,6 @@ import PropTypes from "prop-types";
 
 import { AuthContext } from "../../../api/firebase";
 import { ThemeContext, shadow } from "../../../components/theme";
-
 import { LocaleContext } from "../../../components/locale";
 import {
   Container,
@@ -66,7 +65,7 @@ const Forgot = ({ navigation }) => {
   };
 
   const handleContinue = () => {
-    navigation.navigate("Loading");
+    navigation.goBack();
   };
 
   const handlePolicy = () => {
@@ -158,7 +157,7 @@ const Forgot = ({ navigation }) => {
   } else {
     return (
       <Container>
-        <Heading style={{ marginTop: "45%", marginBottom: 15 }}>
+        <Heading style={{ marginTop: "30%", marginBottom: 15 }}>
           <H1 style={{ marginBottom: 10, fontSize: 25 }}>
             {locale.forgot.success.title}
           </H1>
@@ -169,14 +168,14 @@ const Forgot = ({ navigation }) => {
           <PMini>{locale.forgot.success.alert_msg}</PMini>
         </Heading>
         <ButtonPrimary
-          style={{...shadow, marginTop: 10, marginBottom: "40%" }}
+          style={{...shadow, marginTop: 10}}
           onPress={handleContinue}
           accessibilityLabel={locale.forgot.success.Button.accessibility}
         >
           <TxtButton>{locale.forgot.success.Button.text}</TxtButton>
         </ButtonPrimary>
-        <FooterSmall>
-          <H1 style={{ marginTop: 10 }}>{locale.global.app.name}</H1>
+        <FooterSmall style={{ position: 'absolute', bottom: '1%' }}>
+          <H1>{locale.global.app.name}</H1>
         </FooterSmall>
       </Container>
     );
