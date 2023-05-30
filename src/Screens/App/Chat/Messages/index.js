@@ -13,7 +13,7 @@ const Messages = ({chat}) => {
   return (
     <Main>
       <Mark/>
-      {chat ? 
+      {chat && chat.messages ? 
         <FlatList
           data={reversedMessages}
           inverted

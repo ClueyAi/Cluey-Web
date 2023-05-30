@@ -21,6 +21,7 @@ Platform.OS === 'ios'
     : us
 */
 
+
 import us from "./us.json";
 import pt from "./pt.json";
 import es from "./es.json";
@@ -29,6 +30,8 @@ import fr from "./fr.json";
 export const LocaleContext = createContext();
 
 export const LocaleProvider = ({ children }) => {
+  const deviceLanguage = navigator.language.substring(3, 5);
+  AsyncStorage.setItem("iso", deviceLanguage);
   const [locale, setLocale] = useState(us);
 
   useEffect(() => {

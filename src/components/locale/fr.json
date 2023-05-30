@@ -7,7 +7,10 @@
   "global": {
     "app": {
       "name": "Cluey",
-      "status": "Online",
+      "status": {
+        "true": "Online",
+        "false": "Offline"
+      },
       "resume_title": "What is Cluey?",
       "resume": "Cluey is a mobile app that helps you to find the best places to eat, drink, and have fun. It is a social network that allows you to share your experiences with your friends and other users. It is also a platform that allows you to discover new places and new experiences.",
       "policy_terms": {
@@ -85,17 +88,17 @@
       "mentor1": {
         "name": "Ana Paula Pinto",
         "site_url": "http://instituto.islagaia.pt/docentes/docente/APP",
-        "photo_url": "http://instituto.islagaia.pt/docentes/docfotos/3.png"
+        "photo_url": "data:image/jpeg;base64,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"
       },
       "mentor2": {
         "name": "Joaquim Moreira",
         "site_url": "http://instituto.islagaia.pt/docentes/docente/JJM",
-        "photo_url": "http://instituto.islagaia.pt/docentes/docfotos/38.jpg"
+        "photo_url": "https://media.licdn.com/dms/image/C4E03AQFoFxVEPdRRGg/profile-displayphoto-shrink_800_800/0/1516333957277?e=2147483647&v=beta&t=YyV_ehHQr4l91BP3oQM7hgQaLCF57GVfFfMDbKdkIYg"
       },
       "mentor3": {
         "name": "Jorge Godinho",
         "site_url": "http://instituto.islagaia.pt/docentes/docente/ALG",
-        "photo_url": "http://instituto.islagaia.pt/docentes/docfotos/5.png"
+        "photo_url": "https://media.licdn.com/dms/image/C5603AQFiUZlNQky2MA/profile-displayphoto-shrink_800_800/0/1517433618245?e=2147483647&v=beta&t=kkFCJwksbzDMRjTwedof52lD35CXzXGW9MH1yJGWYWM"
       }
     },
     "partners": {
@@ -174,12 +177,53 @@
       "accessibility": "send verification email"
     },
     "continue_button": {
-      "text": "Continue to Sign In",
-      "accessibility": "continue to sign in"
+      "text": "Continue",
+      "accessibility": "continue to Cluey"
     }
   },
-  "custom": {
-    
+  "preferences": {
+    "title": "Preferences",
+    "description": "set your preferences",
+    "focus": {
+      "title": "Tell us a little about yourself",
+      "description": "I will use Cluey to use:",
+      "itens": {
+        "personal": "Personal",
+        "commercial": "Commercial",
+        "academic": "Academic",
+        "other": "Other"
+      },
+      "other_input": {
+        "description": "Tell us which types of use you intend, separated by a comma",
+        "placeholder": "outher"
+      }
+    },
+    "interests": {
+      "title": "Interests",
+      "description": "Select a few to get started. You can update them later.",
+      "itens": {
+        "html": "HTML",
+        "ia": "IA",
+        "graphic_design": "Graphic Design",
+        "musical_production": "Musical Production",
+        "c_sharp": "C#",
+        "r": "R",
+        "python": "Python",
+        "ui": "UI",
+        "ux": "UX",
+        "web_design": "Web Design",
+        "java": "Java",
+        "javascript": "JavaScript"
+      }
+    },
+    "continue_button": {
+      "text": "Continue",
+      "accessibility": "continue cunstom your preferences"
+    },
+    "skip_button": {
+      "text": "Skip step",
+      "accessibility": "skip this step"
+    }
   },
   "forgot": {
     "title": "Forgot Password?",
@@ -213,6 +257,29 @@
       "text": "Settings",
       "accessibility": "go to settings"
     },
+    "more_button": {
+      "text": "See More",
+      "accessibility": "see all cluey chats"
+    },
+    "chats" : {
+      "title": "Chats",
+      "description": "Your chats"
+    },
+    "suggestions": {
+      "title": "Suggestions",
+      "description": "Your suggestions",
+      "itens": {
+        "s1": {"id": 1, "name": "Intel i5-13600k or Intel i5-10400?", "prompt": "How is better Intel i5-13600k or Intel i5-10400F?"},
+        "s2": {"id": 2, "name": "'Hello World' in Python?", "prompt": "How is do 'Hello World' in Python?"},
+        "s3": {"id": 3, "name": "Nvidea or AMD, in AMD CPU?", "prompt": "Nvidea or AMD, in AMD CPU?"},
+        "s4": {"id": 4, "name": "What is the best GPU for gaming?", "prompt": "What is the best GPU for gaming?"},
+        "s5": {"id": 5, "name": "Difference between DDR4 and DDR5?", "prompt": "Whats difference between DDR4 and DDR5?"}
+      }
+    },
+    "teams": {
+      "title": "Teams",
+      "description": "Your teams"
+    },
     "chat_box": {
       "placeholder1": "Hi ",
       "placeholder2": ", how can I help you?"
@@ -226,7 +293,7 @@
     "title": "Talk"
   },
   "settings": {
-    "title": "My Account",
+    "title": "Settings",
     "button_logout": {
       "accessibility": "desconnect from Cluey and go back to authentication",
       "alert": {
@@ -271,14 +338,13 @@
       "accessibility": "change your password"
     }
   },
-  "anddress_config": {
+  "country_config": {
     "title": "Country",
-    "description": "Choose your location"
+    "description": "choose your location"
   },
-  "preferences": {
-    "title": "Preferences",
-    "title_name": "Preferences",
-    "description": "Setting your preferences"
+  "account": {
+    "title": "Account",
+    "description": "setting your account"
   },
   "about": {
     "title": "About"
