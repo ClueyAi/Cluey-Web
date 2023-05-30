@@ -13,7 +13,11 @@ const Talk = ({ navigation, route }) => {
 
   useEffect(() => {
     const unsubscribe = navigation.addListener('focus', () => {
-      getWhisps(id);
+      try {
+        getWhisps(id);
+      } catch (error) {
+        console.error(error);
+      }
     });
   
     return unsubscribe;

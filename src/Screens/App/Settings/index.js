@@ -33,7 +33,7 @@ import {
 const Settings = ({ navigation }) => {
   const { locale } = useContext(LocaleContext);
   const { theme } = useContext(ThemeContext);
-  const { updateUserName, authUser } = useContext(UserContext);
+  const { updateUserName } = useContext(UserContext);
   const { user, updateUserPhoto } = useContext(FirestoreContext);
   const [editingName, setEditingName] = useState(false);
   const [userName, setUserName] = useState('');
@@ -62,7 +62,7 @@ const Settings = ({ navigation }) => {
       try {
         await updateUserPhoto(uri);
       } catch (error) {
-        console.log(error);
+        console.error(error);
       }
       window.location.reload();
     }
@@ -83,7 +83,7 @@ const Settings = ({ navigation }) => {
     try {
       await updateUserName(displayName);
     } catch (error) {
-      console.log(error.code);
+      console.error(error);
     }
     setEditingName(false);
   };

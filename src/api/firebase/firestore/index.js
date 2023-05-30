@@ -323,15 +323,11 @@ export const FirestoreProvider = ({ children }) => {
   };
 
   const getWhisps = async (id) => {
-    try {
-      const docRef = firestore.collection('users').doc(authUser?.uid).collection('talks').doc(id);
-      const docSnapshot = await docRef.get();
-      if (docSnapshot.exists) {
-        const data = docSnapshot.data();
-        setWhisps(data);
-      }
-    } catch (error) {
-      console.error(error);
+    const docRef = firestore.collection('users').doc(authUser?.uid).collection('talks').doc(id);
+    const docSnapshot = await docRef.get();
+    if (docSnapshot.exists) {
+      const data = docSnapshot.data();
+      setWhisps(data);
     }
   };
 

@@ -87,7 +87,7 @@ const Password = ({ navigation }) => {
             try {
               navigation.navigate('Loading');
             } catch (error) {
-              Alert.alert(error.message)
+              alert(error.message)
             }
           },
         },

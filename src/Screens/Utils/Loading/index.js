@@ -36,7 +36,7 @@ const Load = ({ navigation }) => {
         setRoute('Preferences');
       } else {
         setScreen('AppStackNavigator');
-        setRoute('Contacts');
+        setRoute('Home');
       }
     } else {
       if (!isNew) {
@@ -55,7 +55,7 @@ const Load = ({ navigation }) => {
     if (app?.logoutAll) {
       AsyncStorage.clear();
       signOut();
-      navigation.navigate('AuthStackNavigator', { screen: 'Welcome' });
+      window.location.reload();
     }
     const timer = setTimeout(() => {
       if (isDone) {

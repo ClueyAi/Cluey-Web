@@ -100,7 +100,7 @@ const Current = ({ navigation }) => {
     try {
       await signInWithGoogle();
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   };
   // eslint-disable-next-line no-unused-vars

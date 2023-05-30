@@ -99,7 +99,7 @@ const SignIn = ({ navigation }) => {
       await signGoogle();
       navigation.navigate("Loading");
     } catch (error) {
-      alert(error.code);
+      alert(error.message);
     }
   };
   // eslint-disable-next-line no-unused-vars
@@ -108,7 +108,7 @@ const SignIn = ({ navigation }) => {
       await signFacebook();
       navigation.navigate("Loading");
     } catch (error) {
-      alert(error.code);
+      alert(error.message);
     }
   };
   // eslint-disable-next-line no-unused-vars
@@ -117,7 +117,7 @@ const SignIn = ({ navigation }) => {
       await signGithub();
       navigation.navigate("Loading");
     } catch (error) {
-      alert(error.code);
+      alert(error.message);
     }
   };
 

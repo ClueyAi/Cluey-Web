@@ -45,7 +45,7 @@ const Chats = ({navigation}) => {
         let chatId = null;
         await createChat(textValue).then((item) => {
           chatId = item.id;
-          navigation.navigate("Chat", {id: item.id});
+          navigation.navigate('Chat', {id: item.id});
         });
         await createUserMessage(chatId, textValue);
         createAiMessage(chatId, textValue);
@@ -81,29 +81,29 @@ const Chats = ({navigation}) => {
     <Container>
       <H3 style={{paddingTop: 15, paddingBottom: 10}}>{locale.home.chats.title}</H3>
       <FlatList
-      data={chats}
-      style={{width: '100%', paddingTop: 10, maxHeight: '40%'}}
-      keyExtractor={(item) => item.id}
-      renderItem={({ item }) => (
-        <CardsEmpyte style={shadow} onPress={() => handlerChat(item)}>
-          <Cluey item={item} handlerDeleteChat={handlerDeleteChat} handlerEditChatName={handlerEditChatName}/>
-        </CardsEmpyte>
-      )}
-      ListFooterComponent={<MoreButton />}
-    />
-    <AntDesign style={{marginBottom: 40}} name="swap" size={22} color={theme.text} />
-    <H3 style={{paddingTop: 5, paddingBottom: 10}}>{locale.home.suggestions.title}</H3>
-    <FlatList
-      data={suggestions}
-      style={{width: '100%', paddingTop: 10}}
-      keyExtractor={(item) => item.id}
-      renderItem={({ item }) => (
-        <CardsEmpyte style={shadow} onPress={() => handlerSuggests(item)}>
-          <Suggests item={item} />
-        </CardsEmpyte>
-      )}
-      ListFooterComponent={<MoreButton />}
-    />
+        data={chats}
+        style={{width: '100%', paddingTop: 10, maxHeight: '40%'}}
+        keyExtractor={(item) => item.id}
+        renderItem={({ item }) => (
+          <CardsEmpyte style={shadow} onPress={() => handlerChat(item)}>
+            <Cluey item={item} handlerDeleteChat={handlerDeleteChat} handlerEditChatName={handlerEditChatName}/>
+          </CardsEmpyte>
+        )}
+        ListFooterComponent={<MoreButton />}
+      />
+      <AntDesign style={{marginBottom: 40}} name="swap" size={22} color={theme.text} />
+      <H3 style={{paddingTop: 5, paddingBottom: 10}}>{locale.home.suggestions.title}</H3>
+      <FlatList
+        data={suggestions}
+        style={{width: '100%', paddingTop: 10}}
+        keyExtractor={(item) => item.id}
+        renderItem={({ item }) => (
+          <CardsEmpyte style={shadow} onPress={() => handlerSuggests(item)}>
+            <Suggests item={item} />
+          </CardsEmpyte>
+        )}
+        ListFooterComponent={<MoreButton />}
+      />
     </Container>
   );
 };
