@@ -15,14 +15,14 @@ import {
   ChatTextInput
 } from "../../../../../components/styles";
 
-const Cluey = ({ item, handlerEditChatName, handlerDeleteChat }) => {
+const Cluey = ({ item, editing, setEditing, handlerEditChatName, handlerDeleteChat }) => {
   const { theme } = useContext(ThemeContext);
-  const [editing, setEditing] = useState(false);
   const [chatName, setChatName] = useState(item.name? item.name : '');
 
   const chatNameValidation = (text) => {
     setChatName(text);
   };
+  
   const handlerEdit = () => {
     setEditing(!editing);
   };
@@ -75,7 +75,7 @@ const Cluey = ({ item, handlerEditChatName, handlerDeleteChat }) => {
               marginLeft: 15,
             }}
           >
-            {editing?
+            {editing ?
               <ChatTextInput
                 placeholder={chatName}
                 value={chatName}
@@ -114,6 +114,8 @@ Cluey.propTypes = {
   item: PropTypes.object.isRequired,
   handlerDeleteChat: PropTypes.func.isRequired,
   handlerEditChatName: PropTypes.func.isRequired,
+  editing: PropTypes.bool.isRequired,
+  setEditing: PropTypes.func.isRequired,
 };
 
 export default Cluey;

@@ -135,9 +135,8 @@ AboutButton.propTypes = {
 };
 
 export const LanguageSelector = () => {
-  const {theme} = useContext(ThemeContext);
-  // eslint-disable-next-line no-unused-vars
   const {locale, changeLocale} = useContext(LocaleContext);
+  const {theme} = useContext(ThemeContext);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [iso, setIso] = useState(locale.language.iso);
 
@@ -145,7 +144,7 @@ export const LanguageSelector = () => {
     AsyncStorage.setItem('iso', iso);
     setIso(iso);
     setIsMenuOpen(false);
-    //changeLocale(iso);
+    changeLocale(iso);
   };
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);

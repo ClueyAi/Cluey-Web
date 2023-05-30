@@ -40,7 +40,6 @@ const New = ({chatId}) => {
 
   const handleSpeech = async () => {
     alert("Fale!");
-
   };
 
   useEffect(() => {
@@ -63,6 +62,7 @@ const New = ({chatId}) => {
           selectionColor={theme.primary}
           blurOnSubmit={false}
           onChangeText={requestValidation}
+          onSubmitEditing={handleSend}
         />
         {textValue === "" || textValue == null ?
           <Button style={{paddingRight: 15}} onPress={handleSpeech} accessibilityLabel={locale.home.send_button.accessibility}>

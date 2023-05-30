@@ -11,59 +11,59 @@
         "true": "Online",
         "false": "Offline"
       },
-      "resume_title": "What is Cluey?",
-      "resume": "Cluey is a mobile app that helps you to find the best places to eat, drink, and have fun. It is a social network that allows you to share your experiences with your friends and other users. It is also a platform that allows you to discover new places and new experiences.",
+      "resume_title": "C'est quoi Cluey ?",
+      "resume": "Cluey est une application mobile qui vous aide à trouver les meilleurs endroits pour manger, boire et vous amuser. ",
       "policy_terms": {
-        "title": "Privacy Policy & Terms of Use",
-        "accessibility": "go to privacy policy & terms of use",
-        "shot_title": "Policy & Terms",
+        "title": "politique de confidentialité",
+        "accessibility": "aller à la politique de confidentialité",
+        "shot_title": "Politique",
         "policy": {
-          "title": "Privacy Policy",
-          "p1": "Your privacy is important to us. It is cluey's policy to respect your privacy regarding any information we may collect from you on the cluey website, and other websites that we own and operate.",
-          "p2": "We only ask for personal information when we truly need it to provide a service to you. We collect it by fair and lawful means, with your knowledge and consent. We also let you know why we’re collecting it and how it will be used.",
-          "p3": "We only retain collected information for as long as necessary to provide you with your requested service. What data we store, we’ll protect within commercially acceptable means to prevent loss and theft, as well as unauthorised access, disclosure, copying, use or modification.",
-          "p4": "We do not share personally identifiable information publicly or with third parties, except as required by law. Our website may have links to external websites that are not operated by us. Please be aware that we have no control over the content and",
-          "p5": "practices of these sites, and cannot accept responsibility or liability for their respective privacy policies.",
-          "p6": "You are free to refuse our request for your personal information, with the understanding that we may be unable to provide you with some of your desired services.",
-          "p7": "Your continued use of our website will be regarded as acceptance of our practices around privacy and personal information. If you have any questions about how we handle user data and personal information, feel free to contact us.",
-          "p8": "This policy is effective as of 1 January 2023."
+          "title": "politique de confidentialité",
+          "p1": "Votre vie privée est importante pour nous. ",
+          "p2": "Nous ne demandons des informations personnelles que lorsque nous en avons vraiment besoin pour vous fournir un service. ",
+          "p3": "Nous ne conservons les informations collectées que le temps nécessaire pour vous fournir le service demandé. ",
+          "p4": "Nous ne partageons pas d'informations personnellement identifiables publiquement ou avec des tiers, sauf si la loi l'exige. ",
+          "p5": "pratiques de ces sites, et décline toute responsabilité quant à leurs politiques de confidentialité respectives.",
+          "p6": "Vous êtes libre de refuser notre demande d'informations personnelles, étant entendu que nous ne pourrons peut-être pas vous fournir certains des services que vous souhaitez.",
+          "p7": "Votre utilisation continue de notre site Web sera considérée comme une acceptation de nos pratiques en matière de confidentialité et d'informations personnelles. ",
+          "p8": "Cette politique est effective à compter du 1er janvier 2023."
         },
         "terms": {
-          "title": "Terms of Use",
-          "t1": "1. Terms",
-          "p1": "By accessing the cluey website, you agree to be bound by these terms of service, all applicable laws and regulations, and agree that you are responsible for compliance with all applicable local laws. If you do not agree to any of these terms, you are prohibited from using or accessing this website. The materials contained on this site are protected by applicable copyright and trademark laws.",
-          "t2": "2. Use License",
-          "p2": "Permission is granted to temporarily download one copy of the materials (information or software) on cluey's website for personal, non-commercial transitory viewing only. This is the grant of a license, not a transfer of title, and under this license you may not:",
-          "p2.1": "modify or copy the materials;",
-          "p2.2": "use the materials for any commercial purpose, or for any public display (commercial or non-commercial);",
-          "p2.3": "attempt to decompile or reverse engineer any software contained on cluey's website;",
-          "p2.4": "remove any copyright or other proprietary notations from the materials; or",
-          "p2.5": "transfer the materials to another person or 'mirror' the materials on any other server.",
-          "p2.6": "This license shall automatically terminate if you violate any of these restrictions and may be terminated by cluey at any time. Upon terminating your viewing of these materials or upon the termination of this license, you must destroy any downloaded materials in your possession whether in electronic or printed format.",
-          "t3": "3. Disclaimer",
-          "p3": "The materials on cluey's website are provided on an 'as is' basis. cluey makes no warranties, expressed or implied, and hereby disclaims and negates all other warranties including, without limitation, implied warranties or conditions of merchantability, fitness for a particular purpose, or non-infringement of intellectual property or other violation of rights.",
-          "p3.1": "Further, cluey does not warrant or make any representations concerning the accuracy, likely results, or reliability of the use of the materials on its website or otherwise relating to such materials or on any sites linked to this site.",
-          "t4": "4. Limitations",
-          "p4": "In no event shall cluey or its suppliers be liable for any damages (including, without limitation, damages for loss of data or profit, or due to business interruption) arising out of the use or inability to use the materials on cluey's website, even if cluey or a cluey authorized representative has been notified orally or in writing of the possibility of such damage. Because some jurisdictions do not allow limitations on implied warranties, or limitations of liability for consequential or incidental damages, these limitations may not apply to you.",
-          "t5": "5. Accuracy of materials",
-          "p5": "The materials appearing on cluey's website could include technical, typographical, or photographic errors. cluey does not warrant that any of the materials on its website are accurate, complete or current. cluey may make changes to the materials contained on its website at any time without notice. However cluey does not make any commitment to update the materials.",
-          "t6": "6. Links",
-          "p6": "cluey has not reviewed all of the sites linked to its website and is not responsible for the contents of any such linked site. The inclusion of any link does not imply endorsement by cluey of the site. Use of any such linked website is at the user's own risk.",
+          "title": "Conditions d'utilisation",
+          "t1": "1. Conditions",
+          "p1": "En accédant au site Web de Cluey, vous acceptez d'être lié par ces conditions d'utilisation, toutes les lois et réglementations applicables, et acceptez que vous êtes responsable du respect de toutes les lois locales applicables. ",
+          "t2": "2. Utiliser la licence",
+          "p2": "La permission est accordée de télécharger temporairement une copie du matériel (information ou logiciel) sur le site Web de Cluey pour une visualisation transitoire personnelle et non commerciale uniquement. ",
+          "p2.1": "modifier ou copier le matériel ;",
+          "p2.2": "utiliser le matériel à des fins commerciales ou pour toute présentation publique (commerciale ou non commerciale) ;",
+          "p2.3": "tenter de décompiler ou de désosser tout logiciel contenu sur le site Web d'indicey ;",
+          "p2.4": "supprimer tout droit d'auteur ou autres mentions de propriété des documents ; ",
+          "p2.5": "transférer le matériel à une autre personne ou « refléter » le matériel sur tout autre serveur.",
+          "p2.6": "Cette licence sera automatiquement résiliée si vous violez l'une de ces restrictions et peut être résiliée par Cluey à tout moment. ",
+          "t3": "3. Clause de non-responsabilité",
+          "p3": "Les documents sur le site Web d'indicey sont fournis « tels quels ». ",
+          "p3.1": "En outre, Cluey ne garantit ni ne fait aucune déclaration concernant l'exactitude, les résultats probables ou la fiabilité de l'utilisation du matériel sur son site Web ou autrement lié à ce matériel ou sur tout site lié à ce site.",
+          "t4": "4. Limites",
+          "p4": "En aucun cas, Cluey ou ses fournisseurs ne seront responsables de tout dommage (y compris, sans s'y limiter, les dommages pour perte de données ou de profit, ou en raison d'une interruption d'activité) résultant de l'utilisation ou de l'impossibilité d'utiliser le matériel sur le site Web de Cluey, même si ",
+          "t5": "5. Précision des matériaux",
+          "p5": "Le matériel apparaissant sur le site Web d'indicey peut contenir des erreurs techniques, typographiques ou photographiques. ",
+          "t6": "6. Liens",
+          "p6": "Cluey n'a pas examiné tous les sites liés à son site Web et n'est pas responsable du contenu de ces sites liés. ",
           "t7": "7. Modifications",
-          "p7": "cluey may revise these terms of service for its website at any time without notice. By using this website you are agreeing to be bound by the then current version of these terms of service.",
-          "t8": "8. Governing Law",
-          "p8": "These terms and conditions are governed by and construed in accordance with the laws of Portugal and you irrevocably submit to the exclusive jurisdiction of the courts in that State or location."
+          "p7": "Cluey peut réviser ces conditions d'utilisation de son site Web à tout moment et sans préavis. ",
+          "t8": "8. Droit applicable",
+          "p8": "Ces termes et conditions sont régis et interprétés conformément aux lois du Portugal et vous vous soumettez irrévocablement à la juridiction exclusive des tribunaux de cet État ou de cet endroit."
         }
       },
       "contact_us": {
-        "title": "Contact Us",
+        "title": "Contactez-nous",
         "website": "https://www.cluey.pt/",
         "github": "https://github.com/ClueyAi",
         "facebook": "https://www.facebook.com/"
       }
     },
     "team": {
-      "title": "Developer by",
+      "title": "Développeur par",
       "designer": {
         "name": "Gabriel Ferreira",
         "office": "Designer",
@@ -72,324 +72,345 @@
       },
       "developer": {
         "name": "Gustavo Falcão",
-        "office": "Developer",
+        "office": "Développeur",
         "site_url": "https://github.com/gustavofalcao1",
         "photo_url": "https://avatars.githubusercontent.com/u/26607023?v=4"
       },
       "tester": {
         "name": "Gonçalo Silva",
-        "office": "Tester",
+        "office": "Testeur",
         "site_url": "https://www.linkedin.com/in/gon%C3%A7alo-silva-7b5b1b194/",
-        "photo_url": "https://media.licdn.com/dms/image/C4D03AQEXYi5mvFcUCA/profile-displayphoto-shrink_400_400/0/1569583446493?e=1687392000&v=beta&t=MKXMUm0oQNWskTStlt3P-Sp2t-HpYCCe5-Dj0LYWbu0"
+        "photo_url": "https://media.licdn.com/dms/image/C4D03AQEXYi5mvFcUCA/profile-displayphoto-shrink_400_400/0/1569583446493?e=1687392000"
       }
     },
     "mentor": {
-      "title": "Mentored by",
+      "title": "Mentoré par",
       "mentor1": {
         "name": "Ana Paula Pinto",
         "site_url": "http://instituto.islagaia.pt/docentes/docente/APP",
-        "photo_url": "data:image/jpeg;base64,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"
+        "photo_url": "données:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxMTEhUTExIWFhUXGRcZFxgXGBcdFxcWHRsWFhoeFhuYHSgiGh0lHRUVITEhJSkrLi4uFx81ODMtNygtLisBCgoKDg0OGxAQGy8iHyUtLSs1LS0t LS0rLS0tLS0rKy0tLS0tLS0tLS4tLS0tLS0tLS0tLS0tLS0tLS0tLSstK//AABEIAIIAZAMBIgACEQEDEQH/xAAbAAAABwEAAAAAAAAAAAAAAAAAAQIDBAUGB//EADwQAAEDAQQHBQYEBgMBAAAAAAEAAhEDBBIhMQUIQVFhcYEGE6GxwTJ ykdHh8EJSYvEjM4KSorIUJOIH/8QAGQEAAgMBAAAAAAAAAAAAAAAgQAAQMF/8QAHxEAAgIDAQEBAQEAAAAAAAAAECEQMSITFBgVEy/9oADAMBAAIRAxEAPwDVuKQSjcU2SsDcMuSSUklV2l9KCi2YvOPst38zsHFRuiUWBcojtJ0wSC 9uGeKwelrTXqguqVS1uwA3W9Bt6qrsuj3lpcG6oyzx3lVsvbI4v HULPpSk8w2o2d0wfFTCVy59gdF5uY3K97NdojIo1jng1x2HYCdxVplUbK8gSmSUoFEQJxREoOSCoUHKCRKJQhakJLmpZRFCGRb XUDGlx/c7AFVjR3em8/r97gndKWgGoGbG4nn yMWnANGbvJK5ciuhjFApLNof/lWgl38qmbrW7MP2Wtfo1obAAGEJ3RFkuMGGJxKlWrJRK102pJ8Oe9oLIacup4RmBkeSydqM646hdN0vZLzSufW yXXGN my2o8UqdMwzY7Vo2PZnSffURJ12aruO49R4gq4BXOuy1u7qu0E6r9Q9fZ8Y JXQwUwKhkpBQJSXFQgJQSZQUIXJSZSyEm6qNDL2r a8/qM/fRIZbCw3u7c87AIGA3koaTeKfeOdsvE8cynNF aHdaKFOq8yHsm6cgXYyOIXPSblb8sdXFS9L7QumHVRiwN3CZ MKF2gq1Hk02Oc07257vVTtDaLFBjWgZYA7TtTFqfFbngtWy0uGFfbCx9RjjaC6mYc8vyPu4hR7dTeWXwZcBMxnzC3lr0cxxJcP jJ8DkqDTLmAXWhW594gFjdUzD13SO8bzXS9E23vqLKn5m4 8MHeIK5nYjDn0uJLeO8LR9ibfde6zuydLmcwNYfAT/Sd6cEWbMlJJRpDiqKDQRSiUIaK6jup4MS20VRoc77Z0i4uYPxEeh81e9g7 bNjY050y9h6OJH Lmqt0pr2h/wCl8jof "
       },
       "mentor2": {
         "name": "Joaquim Moreira",
         "site_url": "http://instituto.islagaia.pt/docentes/docente/JJM",
-        "photo_url": "https://media.licdn.com/dms/image/C4E03AQFoFxVEPdRRGg/profile-displayphoto-shrink_800_800/0/1516333957277?e=2147483647&v=beta&t=YyV_ehHQr4l91BP3oQM7hgQaLCF57GVfFfMDbKdkIYg"
+        "photo_url": "https://media.licdn.com/dms/image/C4E03AQFoFxVEPdRRGg/profile-displayphoto-shrink_800_800/0/1516333957277?e=2147483647"
       },
       "mentor3": {
         "name": "Jorge Godinho",
         "site_url": "http://instituto.islagaia.pt/docentes/docente/ALG",
-        "photo_url": "https://media.licdn.com/dms/image/C5603AQFiUZlNQky2MA/profile-displayphoto-shrink_800_800/0/1517433618245?e=2147483647&v=beta&t=kkFCJwksbzDMRjTwedof52lD35CXzXGW9MH1yJGWYWM"
+        "photo_url": "https://media.licdn.com/dms/image/C5603AQFiUZlNQky2MA/profile-displayphoto-shrink_800_800/0/1517433618245?e=2147483647"
       }
     },
     "partners": {
-      "title": "Our Partners",
+      "title": "Nos partenaires",
       "islagaia": {
-        "name": "Isla Gaia",
+        "name": "Île de Gaïa",
         "site_url": "https://islagaia.com",
         "logo_url": "https://www.islagaia.pt/images/log_isla_novo.png"
       }
     }
   },
   "welcome": {
-    "title": "Your personal AI assistant",
-    "description": "Boost your productivity with the help of artificial intelligence on your smartphone.",
-    "footer": "By continuing you agree to our",
+    "title": "Votre assistant IA personnel",
+    "description": "Boostez votre productivité à l'aide de l'intelligence artificielle sur votre smartphone.",
+    "footer": "En continuant, vous acceptez nos",
     "button": {
-      "text": "Continue",
-      "accessibility": "go to authentication"
+      "text": "Continuer",
+      "accessibility": "aller à l'authentification"
     }
   },
   "providers": {
     "button_google": {
-      "text": "Continue with Google",
-      "accessibility": "sign in with google account and get started to Cluey"
+      "text": "Continuer avec Google",
+      "accessibility": "connectez-vous avec un compte Google et commencez à Cluey"
     },
     "button_facebook": {
-      "text": "Continue with Facebook",
-      "accessibility": "sign in with facebook account and get started to Cluey"
+      "text": "Continuer avec Facebook",
+      "accessibility": "connectez-vous avec un compte facebook et commencez à Cluey"
     },
     "button_github": {
-      "text": "Continue with Github",
-      "accessibility": "sign in with github account and get started to Cluey"
+      "text": "Continuer avec Github",
+      "accessibility": "connectez-vous avec un compte github et commencez à Cluey"
     },
-    "or": "or"
+    "or": "ou"
   },
   "signin": {
-    "title": "Sign In",
-    "description": "Sign In to Cluey help you.",
+    "title": "S'identifier",
+    "description": "Connectez-vous à Cluey pour vous aider.",
     "text_input": {
-      "email": "email",
-      "password": "password"
+      "email": "e-mail",
+      "password": "mot de passe"
     },
     "button": {
-      "text": "Sign In",
-      "accessibility": "sign in and get started to Cluey"
+      "text": "S'identifier",
+      "accessibility": "connectez-vous et commencez à Cluey"
     },
     "button_signup": {
-      "text": "Sign Up",
-      "msg": "Don't have an account?",
-      "accessibility": "sign up if you don't have Cluey account"
+      "text": "S'inscrire",
+      "msg": "Vous n'avez pas de compte ?",
+      "accessibility": "inscrivez-vous si vous n'avez pas de compte Cluey"
     }
   },
   "signup": {
-    "title": "Sign Up",
-    "description": "Create a new account to Cluey help you.",
+    "title": "S'inscrire",
+    "description": "Créez un nouveau compte pour Cluey vous aider.",
     "text_input": {
-      "email": "email",
-      "password": "password",
-      "confirm_password": "confirm password"
+      "email": "e-mail",
+      "password": "mot de passe",
+      "confirm_password": "Confirmez le mot de passe"
     },
     "button": {
-      "text": "Sign In",
-      "accessibility": "sign up and get started to Cluey"
+      "text": "S'identifier",
+      "accessibility": "inscrivez-vous et commencez à Cluey"
     },
     "button_signin": {
-      "text": "Sign In",
-      "msg": "Already have an account?",
-      "accessibility": "sign in if you has Cluey account"
+      "text": "S'identifier",
+      "msg": "Vous avez déjà un compte?",
+      "accessibility": "connectez-vous si vous avez un compte Cluey"
     }
   },
   "verify": {
-    "title": "Verify",
-    "description": "Please check your email from the link sent to you in order to proceed to Cluey.",
+    "title": "Vérifier",
+    "description": "Veuillez vérifier votre e-mail à partir du lien qui vous a été envoyé afin de procéder à Cluey.",
     "verify_button": {
-      "text": "Didn't you receive verification email? Resend",
-      "accessibility": "send verification email"
+      "text": "Vous n'avez pas reçu d'e-mail de vérification ? ",
+      "accessibility": "Envoyer email de vérification"
     },
     "continue_button": {
-      "text": "Continue",
-      "accessibility": "continue to Cluey"
+      "text": "Continuer",
+      "accessibility": "continuer vers Cluey"
     }
   },
   "preferences": {
-    "title": "Preferences",
-    "description": "set your preferences",
+    "title": "Préférences",
+    "description": "définissez vos préférences",
     "focus": {
-      "title": "Tell us a little about yourself",
-      "description": "I will use Cluey to use:",
+      "title": "Parle-nous un peu de toi",
+      "description": "Je vais utiliser Cluey pour utiliser:",
       "itens": {
-        "personal": "Personal",
+        "personal": "Personnel",
         "commercial": "Commercial",
-        "academic": "Academic",
-        "other": "Other"
+        "academic": "Académique",
+        "other": "Autre"
       },
       "other_input": {
-        "description": "Tell us which types of use you intend, separated by a comma",
-        "placeholder": "outher"
+        "description": "Dites-nous quels types d'utilisation vous envisagez, séparés par une virgule",
+        "placeholder": "à l'extérieur"
       }
     },
     "interests": {
-      "title": "Interests",
-      "description": "Select a few to get started. You can update them later.",
+      "title": "Intérêts",
+      "description": "Sélectionnez-en quelques-unes pour commencer. ",
       "itens": {
         "html": "HTML",
         "ia": "IA",
-        "graphic_design": "Graphic Design",
-        "musical_production": "Musical Production",
-        "c_sharp": "C#",
+        "graphic_design": "Conception graphique",
+        "musical_production": "Production musicale",
+        "c_sharp": "C",
         "r": "R",
         "python": "Python",
-        "ui": "UI",
+        "ui": "interface utilisateur",
         "ux": "UX",
-        "web_design": "Web Design",
+        "web_design": "Création de sites web",
         "java": "Java",
-        "javascript": "JavaScript"
+        "javascript": "Javascript"
       }
     },
     "continue_button": {
-      "text": "Continue",
-      "accessibility": "continue cunstom your preferences"
+      "text": "Continuer",
+      "accessibility": "continuer personnaliser vos préférences"
     },
     "skip_button": {
-      "text": "Skip step",
-      "accessibility": "skip this step"
+      "text": "Passer l'étape",
+      "accessibility": "sauter cette étape"
     }
   },
   "forgot": {
-    "title": "Forgot Password?",
-    "description": "Recovery your account to Cluey help you.",
+    "title": "Mot de passe oublié?",
+    "description": "Récupérez votre compte pour Cluey vous aider.",
     "button": {
-      "text": "Recovery Now",
-      "accessibility": "send email verification to recovery your Cluey account"
+      "text": "Récupération maintenant",
+      "accessibility": "envoyer une vérification par e-mail pour récupérer votre compte Cluey"
     },
     "text_input": {
-      "email": "email"
+      "email": "e-mail"
     },
     "success": {
-      "title": "Password recovery successfully requested!",
-      "description": "You will receive an email with the steps to recover your account password, associated with the email entered.",
+      "title": "Récupération du mot de passe demandée avec succès !",
+      "description": "Vous recevrez un e-mail avec les étapes pour récupérer le mot de passe de votre compte, associé à l'e-mail saisi.",
       "alert_tittle": "Important!",
-      "alert_msg": "Remember to also check your 'spam' folder.",
+      "alert_msg": "N'oubliez pas de vérifier également votre dossier 'spam'.",
       "Button": {
-        "text": "Continue to Sign In",
-        "accessibility": "continue to Sign In screen"
+        "text": "Continuer à se connecter",
+        "accessibility": "continuer vers l'écran de connexion"
       }
     }
   },
   "logout": {
-    "text": "Logout",
-    "accessibility": "logout at your Cluey account"
+    "text": "Se déconnecter",
+    "accessibility": "déconnectez-vous de votre compte Cluey"
   },
   "home": {
-    "title": "Home",
-    "description": "Welcome to Cluey, your personal AI assistant.",
+    "title": "Maison",
+    "description": "Bienvenue à Cluey, votre assistant personnel d'IA.",
     "settings_button": {
-      "text": "Settings",
-      "accessibility": "go to settings"
+      "text": "Paramètres",
+      "accessibility": "Aller aux paramètres"
     },
     "more_button": {
-      "text": "See More",
-      "accessibility": "see all cluey chats"
+      "text": "Voir plus",
+      "accessibility": "voir tous les chats d'indices"
     },
-    "chats" : {
+    "chats": {
       "title": "Chats",
-      "description": "Your chats"
+      "description": "Vos discussions"
     },
     "suggestions": {
       "title": "Suggestions",
-      "description": "Your suggestions",
+      "description": "Vos suggestions",
       "itens": {
-        "s1": {"id": 1, "name": "Intel i5-13600k or Intel i5-10400?", "prompt": "How is better Intel i5-13600k or Intel i5-10400F?"},
-        "s2": {"id": 2, "name": "'Hello World' in Python?", "prompt": "How is do 'Hello World' in Python?"},
-        "s3": {"id": 3, "name": "Nvidea or AMD, in AMD CPU?", "prompt": "Nvidea or AMD, in AMD CPU?"},
-        "s4": {"id": 4, "name": "What is the best GPU for gaming?", "prompt": "What is the best GPU for gaming?"},
-        "s5": {"id": 5, "name": "Difference between DDR4 and DDR5?", "prompt": "Whats difference between DDR4 and DDR5?"}
+        "s1": {
+          "id": 1,
+          "name": "Intel i5-13600k ou Intel i5-10400 ?",
+          "prompt": "Quel est le meilleur Intel i5-13600k ou Intel i5-10400F ?"
+        },
+        "s2": {
+          "id": 2,
+          "name": "\"Hello World\" en Python ?",
+          "prompt": "Comment est-ce que 'Hello World' en Python?"
+        },
+        "s3": {
+          "id": 3,
+          "name": "Nvidea ou AMD, en CPU AMD ?",
+          "prompt": "Nvidea ou AMD, en CPU AMD ?"
+        },
+        "s4": {
+          "id": 4,
+          "name": "Quel est le meilleur GPU pour les jeux ?",
+          "prompt": "Quel est le meilleur GPU pour les jeux ?"
+        },
+        "s5": {
+          "id": 5,
+          "name": "Différence entre DDR4 et DDR5 ?",
+          "prompt": "Quelle est la différence entre DDR4 et DDR5 ?"
+        }
       }
     },
     "teams": {
-      "title": "Teams",
-      "description": "Your teams"
+      "title": "Équipes",
+      "description": "Vos équipes"
     },
     "chat_box": {
-      "placeholder1": "Hi ",
-      "placeholder2": ", how can I help you?"
+      "placeholder": "Rechercher des chats...",
+      "placeholder1": "Salut ",
+      "placeholder2": ", comment puis-je t'aider?"
     },
     "send_button": {
-      "text": "Sender",
-      "accessibility": "sender message"
+      "text": "Expéditeur",
+      "accessibility": "message de l'expéditeur"
     }
   },
   "talk": {
-    "title": "Talk"
+    "title": "Parler"
   },
   "settings": {
-    "title": "Settings",
+    "title": "Paramètres",
     "button_logout": {
-      "accessibility": "desconnect from Cluey and go back to authentication",
+      "accessibility": "déconnectez-vous de Cluey et revenez à l'authentification",
       "alert": {
-        "title": "Are your sure?",
-        "description": "Are you sure you want to logout?",
-        "accessibility": "are you sure you want to logout?"
+        "title": "Êtes-vous sûr?",
+        "description": "Êtes-vous sûr de vouloir vous déconnecter?",
+        "accessibility": "Êtes-vous sûr de vouloir vous déconnecter?"
       }
     },
     "photo_button": {
-      "text": "Change your photo",
-      "accessibility": "change your photo",
-      "library_permission": "You've refused to allow this appp to access your photos!",
-      "camera_permission": "You've refused to allow this appp to access your camera!"
+      "text": "Changez votre photo",
+      "accessibility": "change ta photo",
+      "library_permission": "Vous avez refusé d'autoriser cette application à accéder à vos photos !",
+      "camera_permission": "Vous avez refusé d'autoriser cette application à accéder à votre caméra !"
     },
     "name_button": {
-      "text": "Change your name",
-      "accessibility": "change your name"
+      "text": "Changez votre nom",
+      "accessibility": "changez votre nom"
     }
   },
   "email_config": {
-    "title": "Change Email",
-    "subtitle": "Change your Cluey account email",
-    "description": "your account email",
-    "email": "new email",
-    "password": "password",
-    "success": "Email changed successfully!",
+    "title": "Changer l'e-mail",
+    "subtitle": "Modifier l'e-mail de votre compte Cluey",
+    "description": "e-mail de votre compte",
+    "email": "nouveau courriel",
+    "password": "mot de passe",
+    "success": "L'adresse e-mail a été modifiée avec succès !",
     "change_button": {
-      "text": "Change Email",
-      "accessibility": "change your email"
+      "text": "Changer l'e-mail",
+      "accessibility": "changer votre e-mail"
     }
   },
   "password_config": {
-    "title": "Change Password",
-    "subtitle": "Change your Cluey account password",
-    "description": "your account password",
-    "current_password": "current password",
-    "password": "new password",
-    "confirm_password": "confirm password",
-    "success": "Password changed successfully!",
+    "title": "Changer le mot de passe",
+    "subtitle": "Modifier le mot de passe de votre compte Cluey",
+    "description": "mot de passe de votre compte",
+    "current_password": "Mot de passe actuel",
+    "password": "nouveau mot de passe",
+    "confirm_password": "Confirmez le mot de passe",
+    "success": "Le mot de passe a été changé avec succès!",
     "change_button": {
-      "text": "Change Password",
-      "accessibility": "change your password"
+      "text": "Changer le mot de passe",
+      "accessibility": "changez votre mot de passe"
     }
   },
   "country_config": {
-    "title": "Country",
-    "description": "choose your location"
+    "title": "Pays",
+    "description": "Choisissez votre emplacement"
   },
   "account": {
-    "title": "Account",
-    "description": "setting your account"
+    "title": "Compte",
+    "description": "configuration de votre compte"
   },
   "about": {
-    "title": "About"
+    "title": "À propos"
   },
   "alert": {
-    "title": "Alert",
-    "yes": "Yes",
-    "no": "No",
-    "ok": "Ok",
-    "cancel": "Cancel",
-    "close": "Close",
+    "title": "Alerte",
+    "yes": "Oui",
+    "no": "Non",
+    "ok": "D'accord",
+    "cancel": "Annuler",
+    "close": "Fermer",
     "password_change": {
-      "title": "Password changed successfully!",
-      "message": "Your password has been changed successfully. You will be redirected to the login screen."
+      "title": "Le mot de passe a été changé avec succès!",
+      "message": "Votre mot de passe a été changé avec succès. "
     },
     "email_change": {
-      "title": "Email changed successfully!",
-      "message": "Your email has been changed successfully. You will be redirected to the login screen."
+      "title": "L'adresse e-mail a été modifiée avec succès !",
+      "message": "Votre e-mail a été modifié avec succès. "
     },
     "logout": {
-      "title": "Are your sure?",
-      "message": "Are you sure you want to log out of your account?"
+      "title": "Êtes-vous sûr?",
+      "message": "Voulez-vous vraiment vous déconnecter de votre compte ?"
     },
     "photo_change": {
-      "title": "Change your photo",
-      "message": "Choose how you want to change your photo",
-      "camera": "Camera",
-      "library": "Gallery"
+      "title": "Changez votre photo",
+      "message": "Choisissez comment vous voulez changer votre photo",
+      "camera": "Caméra",
+      "library": "Galerie"
     }
   },
   "loading": {
-    "loading": "Loading...",
-    "welcome": "Welcome!",
-    "welcome_back": "Welcome back!",
-    "welcome_user": "Welcome back, "
+    "loading": "Chargement...",
+    "welcome": "Accueillir!",
+    "welcome_back": "Content de te revoir!",
+    "welcome_user": "Content de te revoir, "
   },
   "error": {
-    "auth_connect_error": "Error to connect your account",
-    "auth_create_user": "Error to create your account",
-    "auth_user_not_found": "User not found",
-    "auth_missing_email": "Please enter your email",
-    "auth_invalid_email": "Please enter a valid email",
-    "auth_email_already_in_use": "Email already in use",
-    "auth_missing_password": "Please enter your password",
-    "auth_invalid_password": "Please enter a valid password",
-    "auth_wrong_password": "Wrong password"
+    "auth_connect_error": "Erreur lors de la connexion de votre compte",
+    "auth_create_user": "Erreur lors de la création de votre compte",
+    "auth_user_not_found": "Utilisateur non trouvé",
+    "auth_missing_email": "Veuillez saisir votre e-mail",
+    "auth_invalid_email": "Veuillez entrer un email valide",
+    "auth_email_already_in_use": "Email déjà utilisé",
+    "auth_missing_password": "s'il vous plait entrez votre mot de passe",
+    "auth_invalid_password": "Entrer un mot de passe valide s'il vous plait",
+    "auth_wrong_password": "Mauvais mot de passe"
   }
 }

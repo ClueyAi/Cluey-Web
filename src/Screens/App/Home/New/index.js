@@ -45,7 +45,6 @@ const New = ({navigation}) => {
 
   const handleSpeech = async () => {
     alert("Fale!");
-
   };
 
   useEffect(() => {

@@ -2,26 +2,6 @@ import React, { createContext, useState, useEffect } from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import PropTypes from "prop-types";
 
-/*
-import { Platform, NativeModules } from 'react-native'
-
-
-const deviceLanguage =
-Platform.OS === 'ios'
-    ? NativeModules.SettingsManager.settings.AppleLocale ||
-    NativeModules.SettingsManager.settings.AppleLanguages[0]
-    : NativeModules.I18nManager.localeIdentifier
-    
-    const locale = 
-    deviceLanguage === 'pt_PT'
-    ? pt
-    : us
-    || deviceLanguage === 'pt_BR'
-    ? pt
-    : us
-*/
-
-
 import us from "./us.json";
 import pt from "./pt.json";
 import es from "./es.json";

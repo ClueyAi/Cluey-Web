@@ -66,12 +66,14 @@ export const FirebaseProvider = ({ children }) => {
       });
 
       return () => {
-        getAuth();
-        isNewUser
         getApp();
         getUser();
         getChats();
       }
+    }
+    return () => {
+      getAuth();
+      isNewUser
     }
   }, [authUser, isAuth]);
 
@@ -101,11 +103,7 @@ export const FirebaseProvider = ({ children }) => {
           id: email,
           password: password,
           name: 'Cluey'
-        })).then(() => {
-          console.log('Credentials seved!');
-        }).catch((error) => {
-          console.error('Error to credentials seve:', error);
-        });
+        }))
       }
     });
   };
@@ -235,7 +233,7 @@ export const FirebaseProvider = ({ children }) => {
 
   const createChat = async (text) => {
     const timestamp = Date().toLocaleString();
-    const name = text.substring(0, 45);
+    const name = text.substring(0, 55);
     const chat = {
       name: name,
       createdAt: timestamp,

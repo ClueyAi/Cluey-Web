@@ -261,7 +261,7 @@
       "text": "See More",
       "accessibility": "see all cluey chats"
     },
-    "chats" : {
+    "chats": {
       "title": "Chats",
       "description": "Your chats"
     },
@@ -269,11 +269,31 @@
       "title": "Suggestions",
       "description": "Your suggestions",
       "itens": {
-        "s1": {"id": 1, "name": "Intel i5-13600k or Intel i5-10400?", "prompt": "How is better Intel i5-13600k or Intel i5-10400F?"},
-        "s2": {"id": 2, "name": "'Hello World' in Python?", "prompt": "How is do 'Hello World' in Python?"},
-        "s3": {"id": 3, "name": "Nvidea or AMD, in AMD CPU?", "prompt": "Nvidea or AMD, in AMD CPU?"},
-        "s4": {"id": 4, "name": "What is the best GPU for gaming?", "prompt": "What is the best GPU for gaming?"},
-        "s5": {"id": 5, "name": "Difference between DDR4 and DDR5?", "prompt": "Whats difference between DDR4 and DDR5?"}
+        "s1": {
+          "id": 1,
+          "name": "Intel i5-13600k or Intel i5-10400?",
+          "prompt": "How is better Intel i5-13600k or Intel i5-10400F?"
+        },
+        "s2": {
+          "id": 2,
+          "name": "'Hello World' in Python?",
+          "prompt": "How is do 'Hello World' in Python?"
+        },
+        "s3": {
+          "id": 3,
+          "name": "Nvidea or AMD, in AMD CPU?",
+          "prompt": "Nvidea or AMD, in AMD CPU?"
+        },
+        "s4": {
+          "id": 4,
+          "name": "What is the best GPU for gaming?",
+          "prompt": "What is the best GPU for gaming?"
+        },
+        "s5": {
+          "id": 5,
+          "name": "Difference between DDR4 and DDR5?",
+          "prompt": "Whats difference between DDR4 and DDR5?"
+        }
       }
     },
     "teams": {
@@ -281,6 +301,7 @@
       "description": "Your teams"
     },
     "chat_box": {
+      "placeholder": "Type your message here...",
       "placeholder1": "Hi ",
       "placeholder2": ", how can I help you?"
     },

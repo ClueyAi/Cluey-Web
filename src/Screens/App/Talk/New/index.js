@@ -36,7 +36,6 @@ const New = ({talkId, friendEmail}) => {
 
   const handleSpeech = async () => {
     alert("Fale!");
-
   };
 
   return (
@@ -47,6 +46,7 @@ const New = ({talkId, friendEmail}) => {
           value={textValue}
           multiline={true}
           minHeight={50}
+          placeholder={locale.home.chat_box.placeholder}
           placeholderTextColor={theme.primary}
           selectionColor={theme.primary}
           blurOnSubmit={false}

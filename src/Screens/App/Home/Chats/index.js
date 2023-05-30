@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { FlatList  } from 'react-native';
 import AntDesign from '@expo/vector-icons/AntDesign';
 import PropTypes from "prop-types";
@@ -15,6 +15,7 @@ const Chats = ({navigation}) => {
   const {chats, editChat, deleteChat, createChat, createUserMessage, createAiMessage} = useContext(FirebaseContext);
   const {locale} = useContext(LocaleContext);
   const {theme} = useContext(ThemeContext);
+  const [editing, setEditing] = useState(false);
 
   const suggestionsData = locale.home.suggestions.itens;
 
@@ -85,8 +86,8 @@ const Chats = ({navigation}) => {
         style={{width: '100%', paddingTop: 10, maxHeight: '40%'}}
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => (
-          <CardsEmpyte style={shadow} onPress={() => handlerChat(item)}>
-            <Cluey item={item} handlerDeleteChat={handlerDeleteChat} handlerEditChatName={handlerEditChatName}/>
+          <CardsEmpyte style={shadow} onPress={() => editing? null: handlerChat(item)}>
+            <Cluey item={item} handlerDeleteChat={handlerDeleteChat} handlerEditChatName={handlerEditChatName} editing={editing} setEditing={setEditing} />
           </CardsEmpyte>
         )}
         ListFooterComponent={<MoreButton />}

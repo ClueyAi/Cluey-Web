@@ -183,14 +183,14 @@
   },
   "preferences": {
     "title": "Preferências",
-    "description": "defina suas preferências",
+    "description": "Defina suas preferências",
     "focus": {
       "title": "Conte-nos um pouco sobre você",
       "description": "Vou usar o Cluey para usar:",
       "itens": {
         "personal": "Pessoal",
         "commercial": "Comercial",
-        "academic": "acadêmico",
+        "academic": "Acadêmico",
         "other": "Outro"
       },
       "other_input": {
@@ -301,6 +301,7 @@
       "description": "suas equipes"
     },
     "chat_box": {
+      "placeholder": "Digite sua mensagem aqui...",
       "placeholder1": "Oi ",
       "placeholder2": ", como posso ajudá-lo?"
     },
