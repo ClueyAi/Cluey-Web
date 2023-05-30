@@ -8,7 +8,7 @@ import Messages from './Messages';
 import New from './New';
 
 const Chat = ({navigation, route}) => {
-  const {app, chats, messages} = useContext(FirestoreContext);
+  const {app, chats} = useContext(FirestoreContext);
 
   const {id} = route.params;
   const chat = chats?.find(chat => chat.id === id);
@@ -24,7 +24,7 @@ const Chat = ({navigation, route}) => {
 
   return (
     <Container>
-      <Messages chat={chat} messages={messages} navigation={navigation} />
+      <Messages chat={chat} navigation={navigation} />
       <New chatId={id} />
     </Container>
   );

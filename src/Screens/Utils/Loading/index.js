@@ -40,12 +40,12 @@ const Load = ({ navigation }) => {
         setRoute('Home');
       }
     } else {
-        if (!isNew) {
-          setLoadedMsg(locale.loading.welcome_back);
-          setRoute('Current');
-        } else {
-          setLoadedMsg(locale.loading.welcome);
-        }
+      if (!isNew) {
+        setLoadedMsg(locale.loading.welcome_back);
+        setRoute('Current');
+      } else {
+        setLoadedMsg(locale.loading.welcome);
+      }
       setScreen('AuthStackNavigator');
     }
   };

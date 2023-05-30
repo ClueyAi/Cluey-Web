@@ -73,7 +73,7 @@ const Focus = ({ setFocusItens }) => {
       <FlatList
         data={buttons}
         renderItem={renderItem}
-        keyExtractor={(item) => {item.title}}
+        keyExtractor={(item) => item.title}
         numColumns={2}
       />
       {other?

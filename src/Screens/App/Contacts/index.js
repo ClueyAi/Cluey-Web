@@ -44,7 +44,7 @@ const Contacts = ({navigation}) => {
       <FlatList
         data={talks}
         style={{width: '100%', paddingTop: 5, paddingBottom: 40}}
-        keyExtractor={(item, index) => index.toString() + talks.length.toString()}
+        keyExtractor={(item, index) => index.toString()}
         renderItem={({ item }) => (
           <ButtonEmpyte 
             style={{

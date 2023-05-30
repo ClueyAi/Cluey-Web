@@ -39,6 +39,7 @@ export const AuthProvider = ({ children }) => {
   const signUp = async (email, password) => {
     return await auth.createUserWithEmailAndPassword(email, password).then(() => {
       notNew();
+      emailVerify();
       if ('credentials' in navigator) {
         // eslint-disable-next-line no-undef
         navigator.credentials.store(new PasswordCredential({

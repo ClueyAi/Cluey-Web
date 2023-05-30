@@ -177,8 +177,8 @@
       "accessibility": "send verification email"
     },
     "continue_button": {
-      "text": "Continue to Sign In",
-      "accessibility": "continue to sign in"
+      "text": "Continue",
+      "accessibility": "continue to Cluey"
     }
   },
   "preferences": {

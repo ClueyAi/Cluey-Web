@@ -8,22 +8,22 @@ import Mark from '../../../../components/mark';
 import Message from './Message';
 
 const Messages = ({whisps}) => {
-const message = whisps?.messages;
+  const message = whisps?.messages;
 
   return (
     <Main>
       <Mark/>
-      {message?
+      {message ?
         <FlatList
           data={message.reverse()}
           inverted
           style={{scaleY: -1}}
-          keyExtractor={(item, index) => index.toString() + message.length.toString()}
+          keyExtractor={(item, index) => index.toString()}
           renderItem={({ item }) => (
             <Message data={item}/>
           )}
         />
-      :null}
+        :null}
     </Main>
   );
 };

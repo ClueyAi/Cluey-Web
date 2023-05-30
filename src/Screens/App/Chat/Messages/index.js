@@ -7,21 +7,21 @@ import Mark from '../../../../components/mark';
 
 import Message from './Message';
 
-const Messages = ({messages}) => {
-  const reversedMessages = messages ? [...messages].reverse() : [];
+const Messages = ({chat}) => {
+  const reversedMessages = chat.messages ? [...chat.messages].reverse() : [];
 
   return (
     <Main>
       <Mark/>
-      {reversedMessages.length > 0 ? (
+      {chat ? 
         <FlatList
           data={reversedMessages}
           inverted
           style={{ transform: [{ scaleY: -1 }] }}
-          keyExtractor={(item, index) => `${index}-${messages.length}`}
+          keyExtractor={(item, index) => index.toString()}
           renderItem={({ item }) => <Message data={item} />}
         />
-      ) : null}
+        : null}
     </Main>
   );
 };

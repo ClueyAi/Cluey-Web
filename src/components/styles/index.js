@@ -345,6 +345,8 @@ export const ChatTextInput = styled.TextInput`
   padding: 15px;
   margin-left: 10px;
   color: ${light.text};
+  outline-width: 0;
+  outline-style: none;
 `;
 export const ChatMessages = styled.View`
   flex-direction: column;

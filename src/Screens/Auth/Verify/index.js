@@ -3,7 +3,7 @@ import Ionicons from "@expo/vector-icons/Ionicons";
 import PropTypes from "prop-types";
 
 import { AuthContext, FirestoreContext } from "../../../api/firebase";
-
+import { ThemeContext, shadow } from "../../../components/theme";
 import { LocaleContext } from "../../../components/locale";
 import {
   Container,
@@ -24,6 +24,7 @@ const Verify = ({ navigation }) => {
   const { emailVerify } = useContext(AuthContext);
   const { user } = useContext(FirestoreContext);
   const { locale } = useContext(LocaleContext);
+  const { theme } = useContext(ThemeContext);
   const [dev, setDev] = useState(false);
   const [devSure, setDevSure] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -48,7 +49,7 @@ const Verify = ({ navigation }) => {
     } else {
       console.log("not loading");
     }
-    navigation.navigate("Loading");
+    window.location.reload();
   };
 
   const handleDev1 = async () => {
@@ -79,7 +80,7 @@ const Verify = ({ navigation }) => {
           left: 100,
           zIndex: 9999,
           padding: 20,
-          backgroundColor: dev ? "#000000" : '#00FFFF',
+          backgroundColor: dev ? theme.text : null,
         }}
         onPress={handleDev1}
       ></ButtonEmpyte>
@@ -90,7 +91,7 @@ const Verify = ({ navigation }) => {
           right: 100,
           zIndex: 9999,
           padding: 20,
-          backgroundColor: devSure ? "#000000" : '#00FFFF',
+          backgroundColor: devSure ? theme.text : null,
         }}
         onPress={handleDev2}
         onLongPress={handleDev3}
@@ -120,20 +121,19 @@ const Verify = ({ navigation }) => {
       >
         <TxtButton>{locale.verify.continue_button.text}</TxtButton>
       </ButtonPrimary>
-      {profile?.emailVerified ? (
+      {profile?.emailVerified ?
         <View style={{ marginTop: "25%" }}>
-          <Ionicons name="checkmark" size={35} color="#2ECC71" />
+          <Ionicons name="checkmark" size={35} color={theme.secondary} />
         </View>
-      ) : (
-        <View>
+        :
+        <View style={{marginTop: "25%"}}>
           <ActivityIndicator
             style={{
-              marginTop: "25%",
               transform: [{ scaleX: 2 }, { scaleY: 2 }],
             }}
           />
         </View>
-      )}
+      }
     </Container>
   );
 };
