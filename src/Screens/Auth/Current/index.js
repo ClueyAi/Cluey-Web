@@ -3,9 +3,8 @@ import Ionicons from "@expo/vector-icons/Ionicons";
 import PropTypes from "prop-types";
 
 import { LocaleContext } from "../../../components/locale";
-import { AuthContext } from "../../../api/firebase";
-import { ProvidersContext } from "../../../api/providers";
 import { FirestoreContext } from "../../../api/firebase";
+import { ProvidersContext } from "../../../api/providers";
 import { ThemeContext, shadow } from "../../../components/theme";
 import {
   Container,
@@ -28,8 +27,7 @@ import {
 
 const Current = ({ navigation }) => {
   const { locale } = useContext(LocaleContext);
-  const { signIn } = useContext(AuthContext);
-  const { putUser } = useContext(FirestoreContext);
+  const { signIn, putUser } = useContext(FirestoreContext);
   const { signInWithGoogle } = useContext(ProvidersContext);
   const { theme } = useContext(ThemeContext);
   const emailRef = useRef(null);

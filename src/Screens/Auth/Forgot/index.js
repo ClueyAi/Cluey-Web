@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import PropTypes from "prop-types";
 
-import { AuthContext } from "../../../api/firebase";
+import { FirestoreContext } from "../../../api/firebase";
 import { ThemeContext, shadow } from "../../../components/theme";
 import { LocaleContext } from "../../../components/locale";
 import {
@@ -27,7 +27,7 @@ import {
 
 const Forgot = ({ navigation }) => {
   const { locale } = useContext(LocaleContext);
-  const { forgot } = useContext(AuthContext);
+  const { forgot } = useContext(FirestoreContext);
   const { theme } = useContext(ThemeContext);
   const [email, setEmail] = useState('');
   const [emailValid, setEmailValid] = useState(null);

@@ -1,8 +1,7 @@
 import React, { useContext } from "react";
 import PropTypes from "prop-types";
 
-import { AuthContext } from "../../../api/firebase";
-
+import { FirestoreContext } from "../../../api/firebase";
 import { LocaleContext } from "../../../components/locale";
 import {
   Container,
@@ -16,7 +15,7 @@ import {
 
 const Blank = ({ navigation }) => {
   const { locale } = useContext(LocaleContext);
-  const { emailVerify } = useContext(AuthContext);
+  const { emailVerify } = useContext(FirestoreContext);
 
   const handleEmailVerify = async () => {
     emailVerify();

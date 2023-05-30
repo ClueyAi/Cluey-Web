@@ -2,8 +2,8 @@ import React, { useState, useContext, useEffect } from "react";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import PropTypes from "prop-types";
 
-import { AuthContext, FirestoreContext } from "../../../api/firebase";
-import { ThemeContext, shadow } from "../../../components/theme";
+import { FirestoreContext } from "../../../api/firebase";
+import { ThemeContext } from "../../../components/theme";
 import { LocaleContext } from "../../../components/locale";
 import {
   Container,
@@ -21,8 +21,7 @@ import {
 } from "../../../components/styles";
 
 const Verify = ({ navigation }) => {
-  const { emailVerify } = useContext(AuthContext);
-  const { user } = useContext(FirestoreContext);
+  const { user, emailVerify } = useContext(FirestoreContext);
   const { locale } = useContext(LocaleContext);
   const { theme } = useContext(ThemeContext);
   const [dev, setDev] = useState(false);

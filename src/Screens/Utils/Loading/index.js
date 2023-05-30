@@ -3,7 +3,7 @@ import { ImageBackground } from 'react-native';
 import PropTypes from "prop-types";
 
 import { ActivityIndicator, Container, Body, H1Mini } from '../../../components/styles';
-import { UserContext, AuthContext, FirestoreContext } from '../../../api/firebase';
+import { UserContext, FirestoreContext } from '../../../api/firebase';
 import { LocaleContext } from '../../../components/locale';
 import { ThemeContext } from '../../../components/theme';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -12,8 +12,7 @@ const Load = ({ navigation }) => {
   const {locale} = useContext(LocaleContext);
   const {theme} = useContext(ThemeContext);
   const {isAuth, isVerify} = useContext(UserContext);
-  const {user, app} = useContext(FirestoreContext);
-  const {isNew, signOut} = useContext(AuthContext);
+  const {isNew, app, user, signOut} = useContext(FirestoreContext);
   const [loadingMsg] = useState(locale.loading.loading);
   const [loadedMsg, setLoadedMsg] = useState('');
   const [isLoading, setIsLoading] = useState(true);
@@ -74,32 +73,31 @@ const Load = ({ navigation }) => {
 
   return (
     isLoading ? 
-    <Container>
-      <Body style={{backgroundColor: theme.primary}}>
-        <H1Mini style={{width: '95%', marginTop: 50}}>{loadingMsg}</H1Mini>
-        <ImageBackground
-          style={{width: 165, height: 278}}
-          source={require('../../../../assets/images/cluey-blank.png')}
-        >
-          <ActivityIndicator
-            style={{marginTop: 105, transform: [{ scaleX: 2 }, { scaleY: 2 }]}}
-            size="large"
-            color={theme.primary}
-          />
-        </ImageBackground>
-      </Body>
-    </Container>
-  : 
-  <Container>
-      <Body style={{backgroundColor: theme.primary}}>
-        <H1Mini style={{width: '95%'}}>{loadedMsg}</H1Mini>
-        <ImageBackground
-          style={{width: 151, height: 220, marginTop: 20}}
-          source={require('../../../../assets/images/cluey.png')}
-        >
+      <Container>
+        <Body style={{backgroundColor: theme.primary}}>
+          <H1Mini style={{width: '95%', marginTop: 50}}>{loadingMsg}</H1Mini>
+          <ImageBackground
+            style={{width: 165, height: 278}}
+            source={require('../../../../assets/images/cluey-blank.png')}
+          >
+            <ActivityIndicator
+              style={{marginTop: 105, transform: [{ scaleX: 2 }, { scaleY: 2 }]}}
+              size="large"
+              color={theme.primary}
+            />
           </ImageBackground>
-      </Body>
-    </Container>
+        </Body>
+      </Container>
+      : 
+      <Container>
+        <Body style={{backgroundColor: theme.primary}}>
+          <H1Mini style={{width: '95%'}}>{loadedMsg}</H1Mini>
+          <ImageBackground
+            style={{width: 151, height: 220, marginTop: 20}}
+            source={require('../../../../assets/images/cluey.png')}
+          />
+        </Body>
+      </Container>
   );
 };
 

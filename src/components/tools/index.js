@@ -10,11 +10,11 @@ import { ModalButton, ChatTitle, Status } from '../styles';
 import { ThemeContext } from '../theme';
 
 import { us, pt, es, fr, LocaleContext } from '../locale';
-import { AuthContext, FirestoreContext } from '../../api/firebase';
+import { FirestoreContext } from '../../api/firebase';
 
 export const LogoutButton = ({ navigation }) => {
   const {locale} = useContext(LocaleContext);
-  const {signOut} = useContext(AuthContext);
+  const {signOut} = useContext(FirestoreContext);
   const {theme} = useContext(ThemeContext);
 
   const confirmation = () => {
@@ -216,20 +216,20 @@ export const MainTitle = () =>{
   const status = app?.status;
 
   return(
-   <View style={styles.mainMenu}>
+    <View style={styles.mainMenu}>
       <ChatTitle>{locale.global.app.name}</ChatTitle>
       {status ?
         <View style={styles.statusContainer}>
           <Status style={{color: theme.secondary}}>{locale.global.app.status.true}</Status>
           <Ionicons style={{marginLeft: 3, marginTop: 3}} name="radio" size={13} color={theme.secondary} />
         </View>
-      :
+        :
         <View style={styles.statusContainer}>
           <Status style={{color: theme.error}}>{locale.global.app.status.false}</Status>
           <Ionicons style={{marginLeft: 3, marginTop: 3}} name="radio" size={13} color={theme.error} />
         </View>
       }
-   </View>
+    </View>
   );
 }
 
@@ -237,9 +237,9 @@ export const TalkTitle = () =>{
   const {locale} = useContext(LocaleContext);
 
   return(
-   <View style={styles.mainMenu}>
+    <View style={styles.mainMenu}>
       <ChatTitle>{locale.talk.title}</ChatTitle>
-   </View>
+    </View>
   );
 }
 

@@ -22,8 +22,6 @@ export const UserProvider = ({ children }) => {
     return () =>  unsubscribe
   }, [auth]);
 
-  
-
   const updateUserName = async (displayName) => {
     return await auth.currentUser.updateProfile({
       displayName: displayName

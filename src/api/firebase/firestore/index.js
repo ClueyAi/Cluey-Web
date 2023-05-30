@@ -1,7 +1,9 @@
 import React, { createContext, useState, useEffect, useContext } from 'react';
 import PropTypes from "prop-types";
+// eslint-disable-next-line no-unused-vars
 import CryptoJS from 'crypto-js';
 import Constants from 'expo-constants';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import { firestore, auth, storage, arrayUnion } from '../config';
 import { sendMessageToOpenAI } from '../../openai';
@@ -10,6 +12,8 @@ export const FirestoreContext = createContext();
 
 export const FirestoreProvider = ({ children }) => {
   const {authUser, isAuth} = useContext(UserContext);
+  const [isNew, setIsNew] = useState(true);
+  const notNew = async () => {AsyncStorage.setItem('isNewUser', 'false')};
   const [app, setApp] = useState(null);
   const [user, setUser] = useState(null);
   const [chats, setChats] = useState(null);
@@ -20,6 +24,14 @@ export const FirestoreProvider = ({ children }) => {
   const secretKey = Constants.manifest.extra.app.secretKeyPhrase;
   
   useEffect(() => {
+    const isNewUser = AsyncStorage.getItem('isNewUser').then((value) => {
+      if (value === 'false') {
+        setIsNew(false);
+      } else {
+        setIsNew(true);
+      }
+    });
+
     if (isAuth) {
       const getApp = firestore.collection('app').doc('info').onSnapshot((doc) => {
         if (doc.exists) {
@@ -35,7 +47,7 @@ export const FirestoreProvider = ({ children }) => {
         } 
       });
        
-      const getChats = firestore.collection('users').doc(authUser?.uid).collection('cluey').orderBy('updatedAt', 'desc').onSnapshot((querySnapshot) => {
+      const getChats = firestore.collection('users').doc(authUser?.uid).collection('chats').orderBy('updatedAt', 'desc').onSnapshot((querySnapshot) => {
         const data = querySnapshot.docs.map(doc => ({
           id: doc.id,
           ...doc.data(),
@@ -43,33 +55,79 @@ export const FirestoreProvider = ({ children }) => {
         setChats(data);
       });
 
-      const putUser = async () => {
-        const timestamp = Date().toLocaleString();
-        const name = authUser?.email.split("@")[0];
-    
-        const docRef = firestore.collection('users').doc(authUser?.uid);
-        return await docRef.set({
-          uid: authUser?.uid,
-          createdAt: timestamp,
-          updatedAt: timestamp,
-          profile: {
-            displayName: authUser.displayName?authUser.displayName: name,
-            email: authUser.email,
-            emailVerified: authUser.emailVerified,
-            photoURL: authUser.photoURL? authUser.photoURL: null,
-          },
-        }, { merge: true })
-      };
-
-      putUser();
-
       return () => {
+        isNewUser
         getApp();
         getUser();
         getChats();
       }
     }
   }, [authUser, isAuth]);
+
+  const signIn = async (email, password) => {
+    await auth.signInWithEmailAndPassword(email, password).then(() => {
+      notNew();
+      putUser();
+      if ('credentials' in navigator) {
+        // eslint-disable-next-line no-undef
+        navigator.credentials.store(new PasswordCredential({
+          id: email,
+          password: password,
+          name: 'Cluey'
+        }))
+      }
+    });
+  };
+
+  const signUp = async (email, password) => {
+    return await auth.createUserWithEmailAndPassword(email, password).then(() => {
+      notNew();
+      putUser();
+      emailVerify();
+      if ('credentials' in navigator) {
+        // eslint-disable-next-line no-undef
+        navigator.credentials.store(new PasswordCredential({
+          id: email,
+          password: password,
+          name: 'Cluey'
+        })).then(() => {
+          console.log('Credentials seved!');
+        }).catch((error) => {
+          console.error('Error to credentials seve:', error);
+        });
+      }
+    });
+  };
+
+  const emailVerify = async () => {
+    return await auth.currentUser.sendEmailVerification();
+  };
+
+  const forgot = async (email) => {
+    return await auth.sendPasswordResetEmail(email);
+  };
+
+  const signOut = async () => {
+    return auth.signOut();
+  };
+
+  const putUser = async () => {
+    const timestamp = Date().toLocaleString();
+    const name = authUser?.email.split("@")[0];
+
+    const docRef = firestore.collection('users').doc(authUser?.uid);
+    return await docRef.set({
+      uid: authUser?.uid,
+      createdAt: timestamp,
+      updatedAt: timestamp,
+      profile: {
+        displayName: authUser.displayName?authUser.displayName: name,
+        email: authUser.email,
+        emailVerified: authUser.emailVerified,
+        photoURL: authUser.photoURL? authUser.photoURL: null,
+      },
+    }, { merge: true })
+  };
 
   const updateUserPhoto = async (uri) => {
     const response = await fetch(uri);
@@ -86,7 +144,6 @@ export const FirestoreProvider = ({ children }) => {
     });
   };
   
-
   const putPreferences = async (focusItens, interestsItens) => {
     const timestamp = Date().toLocaleString();
 
@@ -101,7 +158,7 @@ export const FirestoreProvider = ({ children }) => {
   };
 
   const getContacts = async () => {
-    if (user?.contacts?.length > 0) {
+    if (user?.contacts.length > 0) {
       const querySnapshot = await firestore.collection('users')
         .where('profile.email', 'in', user?.contacts)
         .get();
@@ -140,14 +197,14 @@ export const FirestoreProvider = ({ children }) => {
 
   const createChat = async (text) => {
     const timestamp = Date().toLocaleString();
-    const name = text.substring(0, 30);
+    const name = text.substring(0, 45);
     const chat = {
       name: name,
       createdAt: timestamp,
       updatedAt: timestamp,
       messages: [],
     };
-    return await firestore.collection('users').doc(authUser?.uid).collection('cluey').add(chat);
+    return await firestore.collection('users').doc(authUser?.uid).collection('chats').add(chat);
   };
 
   const createUserMessage = async (chatId, text) => {
@@ -160,8 +217,8 @@ export const FirestoreProvider = ({ children }) => {
       createdAt: timestamp,
       text: text,
     };
-    await firestore.collection('users').doc(authUser?.uid).collection('cluey').doc(chatId).set(chat, { merge: true }).then(() => {
-      firestore.collection('users').doc(authUser?.uid).collection('cluey').doc(chatId).update({
+    await firestore.collection('users').doc(authUser?.uid).collection('chats').doc(chatId).set(chat, { merge: true }).then(() => {
+      firestore.collection('users').doc(authUser?.uid).collection('chats').doc(chatId).update({
         messages: arrayUnion(message),
       });
     });
@@ -178,8 +235,8 @@ export const FirestoreProvider = ({ children }) => {
       createdAt: timestamp,
       text: response,
     };
-    await firestore.collection('users').doc(authUser?.uid).collection('cluey').doc(chatId).set(chat, { merge: true }).then(() => {
-      firestore.collection('users').doc(authUser?.uid).collection('cluey').doc(chatId).update({
+    await firestore.collection('users').doc(authUser?.uid).collection('chats').doc(chatId).set(chat, { merge: true }).then(() => {
+      firestore.collection('users').doc(authUser?.uid).collection('chats').doc(chatId).update({
         messages: arrayUnion(message),
       });
     });
@@ -187,18 +244,18 @@ export const FirestoreProvider = ({ children }) => {
 
   const editChat = async (chatId, newName) => {
     const timestamp = Date().toLocaleString();
-    const docRef = firestore.collection('users').doc(authUser?.uid).collection('cluey').doc(chatId);
+    const docRef = firestore.collection('users').doc(authUser?.uid).collection('chats').doc(chatId);
     return await docRef.update({name: newName, updatedAt: timestamp});
   };
 
   const deleteChat = async (chatId) => {
-    const docRef = firestore.collection('users').doc(authUser?.uid).collection('cluey').doc(chatId);
+    const docRef = firestore.collection('users').doc(authUser?.uid).collection('chats').doc(chatId);
     return await docRef.delete();
   };
 
   const getTalks = async () => {
     if (user?.contacts?.length > 0) {
-      const talksCollection = await firestore.collection('talks')
+      const talksCollection = await firestore.collection('users').doc(authUser?.uid).collection('talks')
         .where('emailFriend', 'in', user?.contacts)
         .get();
     
@@ -234,7 +291,7 @@ export const FirestoreProvider = ({ children }) => {
       updatedAt: timestamp,
       messages: [],
     };
-    const chatRef = firestore.collection('talks')
+    const chatRef = firestore.collection('users').doc(authUser?.uid).collection('talks')
     const talk = await chatRef
       .where('emailFriend', '==', email)
       .where('emailUser', '==', authUser?.email)
@@ -249,7 +306,7 @@ export const FirestoreProvider = ({ children }) => {
 
   const getWhisps = async (id) => {
     try {
-      const docRef = firestore.collection('talks').doc(id);
+      const docRef = firestore.collection('users').doc(authUser?.uid).collection('talks').doc(id);
       const docSnapshot = await docRef.get();
       if (docSnapshot.exists) {
         const data = docSnapshot.data();
@@ -270,22 +327,27 @@ export const FirestoreProvider = ({ children }) => {
       createdAt: timestamp,
       text: text,
     };
-    await firestore.collection('talks').doc(talkId).set(talk, { merge: true }).then(() => {
-      firestore.collection('talks').doc(talkId).update({
+    await firestore.collection('users').doc(authUser?.uid).collection('talks').doc(talkId).set(talk, { merge: true }).then(() => {
+      firestore.collection('users').doc(authUser?.uid).collection('talks').doc(talkId).update({
         messages: arrayUnion(message),
       });
     });
   };
   
-
   const value = {
     app,
+    isNew,
     user,
     contacts,
     chats,
     talks,
     whisps,
     secretKey,
+    signIn,
+    signUp,
+    emailVerify,
+    forgot,
+    signOut,
     updateUserPhoto,
     putPreferences,
     getContacts,
