@@ -2,7 +2,7 @@ import React, { useState, useContext } from 'react'
 import PropTypes from "prop-types";
 
 import { LocaleContext } from '../../../components/locale'
-import { FirestoreContext } from '../../../api/firebase/firestore';
+import { FirebaseContext } from '../../../api/firebase';
 import { 
   Container,
   Heading,
@@ -20,7 +20,7 @@ import Interests from './Interests'
 
 const Preferences = ({ navigation }) => {
   const {locale} = useContext(LocaleContext);
-  const {putPreferences} = useContext(FirestoreContext);
+  const {putPreferences} = useContext(FirebaseContext);
   const [focusItens, setFocusItens] = useState(null);
   const [interestsItens, setInterestsItens] = useState(null);
   const [focusDone, setFocusDone] = useState(false);

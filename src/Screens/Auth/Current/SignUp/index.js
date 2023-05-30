@@ -7,7 +7,7 @@ import React, {
 import Ionicons from "@expo/vector-icons/Ionicons";
 import PropTypes from "prop-types";
 
-import { FirestoreContext } from "../../../../api/firebase";
+import { FirebaseContext } from "../../../../api/firebase";
 import { ThemeContext, shadow } from "../../../../components/theme";
 import { LocaleContext } from "../../../../components/locale";
 import {
@@ -32,7 +32,7 @@ import {
 
 const SignUp = ({ navigation }) => {
   const { locale } = useContext(LocaleContext);
-  const { signUp, signGoogle, signFacebook, signGithub, putUser } = useContext(FirestoreContext);
+  const { signUp, signGoogle, signFacebook, signGithub, putUser } = useContext(FirebaseContext);
   const { theme } = useContext(ThemeContext);
   const emailRef = useRef(null);
   const passwordRef = useRef(null);

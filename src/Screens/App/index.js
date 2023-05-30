@@ -4,10 +4,10 @@ import Ionicons from '@expo/vector-icons/Ionicons';
 
 import { LocaleContext } from '../../components/locale';
 import { ThemeContext } from '../../components/theme';
-import { MainTitle, TalkTitle, ContactsMenuButton, LogoutButton, LanguageSelector, SettingsButton, BackButton } from '../../components/tools';
+import { MainTitle, TalkTitle, MenuButton, LogoutButton, LanguageSelector, SettingsButton, BackButton } from '../../components/tools';
 
 import Home from './Home';
-import Contacts from './Contacts';
+import Menu from './Menu';
 
 import Chat from './Chat';
 import Talk from './Talk';
@@ -42,14 +42,14 @@ const App = () => {
         name="Home"
         component={Home}
         options={({ navigation }) => ({
-          headerLeft: () => <ContactsMenuButton navigation={navigation} />,
+          headerLeft: () => <MenuButton navigation={navigation} />,
           headerTitle: () => <MainTitle />,
           headerRight: () => <SettingsButton navigation={navigation} />,
         })}
       />
       <AppStack.Screen
-        name="Contacts"
-        component={Contacts}
+        name="Menu"
+        component={Menu}
         options={() => ({
           headerTitle: () => <TalkTitle />
         })}

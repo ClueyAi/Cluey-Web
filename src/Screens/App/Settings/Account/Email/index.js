@@ -4,7 +4,7 @@ import Ionicons from "@expo/vector-icons/Ionicons";
 import UserAvatar from "react-native-user-avatar";
 import PropTypes from "prop-types";
 
-import { UserContext, FirestoreContext } from "../../../../../api/firebase";
+import { FirebaseContext } from "../../../../../api/firebase";
 import { ThemeContext } from "../../../../../components/theme";
 import { LocaleContext } from "../../../../../components/locale";
 import {
@@ -35,8 +35,7 @@ import {
 
 const Email = ({ navigation }) => {
   const { locale } = useContext(LocaleContext);
-  const { updateUserEmail } = useContext(UserContext);
-  const { user } = useContext(FirestoreContext);
+  const { user, updateUserEmail } = useContext(FirebaseContext);
   const { theme } = useContext(ThemeContext);
   const emailRef = useRef(null);
   const passwordRef = useRef(null);

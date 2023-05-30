@@ -10,11 +10,11 @@ import { ModalButton, ChatTitle, Status } from '../styles';
 import { ThemeContext } from '../theme';
 
 import { us, pt, es, fr, LocaleContext } from '../locale';
-import { FirestoreContext } from '../../api/firebase';
+import { FirebaseContext } from '../../api/firebase';
 
 export const LogoutButton = ({ navigation }) => {
   const {locale} = useContext(LocaleContext);
-  const {signOut} = useContext(FirestoreContext);
+  const {signOut} = useContext(FirebaseContext);
   const {theme} = useContext(ThemeContext);
 
   const confirmation = () => {
@@ -43,10 +43,10 @@ LogoutButton.propTypes = {
   navigation: PropTypes.object.isRequired,
 };
 
-export const ChatsMenuButton = ({ navigation }) => {
+export const MenuButton = ({ navigation }) => {
   const {theme} = useContext(ThemeContext);
   return(
-    <TouchableOpacity style={{...styles.buttonLeft, alignItems: 'center'}} onPress={() => navigation.navigate('Chats')}>
+    <TouchableOpacity style={{...styles.buttonLeft, alignItems: 'center'}} onPress={() => navigation.navigate('Menu')}>
       <View style={{height: 3, width: 20, marginBottom: 3, borderRadius: 10, backgroundColor: theme.primary}} />
       <View style={{height: 3, width: 25, borderRadius: 10, backgroundColor: theme.primary}} />
       <View style={{height: 3, width: 20, marginTop: 3, borderRadius: 10, backgroundColor: theme.primary}} />
@@ -54,7 +54,7 @@ export const ChatsMenuButton = ({ navigation }) => {
   )
 }
 
-ChatsMenuButton.propTypes = {
+MenuButton.propTypes = {
   navigation: PropTypes.object.isRequired,
 };
 
@@ -209,7 +209,7 @@ export const LanguageSelector = () => {
 export const CloseModal = () => <ModalButton />;
 
 export const MainTitle = () =>{
-  const {app} = useContext(FirestoreContext);
+  const {app} = useContext(FirebaseContext);
   const {locale} = useContext(LocaleContext);
   const {theme} = useContext(ThemeContext);
 

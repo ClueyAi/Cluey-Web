@@ -3,7 +3,7 @@ import { useFonts } from 'expo-font';
 import { MenuProvider } from 'react-native-popup-menu';
 
 import {LocaleProvider} from './src/components/locale';
-import {Firebase} from './src/api/firebase';
+import {FirebaseProvider} from './src/api/firebase';
 import {ProvidersProvider} from './src/api/providers';
 import {ThemeProvider} from './src/components/theme';
 import Screens from './src/Screens/';
@@ -27,7 +27,7 @@ const App = () => {
     <Web>
       <WebContainer>
         <LocaleProvider>
-          <Firebase>
+          <FirebaseProvider>
             <ProvidersProvider>
               <ThemeProvider>
                 <MenuProvider>
@@ -35,7 +35,7 @@ const App = () => {
                 </MenuProvider>
               </ThemeProvider>
             </ProvidersProvider>
-          </Firebase>
+          </FirebaseProvider>
         </LocaleProvider>
       </WebContainer>
     </Web>

@@ -3,7 +3,7 @@ import { Platform } from 'react-native';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import PropTypes from "prop-types";
 
-import { FirestoreContext } from '../../../../api/firebase';
+import { FirebaseContext } from '../../../../api/firebase';
 import { ThemeContext, shadow } from '../../../../components/theme';
 import { LocaleContext } from '../../../../components/locale';
 import { 
@@ -16,7 +16,7 @@ import {
 const New = ({navigation}) => {
   const {locale} = useContext(LocaleContext);
   const {theme} = useContext(ThemeContext);
-  const {user, createChat, createUserMessage, createAiMessage} = useContext(FirestoreContext);
+  const {user, createChat, createUserMessage, createAiMessage} = useContext(FirebaseContext);
   const [name, setName] = useState('');
   const [textValue, setTextValue] = useState('');
 

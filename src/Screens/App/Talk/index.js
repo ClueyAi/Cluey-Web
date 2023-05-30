@@ -1,14 +1,14 @@
 import React, { useContext, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
-import { FirestoreContext } from '../../../api/firebase';
+import { FirebaseContext } from '../../../api/firebase';
 import { Container } from '../../../components/styles';
 
 import Messages from './Messages';
 import New from './New';
 
 const Talk = ({ navigation, route }) => {
-  const { whisps, getWhisps } = useContext(FirestoreContext);
+  const { whisps, getWhisps } = useContext(FirebaseContext);
   const { id, email } = route.params;
 
   useEffect(() => {

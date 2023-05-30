@@ -3,7 +3,7 @@ import { ImageBackground } from 'react-native';
 import PropTypes from "prop-types";
 
 import { ActivityIndicator, Container, Body, H1Mini } from '../../../components/styles';
-import { UserContext, FirestoreContext } from '../../../api/firebase';
+import { FirebaseContext } from '../../../api/firebase';
 import { LocaleContext } from '../../../components/locale';
 import { ThemeContext } from '../../../components/theme';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -11,8 +11,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 const Load = ({ navigation }) => {
   const {locale} = useContext(LocaleContext);
   const {theme} = useContext(ThemeContext);
-  const {isAuth, isVerify} = useContext(UserContext);
-  const {isNew, app, user, signOut} = useContext(FirestoreContext);
+  const {isAuth, isVerify, isNew, app, user, signOut} = useContext(FirebaseContext);
   const [loadingMsg] = useState(locale.loading.loading);
   const [loadedMsg, setLoadedMsg] = useState('');
   const [isLoading, setIsLoading] = useState(true);

@@ -6,7 +6,7 @@ import * as ImagePicker from "expo-image-picker";
 import { useFocusEffect } from "@react-navigation/native";
 import PropTypes from "prop-types";
 
-import { UserContext, FirestoreContext } from "../../../api/firebase";
+import { FirebaseContext } from "../../../api/firebase";
 import { ThemeContext } from "../../../components/theme";
 import { LocaleContext } from "../../../components/locale";
 import {
@@ -33,8 +33,7 @@ import {
 const Settings = ({ navigation }) => {
   const { locale } = useContext(LocaleContext);
   const { theme } = useContext(ThemeContext);
-  const { updateUserName } = useContext(UserContext);
-  const { user, updateUserPhoto } = useContext(FirestoreContext);
+  const { user, updateUserPhoto, updateUserName } = useContext(FirebaseContext);
   const [editingName, setEditingName] = useState(false);
   const [userName, setUserName] = useState('');
 

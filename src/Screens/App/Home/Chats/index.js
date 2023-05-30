@@ -3,7 +3,7 @@ import { FlatList  } from 'react-native';
 import AntDesign from '@expo/vector-icons/AntDesign';
 import PropTypes from "prop-types";
 
-import { FirestoreContext } from '../../../../api/firebase';
+import { FirebaseContext } from '../../../../api/firebase';
 import { LocaleContext } from '../../../../components/locale';
 import { ThemeContext, shadow } from '../../../../components/theme';
 import { Container, H3, ButtonEmpyte, CardsEmpyte } from '../../../../components/styles';
@@ -12,7 +12,7 @@ import Cluey from './Cluey';
 import Suggests from './Suggests';
 
 const Chats = ({navigation}) => {
-  const {chats, editChat, deleteChat, createChat, createUserMessage, createAiMessage} = useContext(FirestoreContext);
+  const {chats, editChat, deleteChat, createChat, createUserMessage, createAiMessage} = useContext(FirebaseContext);
   const {locale} = useContext(LocaleContext);
   const {theme} = useContext(ThemeContext);
 

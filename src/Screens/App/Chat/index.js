@@ -1,14 +1,14 @@
 import React, {useContext} from 'react';
 import PropTypes from 'prop-types';
 
-import { FirestoreContext } from '../../../api/firebase';
+import { FirebaseContext } from '../../../api/firebase';
 import { Container } from '../../../components/styles';
 
 import Messages from './Messages';
 import New from './New';
 
 const Chat = ({navigation, route}) => {
-  const {app, chats} = useContext(FirestoreContext);
+  const {app, chats} = useContext(FirebaseContext);
 
   const {id} = route.params;
   const chat = chats?.find(chat => chat.id === id);

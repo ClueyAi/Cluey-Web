@@ -14,7 +14,7 @@ export const Web = styled.View`
   width: 100%;
   height: 100%;
   margin: 0 auto;
-  background: #121214;
+  background: ${light.bgDark};
 `;
 export const WebContainer = styled.View`
   justify-self: center;

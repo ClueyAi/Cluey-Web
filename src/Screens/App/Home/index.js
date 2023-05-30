@@ -1,14 +1,14 @@
 import React, {useContext} from 'react';
 import PropTypes from 'prop-types';
 
-import { FirestoreContext } from '../../../api/firebase';
+import { FirebaseContext } from '../../../api/firebase';
 import { Container } from '../../../components/styles';
 
 import Chats from './Chats';
 import New from './New';
 
 const Home = ({navigation}) => {
-  const {app} = useContext(FirestoreContext);
+  const {app} = useContext(FirebaseContext);
 
   const status = app?.status;
 

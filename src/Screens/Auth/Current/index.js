@@ -1,9 +1,10 @@
 import React, { useState, useContext, useRef } from "react";
 import Ionicons from "@expo/vector-icons/Ionicons";
+import FontAwesome from "@expo/vector-icons/FontAwesome";
 import PropTypes from "prop-types";
 
 import { LocaleContext } from "../../../components/locale";
-import { FirestoreContext } from "../../../api/firebase";
+import { FirebaseContext } from "../../../api/firebase";
 import { ProvidersContext } from "../../../api/providers";
 import { ThemeContext, shadow } from "../../../components/theme";
 import {
@@ -14,20 +15,22 @@ import {
   Form,
   Input,
   TextInput,
-  H0,
-  P,
-  PMini,
+  H0, H2Mini, P, PMini,
   Link,
   TxtLink,
   ButtonPrimary,
   ButtonEmpyte,
   TxtButton,
   TextError,
+  Providers,
+  TxtProvider,
+  ButtonProvider,
+  Divider,
 } from "../../../components/styles";
 
 const Current = ({ navigation }) => {
   const { locale } = useContext(LocaleContext);
-  const { signIn, putUser } = useContext(FirestoreContext);
+  const { signIn, putUser } = useContext(FirebaseContext);
   const { signInWithGoogle } = useContext(ProvidersContext);
   const { theme } = useContext(ThemeContext);
   const emailRef = useRef(null);
@@ -133,7 +136,6 @@ const Current = ({ navigation }) => {
           <H0 style={{ marginBottom: 10 }}>{locale.global.app.name}</H0>
           <P>{locale.signin.description}</P>
         </Heading>
-        {/*
         <Providers>
           <ButtonProvider
             style={shadow}
@@ -142,11 +144,11 @@ const Current = ({ navigation }) => {
               locale.providers.button_google.accessibility
             }
           >
-            <TxtProvider style={{ left: 30 }}>
+            <TxtProvider style={{ marginLeft: 30 }}>
               {locale.providers.button_google.text}
             </TxtProvider>
             <FontAwesome
-              style={{ right: 30 }}
+              style={{ marginRight: 30 }}
               name="google"
               size={22}
               color={theme.text}
@@ -159,11 +161,11 @@ const Current = ({ navigation }) => {
               locale.providers.button_facebook.accessibility
             }
           >
-            <TxtProvider style={{ left: 30 }}>
+            <TxtProvider style={{ marginLeft: 30 }}>
               {locale.providers.button_facebook.text}
             </TxtProvider>
             <FontAwesome
-              style={{ right: 34 }}
+              style={{ marginRight: 34 }}
               name="facebook"
               size={22}
               color={theme.text}
@@ -176,11 +178,11 @@ const Current = ({ navigation }) => {
               locale.providers.button_github.accessibility
             }
           >
-            <TxtProvider style={{ left: 30 }}>
+            <TxtProvider style={{ marginLeft: 30 }}>
               {locale.providers.button_github.text}
             </TxtProvider>
             <FontAwesome
-              style={{ right: 30 }}
+              style={{ marginRight: 30 }}
               name="github"
               size={24}
               color={theme.text}
@@ -199,8 +201,7 @@ const Current = ({ navigation }) => {
           <Divider />
           <H2Mini>{locale.providers.or}</H2Mini>
           <Divider />
-        </View>
-        */}
+        </View>    
         <Form style={{ marginTop: 20 }}>
           <Input
             style={{

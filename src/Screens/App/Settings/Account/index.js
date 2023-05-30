@@ -3,7 +3,7 @@ import Ionicons from '@expo/vector-icons/Ionicons';
 import PropTypes from "prop-types";
 import Flag from 'react-native-flags';
 
-import { FirestoreContext } from '../../../../api/firebase';
+import { FirebaseContext } from '../../../../api/firebase';
 import { LocaleContext } from '../../../../components/locale';
 import { ThemeContext } from '../../../../components/theme';
 import { 
@@ -20,7 +20,7 @@ import {
 const Account = ({ navigation }) => {
   const {locale} = useContext(LocaleContext);
   const {theme} = useContext(ThemeContext);
-  const {user} = useContext(FirestoreContext);
+  const {user} = useContext(FirebaseContext);
   const [modal, setModal] = useState(false);
 
   const profile = user?.profile;
