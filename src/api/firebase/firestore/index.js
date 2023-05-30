@@ -291,13 +291,31 @@ export const FirestoreProvider = ({ children }) => {
       updatedAt: timestamp,
       messages: [],
     };
+    const friendChat = {
+      emailUser: email,
+      emailFriend: authUser?.email,
+      createdAt: timestamp,
+      updatedAt: timestamp,
+      messages: [],
+    };
     const chatRef = firestore.collection('users').doc(authUser?.uid).collection('talks')
     const talk = await chatRef
       .where('emailFriend', '==', email)
       .where('emailUser', '==', authUser?.email)
       .get();
+
+    const friendRef = firestore.collection('users')
+      .where('profile.email', '==', email)
+      .get();
+
     if (talk.docs.length === 0) {
       const newTalkRef = await chatRef.add(chat);
+      
+      const friendQuerySnapshot = await friendRef;
+      const friendDoc = friendQuerySnapshot.docs[0];
+      const friendTalkRef = firestore.collection('users').doc(friendDoc.id).collection('talks').doc(newTalkRef.id);
+      await friendTalkRef.set(friendChat);
+
       return newTalkRef.id;
     } else {
       return talk.docs[0].id;
@@ -317,7 +335,7 @@ export const FirestoreProvider = ({ children }) => {
     }
   };
 
-  const createUserWhisp = async (talkId, text) => {
+  const createUserWhisp = async (talkId, email, text) => {
     const timestamp = Date().toLocaleString();
     const talk = {
       updatedAt: timestamp,
@@ -329,6 +347,19 @@ export const FirestoreProvider = ({ children }) => {
     };
     await firestore.collection('users').doc(authUser?.uid).collection('talks').doc(talkId).set(talk, { merge: true }).then(() => {
       firestore.collection('users').doc(authUser?.uid).collection('talks').doc(talkId).update({
+        messages: arrayUnion(message),
+      });
+    });
+
+    const friendRef = firestore.collection('users')
+      .where('profile.email', '==', email)
+      .get();
+      
+    const friendQuerySnapshot = await friendRef;
+    const friendDoc = friendQuerySnapshot.docs[0];
+
+    await firestore.collection('users').doc(friendDoc.id).collection('talks').doc(talkId).set(talk, { merge: true }).then(() => {
+      firestore.collection('users').doc(friendDoc.id).collection('talks').doc(talkId).update({
         messages: arrayUnion(message),
       });
     });

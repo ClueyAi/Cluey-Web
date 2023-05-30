@@ -36,7 +36,7 @@ const Load = ({ navigation }) => {
         setRoute('Preferences');
       } else {
         setScreen('AppStackNavigator');
-        setRoute('Home');
+        setRoute('Contacts');
       }
     } else {
       if (!isNew) {

@@ -11,14 +11,14 @@ import Talks from './Talks';
 import New from './New';
 
 const Contacts = ({navigation}) => {
-  const {user, getContacts, contacts, putContact, getTalks, talks, createTalk} = useContext(FirestoreContext);
+  const {getContacts, contacts, putContact, getTalks, talks, createTalk} = useContext(FirestoreContext);
   const {theme} = useContext(ThemeContext);
 
   const handlerChat = async (item) => {
     try {
       createTalk(item?.profile.email).then((talk) => {
         if (talk != null) {
-          navigation.navigate('Talk', {id: talk});
+          navigation.navigate('Talk', {id: talk, email: item?.profile.email});
         }
       });
     } catch (error) {
@@ -37,7 +37,7 @@ const Contacts = ({navigation}) => {
     });
 
     return unsubscribe;
-  }, [navigation], user, contacts, talks);
+  }, [navigation]);
 
   return (
     <Container>

@@ -13,7 +13,7 @@ import {
   ChatInput,
 } from '../../../../components/styles';
 
-const New = ({talkId}) => {
+const New = ({talkId, friendEmail}) => {
   const {locale} = useContext(LocaleContext);
   const {theme} = useContext(ThemeContext);
   const {createUserWhisp} = useContext(FirestoreContext);
@@ -27,7 +27,7 @@ const New = ({talkId}) => {
     setTextValue('');
     if (textValue.text !== "") {
       try {
-        await createUserWhisp(talkId, textValue);
+        await createUserWhisp(talkId, friendEmail, textValue);
       } catch (error) {
         console.error(error);
       }
@@ -67,7 +67,8 @@ const New = ({talkId}) => {
 };
 
 New.propTypes = {
-  talkId: PropTypes.string.isRequired
+  talkId: PropTypes.string.isRequired,
+  friendEmail: PropTypes.string.isRequired,
 };
 
 export default New;

@@ -9,7 +9,7 @@ import New from './New';
 
 const Talk = ({ navigation, route }) => {
   const { whisps, getWhisps } = useContext(FirestoreContext);
-  const { id } = route.params;
+  const { id, email } = route.params;
 
   useEffect(() => {
     const unsubscribe = navigation.addListener('focus', () => {
@@ -22,7 +22,7 @@ const Talk = ({ navigation, route }) => {
   return (
     <Container>
       <Messages whisps={whisps} navigation={navigation} />
-      <New talkId={id} />
+      <New talkId={id} friendEmail={email} />
     </Container>
   );
 };
