@@ -7,8 +7,8 @@ import Mark from '../../../../components/mark';
 
 import Message from './Message';
 
-const Messages = ({whisps}) => {
-  const message = whisps?.messages;
+const Messages = ({talk}) => {
+  const message = talk?.messages;
 
   return (
     <Main>
@@ -29,7 +29,7 @@ const Messages = ({whisps}) => {
 };
 
 Messages.propTypes = {
-  whisps: PropTypes.object,
+  talk: PropTypes.object,
 };
 
 export default Messages;

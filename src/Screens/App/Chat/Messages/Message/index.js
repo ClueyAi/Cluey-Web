@@ -11,16 +11,17 @@ import Response from './Response';
 const Message = ({ data }) => {
   const {user} = useContext(FirebaseContext);
 
+
   if (!data ) {
     return null;
   }
 
   return (
     <ChatMessages>
-      {data?.idUser === user?.uid ? (
+      {data?.name === user?.profile.userName ? (
         <Request data={data}/>
       ) : null}
-      {data?.idUser !== user?.uid ? (
+      {data?.name !== user?.profile.userName ? (
         <Response data={data}/>
       ) : null}
     </ChatMessages>

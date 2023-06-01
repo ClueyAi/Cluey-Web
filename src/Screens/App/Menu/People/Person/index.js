@@ -14,7 +14,7 @@ import {
 } from "../../../../../components/styles";
 
 const Person = ({ item }) => {
-  const contact = item?.profile;
+  const contact = item?.contactData.profile;
 
   const styles = StyleSheet.create({
     cards: {

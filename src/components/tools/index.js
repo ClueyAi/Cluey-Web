@@ -208,16 +208,16 @@ export const LanguageSelector = () => {
 export const CloseModal = () => <ModalButton />;
 
 export const MainTitle = () =>{
-  const {app} = useContext(FirebaseContext);
+  const {appStatus} = useContext(FirebaseContext);
   const {locale} = useContext(LocaleContext);
   const {theme} = useContext(ThemeContext);
 
-  const status = app?.status;
+  const isOn = appStatus?.server;
 
   return(
     <View style={styles.mainMenu}>
       <ChatTitle>{locale.global.app.name}</ChatTitle>
-      {status ?
+      {isOn ?
         <View style={styles.statusContainer}>
           <Status style={{color: theme.secondary}}>{locale.global.app.status.true}</Status>
           <Ionicons style={{marginLeft: 3, marginTop: 3}} name="radio" size={13} color={theme.secondary} />

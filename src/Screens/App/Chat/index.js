@@ -8,11 +8,11 @@ import Messages from './Messages';
 import New from './New';
 
 const Chat = ({navigation, route}) => {
-  const {app, chats} = useContext(FirebaseContext);
+  const {appStatus, chats} = useContext(FirebaseContext);
 
   const {id} = route.params;
   const chat = chats?.find(chat => chat.id === id);
-  const status = app?.status;
+  const status = appStatus?.server; 
   
   if (!status) {
     return (

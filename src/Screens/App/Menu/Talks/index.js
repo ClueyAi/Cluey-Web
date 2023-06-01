@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext } from 'react';
 import { FlatList } from 'react-native';
 import PropTypes from "prop-types";
 
@@ -9,9 +9,10 @@ import { ButtonEmpyte } from '../../../../components/styles';
 import Whisp from './Whisp';
 
 const Talks = ({navigation}) => {
-  const {getTalks, talks, createTalk} = useContext(FirebaseContext);
+  const {talks, createTalk} = useContext(FirebaseContext);
   const {theme} = useContext(ThemeContext);
 
+  
   const handlerChat = async (item) => {
     try {
       createTalk(item?.profile.email).then((talk) => {
@@ -24,17 +25,6 @@ const Talks = ({navigation}) => {
     }
   };
   
-  useEffect(() => {
-    const unsubscribe = navigation.addListener('focus', () => {
-      try {
-        getTalks();
-      } catch (error) {
-        console.error(error);
-      }
-    });
-
-    return unsubscribe;
-  }, [navigation]);
 
   return (
     <FlatList

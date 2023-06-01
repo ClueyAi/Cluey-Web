@@ -16,7 +16,7 @@ import {
 
 const Whisp = ({ item }) => {
   const user = item?.userData.profile;
-  const talk = item?.talk;
+  const talk = item;
   const lastMessage= talk?.messages.length > 0 ? talk?.messages[talk?.messages.length - 1].text : '';
 
   const fullTime = talk?.updatedAt.split(" ")[4];

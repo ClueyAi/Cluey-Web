@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext } from 'react';
 import { FlatList } from 'react-native';
 import PropTypes from "prop-types";
 
@@ -10,32 +10,20 @@ import Person from './Person';
 import New from './New';
 
 const People = ({navigation}) => {
-  const {getContacts, contacts, putContact, createTalk} = useContext(FirebaseContext);
+  const {contacts, putContact, createTalk} = useContext(FirebaseContext);
   const {theme} = useContext(ThemeContext);
 
   const handlerChat = async (item) => {
     try {
-      createTalk(item?.profile.email).then((talk) => {
+      createTalk(item?.id).then((talk) => {
         if (talk != null) {
-          navigation.navigate('Talk', {id: talk, email: item?.profile.email});
+          navigation.navigate('Talk', {id: talk, email: item?.id});
         }
       });
     } catch (error) {
       console.error(error);
     }
   };
-  
-  useEffect(() => {
-    const unsubscribe = navigation.addListener('focus', () => {
-      try {
-        getContacts();
-      } catch (error) {
-        console.error(error);
-      }
-    });
-
-    return unsubscribe;
-  }, [navigation]);
 
   return (
     <FlatList

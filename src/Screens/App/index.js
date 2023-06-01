@@ -1,4 +1,5 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useContext} from 'react';
+import { BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import { createStackNavigator } from "@react-navigation/stack";
 import Ionicons from '@expo/vector-icons/Ionicons';
 
@@ -24,13 +25,13 @@ import Rules from '../Utils/Rules';
 const AppStack = createStackNavigator();
 
 const App = () => {
-  const {locale} = React.useContext(LocaleContext);
-  const {theme} = React.useContext(ThemeContext);
+  const {locale} = useContext(LocaleContext);
+  const {theme} = useContext(ThemeContext);
 
   useEffect(() => {
     document.title = locale.global.app.name;
   }, []);
-
+  
   return (
     <AppStack.Navigator screenOptions={{
       headerShadowVisible: false,

@@ -11,7 +11,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 const Load = ({ navigation }) => {
   const {locale} = useContext(LocaleContext);
   const {theme} = useContext(ThemeContext);
-  const {isAuth, isVerify, isNew, app, user, signOut} = useContext(FirebaseContext);
+  const {isAuth, isNew, appFunc, user, signOut} = useContext(FirebaseContext);
   const [loadingMsg] = useState(locale.loading.loading);
   const [loadedMsg, setLoadedMsg] = useState('');
   const [isLoading, setIsLoading] = useState(true);
@@ -20,6 +20,7 @@ const Load = ({ navigation }) => {
   const [route, setRoute] = useState(null);
 
   const profile = user?.profile;
+  const isVerify = profile?.emailVerified;
   
   const selectScreen = async () => {
     if (isAuth) {
@@ -51,7 +52,7 @@ const Load = ({ navigation }) => {
   useEffect(() => {
     selectScreen();
     setIsDone(true);
-    if (app?.logoutAll) {
+    if (appFunc?.forceLogoutAll) {
       AsyncStorage.clear();
       signOut();
       window.location.reload();

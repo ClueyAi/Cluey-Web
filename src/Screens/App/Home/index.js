@@ -8,9 +8,9 @@ import Chats from './Chats';
 import New from './New';
 
 const Home = ({navigation}) => {
-  const {app} = useContext(FirebaseContext);
+  const {appStatus} = useContext(FirebaseContext);
 
-  const status = app?.status;
+  const status = appStatus?.server;
 
   if (!status) {
     return (

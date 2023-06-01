@@ -49,13 +49,13 @@ const Chats = ({navigation}) => {
           navigation.navigate('Chat', {id: item.id});
         });
         await createUserMessage(chatId, textValue);
-        createAiMessage(chatId, textValue);
+        await createAiMessage(chatId, textValue);
       } catch (error) {
         console.error(error);
       }
     }
   };
-
+  
   const MoreButton = () => {
     return (<ButtonEmpyte style={{marginBottom: 30}} />);
     /*return (
