@@ -339,7 +339,7 @@ export const ChatInput = styled.View`
 export const ChatTextInput = styled.TextInput`
   flex: 1;
   align-self: center;
-  font-family: 'Nunito-Bold';
+  font-family: 'Nunito';
   width: 100%;
   height: 100%;
   padding: 15px;

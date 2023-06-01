@@ -55,7 +55,7 @@ const Person = ({ item }) => {
               width: "auto",
               flexDirection: "column",
               alignItems: "flex-start",
-              marginLeft: 5,
+              marginLeft: 10,
             }}
           >
             <H4>{contact?.displayName}</H4>

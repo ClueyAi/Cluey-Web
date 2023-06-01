@@ -10,7 +10,7 @@ import {
   ProfilePicture,
   Infor,
   H4,
-  H5,
+  P,
   H6,
 } from "../../../../../components/styles";
 
@@ -60,11 +60,11 @@ const Whisp = ({ item }) => {
               width: "auto",
               flexDirection: "column",
               alignItems: "flex-start",
-              marginLeft: 5,
+              marginLeft: 10,
             }}
           >
             <H4>{user?.displayName}</H4>
-            <H5>{lastMessage}</H5>
+            <P>{lastMessage}</P>
           </Infor>
         </Profile>
         <View style={{position: 'absolute', right: 2, top: 10}}>
