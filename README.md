@@ -2,7 +2,7 @@
 Cluey App for Web
 
 ### Known Issues
-- Contacts auto go back navigation after open
+- chats auto go back navigation after update data
 - Need click 2x to sign in/sign up
 
 > #### Install
