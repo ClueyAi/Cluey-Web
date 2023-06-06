@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React, {useContext, useMemo} from 'react';
 import PropTypes from 'prop-types';
 
 import { FirebaseContext } from '../../../api/firebase';
@@ -11,23 +11,25 @@ const Chat = ({navigation, route}) => {
   const {appStatus, chats} = useContext(FirebaseContext);
 
   const {id} = route.params;
-  const chat = chats?.find(chat => chat.id === id);
+  
   const status = appStatus?.server;
+
+  const memoizedChatComponent = useMemo(() => (
+    <Container>
+      <Messages id={id} chats={chats} navigation={navigation} />
+      <New chatId={id} />
+    </Container>
+  ), [chats, id, navigation]);
   
   if (!status) {
     return (
       <Container>
-        <Messages chat={chat} navigation={navigation} />
+        <Messages id={id} chats={chats} navigation={navigation} />
       </Container>
     );
   }
 
-  return (
-    <Container>
-      <Messages chat={chat} navigation={navigation} />
-      <New chatId={id} />
-    </Container>
-  );
+  return memoizedChatComponent;
 };
 
 Chat.propTypes = {

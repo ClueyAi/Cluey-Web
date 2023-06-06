@@ -7,7 +7,9 @@ import Mark from '../../../../components/mark';
 
 import Message from './Message';
 
-const Messages = ({chat}) => {
+const Messages = ({id, chats}) => {
+  const chat = chats?.find(chat => chat.id === id);
+
   const reversedMessages = chat.messages ? [...chat.messages].reverse() : [];
 
   return (
@@ -27,7 +29,8 @@ const Messages = ({chat}) => {
 };
 
 Messages.propTypes = {
-  chat: PropTypes.object,
+  id: PropTypes.string,
+  chats: PropTypes.array,
   messages: PropTypes.array
 };
 
