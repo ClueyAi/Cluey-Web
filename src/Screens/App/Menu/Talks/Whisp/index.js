@@ -9,7 +9,7 @@ import {
   Picture,
   ProfilePicture,
   Infor,
-  H4,
+  H3,
   P,
   H6,
 } from "../../../../../components/styles";
@@ -63,7 +63,7 @@ const Whisp = ({ item }) => {
               marginLeft: 10,
             }}
           >
-            <H4>{user?.displayName}</H4>
+            <H3>{user?.displayName}</H3>
             <P>{lastMessage}</P>
           </Infor>
         </Profile>

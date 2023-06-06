@@ -14,10 +14,10 @@ const Focus = ({ setFocusItens }) => {
   const [otherItens, setOtherItens] = useState({});
   const [other, setOther] = useState(false);
   const buttons = [
-    { title: locale.preferences.focus.itens.personal, selected: false },
-    { title: locale.preferences.focus.itens.commercial, selected: false },
-    { title: locale.preferences.focus.itens.academic, selected: false },
-    { title: locale.preferences.focus.itens.other, selected: false },
+    { id: 1, title: locale.preferences.focus.itens.personal, selected: false },
+    { id: 2, title: locale.preferences.focus.itens.commercial, selected: false },
+    { id: 3, title: locale.preferences.focus.itens.academic, selected: false },
+    { id: 4, title: locale.preferences.focus.itens.other, selected: false },
   ];
 
   const handleSelect = (button) => {
@@ -40,7 +40,7 @@ const Focus = ({ setFocusItens }) => {
   
   };
 
-  const renderItem = ({ item }) => {(
+  const renderItem = ({ item }) => (
     <ButtonEmpyte
       style={[
         styles.button,
@@ -49,11 +49,11 @@ const Focus = ({ setFocusItens }) => {
           opacity: selectedButtons[item.title] ? 0.5 : 1,
         },
       ]}
-      onPress={() => {handleSelect(item.title)}}
+      onPress={() => handleSelect(item.title)}
     >
       <TxtButton>{item.title}</TxtButton>
     </ButtonEmpyte>
-  )};
+  );
 
   const styles = StyleSheet.create({
     button: {
@@ -73,7 +73,7 @@ const Focus = ({ setFocusItens }) => {
       <FlatList
         data={buttons}
         renderItem={renderItem}
-        keyExtractor={(item) => item.title}
+        keyExtractor={(item) => item.id}
         numColumns={2}
       />
       {other?

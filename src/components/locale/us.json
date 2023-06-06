@@ -5,6 +5,11 @@
     "name": "English"
   },
   "global": {
+    "openai": {
+      "context": "Considere esses termos como contexto da nossa conversa: ",
+      "focus": "My focuses are: ",
+      "interests": "My interests are: "
+    },
     "app": {
       "name": "Cluey",
       "status": {
@@ -200,7 +205,7 @@
     },
     "interests": {
       "title": "Interests",
-      "description": "Select a few to get started. You can update them later.",
+      "description": "Select a few to get started. You can update them later:",
       "itens": {
         "html": "HTML",
         "ia": "IA",

@@ -12,7 +12,7 @@ const Chat = ({navigation, route}) => {
 
   const {id} = route.params;
   const chat = chats?.find(chat => chat.id === id);
-  const status = appStatus?.server; 
+  const status = appStatus?.server;
   
   if (!status) {
     return (

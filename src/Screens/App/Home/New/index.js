@@ -32,11 +32,11 @@ const New = ({navigation}) => {
       try {
         let chatId = null;
         await createChat(textValue).then((item) => {
-          chatId = item.id;
-          navigation.navigate("Chat", {id: item.id});
+          chatId = item;
+          navigation.navigate("Chat", {id: item});
         });
         await createUserMessage(chatId, textValue);
-        createAiMessage(chatId, textValue);
+        await createAiMessage(chatId, textValue);
       } catch (error) {
         console.error(error);
       }

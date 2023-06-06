@@ -27,13 +27,12 @@ export const FirebaseProvider = ({ children }) => {
 
   const secretKey = Constants.manifest.extra.app.secretKeyPhrase;
 
-  const notNew = async () => {AsyncStorage.setItem('isNewUser', 'false')};
+  const notNew = async () => AsyncStorage.setItem('isNewUser', 'false');
   
   useEffect(() => {
     const getAuth = auth.onAuthStateChanged(user => {
       setAuthUser(user);
       user?setIsAuth(true):setIsAuth(false);
-      putUser();
     });
 
     const isNewUser = AsyncStorage.getItem('isNewUser').then((value) => {
@@ -45,6 +44,7 @@ export const FirebaseProvider = ({ children }) => {
     });
 
     if (isAuth) {
+      putUser();
       const getApp = firestore.collection('app').onSnapshot((querySnapshot) => {
         const data = querySnapshot.docs.map(doc => ({
           id: doc.id,
@@ -139,6 +139,7 @@ export const FirebaseProvider = ({ children }) => {
 
   const signIn = async (email, password) => {
     await auth.signInWithEmailAndPassword(email, password).then(() => {
+      notNew();
       if ('credentials' in navigator) {
         // eslint-disable-next-line no-undef
         navigator.credentials.store(new PasswordCredential({
@@ -152,6 +153,7 @@ export const FirebaseProvider = ({ children }) => {
 
   const signUp = async (email, password) => {
     await auth.createUserWithEmailAndPassword(email, password).then(() => {
+      notNew ();
       if ('credentials' in navigator) {
         // eslint-disable-next-line no-undef
         navigator.credentials.store(new PasswordCredential({
@@ -185,11 +187,11 @@ export const FirebaseProvider = ({ children }) => {
       createdAt: timestamp,
       updatedAt: timestamp,
       profile: {
-        displayName: authUser.displayName? authUser.displayName: userName,
+        displayName: authUser?.displayName? authUser.displayName: userName,
         userName: '@'+userName,
-        email: authUser.email,
-        emailVerified: authUser.emailVerified,
-        photoURL: authUser.photoURL? authUser.photoURL: null,
+        email: authUser?.email,
+        emailVerified: authUser?.emailVerified,
+        photoURL: authUser?.photoURL? authUser?.photoURL: null,
       },
     }, { merge: true })
   };
@@ -311,8 +313,11 @@ export const FirebaseProvider = ({ children }) => {
       messages: [],
     };
     
-    await firestore.collection('users').doc(authUser?.uid).collection('chats').add(chat);
+    const chatRef = await firestore.collection('users').doc(authUser?.uid).collection('chats').add(chat);
+    const chatId = chatRef.id;
     updateUser();
+
+    return chatId;
   };
 
   const createUserMessage = async (chatId, text) => {
@@ -336,7 +341,12 @@ export const FirebaseProvider = ({ children }) => {
   };
 
   const createAiMessage = async (chatId, text) => {
-    const response = await sendMessageToOpenAI(text);
+    const context = locale.global.openai.context;
+    const focusMsg = locale.global.openai.focus;
+    const interestsMsg = locale.global.openai.interests;
+    const focus = user?.preferences.focus;
+    const interests = user?.preferences.interests;
+    const response = await sendMessageToOpenAI(text, context, focusMsg, focus, interestsMsg, interests);
     const timestamp = Date().toLocaleString();
     const id = Math.random().toString(36).substring(7);
     const name = appInfo?.userName;

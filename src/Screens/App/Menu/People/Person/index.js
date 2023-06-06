@@ -9,8 +9,8 @@ import {
   Picture,
   ProfilePicture,
   Infor,
+  H3,
   H4,
-  H5,
 } from "../../../../../components/styles";
 
 const Person = ({ item }) => {
@@ -58,8 +58,8 @@ const Person = ({ item }) => {
               marginLeft: 10,
             }}
           >
-            <H4>{contact?.displayName}</H4>
-            <H5>{contact?.email}</H5>
+            <H3>{contact?.displayName}</H3>
+            <H4>{contact?.userName}</H4>
           </Infor>
         </Profile>
       </View>

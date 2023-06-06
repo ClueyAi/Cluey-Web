@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useStatem, useContext} from 'react';
 import Constants from 'expo-constants';
 import axios from 'axios';
 
@@ -7,12 +7,19 @@ const OPENAI_ORG_ID = Constants.manifest.extra.openai.orgId;
 const OPENAI_MODAL = 'gpt-3.5-turbo';
 const MAX_TOKENS = 1000;
 
-export const sendMessageToOpenAI = async (text) => {
+export const sendMessageToOpenAI = async (text, context, focusMsg, focus, interestsMsg, interests) => {
+  const interestsRef = interests? interestsMsg+interests.join(', '): '';
+  const focusRef = focus? focusMsg+focus.join(', '): '';
+
   try {
     const response = await axios.post(
       'https://api.openai.com/v1/chat/completions',
       {
         messages: [
+          {
+            role: "system", 
+            content: `${context}${interestsRef}${focusRef}`
+          },
           {
             role: 'user',
             content: text,
