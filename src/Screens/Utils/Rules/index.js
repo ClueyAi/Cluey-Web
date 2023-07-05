@@ -14,7 +14,7 @@ import {
   TextList,
   ButtonEmpyte,
   FooterSmall,
-} from "../../../components/styles";
+} from "../../../components/global";
 
 const Rules = () => {
   const { locale } = useContext(LocaleContext);
@@ -144,10 +144,6 @@ const Rules = () => {
       </FooterSmall>
     </Container>
   );
-};
-
-Rules.propTypes = {
-  navigation: PropTypes.object.isRequired,
 };
 
 export default Rules;

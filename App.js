@@ -1,6 +1,5 @@
 import React from 'react';
 import { useFonts } from 'expo-font';
-import { MenuProvider } from 'react-native-popup-menu';
 
 import {LocaleProvider} from './src/components/locale';
 import {FirebaseProvider} from './src/api/firebase';
@@ -8,7 +7,7 @@ import {ProvidersProvider} from './src/api/providers';
 import {ThemeProvider} from './src/components/theme';
 import Screens from './src/Screens/';
 
-import { Web, WebContainer } from './src/components/styles'
+import { Web } from './src/components/global'
 
 const App = () => {
   const [loaded] = useFonts({
@@ -25,19 +24,15 @@ const App = () => {
 
   return (
     <Web>
-      <WebContainer>
-        <LocaleProvider>
-          <FirebaseProvider>
-            <ProvidersProvider>
-              <ThemeProvider>
-                <MenuProvider>
-                  <Screens/>
-                </MenuProvider>
-              </ThemeProvider>
-            </ProvidersProvider>
-          </FirebaseProvider>
-        </LocaleProvider>
-      </WebContainer>
+      <LocaleProvider>
+        <FirebaseProvider>
+          <ProvidersProvider>
+            <ThemeProvider>
+              <Screens />
+            </ThemeProvider>
+          </ProvidersProvider>
+        </FirebaseProvider>
+      </LocaleProvider>
     </Web>
   );
 };

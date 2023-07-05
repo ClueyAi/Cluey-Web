@@ -1,7 +1,8 @@
 export default {
   background: '#FFF',
-  bgDark: '#121214',
+  bgSlider: '#F9C961',
   backgroundSecondary: '#EEE',
+  backgroundHover: '#FDF5C964',
   transparent: '#00000000',
   primary: '#FFBF00',
   primary47: '#FFBF0078',
@@ -10,7 +11,7 @@ export default {
   secondarySoft: '#C2F2D0',
   text: '#000',
   textGray: '#757575',
-  textDark: '#454545',
+  textDark: '#00000080',
   link: '#FFBF0090',
   border: '#0000001F',
   error: '#FF0000',

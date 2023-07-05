@@ -1,5 +1,4 @@
 import React, { createContext, useState } from 'react';
-import { StatusBar } from 'expo-status-bar';
 import PropTypes from "prop-types";
 
 import light from './light';
@@ -10,11 +9,9 @@ export const ThemeContext = createContext();
 
 export const ThemeProvider = ({ children }) => {
   const [theme, setTheme] = useState(light);
-  const [statusBar, setStatusBar] = useState(light);
 
-  const toggleTheme = () => {
-    setTheme(theme===light?light:dark);
-    setStatusBar(theme===light?dark:light);
+  const toggleTheme = (item) => {
+    setTheme(item?light:dark);
   };
 
   const value = {
@@ -23,7 +20,7 @@ export const ThemeProvider = ({ children }) => {
   };
 
   return (
-    <ThemeContext.Provider value={value}><StatusBar style={statusBar}/>{children}</ThemeContext.Provider>
+    <ThemeContext.Provider value={value}>{children}</ThemeContext.Provider>
   );
 };
 

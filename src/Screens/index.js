@@ -1,35 +1,32 @@
-import React, {useContext, useEffect} from 'react';
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
-
+import React, { useEffect, useContext } from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { LocaleContext } from '../components/locale';
 
-import Loading from './Utils/Loading';
-// eslint-disable-next-line no-unused-vars
-import Test from './Others/Test';
-import AuthStackNavigator from './Auth';
-import AppStackNavigator from './App';
-
-const Stack = createStackNavigator();
+import Auth from './Auth';
+import Home from './Home';
+import Rules from './Utils/Rules';
+import About from './Utils/About';
+import NotFound from './Utils/NotFound';
+//import Preferences from './Utils/Preferences';
+//import About from './Utils/About';
 
 const Screens = () => {
-  const { locale } = useContext(LocaleContext);
+  const {locale} = useContext(LocaleContext);
 
   useEffect(() => {
-    document.title = locale.global.app.name;
+    document.title = locale.global.app.name+'®';
   }, []);
 
   return (
-    <NavigationContainer>
-      <Stack.Navigator screenOptions={{
-        headerShown: false,
-        headerBackTitleVisible: false
-      }}>
-        <Stack.Screen name="Loading" component={Loading} />
-        <Stack.Screen name="AuthStackNavigator" component={AuthStackNavigator} />
-        <Stack.Screen name="AppStackNavigator" component={AppStackNavigator} />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <Router>
+      <Routes>
+        <Route path="/" exact element={<Home/>} />
+        <Route path="/auth" element={<Auth/>} />
+        <Route path="/rules" element={<Rules/>} />
+        <Route path="/about" element={<About/>} />
+        <Route path="*" element={<NotFound/>} />
+      </Routes>
+    </Router>
   );
 };
 

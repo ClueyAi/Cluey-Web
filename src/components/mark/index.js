@@ -1,10 +1,12 @@
 import React from 'react';
-import { ImageBackground, StyleSheet } from 'react-native';
+import { ImageBackground, StyleSheet, View } from 'react-native';
 
 const logo = '../../../assets/images/splash.png';
 const Mark = () => {
   return (
-    <ImageBackground style={styles.logoBG} source={require('../../../assets/images/splash.png')}/>
+    <View>
+      <ImageBackground style={styles.logoBG} source={require('../../../assets/images/splash.png')}/>
+    </View>
   );
 };
 

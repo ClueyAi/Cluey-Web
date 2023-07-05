@@ -6,7 +6,7 @@ import Flag from 'react-native-flags';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import PropTypes from "prop-types";
 
-import { ModalButton, ChatTitle, Status } from '../styles';
+import { ModalButton, ChatTitle, Status } from '../global';
 import { ThemeContext } from '../theme';
 
 import { us, pt, es, fr, LocaleContext } from '../locale';
@@ -30,7 +30,6 @@ export const LogoutButton = ({ navigation }) => {
     }
   };
   
-
   return (
     <TouchableOpacity style={styles.buttonRight} onPress={() =>{
       confirmation()

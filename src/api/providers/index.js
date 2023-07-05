@@ -10,7 +10,8 @@ export const ProvidersProvider = ({ children }) => {
   const notNew = async () => {AsyncStorage.setItem('isNewUser', 'false')};
   const [userInfo, setUserInfo] = useState(null);
   const GOOGLE_ID = Constants.manifest.extra.google.webClientId;
-  const REDIRECT_URI = Constants.manifest.extra.google.redirectUri;
+  const REDIRECT_URI = AuthSession.makeRedirectUri({ useProxy: true });
+  //const REDIRECT_URI = Constants.manifest.extra.google.redirectUri;
   const RESPONSE_TYPE = "token";
   const SCOPE = encodeURI("profile email");
   

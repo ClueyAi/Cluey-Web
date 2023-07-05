@@ -1,5 +1,6 @@
 import React, { createContext, useState, useEffect } from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import * as RNLocalize from 'react-native-localize';
 import PropTypes from "prop-types";
 
 import us from "./us.json";
@@ -10,7 +11,9 @@ import fr from "./fr.json";
 export const LocaleContext = createContext();
 
 export const LocaleProvider = ({ children }) => {
-  const deviceLanguage = navigator.language.substring(3, 5);
+  const locales = RNLocalize.getLocales();
+  const languageCode = locales.length > 0 ? locales[0].languageCode : '';
+  const deviceLanguage = languageCode.toUpperCase();
   AsyncStorage.setItem("iso", deviceLanguage);
   const [locale, setLocale] = useState(us);
 

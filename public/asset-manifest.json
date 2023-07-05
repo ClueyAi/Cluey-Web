@@ -1,10 +1,12 @@
 {
   "files": {
-    "main.js": "/static/js/main.c28eb627.js",
-    "static/js/106.683fb3af.js": "/static/js/106.683fb3af.js",
+    "main.js": "/static/js/main.deb568f0.js",
+    "static/js/671.fcab78b0.js": "/static/js/671.fcab78b0.js",
+    "static/media/screen2.png": "/static/media/screen2.a499799996bd7b9e5ec3.png",
+    "static/media/screen1.png": "/static/media/screen1.ba12b8b4c18fb5de9273.png",
     "static/media/Ionicons.ttf": "/static/media/Ionicons.3517aeaa34b2f8cd8eef.ttf",
     "static/media/MaterialIcons.ttf": "/static/media/MaterialIcons.120b4c7bbd155bd0a04d.ttf",
-    "static/media/splash.png": "/static/media/splash.70fc77ba83e3879148a1.png",
+    "static/media/FontAwesome.ttf": "/static/media/FontAwesome.1e59d2330b4c6deb84b3.ttf",
     "static/media/Nunito-Medium.ttf": "/static/media/Nunito-Medium.a7c01ee77faba77e24c1.ttf",
     "static/media/Nunito-Regular.ttf": "/static/media/Nunito-Regular.99a3b019e7727ac19479.ttf",
     "static/media/Nunito-SemiBold.ttf": "/static/media/Nunito-SemiBold.77c1e330694154d3efed.ttf",
@@ -12,9 +14,13 @@
     "static/media/Nunito-ExtraBold.ttf": "/static/media/Nunito-ExtraBold.99f1fa27c5aaa2c5afb6.ttf",
     "static/media/AntDesign.ttf": "/static/media/AntDesign.163adab9dbd7cb1ed12a.ttf",
     "static/media/Entypo.ttf": "/static/media/Entypo.fc6169344c041cffcdae.ttf",
-    "static/media/cluey-blank.png": "/static/media/cluey-blank.cca8c2ceba4169605ea8.png",
+    "static/media/plans.png": "/static/media/plans.d4896ecbcd90605c943f.png",
+    "static/media/Feather.ttf": "/static/media/Feather.0f5d9cede2e831f3fc80.ttf",
+    "static/media/logoname.png": "/static/media/logoname.9d85e68742f9184eedcf.png",
+    "static/media/cluey-sad-white.png": "/static/media/cluey-sad-white.a1ab66c5ccb2d611c7eb.png",
     "favicon.ico": "/favicon.ico",
-    "static/media/cluey.png": "/static/media/cluey.1c9226eef9a25526a20c.png",
+    "static/media/working.png": "/static/media/working.e7f55bfaadc84c07a0f7.png",
+    "static/media/icon.png": "/static/media/icon.264c873475d91457efcd.png",
     "static/media/_wales.png": "/static/media/_wales.654345e11550644dc4a2.png",
     "static/media/MP.png": "/static/media/MP.df3b103c03c34fbaf7d8.png",
     "static/media/GS.png": "/static/media/GS.2eca3afaf5f7059a802a.png",
@@ -271,19 +277,19 @@
     "static/media/_south-ossetia.png": "/static/media/_south-ossetia.edae3baa925794915e21.png",
     "static/media/FI.png": "/static/media/FI.217b0c690a58d1f8887e.png",
     "static/media/YE.png": "/static/media/YE.359bcd2bc826c53c89ef.png",
+    "favicon-32.png": "/favicon-32.png",
     "static/media/_england.png": "/static/media/_england.0beae04ac3171aa678f0.png",
     "static/media/ID.png": "/static/media/ID.68dd02bfd34e67b937ed.png",
     "static/media/MC.png": "/static/media/MC.68dd02bfd34e67b937ed.png",
     "static/media/EE.png": "/static/media/EE.add2d48af71f7326e54e.png",
-    "favicon-32.png": "/favicon-32.png",
     "favicon-16.png": "/favicon-16.png",
     "serve.json": "/serve.json",
     "manifest.json": "/manifest.json",
-    "main.c28eb627.js.map": "/static/js/main.c28eb627.js.map",
-    "106.683fb3af.js.map": "/static/js/106.683fb3af.js.map"
+    "main.deb568f0.js.map": "/static/js/main.deb568f0.js.map",
+    "671.fcab78b0.js.map": "/static/js/671.fcab78b0.js.map"
   },
   "entrypoints": [
-    "static/js/106.683fb3af.js",
-    "static/js/main.c28eb627.js"
+    "static/js/671.fcab78b0.js",
+    "static/js/main.deb568f0.js"
   ]
 }

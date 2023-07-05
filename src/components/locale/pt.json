@@ -2,7 +2,15 @@
   "language": {
     "iso": "PT",
     "locale": "pt-pt",
-    "name": "Português"
+    "name": "Português",
+    "button":{
+      "text": "Idioma",
+      "description": "Selecione o idioma da aplicação"
+    }
+  },
+  "theme": {
+    "title": "Temas",
+    "description": "Selecione o tema da aplicação"
   },
   "global": {
     "openai": {
@@ -16,7 +24,7 @@
         "true": "Online",
         "false": "Offline"
       },
-      "resume_title": "Qual é Cluey?",
+      "resume_title": "Quem é Cluey?",
       "resume": "Cluey é um aplicativo móvel que ajuda você a encontrar os melhores lugares para comer, beber e se divertir. ",
       "policy_terms": {
         "title": "Política de Privacidade",
@@ -73,19 +81,19 @@
         "name": "Gabriel Ferreira",
         "office": "Designer",
         "site_url": "https://www.beatstars.com/gakibeatz",
-        "photo_url": "https://yt3.ggpht.com/PVbtR9FIlpi9Y9QRtiuYDIxRh9FJeIrzBzVMNJzSjs8e_GnNohvI1fbJHQbeGRvADN7HEkkC=s176-c-k-c0x00ffffff-no-rj-mo"
+        "photo_url": "https://firebasestorage.googleapis.com/v0/b/cluey-33308.appspot.com/o/public%2Fcluey%2Fdesigner.jpg?alt=media&token=6aabefca-c8c5-4437-afcc-38b110767ea0"
       },
       "developer": {
         "name": "Gustavo Falcão",
         "office": "Desenvolvedor",
         "site_url": "https://github.com/gustavofalcao1",
-        "photo_url": "https://avatars.githubusercontent.com/u/26607023?v=4"
+        "photo_url": "https://firebasestorage.googleapis.com/v0/b/cluey-33308.appspot.com/o/public%2Fcluey%2Fdeveloper.jpeg?alt=media&token=66846f9b-1428-4063-915e-9c61322aa43b"
       },
       "tester": {
         "name": "Gonçalo Silva",
         "office": "Testador",
         "site_url": "https://www.linkedin.com/in/gon%C3%A7alo-silva-7b5b1b194/",
-        "photo_url": "https://media.licdn.com/dms/image/C4D03AQEXYi5mvFcUCA/profile-displayphoto-shrink_400_400/0/1569583446493?e=1687392000"
+        "photo_url": "https://firebasestorage.googleapis.com/v0/b/cluey-33308.appspot.com/o/public%2Fcluey%2Ftester.jpeg?alt=media&token=58c51620-a05f-4b2b-b5a7-d6d9b68b0b98"
       }
     },
     "mentor": {
@@ -93,24 +101,24 @@
       "mentor1": {
         "name": "Ana Paula Pinto",
         "site_url": "http://instituto.islagaia.pt/docentes/docente/APP",
-        "photo_url": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxMTEhUTExIWFhUXGRcZFxgXGBcdFxcWHRsWFhoeFhUYHSgiGh0lHRUVITEhJSkrLi4uFx81ODMtNygtLisBCgoKDg0OGxAQGy8iHy UtLSs1LS0tLS0rLS0tLS0rKy0tLS0tLS0tLS4tLS0tLS0tLS0tLS0tLS0tLS0tLSstK//AABEIAIIAZAMBIgACEQEDEQH/xAAbAAAABwEAAAAAAAAAAAAAAAAAQIDBAUGB//EADwQAAEDAQQHBQYEBgMBAAAAAAEAhEDBBIhMQUiQ VFhcYEGE6GxwTJykdHh8EJSYvEjM4KSorIUJOIH/8QAGQEAAgMBAAAAAAAAAAAAAAAAAgQAAQMF/8QAHxEAAgIDAQEBAQEAAAAAAAAAAECEQMSITFBgVEy/9oADAMBAAIRAxEAPwDVuKQSjcU2SsDcMuSSUklV2l9KC i2YvOPst38zsHFRuiUWBcojtJ0wSC9uGeKwelrTXqguqVS1uwA3W9Bt6qrsuj3lpcG6oyzx3lVsvbI4v HULPpSk8w2o2d0wfFTCVy59gdF5uY3K97NdojIo1jng1x2HYCdxVplUbK8gS mSUoFEQJxREoOSCoUHKCRKJQhakJLmpZRFCGRbXUDGlx/c7AFVjR3em8/r97gndKWgGoGbG4nn yMWnANGbvJK5ciuhjFApLNof/lWgl38qmbrW7MP2Wtfo1obAAGEJ3RFkuMGGJxKlWrJRK102pJ8Oe9o LIacup4RmBkeSydqM646hdN0vZLzSufW yXXGNmY2o8UqdMwzY7Vo2PZnSffURJ12aruO49R4gq4BXOuy1u7qu0E6r9Q9fZ8Y JXQwUwKhkpBQJSXFQgJQSZQUIXJSZSyEm6qNDL2r a 8/qM/fRIZbCw3u7c87AIGA3koaTeKfeOdsvE8cynNFaHdaKFOq8yHsm6cgXYyOIXPSblb8sdXFS9L7QumHVRiwN3CZ MKF2gq1Hk02Oc07257vVTtDaLFBjWgZYA7TtTFqfFbngtWy0uGFfbCx 9RjjaC6mYc8vyPu4hR7dTeWXwZcBMxnzC3lr0cxxJcPjJ8DkqDTLmAXWhW594gFjdUzD13SO8bzXS9E23vqLKn5m4 8MHeIK5nYjDn0uJLeO8LR9ibfde6zuydLmcwNYfAT/Sd6cEWb MlJJRpDiqKDQRSiUIaK6jup4MS20VRoc77Z0i4uYPxEeh81e9g7bNjY050y9h6OJH Lmqt0pr2h/wCl8jof "
+        "photo_url": "http://instituto.islagaia.pt/docentes/docfotos/3.png"
       },
       "mentor2": {
         "name": "Joaquim Moreira",
         "site_url": "http://instituto.islagaia.pt/docentes/docente/JJM",
-        "photo_url": "https://media.licdn.com/dms/image/C4E03AQFoFxVEPdRRGg/profile-displayphoto-shrink_800_800/0/1516333957277?e=2147483647"
+        "photo_url": "https://i1.rgstatic.net/ii/profile.image/467531573010437-1488479621895_Q512/Jose-Moreira-5.jpg"
       },
       "mentor3": {
         "name": "Jorge Godinho",
         "site_url": "http://instituto.islagaia.pt/docentes/docente/ALG",
-        "photo_url": "https://media.licdn.com/dms/image/C5603AQFiUZlNQky2MA/profile-displayphoto-shrink_800_800/0/1517433618245?e=2147483647"
+        "photo_url": "https://www.cepese.pt/portal/portal/en/research/researchers/publico/downloadfoto/24F78CE5-2F64-40B1-84B8-BEC50E5A7BB5.jpg"
       }
     },
     "partners": {
       "title": "Nossos Parceiros",
       "islagaia": {
         "name": "Ilha Gaia",
-        "site_url": "https://islagaia.com",
+        "site_url": "https://www.islagaia.pt/",
         "logo_url": "https://www.islagaia.pt/images/log_isla_novo.png"
       }
     }
@@ -125,6 +133,7 @@
     }
   },
   "providers": {
+    "text": "Inicie sessão com",
     "button_google": {
       "text": "Continuar com o Google",
       "accessibility": "faça login com a conta do google e comece a usar o Cluey"
@@ -140,58 +149,61 @@
     "or": "ou"
   },
   "signin": {
-    "title": "Entrar",
-    "description": "Entre para o Cluey ajudá-lo.",
+    "title": "Bem vindo de volta!",
+    "description": "Faça Login para continuar",
     "text_input": {
-      "email": "e-mail",
-      "password": "senha"
+      "email": "Endereço de email",
+      "password": "Palavra-passe"
     },
     "button": {
-      "text": "Entrar",
-      "accessibility": "entre e comece a usar o Cluey"
+      "text": "Entrar"
     },
     "button_signup": {
-      "text": "Inscrever-se",
-      "msg": "Não tem uma conta?",
-      "accessibility": "inscreva-se se você não tiver uma conta Cluey"
+      "text": "Criar conta",
+      "msg": "Ainda não tem uma conta no Cluey? "
     }
   },
   "signup": {
-    "title": "Inscrever-se",
-    "description": "Crie uma nova conta para o Cluey te ajudar.",
+    "title": "Registe-se no Cluey!",
+    "description": "Experimente o Cluey gratuitamente",
     "text_input": {
-      "email": "e-mail",
-      "password": "senha",
-      "confirm_password": "Confirme sua senha"
+      "email": "Endereço de email",
+      "password": "Palavra-passe",
+      "confirm_password": "Confirmar"
     },
     "button": {
-      "text": "Entrar",
-      "accessibility": "inscreva-se e comece a usar o Cluey"
+      "text": "Registrar"
     },
     "button_signin": {
-      "text": "Entrar",
-      "msg": "já tem uma conta?",
-      "accessibility": "entre se você tiver uma conta Cluey"
+      "text": "Iniciar Sessão",
+      "msg": "já tem uma conta no Cluey? "
     }
   },
   "verify": {
-    "title": "Verificar",
-    "description": "Verifique seu e-mail no link enviado a você para prosseguir para o Cluey.",
+    "title": "Verificar e-mail",
+    "description": "Verifique seu e-mail para continuar",
     "verify_button": {
-      "text": "Você não recebeu o e-mail de verificação? ",
-      "accessibility": "enviar e-mail de verificação"
+      "text": "Você não recebeu o e-mail de verificação? "
     },
     "continue_button": {
-      "text": "Continuar",
-      "accessibility": "continuar para Cluey"
+      "text": "Continuar"
+    },
+    "content": {
+      "title": "Verificação enviada com sucesso!",
+      "description": "Receberá um e-mail com o link para verificar sua conta, associados ao e-mail registado.",
+      "alert_tittle": "Importante!",
+      "alert_msg": "Lembre-se de verificar também sua caixa de 'spam'.",
+      "button": {
+        "text": "Continuar"
+      }
     }
   },
   "preferences": {
     "title": "Preferências",
     "description": "Defina suas preferências",
     "focus": {
-      "title": "Conte-nos um pouco sobre você",
-      "description": "Vou usar o Cluey para usar:",
+      "title": "Conte-nos os seus objetivos",
+      "description": "Como pretende utilizar o Cluey ?",
       "itens": {
         "personal": "Pessoal",
         "commercial": "Comercial",
@@ -199,23 +211,23 @@
         "other": "Outro"
       },
       "other_input": {
-        "description": "Diga-nos quais os tipos de utilização que pretende, separados por vírgula",
-        "placeholder": "exterior"
+        "description": "Diga-nos quais os tipos de utilização que pretende, separados por vírgula:",
+        "placeholder": "Projeto, Trabalho"
       }
     },
     "interests": {
-      "title": "Interesses",
+      "title": "Conte-nos seus interesses",
       "description": "Selecione alguns para começar:",
       "itens": {
         "html": "HTML",
-        "ia": "I A",
+        "ai": "IA",
         "graphic_design": "Design gráfico",
         "musical_production": "Produção Musical",
-        "c_sharp": "C",
+        "c_sharp": "C#",
         "r": "R",
-        "python": "Pitão",
-        "ui": "IU",
-        "ux": "experiência do usuário",
+        "python": "Python",
+        "ui": "UI",
+        "ux": "UX",
         "web_design": "Designer de Web",
         "java": "Java",
         "javascript": "JavaScript"
@@ -231,11 +243,13 @@
     }
   },
   "forgot": {
-    "title": "Esqueceu sua senha?",
-    "description": "Recupere sua conta para Cluey ajudá-lo.",
+    "title": "Repor palavra-passe",
+    "description": "Recupere sua conta Cluey",
+    "button_signin": {
+      "text": "Voltar para login"
+    },
     "button": {
-      "text": "Recupere agora",
-      "accessibility": "envie verificação por e-mail para recuperar sua conta Cluey"
+      "text": "Recuperar"
     },
     "text_input": {
       "email": "e-mail"
@@ -244,16 +258,15 @@
       "title": "Recuperação de senha solicitada com sucesso!",
       "description": "Receberá um e-mail com os passos para recuperar a palavra-passe da sua conta, associados ao e-mail introduzido.",
       "alert_tittle": "Importante!",
-      "alert_msg": "Lembre-se de verificar também sua pasta de 'spam'.",
-      "Button": {
-        "text": "Continuar para fazer login",
-        "accessibility": "continuar para a tela de login"
+      "alert_msg": "Lembre-se de verificar também sua caixa de 'spam'.",
+      "button": {
+        "text": "Continuar"
       }
     }
   },
   "logout": {
     "text": "Sair",
-    "accessibility": "saia da sua conta Cluey"
+    "description": "Sair da sua conta Cluey"
   },
   "home": {
     "title": "Lar",
@@ -306,7 +319,7 @@
       "description": "suas equipes"
     },
     "chat_box": {
-      "placeholder": "Digite sua mensagem aqui...",
+      "placeholder": "Digite sua mensagem...",
       "placeholder1": "Oi ",
       "placeholder2": ", como posso ajudá-lo?"
     },
@@ -315,8 +328,28 @@
       "accessibility": "mensagem do remetente"
     }
   },
-  "talk": {
-    "title": "Falar"
+  "directs": {
+    "title": "Falar",
+    "item": {
+      "title": "Conversas",
+      "input": {
+        "placeholder": "Pesquisar um contato"
+      }
+    }
+  },
+  "tools": {
+    "data": "Dados do Contato",
+    "select": "Selecionar Mensagem",
+    "silence": "Silenciar Notificações",
+    "delete": "Eliminar Messagem",
+    "drop": "Apagar Conversa",
+    "block": "Bloquear Contato"
+  },
+  "people": {
+    "button": {
+      "text": "Enviar mensagem",
+      "accessibility": "enviar mensagem para esse contato"
+    }
   },
   "settings": {
     "title": "Configurações",
@@ -337,6 +370,16 @@
     "name_button": {
       "text": "Altera o teu nome",
       "accessibility": "altera o teu nome"
+    },
+    "account" : {
+      "title": "Conta"
+    },
+    "preferences" : {
+      "title": "Preferências"
+    },
+    "notify" : {
+      "title": "Notificações",
+      "description": "Ativar ou desativar notificações"
     }
   },
   "email_config": {
@@ -375,6 +418,19 @@
   "about": {
     "title": "Sobre"
   },
+  "working" : {
+    "title": "Esta ferramenta está em construção",
+    "description": "Estamos a trabalhar arduamente para lhe dar a melhor experiência possível."
+  },
+  "patch" : {
+    "title": "Nota de Atualizaçãos",
+    "updates": "Novas funcionalidades",
+    "fix": "Problemas resolvidos",
+    "issue": "Problemas conhecidos",
+    "version": "Versão",
+    "readMore": "Ver todos as Notas de Atualização",
+    "confirm": "Ok"
+  },
   "alert": {
     "title": "Alerta",
     "yes": "Sim",
@@ -399,6 +455,14 @@
       "message": "Escolha como você deseja alterar sua foto",
       "camera": "Câmera",
       "library": "Galeria"
+    },
+    "delete_contact": {
+      "title": "Você tem certeza?",
+      "message1": "Tem certeza de que deseja apagar ",
+      "message2": " dos seus contactos?"
+    },
+    "server": {
+      "offline_text": "Desculpe, Cluey está offline no momento!"
     }
   },
   "loading": {

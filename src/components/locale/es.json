@@ -2,7 +2,15 @@
   "language": {
     "iso": "ES",
     "locale": "es-ES",
-    "name": "Español"
+    "name": "Español",
+    "button":{
+      "text": "Idioma",
+      "description": "Selecione o idioma da aplicação"
+    }
+  },
+  "theme": {
+    "title": "Tema",
+    "description": "Selecione o tema da aplicação"
   },
   "global": {
     "openai": {
@@ -125,6 +133,7 @@
     }
   },
   "providers": {
+    "text": "Inicie sessão com",
     "button_google": {
       "text": "Continuar con Google",
       "accessibility": "inicia sesión con la cuenta de google y empieza a usar Cluey"
@@ -199,8 +208,8 @@
         "other": "Otro"
       },
       "other_input": {
-        "description": "Díganos qué tipos de uso pretende, separados por una coma",
-        "placeholder": "afuera"
+        "description": "Díganos qué tipos de uso pretende, separados por una coma:",
+        "placeholder": "Projct, Work"
       }
     },
     "interests": {
@@ -208,10 +217,10 @@
       "description": "Seleccione algunos para comenzar: ",
       "itens": {
         "html": "HTML",
-        "ia": "I A",
+        "ai": "AI",
         "graphic_design": "Diseño gráfico",
         "musical_production": "Producción Musical",
-        "c_sharp": "C",
+        "c_sharp": "C#",
         "r": "R",
         "python": "Pitón",
         "ui": "interfaz de usuario",
@@ -253,7 +262,7 @@
   },
   "logout": {
     "text": "Cerrar sesión",
-    "accessibility": "cerrar sesión en su cuenta de Cluey"
+    "description": "Cerrar sesión en su cuenta de Cluey"
   },
   "home": {
     "title": "Hogar",
@@ -306,7 +315,7 @@
       "description": "tus equipos"
     },
     "chat_box": {
-      "placeholder": "Escribe tu mensaje aquí...",
+      "placeholder": "Escribe tu mensaje...",
       "placeholder1": "Hola ",
       "placeholder2": ", ¿Le puedo ayudar en algo?"
     },
@@ -315,8 +324,25 @@
       "accessibility": "mensaje del remitente"
     }
   },
-  "talk": {
-    "title": "Hablar"
+  "directs": {
+    "title": "Falar",
+    "item": {
+      "title": "Conversas"
+    }
+  },
+  "tools": {
+    "data": "Dados do Contato",
+    "select": "Selecionar Mensagem",
+    "silence": "Silenciar Notificações",
+    "delete": "Eliminar Messagem",
+    "drop": "Apagar Conversa",
+    "block": "Bloquear Contato"
+  },
+  "people": {
+    "button": {
+      "text": "Enviar mensagem",
+      "accessibility": "enviar mensagem para esse contato"
+    }
   },
   "settings": {
     "title": "Ajustes",
@@ -337,6 +363,16 @@
     "name_button": {
       "text": "Cambia tu nombre",
       "accessibility": "cambia tu nombre"
+    },
+    "account" : {
+      "title": "Conta"
+    },
+    "preferences" : {
+      "title": "Preferências"
+    },
+    "notify" : {
+      "title": "Notificações",
+      "description": "Ativar ou desativar notificações"
     }
   },
   "email_config": {
@@ -375,6 +411,19 @@
   "about": {
     "title": "Acerca de"
   },
+  "working" : {
+    "title": "Esta ferramenta está em construção",
+    "description": "Estamos a trabalhar arduamente para lhe dar a melhor experiência possível."
+  },
+  "patch" : {
+    "title": "Nota de Atualizaçãos",
+    "updates": "Novas funcionalidades",
+    "fix": "Problemas resolvidos",
+    "issue": "Problemas conhecidos",
+    "version": "Versão",
+    "readMore": "Ver todos as Notas de Atualização",
+    "confirm": "Ok"
+  },
   "alert": {
     "title": "Alerta",
     "yes": "Sí",
@@ -399,6 +448,14 @@
       "message": "Elige cómo quieres cambiar tu foto",
       "camera": "Cámara",
       "library": "Galería"
+    },
+    "delete_contact": {
+      "title": "Você tem certeza?",
+      "message1": "Tem certeza de que deseja apagar ",
+      "message2": " dos seus contactos?"
+    },
+    "server": {
+      "offline_text": "Desculpe, Cluey está offline no momento!"
     }
   },
   "loading": {
