@@ -1,14 +1,21 @@
 # <a href='https://app.cluey.pt'>Cluey-Web</a>
 Cluey App for Web
 
+<<<<<<< HEAD
 ### Future Features
 - Add responsive to all components on left menu.
 
+=======
+>>>>>>> 7bdd9a2def7945d866a4dff43fb04c3b07c0eb6a
 ### New Router DOM
 - [x] Screen
   - [x] Home
     - [x] Loading
+<<<<<<< HEAD
   - [x] Auth *working*
+=======
+  - [ ] Auth *working*
+>>>>>>> 7bdd9a2def7945d866a4dff43fb04c3b07c0eb6a
 
 ### Web App
 - [x] api
