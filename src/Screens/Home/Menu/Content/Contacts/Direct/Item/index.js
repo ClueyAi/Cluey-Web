@@ -2,8 +2,7 @@ import React, { useContext } from "react";
 import UserAvatar from "react-native-user-avatar";
 import PropTypes from "prop-types";
 import AntDesign from "@expo/vector-icons/AntDesign";
-import { ThemeContext } from "../../../../../../../components/theme";
-import { P } from '../../../../../../../components/global'
+import { ThemeContext } from "/src/components/theme";
 
 import {
   DirectItemContainer,
@@ -13,7 +12,8 @@ import {
   DirectItemState,
   DirectItemInfo,
   DirectItemStateSection,
-  DirectItemNotify
+  DirectItemNotify,
+  DirectItemText
 } from "../../../../../../components";
 
 const Item = ({ item }) => {
@@ -53,7 +53,7 @@ const Item = ({ item }) => {
     <DirectItemContainer>
       <DirectItemContent>
         <DirectItemSection>
-          <DirectItemPicture>
+          <DirectItemPicture color={getState()}>
             <UserAvatar
               size={55}
               style={{ width: 55, height: 55, borderRadius: 100, borderWidth: 2 }}
@@ -63,15 +63,15 @@ const Item = ({ item }) => {
           </DirectItemPicture>
           <DirectItemState style={{backgroundColor: getState()}}/>
           <DirectItemInfo>
-            <P style={{fontSize: 20}}>{friend?.displayName}</P>
-            <P style={{color: theme.textDark}}>{messagePreview?messagePreview:' '}</P>
+            <DirectItemText theme={theme}>{friend?.displayName}</DirectItemText>
+            <DirectItemText theme={theme}>{messagePreview?messagePreview:' '}</DirectItemText>
           </DirectItemInfo>
         </DirectItemSection>
         <DirectItemStateSection>
           <DirectItemNotify>
             <AntDesign name="check" size={22} color={getNotify()} />
           </DirectItemNotify>
-          <P style={{color: theme.textDark}}>{time}</P>
+          <DirectItemText theme={theme}>{time}</DirectItemText>
         </DirectItemStateSection>
       </DirectItemContent>
     </DirectItemContainer>

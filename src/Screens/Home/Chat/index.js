@@ -1,7 +1,7 @@
 import React, {useContext, useEffect, useState} from 'react';
 import { useLocation } from 'react-router-dom';
-import { FirebaseContext } from '../../../api/firebase';
-import { ThemeContext } from '../../../components/theme';
+import { FirebaseContext } from '/src/api/firebase';
+import { ThemeContext } from '/src/components/theme';
 
 import { ChatContainer } from '../../components';
 
@@ -24,8 +24,8 @@ const Chat = () => {
   if (!status) {
     return (
       <ChatContainer theme={theme}>
-        <Header id={id}/>
-        <Content id={id}/>
+        <Header id={id} />
+        <Content id={id} />
         <Footer id={id} />
       </ChatContainer>
     );

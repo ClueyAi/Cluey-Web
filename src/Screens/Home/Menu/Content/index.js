@@ -57,6 +57,7 @@ const Content = ({selected, handleSelected}) => {
 
 Content.propTypes = {
   selected: PropTypes.number,
+  handleSelected: PropTypes.func,
 };
 
 export default Content;

@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import MaterialIcons from "@expo/vector-icons/MaterialIcons";
 import AntDesign from "@expo/vector-icons/AntDesign";
 import PropTypes from "prop-types";
-import { ThemeContext } from "../../../../../../components/theme";
+import { ThemeContext } from "/src/components/theme";
 
 import {
   ItemContainer,
@@ -50,6 +50,7 @@ const Item = ({ item, editing, setEditing, handlerEditChatName, handlerDeleteCha
           <ItemTextSection>
             {editing === item.id ?
               <ItemEditTextInput
+                theme={theme}
                 placeholder={chatName}
                 value={chatName}
                 placeholderTextColor={theme.primary}
@@ -57,10 +58,10 @@ const Item = ({ item, editing, setEditing, handlerEditChatName, handlerDeleteCha
                 autoFocus
                 selectTextOnFocus
                 onChangeText={chatNameValidation}
-                onSubimiyEditing={handlerConfirmNameEdit}
+                onSubimitEditing={handlerConfirmNameEdit}
               />
               :
-              <ItemText>{name}</ItemText>
+              <ItemText theme={theme}>{name}</ItemText>
             }
           </ItemTextSection>
         </ItemSection>

@@ -3,14 +3,14 @@ import { StyleSheet } from "react-native";
 import AntDesign from "@expo/vector-icons/AntDesign";
 import PropTypes from "prop-types";
 
-import { ThemeContext } from "../../../../../../components/theme";
+import { ThemeContext } from "/src/components/theme";
 import {
   Main,
   View,
   Profile,
   Infor,
   H4,
-} from "../../../../../../components/global";
+} from "/src/components/global";
 
 const Suggests = ({ item }) => {
   const { theme } = useContext(ThemeContext);
@@ -64,7 +64,7 @@ const Suggests = ({ item }) => {
 };
 
 Suggests.propTypes = {
-	item: PropTypes.object.isRequired,
+  item: PropTypes.object.isRequired,
 };
 
 export default Suggests;

@@ -2,9 +2,9 @@ import React, { useState, useContext } from 'react';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import PropTypes from "prop-types";
 
-import { FirebaseContext } from '../../../../../api/firebase';
-import { ThemeContext } from '../../../../../components/theme';
-import { LocaleContext } from '../../../../../components/locale';
+import { FirebaseContext } from '/src/api/firebase';
+import { ThemeContext } from '/src/components/theme';
+import { LocaleContext } from '/src/components/locale';
 import {
   AlertBox,
   InputContainer,
@@ -15,7 +15,7 @@ import {
 const Input = ({id}) => {
   const {locale} = useContext(LocaleContext);
   const {theme} = useContext(ThemeContext);
-  const { appStatus, chats, createUserPrivateMessage, createAiPrivateMessage, createUserDirectMessage} = useContext(FirebaseContext);
+  const { appStatus, chats, createUserPrivateMessage, createAiPrivateMessage, createUserDirectMessage, putCredits} = useContext(FirebaseContext);
   const [textValue, setTextValue] = useState('');
   const [visible, setVisible] = useState(false);
   const [data, setData] = useState(null);
@@ -35,13 +35,14 @@ const Input = ({id}) => {
       },
       messageCancel: locale.alert.ok,
     };
-    if (textValue.text !== "") {
+    if (textValue !== '') {
       chats.forEach(async(item) => {
         if (item.type === 'private' && item.id === id) {
           if (server) {
             try {
               await createUserPrivateMessage(id, textValue);
               await createAiPrivateMessage(id, textValue);
+              await putCredits();
             } catch (error) {
               console.error(error);
             }
@@ -64,7 +65,7 @@ const Input = ({id}) => {
 
   if (id) {
     return (
-      <InputContainer>
+      <InputContainer theme={theme}>
         {visible?<AlertBox data={data} />:null}
         <InputTextBox
           placeholder={locale.home.chat_box.placeholder}

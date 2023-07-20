@@ -2,10 +2,9 @@ import React, { useContext, useState, useEffect } from 'react';
 import { FlatList } from 'react-native';
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 import PropTypes from 'prop-types';
-import { FirebaseContext } from '../../../../../../api/firebase';
-import { LocaleContext } from '../../../../../../components/locale'
-import { ThemeContext, shadow } from '../../../../../../components/theme';
-import { P } from '../../../../../../components/global';
+import { FirebaseContext } from '/src/api/firebase';
+import { LocaleContext } from '/src/components/locale'
+import { ThemeContext, shadow } from '/src/components/theme';
 
 import {
   PeopleContainer,
@@ -17,6 +16,7 @@ import {
   PeopleSection,
   PeopleAction,
   PeopleButton,
+  PeopleText,
   AlertBox
 } from "../../../../../components";
 import { navigate, hover } from '../../../../../functions';
@@ -107,7 +107,7 @@ const People = ({handlerAddContact}) => {
               onMouseEnter={handleMouseEnter}
               onMouseLeave={handleMouseLeave}
             >
-              <P>{locale.people.button.text}</P>
+              <PeopleText theme={theme}>{locale.people.button.text}</PeopleText>
             </PeopleButton>
             <Button onPress={() => handleAddNewContact(item)}>
               <MaterialIcons name="add" size={22} color={theme.text} />
@@ -138,7 +138,7 @@ const People = ({handlerAddContact}) => {
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
           >
-            <P>{locale.people.button.text}</P>
+            <PeopleText theme={theme}>{locale.people.button.text}</PeopleText>
           </PeopleButton>
           <Button onPress={() => handlerDeleteContact(item)}>
             <MaterialIcons name="delete-outline" size={22} color={theme.error} />

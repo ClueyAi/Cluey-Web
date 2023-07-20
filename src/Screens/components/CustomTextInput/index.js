@@ -1,7 +1,7 @@
 import React, { useState, useContext, forwardRef, useImperativeHandle, useRef, useEffect } from 'react';
-import { TextInput, View, Animated } from 'react-native';
+import { TextInput, Animated } from 'react-native';
 import styled from 'styled-components/native';
-import { ThemeContext } from '../../../components/theme';
+import { ThemeContext } from '/src/components/theme';
 
 const StyledTextInput = styled(TextInput)`
   font-family: 'Nunito';
@@ -58,7 +58,7 @@ const CustomTextInput = forwardRef(({ name, email, placeholder, validation, ...r
 
   const handleChangeText = (value) => {
     setText(value);
-    validation(value);
+    validation && validation(value);
   };
 
   useImperativeHandle(ref, () => ({

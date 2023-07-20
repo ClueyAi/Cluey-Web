@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import UserAvatar from "react-native-user-avatar";
 import PropTypes from "prop-types";
-import { ThemeContext } from '../../../../../../../components/theme'
+import { ThemeContext } from '/src/components/theme'
 
 import {
   SearchContainer,
@@ -29,7 +29,7 @@ const Search = ({ item }) => {
             />
           </SearchPicture>
           <SearchInfo>
-            <SearchDisplayName>{item?.displayName}</SearchDisplayName>
+            <SearchDisplayName theme={theme}>{item?.displayName}</SearchDisplayName>
             <SearchUserName theme={theme}>{item?.userName}</SearchUserName>
           </SearchInfo>
         </SearchSection>

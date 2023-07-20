@@ -1,12 +1,12 @@
-import React, { useState, useContext, useRef } from "react";
+import React, { useContext } from "react";
 
-import { LocaleContext } from "../../../../components/locale";
-import { ThemeContext } from "../../../../components/theme";
+import { LocaleContext } from "/src/components/locale";
+import { ThemeContext } from "/src/components/theme";
 import {
   View,
   H0, P,
   ButtonEmpyte,
-} from "../../../../components/global";
+} from "/src/components/global";
 
 import {
   AuthHeaderLinkText
@@ -14,6 +14,7 @@ import {
 import { navigate } from '../../../functions';
 
 import Form from './Form';
+// eslint-disable-next-line no-unused-vars
 import Provider from './Provider';
 
 const Login = () => {

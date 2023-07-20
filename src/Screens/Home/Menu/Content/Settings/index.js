@@ -1,16 +1,12 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useContext, useState } from "react";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import Flag from 'react-native-flags';
+import PropTypes from 'prop-types';
 
-import { FirebaseContext } from "../../../../../api/firebase";
-import { ThemeContext } from "../../../../../components/theme";
-import { LocaleContext } from "../../../../../components/locale";
-import {
-  H1,
-  P,
-  ButtonEmpyte,
-  Footer,
-} from "../../../../../components/global";
+import { FirebaseContext } from "/src/api/firebase";
+import { ThemeContext } from "/src/components/theme";
+import { LocaleContext } from "/src/components/locale";
+
 import {
   AlertBox,
   Language,
@@ -30,12 +26,10 @@ import {
 } from '../../../../components';
 
 const Settings = ({ handleSelected }) => {
-  const {user, toggleNotify, signOut} = useContext(FirebaseContext);
+  const {user, editNotify, editTheme, signOut} = useContext(FirebaseContext);
   const {locale} = useContext(LocaleContext);
   const {theme, toggleTheme} = useContext(ThemeContext);
   const [data, setData] = useState(null);
-  const [lightDark, setLightDark] = useState(false);
-  const [notifyState, setNotifyState] = useState(false);
   const [vLogout, setVLogout] = useState(false);
   const [vLanguage, setVLanguage] = useState(false);
 
@@ -65,26 +59,18 @@ const Settings = ({ handleSelected }) => {
     setVLogout(true);
   };
   
-  const toggleSwitchTheme = () => {
-    setLightDark((previousState) => !previousState);
-    toggleTheme(lightDark);
+  const toggleSwitchTheme = (value) => {
+    toggleTheme(value);
+    editTheme(value);
   };
 
-  const toggleSwitchNotify = async () => {
-    setNotifyState((previousState) => !previousState);
-    await toggleNotify(!notifyState);
+  const toggleSwitchNotify = async (value) => {
+    await editNotify(value);
   };
 
   const handleAccount = () => {
     handleSelected(9);
   };
-
-  useEffect(() => {
-    const getNotify = async () => {
-      user?.notify ? setNotifyState(true) : setNotifyState(false);
-    };
-    getNotify();
-  }, []);
 
   return (
     <SettingsContainer>
@@ -107,17 +93,17 @@ const Settings = ({ handleSelected }) => {
           <SettingsItem theme={theme}>
             <SettingsHeaderTitle theme={theme}>{locale.settings.preferences.title}</SettingsHeaderTitle>
             <SettingsWideButton theme={theme} onPress={toggleSwitchNotify}>
-              <Ionicons name="notifications-outline" style={{width: 30}} size={22} color={theme.text} />
+              <Ionicons name="notifications-outline" style={{width: 30}} size={24} color={theme.text} />
               <SettingsSection theme={theme}>
                 <SettingsTitle theme={theme}>{locale.settings.notify.title}</SettingsTitle>
                 <SettingsDiv>
-                  <NotifySwitch notifyState={notifyState} toggleSwitchNotify={toggleSwitchNotify} />
+                  <NotifySwitch notifyState={user?.notify} circleSize={22} barHeight={15} toggleSwitchNotify={toggleSwitchNotify} />
                 </SettingsDiv>
               </SettingsSection>
             </SettingsWideButton>
             <SettingsDivider theme={theme} />
             <SettingsWideButton theme={theme} onPress={handleLanguage}>
-              <Ionicons name="language-outline" style={{width: 30}} size={22} color={theme.text} />
+              <Ionicons name="language-outline" style={{width: 30}} size={24} color={theme.text} />
               <SettingsSection theme={theme}>
                 <SettingsTitle theme={theme}>{locale.language.button.text}</SettingsTitle>
                 <SettingsDiv>
@@ -129,17 +115,17 @@ const Settings = ({ handleSelected }) => {
             </SettingsWideButton>
             <SettingsDivider theme={theme} />
             <SettingsWideButton theme={theme} onPress={toggleSwitchTheme}>
-              <Ionicons name="color-palette-outline" style={{width: 30}} size={22} color={theme.text} />
+              <Ionicons name="color-palette-outline" style={{width: 30}} size={24} color={theme.text} />
               <SettingsSection theme={theme}>
                 <SettingsTitle theme={theme}>{locale.theme.title}</SettingsTitle>
                 <SettingsDiv>
-                  <ThemeSwitch lightDark={lightDark} toggleSwitchTheme={toggleSwitchTheme} />
+                  <ThemeSwitch themeState={user?.theme} circleSize={22} barHeight={15} toggleSwitchTheme={toggleSwitchTheme} />
                 </SettingsDiv>
               </SettingsSection>
             </SettingsWideButton>
             <SettingsDivider theme={theme} />
             <SettingsWideButton theme={theme} onPress={handleLogout}>
-              <Ionicons name="log-out-outline" style={{width: 30}} size={22} color={theme.text} />
+              <Ionicons name="log-out-outline" style={{width: 30}} size={24} color={theme.text} />
               <SettingsSection theme={theme}>
                 <SettingsTitle theme={theme}>{locale.logout.text}</SettingsTitle>
                 <SettingsText theme={theme}>{locale.logout.description}</SettingsText>
@@ -150,6 +136,10 @@ const Settings = ({ handleSelected }) => {
       </SettingsContent>
     </SettingsContainer>
   );
+};
+
+Settings.propTypes = {
+  handleSelected: PropTypes.func,
 };
 
 export default Settings;

@@ -1,8 +1,8 @@
 import React, { useContext, useState, useEffect } from 'react';
 import { FlatList  } from 'react-native';
 import PropTypes from 'prop-types';
-import { FirebaseContext } from '../../../../../api/firebase';
-import { shadow, ThemeContext } from '../../../../../components/theme';
+import { FirebaseContext } from '/src/api/firebase';
+import { shadow, ThemeContext } from '/src/components/theme';
 
 import { ChatsContainer, ChatsButton } from '../../../../components';
 import { navigate, hover } from '../../../../functions';

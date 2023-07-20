@@ -5,6 +5,7 @@ import { FirebaseContext } from '../../../../api/firebase';
 import Messages from './Messages';
 import Plans from './Plans';
 import Presets from './Presets';
+import Sliders from './Sliders';
 
 const Content = ({id}) => {
   const { chats } = useContext(FirebaseContext);
@@ -17,12 +18,12 @@ const Content = ({id}) => {
 
   if (id) {
     return (
-      <Messages chat={chat}/>
+      <Messages chat={chat} />
     );
   }
 
   return (
-    <Presets/>
+    <Presets />
   );
 
 

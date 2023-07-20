@@ -1,10 +1,10 @@
 import React, { useState, useContext, useRef } from "react";
-import { TouchableWithoutFeedback, Keyboard, StyleSheet, Alert } from "react-native";
+import { Alert } from "react-native";
 import Ionicons from "@expo/vector-icons/Ionicons";
 
-import { FirebaseContext } from "../../../../../../api/firebase";
-import { ThemeContext } from "../../../../../../components/theme";
-import { LocaleContext } from "../../../../../../components/locale";
+import { FirebaseContext } from "/src/api/firebase";
+import { ThemeContext, shadow } from "/src/components/theme";
+import { LocaleContext } from "/src/components/locale";
 import {
   Form,
   Input,
@@ -12,7 +12,7 @@ import {
   TxtButton,
   TextError,
   ButtonPrimary,
-} from "../../../../../../components/global";
+} from "/src/components/global";
 import {
   UserContent
 } from '../../../../../components';
@@ -20,7 +20,7 @@ import { navigate} from '../../../../../functions';
 
 const Email = () => {
   const { locale } = useContext(LocaleContext);
-  const { user, updateUserEmail } = useContext(FirebaseContext);
+  const { updateUserEmail } = useContext(FirebaseContext);
   const { theme } = useContext(ThemeContext);
   const emailRef = useRef(null);
   const passwordRef = useRef(null);
@@ -108,7 +108,7 @@ const Email = () => {
       <Form style={{ marginTop: 40, alignSelf: 'center'}}>
         <Input
           style={{
-            ...styles.shadow,
+            ...shadow,
             marginBottom: 15,
             backgroundColor: `${
               error === errorEmail && emailValid == false
@@ -120,6 +120,7 @@ const Email = () => {
           <TextInput
             ref={emailRef}
             value={newEmail}
+            theme={theme}
             placeholder={locale.email_config.email}
             placeholderTextColor={theme.placeholder}
             selectionColor={theme.primary}
@@ -155,7 +156,7 @@ const Email = () => {
         </Input>
         <Input
           style={{
-            ...styles.shadow,
+            ...shadow,
             marginBottom: 10,
             backgroundColor: `${
               passwordValid == false ? theme.inputError : theme.backgroundSecondary
@@ -164,6 +165,7 @@ const Email = () => {
         >
           <TextInput
             ref={passwordRef}
+            theme={theme}
             placeholder={locale.email_config.password}
             placeholderTextColor={theme.placeholder}
             selectionColor={theme.primary}
@@ -176,12 +178,12 @@ const Email = () => {
           />
         </Input>
         {error ? (
-          <TextError>{errorMsg}</TextError>
+          <TextError theme={theme}>{errorMsg}</TextError>
         ) : (
-          <TextError> </TextError>
+          <TextError theme={theme}> </TextError>
         )}
         <ButtonPrimary
-          style={styles.shadow}
+          style={shadow}
           onPress={handleChange}
           accessibilityLabel={locale.email_config.change_button.accessible}
         >
@@ -191,15 +193,5 @@ const Email = () => {
     </UserContent>
   );
 };
-
-const styles = StyleSheet.create({
-  shadow: {
-    shadowColor: "#000000",
-    shadowOffset: { width: 0, height: 3 },
-    shadowOpacity: 0.17,
-    shadowRadius: 3.05,
-    elevation: 4,
-  },
-});
 
 export default Email;

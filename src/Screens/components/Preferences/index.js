@@ -2,9 +2,9 @@ import React, { useState, useContext } from 'react';
 import { Modal } from 'react-native';
 import PropTypes from "prop-types";
 
-import { LocaleContext } from '../../../components/locale'
-import { ThemeContext, shadow } from '../../../components/theme'
-import { FirebaseContext } from '../../../api/firebase';
+import { LocaleContext } from '/src/components/locale'
+import { ThemeContext, shadow } from '/src/components/theme'
+import { FirebaseContext } from '/src/api/firebase';
 
 import {
   LinkButton,
@@ -83,9 +83,9 @@ const Preferences = ({ setVPreferences }) => {
               <PreferencesButton theme={theme} onPress={handleContinueFocus}>
                 <PreferencesButtonText theme={theme}>{locale.preferences.continue_button.text}</PreferencesButtonText>
               </PreferencesButton>
-              <LiLinkButtonnk onPress={handleSkipFocus}>
+              <LinkButton onPress={handleSkipFocus}>
                 <PreferencesLinkText theme={theme}>{locale.preferences.skip_button.text}</PreferencesLinkText>
-              </LiLinkButtonnk>
+              </LinkButton>
             </PreferencesAction>
           </PreferencesContent> 
         </PreferencesContainer>

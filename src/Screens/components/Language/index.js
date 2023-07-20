@@ -1,10 +1,11 @@
 import React, { useContext } from 'react';
-import { View, Text, Modal, TouchableWithoutFeedback } from 'react-native';
+import { View, Text } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import Flag from 'react-native-flags';
+import PropTypes from 'prop-types';
 
-import { ThemeContext, shadow } from '../../../components/theme';
-import { us, pt, es, fr, LocaleContext } from '../../../components/locale';
+import { ThemeContext, shadow } from '/src/components/theme';
+import { us, pt, es, fr, LocaleContext } from '/src/components/locale';
 
 import {
   LanguageContainer,
@@ -69,6 +70,11 @@ const Language = ({ vLanguage, setVLanguage }) => {
       </View>
     </LanguageContainer>
   );
+};
+
+Language.propTypes = {
+  vLanguage: PropTypes.bool,
+  setVLanguage: PropTypes.func
 };
 
 export default Language;

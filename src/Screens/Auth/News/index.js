@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { Image } from 'react-native';
-import { ThemeContext } from '../../../components/theme';
+import { ThemeContext } from '/src/components/theme';
 
 import {
   NewsContainer,
@@ -15,10 +15,10 @@ const News = () => {
   return (
     <NewsContainer theme={theme}>
       <NewsContent>
-        <Image style={{width: '20%', height: '20%', resizeMode: 'contain'}} source={require('../../../../assets/images/logoname.png')} />
+        <Image style={{width: '20%', height: '20%', resizeMode: 'contain'}} source={require('/assets/images/logoname.png')} />
         <NewsSection>
-          <NewsSlideImage source={require('../../../../assets/images/screen1.png')} />
-          <NewsSlideImage source={require('../../../../assets/images/screen2.png')} />
+          <NewsSlideImage source={require('/assets/images/screen1.png')} />
+          <NewsSlideImage source={require('/assets/images/screen2.png')} />
         </NewsSection>
       </NewsContent>
     </NewsContainer>

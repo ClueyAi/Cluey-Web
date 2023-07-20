@@ -1,8 +1,7 @@
 import React, { useContext, useState, useEffect } from 'react';
-import Ionicons from '@expo/vector-icons/Ionicons';
 import PropTypes from 'prop-types';
-import { LocaleContext } from '../../../../../../components/locale';
-import { ThemeContext, shadow } from '../../../../../../components/theme';
+import { LocaleContext } from '/src/components/locale';
+import { ThemeContext } from '/src/components/theme';
 
 import { 
   ActionSearchContainer,

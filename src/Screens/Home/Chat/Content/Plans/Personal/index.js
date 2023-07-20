@@ -1,6 +1,5 @@
 import React, { useContext } from 'react';
-import { LocaleContext } from '../../../../../../components/locale';
-import { ThemeContext, shadow } from '../../../../../../components/theme';
+import { ThemeContext, shadow } from '/src/components/theme';
 
 import { PlansPersonal, PlansHeader, PlansTitle, PlansDescription, PlansPriceSetion, PlansPriceSpan, PlansPriceValue, PlansPriceDetail, PlansButton, PlansButtonText, PlansInfo } from '../../../../../components';
 import { hover } from '../../../../../functions';
@@ -8,7 +7,6 @@ import { hover } from '../../../../../functions';
 
 const Personal = () => {
   const { isHovered, handleMouseEnter, handleMouseLeave } = hover();
-  const {locale} = useContext(LocaleContext);
   const {theme} = useContext(ThemeContext);
 
   const handlePlans = () => {

@@ -1,7 +1,7 @@
 import React, { useContext, useRef } from 'react';
 import PropTypes from 'prop-types';
 import { Modal, TouchableWithoutFeedback } from 'react-native';
-import { ThemeContext, shadow } from '../../../components/theme';
+import { ThemeContext, shadow } from '/src/components/theme';
 
 import { 
   AlertContainer,
@@ -38,13 +38,13 @@ const AlertBox = ({ data }) => {
             </AlertSection>
             <AlertAction>
               {data.onConfirm?
-              <AlertButton style={{backgroundColor: theme.error}} onPress={data.onConfirm}>
-                <AlertButtonText style={{color: theme.background}}>{data.messageConfirm}</AlertButtonText>
-              </AlertButton>: null}
+                <AlertButton style={{backgroundColor: theme.error}} onPress={data.onConfirm}>
+                  <AlertButtonText theme={theme} style={{color: theme.background}}>{data.messageConfirm}</AlertButtonText>
+                </AlertButton>: null}
               {data.onCancel?
-              <AlertButton style={{backgroundColor: theme.textDark}} onPress={data.onCancel}>
-                <AlertButtonText style={{color: theme.background}}>{data.messageCancel}</AlertButtonText>
-              </AlertButton>: null}
+                <AlertButton style={{backgroundColor: theme.textDark}} onPress={data.onCancel}>
+                  <AlertButtonText theme={theme} style={{color: theme.background}}>{data.messageCancel}</AlertButtonText>
+                </AlertButton>: null}
             </AlertAction>
           </AlertContent>
         </AlertContainer>

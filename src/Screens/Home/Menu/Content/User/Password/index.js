@@ -1,10 +1,10 @@
 import React, { useState, useContext, useRef } from "react";
-import { TouchableWithoutFeedback, Keyboard, Alert } from "react-native";
+import { Alert } from "react-native";
 import Ionicons from "@expo/vector-icons/Ionicons";
 
-import { FirebaseContext } from "../../../../../../api/firebase";
-import { ThemeContext, shadow } from "../../../../../../components/theme";
-import { LocaleContext } from "../../../../../../components/locale";
+import { FirebaseContext } from "/src/api/firebase";
+import { ThemeContext, shadow } from "/src/components/theme";
+import { LocaleContext } from "/src/components/locale";
 import {
   Form,
   Input,
@@ -14,7 +14,7 @@ import {
   TextValid,
   TextError,
   ButtonPrimary,
-} from "../../../../../../components/global";
+} from "/src/components/global";
 import {
   UserContent
 } from '../../../../../components';
@@ -23,7 +23,7 @@ import { navigate } from '../../../../../functions';
 
 const Password = () => {
   const { locale } = useContext(LocaleContext);
-  const { user, updateUserPassword } = useContext(FirebaseContext);
+  const { updateUserPassword } = useContext(FirebaseContext);
   const { theme } = useContext(ThemeContext);
   const currentPasswordRef = useRef(null);
   const passwordRef = useRef(null);
@@ -121,6 +121,7 @@ const Password = () => {
         >
           <TextInput
             ref={currentPasswordRef}
+            theme={theme}
             placeholder={locale.password_config.current_password}
             placeholderTextColor={theme.placeholder}
             selectionColor={theme.primary}
@@ -145,6 +146,7 @@ const Password = () => {
         >
           <TextInput
             ref={passwordRef}
+            theme={theme}
             placeholder={locale.password_config.password}
             placeholderTextColor={theme.placeholder}
             selectionColor={theme.primary}
@@ -186,13 +188,13 @@ const Password = () => {
           )}
         </Input>
         {passwordStrong == false && passwordValid == true ? (
-          <TextAlert>Password medium</TextAlert>
+          <TextAlert theme={theme}>Password medium</TextAlert>
         ) : passwordValid == false && password !== '' ? (
-          <TextError>Password weak</TextError>
+          <TextError theme={theme}>Password weak</TextError>
         ) : passwordStrong == true && password !== '' ? (
-          <TextValid>Password strong</TextValid>
+          <TextValid theme={theme}>Password strong</TextValid>
         ) : (
-          <TextError></TextError>
+          <TextError theme={theme}></TextError>
         )}
         <Input
           style={{
@@ -207,6 +209,7 @@ const Password = () => {
         >
           <TextInput
             ref={rePasswordRef}
+            theme={theme}
             placeholder={locale.password_config.confirm_password}
             placeholderTextColor={theme.placeholder}
             selectionColor={theme.primary}
@@ -242,9 +245,9 @@ const Password = () => {
           ) : null}
         </Input>
         {error ? (
-          <TextError>{errorMsg}</TextError>
+          <TextError theme={theme}>{errorMsg}</TextError>
         ) : (
-          <TextError></TextError>
+          <TextError theme={theme}></TextError>
         )}
         <ButtonPrimary
           style={shadow}

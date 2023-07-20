@@ -3,19 +3,17 @@ import { ActivityIndicator } from "react-native";
 import { useLocation } from 'react-router-dom';
 import Ionicons from "@expo/vector-icons/Ionicons";
 
-import { LocaleContext } from "../../../../../components/locale";
-import { FirebaseContext } from "../../../../../api/firebase";
-import { ThemeContext, shadow } from "../../../../../components/theme";
+import { LocaleContext } from "/src/components/locale";
+import { FirebaseContext } from "/src/api/firebase";
+import { ThemeContext, shadow } from "/src/components/theme";
 import {
   View,
-  ButtonEmpyte,
   TxtButton,
   TextError,
-} from "../../../../../components/global";
+} from "/src/components/global";
 
 import {
   CustomTextInput,
-  AuthLinkText,
   AuthInput,
   AuthButton,
   AuthTitle,
@@ -26,7 +24,7 @@ import { navigate } from '../../../../functions';
 const Form = () => {
   const location = useLocation();
   const { locale } = useContext(LocaleContext);
-  const { forgot, putUser } = useContext(FirebaseContext);
+  const { forgot } = useContext(FirebaseContext);
   const { theme } = useContext(ThemeContext);
   const [email, setEmail] = useState('');
   const [emailValid, setEmailValid] = useState(null);
@@ -80,11 +78,11 @@ const Form = () => {
       <View style={{ width: '100%', alignItems: 'flex-start', marginLeft: 25, marginTop: 20 }}>
         <AuthTitle>{locale.forgot.success.title}</AuthTitle>
         <View style={{width: '50%', marginTop: 10, marginBottom: 20}}>
-          <AuthText>{locale.forgot.success.description}</AuthText>
+          <AuthText theme={theme}>{locale.forgot.success.description}</AuthText>
         </View>
         <AuthTitle>{locale.forgot.success.alert_tittle}</AuthTitle>
         <View style={{width: '50%', marginTop: 10, marginBottom: 10}}>
-          <AuthText>{locale.forgot.success.alert_msg}</AuthText>
+          <AuthText theme={theme}>{locale.forgot.success.alert_msg}</AuthText>
         </View>
         <View style={{marginTop: 20, alignItems: 'center', justifyContent: 'center'}}>
           <AuthButton
@@ -101,7 +99,7 @@ const Form = () => {
         </View>
       </View>
     );
-  };
+  }
 
   return (
     <View style={{ width: '100%', alignItems: 'flex-start', marginLeft: 25, marginTop: 20 }}>
@@ -121,6 +119,7 @@ const Form = () => {
         />
         <CustomTextInput
           name={"email"}
+          theme={theme}
           placeholder={locale.signin.text_input.email}
           placeholderTextColor={theme.placeholder}
           selectionColor={theme.primary}
@@ -135,9 +134,9 @@ const Form = () => {
         />
       </AuthInput>
       {error ? (
-        <TextError>{errorMsg}</TextError>
+        <TextError theme={theme}>{errorMsg}</TextError>
       ) : (
-        <TextError> </TextError>
+        <TextError theme={theme}> </TextError>
       )}
       <View style={{width: 400, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between'}}>
         <AuthButton

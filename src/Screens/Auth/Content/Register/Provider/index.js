@@ -1,14 +1,14 @@
-import React, { useState, useContext, useRef } from "react";
+import React, { useContext } from "react";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 import { useNavigate } from 'react-router-dom';
 
-import { LocaleContext } from "../../../../../components/locale";
-import { ProvidersContext } from "../../../../../api/providers";
-import { ThemeContext } from "../../../../../components/theme";
+import { LocaleContext } from "/src/components/locale";
+import { ProvidersContext } from "/src/api/providers";
+import { ThemeContext } from "/src/components/theme";
 import {
   View,
   TxtProvider,
-} from "../../../../../components/global";
+} from "/src/components/global";
 
 import {
   LinkButton,

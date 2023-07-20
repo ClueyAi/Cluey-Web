@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Modal, FlatList, ActivityIndicator } from 'react-native';
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 import Feather from '@expo/vector-icons/Feather';
-import { ThemeContext, shadow } from '../../../components/theme';
+import { ThemeContext, shadow } from '/src/components/theme';
 
 import {
   PatchContainer,

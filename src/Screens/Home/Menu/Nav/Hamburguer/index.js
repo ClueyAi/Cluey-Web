@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { View } from 'react-native';
-import { ThemeContext } from '../../../../../components/theme';
+import { ThemeContext } from '/src/components/theme';
 
 const Hamburguer = () => {
   const {theme} = useContext(ThemeContext);

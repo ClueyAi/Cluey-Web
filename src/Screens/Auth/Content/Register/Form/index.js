@@ -2,11 +2,10 @@ import React, { useState, useContext, useRef, useEffect } from "react";
 import { ActivityIndicator } from "react-native";
 import { useLocation } from 'react-router-dom';
 import Ionicons from "@expo/vector-icons/Ionicons";
-import FontAwesome from "@expo/vector-icons/FontAwesome";
 
-import { LocaleContext } from "../../../../../components/locale";
-import { FirebaseContext } from "../../../../../api/firebase";
-import { ThemeContext, shadow } from "../../../../../components/theme";
+import { LocaleContext } from "/src/components/locale";
+import { FirebaseContext } from "/src/api/firebase";
+import { ThemeContext, shadow } from "/src/components/theme";
 import {
   View,
   ButtonEmpyte,
@@ -14,11 +13,10 @@ import {
   TextError,
   TextAlert,
   TextValid
-} from "../../../../../components/global";
+} from "/src/components/global";
 
 import {
   CustomTextInput,
-  AuthLinkText,
   AuthInput,
   AuthButton,
 } from '../../../../components';
@@ -156,6 +154,7 @@ const Form = () => {
         <CustomTextInput
           ref={emailRef}
           name={"email"}
+          theme={theme}
           placeholder={locale.signin.text_input.email}
           placeholderTextColor={theme.placeholder}
           selectionColor={theme.primary}
@@ -187,6 +186,7 @@ const Form = () => {
         <CustomTextInput
           ref={passwordRef}
           name={"password"}
+          theme={theme}
           placeholder={locale.signin.text_input.password}
           placeholderTextColor={theme.placeholder}
           selectionColor={theme.primary}
@@ -203,14 +203,14 @@ const Form = () => {
         </ButtonEmpyte>
       </AuthInput>
       {passwordStrong == false && passwordValid == true ? (
-            <TextAlert>Password medium</TextAlert>
-          ) : passwordValid == false && password !== '' ? (
-            <TextError>Password weak</TextError>
-          ) : passwordStrong == true && password !== '' ? (
-            <TextValid>Password strong</TextValid>
-          ) : (
-            <TextError></TextError>
-          )}
+        <TextAlert theme={theme}>Password medium</TextAlert>
+      ) : passwordValid == false && password !== '' ? (
+        <TextError theme={theme}>Password weak</TextError>
+      ) : passwordStrong == true && password !== '' ? (
+        <TextValid theme={theme}>Password strong</TextValid>
+      ) : (
+        <TextError theme={theme}></TextError>
+      )}
       <AuthInput
         theme={theme}
         style={{
@@ -229,6 +229,7 @@ const Form = () => {
         <CustomTextInput
           ref={rePasswordRef}
           name={"rePassword"}
+          theme={theme}
           placeholder={locale.signup.text_input.confirm_password}
           placeholderTextColor={theme.placeholder}
           selectionColor={theme.primary}
@@ -245,9 +246,9 @@ const Form = () => {
         </ButtonEmpyte>
       </AuthInput>
       {error ? (
-        <TextError>{errorMsg}</TextError>
+        <TextError theme={theme}>{errorMsg}</TextError>
       ) : (
-        <TextError> </TextError>
+        <TextError theme={theme}> </TextError>
       )}
       <View style={{width: 400, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between'}}>
         <AuthButton

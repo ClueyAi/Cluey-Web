@@ -2,8 +2,8 @@ import React, { useState, useContext, useEffect } from 'react';
 import UserAvatar from "react-native-user-avatar";
 import PropTypes from "prop-types";
 
-import { FirebaseContext } from '../../../../../api/firebase';
-import { ThemeContext } from '../../../../../components/theme';
+import { FirebaseContext } from '/src/api/firebase';
+import { ThemeContext } from '/src/components/theme';
 import { 
   InfoContainer,
   InfoPicture,

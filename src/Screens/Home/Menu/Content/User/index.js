@@ -3,10 +3,10 @@ import { TouchableWithoutFeedback } from "react-native";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import Flag from 'react-native-flags';
 
-import { ThemeContext } from "../../../../../components/theme";
-import { LocaleContext } from "../../../../../components/locale";
-import { FirebaseContext } from "../../../../../api/firebase";
-import CountryPicker  from "../../../../../api/country-picker";
+import { ThemeContext } from "/src/components/theme";
+import { LocaleContext } from "/src/components/locale";
+import { FirebaseContext } from "/src/api/firebase";
+import CountryPicker  from "/src/api/country-picker";
 import {
   UserContainer,
   UserContent,
@@ -72,63 +72,63 @@ const User = () => {
         <UserContent style={{marginTop: 20}}>
           <Profile editingName={editingName} handleEditName={handleEditName} />
           {vEmail?<Email />:
-          vPassword?<Password />:
-          vCountry?<CountryPicker onSelect={handleCountrySelect} />:
-          <UserScrollView style={{ marginTop: 30 }}>
-            <UserWideButton onPress={handleChangeEmail}>
-              <UserSection>
-                <UserTitle theme={theme}>{locale.email_config.title}</UserTitle>
-                <UserText theme={theme}>{user?.email}</UserText>
-              </UserSection>
-              <Ionicons name="chevron-forward" size={30} color={theme.textGray} />
-            </UserWideButton>
-            <UserWideButton onPress={handleChangePassword}>
-              <UserSection>
-                <UserTitle theme={theme}>{locale.password_config.title}</UserTitle>
-              </UserSection>
-              <Ionicons name="chevron-forward" size={30} color={theme.textGray} />
-            </UserWideButton>
-            <UserWideButton onPress={handleCountry}>
-              <UserSection>
-                <UserTitle theme={theme}>{locale.country_config.title}</UserTitle>
-                {country?
-                  <UserCountry>
-                    <Flag code={country?.iso} style={{marginHorizontal: 5}} size={16}/>
-                    <UserText theme={theme}>{country?.name}</UserText>
-                  </UserCountry>
-                  :
-                  <UserText theme={theme}>{locale.country_config.description}</UserText>
-                }
-              </UserSection>
-              <Ionicons name="chevron-forward" size={30} color={theme.textGray} />
-            </UserWideButton>
-            <UserWideButton onPress={openPreferences}>
-              <UserSection style={{ alignItems: "flex-start" }}>
-                <UserTitle theme={theme}>{locale.preferences.title}</UserTitle>
-                <UserText theme={theme}>{locale.preferences.description}</UserText>
-              </UserSection>
-              <Ionicons name="chevron-forward" size={30} color={theme.textGray} />
-            </UserWideButton>
-            {VPreferences?<Preferences setVPreferences={setVPreferences} />:null}
-            {/*
-              <Provider>
-                <WideButton style={{marginVertical: 2}}>
-                  <View style={{flexDirection: 'row', alignItems: 'center'}}>
-                    <Ionicons name="logo-google" size={26} color={theme.textGray} />
-                    <H3 style={{marginLeft: 30}}>Google</H3>
-                  </View>
-                  <H3 style={{marginRight: 10}}>Link</H3>
-                </WideButton>
-                <WideButton style={{marginVertical: 2}}>
-                  <View style={{flexDirection: 'row', alignItems: 'center'}}>
-                    <Ionicons name="logo-apple" size={28} color={theme.textGray} />
-                    <H3 style={{marginLeft: 30}}>Apple</H3>
-                  </View>
-                  <H3 style={{marginRight: 10}}>Link</H3>
-                </WideButton>
-              </Provider>
-            */}
-          </UserScrollView>}
+            vPassword?<Password />:
+              vCountry?<CountryPicker onSelect={handleCountrySelect} />:
+                <UserScrollView style={{ marginTop: 30 }}>
+                  <UserWideButton onPress={handleChangeEmail}>
+                    <UserSection>
+                      <UserTitle theme={theme}>{locale.email_config.title}</UserTitle>
+                      <UserText theme={theme}>{user?.email}</UserText>
+                    </UserSection>
+                    <Ionicons name="chevron-forward" size={30} color={theme.textGray} />
+                  </UserWideButton>
+                  <UserWideButton onPress={handleChangePassword}>
+                    <UserSection>
+                      <UserTitle theme={theme}>{locale.password_config.title}</UserTitle>
+                    </UserSection>
+                    <Ionicons name="chevron-forward" size={30} color={theme.textGray} />
+                  </UserWideButton>
+                  <UserWideButton onPress={handleCountry}>
+                    <UserSection>
+                      <UserTitle theme={theme}>{locale.country_config.title}</UserTitle>
+                      {country?
+                        <UserCountry>
+                          <Flag code={country?.iso} style={{marginHorizontal: 5}} size={16}/>
+                          <UserText theme={theme}>{country?.name}</UserText>
+                        </UserCountry>
+                        :
+                        <UserText theme={theme}>{locale.country_config.description}</UserText>
+                      }
+                    </UserSection>
+                    <Ionicons name="chevron-forward" size={30} color={theme.textGray} />
+                  </UserWideButton>
+                  <UserWideButton onPress={openPreferences}>
+                    <UserSection style={{ alignItems: "flex-start" }}>
+                      <UserTitle theme={theme}>{locale.preferences.title}</UserTitle>
+                      <UserText theme={theme}>{locale.preferences.description}</UserText>
+                    </UserSection>
+                    <Ionicons name="chevron-forward" size={30} color={theme.textGray} />
+                  </UserWideButton>
+                  {VPreferences?<Preferences setVPreferences={setVPreferences} />:null}
+                  {/*<UserWideButton onPress={handleLink}>
+                    <Provider>
+                      <WideButton style={{marginVertical: 2}}>
+                        <View style={{flexDirection: 'row', alignItems: 'center'}}>
+                          <Ionicons name="logo-google" size={26} color={theme.textGray} />
+                          <H3 style={{marginLeft: 30}}>Google</H3>
+                        </View>
+                        <H3 style={{marginRight: 10}}>Link</H3>
+                      </WideButton>
+                      <WideButton style={{marginVertical: 2}}>
+                        <View style={{flexDirection: 'row', alignItems: 'center'}}>
+                          <Ionicons name="logo-apple" size={28} color={theme.textGray} />
+                          <H3 style={{marginLeft: 30}}>Apple</H3>
+                        </View>
+                        <H3 style={{marginRight: 10}}>Link</H3>
+                      </WideButton>
+                    </Provider>
+                  */}
+                </UserScrollView>}
         </UserContent>
       </UserContainer>
     </TouchableWithoutFeedback>

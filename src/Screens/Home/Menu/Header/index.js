@@ -1,11 +1,10 @@
 import React, {useContext} from 'react';
 import PropTypes from "prop-types";
-import AntDesign from "@expo/vector-icons/AntDesign";
-import Ionicons from "@expo/vector-icons/Ionicons";
-import { ThemeContext } from '../../../../components/theme'
-import { FirebaseContext } from '../../../../api/firebase'
+import { ThemeContext } from '../../../../components/theme';
+import { FirebaseContext } from '../../../../api/firebase';
+import Icons from '/src/api/3gs-icons/src';
 
-import { 
+import {
   HeaderMenuContainer,
   HeaderInforSection,
   HeaderInfor,
@@ -37,22 +36,22 @@ const Header = ({ selected, handleSelected }) => {
       </HeaderInforSection>
       <HeaderButtonSection>
         <HeaderButton onPress={() => handleSelected(0)}>
-          <AntDesign name="contacts" size={24} color={getColor(0)} />
+          <Icons name='address-book' size={28} color={getColor(0)} />
         </HeaderButton>
         <HeaderButton onPress={() => handleSelected(1)}>
-          <AntDesign name="message1" size={24} color={getColor(1)} />
+          <Icons name="cluey" size={28} color={getColor(1)} />
         </HeaderButton>
         <HeaderButton onPress={() => handleSelected(2)}>
-          <Ionicons name="book-outline" size={24} color={getColor(2)} />
+          <Icons name="book" size={28} color={getColor(2)} />
         </HeaderButton>
         <HeaderButton onPress={() => handleSelected(3)}>
-          <AntDesign name="bars" size={24} color={getColor(3)} />
+          <Icons name="list-checkbox" size={28} color={getColor(3)} />
         </HeaderButton>
         <HeaderButton onPress={() => handleSelected(4)}>
-          <Ionicons name="color-wand-outline" size={24} color={getColor(4)} />
+          <Icons name="magic-wand" size={28} color={getColor(4)} />
         </HeaderButton>
         <HeaderButton onPress={() => handleSelected(5)}>
-          <Ionicons name="ios-settings-outline" size={24} color={getColor(5)} />
+          <Icons name="settings" size={28} color={getColor(5)} />
         </HeaderButton>
       </HeaderButtonSection>
     </HeaderMenuContainer>

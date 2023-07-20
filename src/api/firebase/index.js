@@ -3,12 +3,10 @@ import PropTypes from "prop-types";
 // eslint-disable-next-line no-unused-vars
 import CryptoJS from 'crypto-js';
 import Constants from 'expo-constants';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import { firestore, auth, storage, arrayUnion, emailProvider } from './config';
 import { sendMessageToOpenAI } from '../openai';
 import { LocaleContext } from '../../components/locale';
-import { log } from 'react-native-reanimated';
 
 export const FirebaseContext = createContext();
 
@@ -16,7 +14,6 @@ export const FirebaseProvider = ({ children }) => {
   const {locale} = useContext(LocaleContext);
   const [authUser, setAuthUser] = useState(null);
   const [isAuth, setIsAuth] = useState(false);
-  const [isNew, setIsNew] = useState(true);
   const [appFunc, setAppFunc] = useState(null);
   const [appInfo, setAppInfo] = useState(null);
   const [appStatus, setAppStatus] = useState(null);
@@ -26,24 +23,13 @@ export const FirebaseProvider = ({ children }) => {
   const [contactsSearch, setContactsSearch] = useState(null);
   const [patchNotes, setPatchNotes] = useState(null);
   const [unreadPatchNotes, setUnreadPatchNotes] = useState(null);
-  const [sliders, setSliders] = useState(null);
 
   const secretKey = Constants.manifest.extra.app.secretKeyPhrase;
-
-  const notNew = async () => AsyncStorage.setItem('isNewUser', 'false');
   
   useEffect(() => {
     const getAuth = auth.onAuthStateChanged(user => {
       setAuthUser(user);
       user?setIsAuth(true):setIsAuth(false);
-    });
-
-    const isNewUser = AsyncStorage.getItem('isNewUser').then((value) => {
-      if (value === 'false') {
-        setIsNew(false);
-      } else {
-        setIsNew(true);
-      }
     });
 
     if (isAuth) {
@@ -170,7 +156,6 @@ export const FirebaseProvider = ({ children }) => {
     }
     return () => {
       getAuth();
-      isNewUser
     }
   }, [authUser, isAuth]);
 
@@ -228,12 +213,28 @@ export const FirebaseProvider = ({ children }) => {
     await putUser();
   };
 
-  const updateUserName = async (displayName) => {
+  const updateDisplayName = async (displayName) => {
     await auth.currentUser.updateProfile({
       displayName: displayName
     })
 
-    await putUser();
+    const timestamp = new Date().toLocaleString();
+    const docRef = firestore.collection('users').doc(authUser?.uid);
+    await docRef.set({
+      displayName: displayName,
+      updatedAt: timestamp,
+    }, { merge: true })
+  };
+
+  const updateUserName = async (userName) => {
+    const timestamp = new Date().toLocaleString();
+    const item = '@'+userName;
+
+    const docRef = firestore.collection('users').doc(authUser?.uid);
+    await docRef.set({
+      userName: item,
+      lastNameDate: timestamp,
+    }, { merge: true })
   };
 
   const updateUserEmail = async (password, newEmail) => {
@@ -395,6 +396,7 @@ export const FirebaseProvider = ({ children }) => {
     const context = locale.global.openai.context;
     const focusMsg = locale.global.openai.focus;
     const interestsMsg = locale.global.openai.interests;
+    const error = locale.global.openai.error;
     //dev
     const focus = '';
     const interests = '';
@@ -410,7 +412,7 @@ export const FirebaseProvider = ({ children }) => {
       uid: appInfo?.uid,
       name: name,
       createdAt: timestamp,
-      text: response,
+      text: response?response:error,
     };
     await firestore.collection('users').doc(authUser?.uid).collection('chats').doc(chatId).set(chat, { merge: true }).then(() => {
       firestore.collection('users').doc(authUser?.uid).collection('chats').doc(chatId).update({
@@ -539,7 +541,7 @@ export const FirebaseProvider = ({ children }) => {
     }
   };
 
-  const toggleNotify = async (state) => {
+  const editNotify = async (state) => {
     const timestamp = new Date().toLocaleString();
 
     const docRef = firestore.collection('users').doc(authUser?.uid);
@@ -548,17 +550,36 @@ export const FirebaseProvider = ({ children }) => {
       updatedAt: timestamp,
     }, { merge: true })
   };
+
+  const editTheme = async (theme) => {
+    const timestamp = new Date().toLocaleString();
+
+    const docRef = firestore.collection('users').doc(authUser?.uid);
+    return await docRef.set({
+      theme: theme,
+      updatedAt: timestamp,
+    }, { merge: true })
+  };
+
+  const putCredits = async () => {
+    const timestamp = new Date().toLocaleString();
+    const total = user?.credits - 1;
+
+    const docRef = firestore.collection('users').doc(authUser?.uid);
+    return await docRef.set({
+      credits: total,
+      updatedAt: timestamp,
+    }, { merge: true })
+  };
   
   const value = {
     authUser,
     isAuth,
-    isNew,
     appFunc,
     appStatus,
     appInfo,
     patchNotes,
     unreadPatchNotes,
-    sliders,
     user,
     contacts,
     contactsSearch,
@@ -571,6 +592,7 @@ export const FirebaseProvider = ({ children }) => {
     signOut,
     putUser,
     updateUserPhoto,
+    updateDisplayName,
     updateUserName,
     updateUserEmail,
     updateUserPassword,
@@ -588,7 +610,9 @@ export const FirebaseProvider = ({ children }) => {
     createDirectFriendChat,
     createUserDirectMessage,
     setReadedPatch,
-    toggleNotify
+    editNotify,
+    editTheme,
+    putCredits
   };
 
   return <FirebaseContext.Provider value={value}>{children}</FirebaseContext.Provider>;

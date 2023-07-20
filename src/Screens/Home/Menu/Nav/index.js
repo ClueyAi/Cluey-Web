@@ -1,6 +1,7 @@
 import React, {useContext} from 'react';
-import AntDesign from "@expo/vector-icons/AntDesign";
-import { ThemeContext } from '../../../../components/theme'
+import PropTypes from "prop-types";
+import { ThemeContext } from '/src/components/theme';
+import Icons from '/src/api/3gs-icons/src';
 
 import {
   NavContainer,
@@ -36,25 +37,33 @@ const Nav = ({ handlerMenu, isOpen, setIsOpen, selected, handleSelected }) => {
         <Hamburguer />
       </NavButton>
       <NavItensButton onPress={() => handleNavOption(0)}>
-        <AntDesign name="contacts" size={26} color={getColor(0)} />
+        <Icons name='address-book' size={28} color={getColor(0)} />
       </NavItensButton>
       <NavItensButton onPress={() => handleNavOption(1)}>
-        <AntDesign name="message1" size={26} color={getColor(1)} />
+        <Icons name="cluey" size={28} color={getColor(1)} />
       </NavItensButton>
       <NavItensButton onPress={() => handleNavOption(2)}>
-        <AntDesign name="book" size={26} color={getColor(2)} />
+        <Icons name="book" size={28} color={getColor(2)} />
       </NavItensButton>
       <NavItensButton onPress={() => handleNavOption(3)}>
-        <AntDesign name="bars" size={26} color={getColor(3)} />
+        <Icons name="list-checkbox" size={28} color={getColor(3)} />
       </NavItensButton>
       <NavItensButton onPress={() => handleNavOption(4)}>
-        <AntDesign name="rest" size={26} color={getColor(4)} />
+        <Icons name="magic-wand" size={28} color={getColor(4)} />
       </NavItensButton>
       <NavItensButton onPress={() => handleNavOption(5)}>
-        <AntDesign name="setting" size={26} color={getColor(5)} />
+        <Icons name="settings" size={28} color={getColor(5)} />
       </NavItensButton>
     </NavContainer>
   );
+};
+
+Nav.propTypes = {
+  handlerMenu: PropTypes.func,
+  isOpen: PropTypes.bool,
+  setIsOpen: PropTypes.func,
+  selected: PropTypes.number,
+  handleSelected: PropTypes.func
 };
 
 export default Nav;

@@ -3,15 +3,15 @@ import { ActivityIndicator } from "react-native";
 import { useLocation } from 'react-router-dom';
 import Ionicons from "@expo/vector-icons/Ionicons";
 
-import { LocaleContext } from "../../../../../components/locale";
-import { FirebaseContext } from "../../../../../api/firebase";
-import { ThemeContext, shadow } from "../../../../../components/theme";
+import { LocaleContext } from "/src/components/locale";
+import { FirebaseContext } from "/src/api/firebase";
+import { ThemeContext, shadow } from "/src/components/theme";
 import {
   View,
   ButtonEmpyte,
   TxtButton,
   TextError,
-} from "../../../../../components/global";
+} from "/src/components/global";
 
 import {
   CustomTextInput,
@@ -129,6 +129,7 @@ const Form = () => {
           name={"email"}
           value={email}
           email={email}
+          theme={theme}
           placeholder={locale.signin.text_input.email}
           placeholderTextColor={theme.placeholder}
           selectionColor={theme.primary}
@@ -160,6 +161,7 @@ const Form = () => {
         <CustomTextInput
           ref={passwordRef}
           name={"password"}
+          theme={theme}
           placeholder={locale.signin.text_input.password}
           placeholderTextColor={theme.placeholder}
           selectionColor={theme.primary}
@@ -176,9 +178,9 @@ const Form = () => {
         </ButtonEmpyte>
       </AuthInput>
       {error ? (
-        <TextError>{errorMsg}</TextError>
+        <TextError theme={theme}>{errorMsg}</TextError>
       ) : (
-        <TextError></TextError>
+        <TextError theme={theme}></TextError>
       )}
       <View style={{width: 400, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between'}}>
         <AuthButton

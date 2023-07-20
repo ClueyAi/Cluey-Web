@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import UserAvatar from "react-native-user-avatar";
 import PropTypes from "prop-types";
-import { ThemeContext } from '../../../../../../../components/theme'
+import { ThemeContext } from '/src/components/theme'
 
 import {
   PersonContainer,
@@ -29,7 +29,7 @@ const Person = ({ item }) => {
             />
           </PersonPicture>
           <PersonInfo>
-            <PersonDisplayName>{item?.displayName}</PersonDisplayName>
+            <PersonDisplayName theme={theme}>{item?.displayName}</PersonDisplayName>
             <PersonUserName theme={theme}>{item?.userName}</PersonUserName>
           </PersonInfo>
         </PersonSection>

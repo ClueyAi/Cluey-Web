@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react';
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
-import { LocaleContext } from '../../../../../components/locale';
-import { ThemeContext } from '../../../../../components/theme';
+import { LocaleContext } from '/src/components/locale';
+import { ThemeContext } from '/src/components/theme';
 
 import { ContactContainer, ContactButtonAdd, AddContainer, AddText } from '../../../../components';
 
@@ -26,7 +26,7 @@ const Menu = () => {
       <ContactContainer>
         <ContactButtonAdd onPress={handlerAddContact}>
           <AddContainer>
-            <AddText>{locale.directs.item.title}</AddText>
+            <AddText theme={theme}>{locale.directs.item.title}</AddText>
             <MaterialIcons name="close" size={22} color={theme.text} />
           </AddContainer>
         </ContactButtonAdd>
@@ -40,7 +40,7 @@ const Menu = () => {
       <ContactContainer>
         <ContactButtonAdd onPress={handlerAddContact}>
           <AddContainer>
-            <AddText>{locale.directs.item.title}</AddText>
+            <AddText theme={theme}>{locale.directs.item.title}</AddText>
             <MaterialIcons name="add" size={22} color={theme.text} />
           </AddContainer>
         </ContactButtonAdd>

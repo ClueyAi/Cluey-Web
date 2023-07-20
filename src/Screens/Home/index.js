@@ -1,7 +1,7 @@
 import React, { useState, useContext, useEffect } from 'react';
-import { ThemeContext } from '../../components/theme';
-import { LocaleContext } from '../../components/locale';
-import { FirebaseContext } from '../../api/firebase';
+import { ThemeContext } from '/src/components/theme';
+import { LocaleContext } from '/src/components/locale';
+import { FirebaseContext } from '/src/api/firebase';
 
 import { LoadingContainer, LoadingText, HomeContainer, PatchNotes, Preferences } from '../components';
 import { patchnote, navigate } from '../functions';

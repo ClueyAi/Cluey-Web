@@ -16,7 +16,8 @@
     "openai": {
       "context": "Considere esses termos como contexto da nossa conversa: ",
       "focus": "Meus focos são: ",
-      "interests": "Meus interesses são: "
+      "interests": "Meus interesses são: ",
+      "error": "@error"
     },
     "app": {
       "name": "Cluey",
@@ -352,7 +353,7 @@
     }
   },
   "settings": {
-    "title": "Configurações",
+    "title": "Definições",
     "button_logout": {
       "accessibility": "desconecte do Cluey e volte para a autenticação",
       "alert": {
@@ -373,6 +374,12 @@
     },
     "account" : {
       "title": "Conta"
+    },
+    "invoicing" : {
+      "title": "Faturação"
+    },
+    "plans" : {
+      "title": "Planos"
     },
     "preferences" : {
       "title": "Preferências"
@@ -413,7 +420,53 @@
   },
   "account": {
     "title": "Conta",
-    "description": "configurando sua conta"
+    "description": "configurando sua conta",
+    "header": {
+      "community": "Comunidade",
+      "blog": "Blog",
+      "invite": "Convidar amigos",
+      "help": "Ajuda"
+    },
+    "profile": {
+      "title": "Perfil",
+      "photo": "Foto",
+      "name": "Nome",
+      "email": "Endereço de email",
+      "user_name": "Nome de utilizador",
+      "country": "País",
+      "uid": "ID do utilizador"
+    },
+    "security": {
+      "title": "Segurança",
+      "password": {
+        "title": "Palavra-passe",
+        "button": "Alterar palavra-passe"
+      },
+      "delete": {
+        "title": "Eliminar conta Cluey",
+        "button": "Eliminar conta"
+      }
+    }
+  },
+  "invoicing": {
+    "title": "Método de Pagamento",
+    "description": " pago por ",
+    "button": "Editar",
+    "payments": {
+      "title": "Pagamentos",
+      "paypal": "PayPal",
+      "credit_card": "Cartão de crédito",
+      "bank_transfer": "Transferência bancária"
+    },
+    "history": "Histórico de Transações"
+  },
+  "plans": {
+    "title": "Planos",
+    "button":"Alterar plano"
+  },
+  "notify": {
+    "title": "Notificações",
+    "button":"Alterar plano"
   },
   "about": {
     "title": "Sobre"

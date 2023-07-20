@@ -1,10 +1,10 @@
 import React, {useContext} from "react";
-import { LocaleContext } from "../../../../components/locale";
-import { ThemeContext } from "../../../../components/theme";
+import { LocaleContext } from "/src/components/locale";
+import { ThemeContext } from "/src/components/theme";
 
 import {
   View,
-} from "../../../../components/global";
+} from "/src/components/global";
 
 import {
   LinkButton,

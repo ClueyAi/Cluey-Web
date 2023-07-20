@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Text } from 'react-native';
+import PropTypes from 'prop-types';
 
 const CountDown = ({ seconds, endTime }) => {
   const storedRemainingSeconds = parseInt(localStorage.getItem('remainingSeconds'));
@@ -32,6 +33,11 @@ const CountDown = ({ seconds, endTime }) => {
   return (
     <Text>{formatTime(remainingSeconds)}</Text>
   );
+};
+
+CountDown.propTypes = {
+  seconds: PropTypes.number,
+  endTime: PropTypes.func
 };
 
 export default CountDown;

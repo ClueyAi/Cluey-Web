@@ -1,11 +1,16 @@
 import React, { useContext } from 'react';
 import { FlatList  } from 'react-native';
 import PropTypes from 'prop-types';
-import { FirebaseContext } from '../../../../../api/firebase';
-import { LocaleContext } from '../../../../../components/locale';
-import { ThemeContext, shadow } from '../../../../../components/theme';
+import { FirebaseContext } from '/src/api/firebase';
+import { LocaleContext } from '/src/components/locale';
+import { ThemeContext, shadow } from '/src/components/theme';
 
-import { PresetsContainer, SuggestionsButton, SuggestionsText } from '../../../../components';
+import {
+  PresetsContainer,
+  PresetsContent,
+  SuggestionsButton,
+  SuggestionsText
+} from '../../../../components';
 import { navigate, hover } from '../../../../functions';
 
 import Suggests from './Suggests';
@@ -51,7 +56,8 @@ const Presets = () => {
 
     return (
       <SuggestionsButton
-        style={isHovered? null: shadow}
+        theme={theme}
+        style={isHovered? shadow: null}
         onPress={() => handlerSuggests(item)}
         isHovered={isHovered}
         onMouseEnter={handleMouseEnter}
@@ -68,13 +74,33 @@ const Presets = () => {
 
   return (
     <PresetsContainer>
-      <SuggestionsText>{locale.home.suggestions.title}</SuggestionsText>
-      <FlatList
-        data={suggestions}
-        style={{width: '100%', paddingTop: 10}}
-        keyExtractor={(item) => item.id}
-        renderItem={({ item }) => <RenderItem item={item} />}
-      />
+      <PresetsContent>
+        <SuggestionsText theme={theme}>{locale.home.suggestions.title}</SuggestionsText>
+        <FlatList
+          data={suggestions}
+          style={{width: '100%', paddingTop: 10}}
+          keyExtractor={(item) => item.id}
+          renderItem={({ item }) => <RenderItem item={item} />}
+        />
+      </PresetsContent>
+      <PresetsContent>
+        <SuggestionsText theme={theme}>{locale.home.suggestions.title}</SuggestionsText>
+        <FlatList
+          data={suggestions}
+          style={{width: '100%', paddingTop: 10}}
+          keyExtractor={(item) => item.id}
+          renderItem={({ item }) => <RenderItem item={item} />}
+        />
+      </PresetsContent>
+      <PresetsContent>
+        <SuggestionsText theme={theme}>{locale.home.suggestions.title}</SuggestionsText>
+        <FlatList
+          data={suggestions}
+          style={{width: '100%', paddingTop: 10}}
+          keyExtractor={(item) => item.id}
+          renderItem={({ item }) => <RenderItem item={item} />}
+        />
+      </PresetsContent>
     </PresetsContainer>
   );
 };

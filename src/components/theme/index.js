@@ -1,5 +1,7 @@
-import React, { createContext, useState } from 'react';
+import React, { createContext, useState, useEffect, useContext } from 'react';
 import PropTypes from "prop-types";
+
+import { FirebaseContext } from "/src/api/firebase";
 
 import light from './light';
 import dark  from './dark';
@@ -8,10 +10,19 @@ import shadow from './shadow';
 export const ThemeContext = createContext();
 
 export const ThemeProvider = ({ children }) => {
+  const { user } = useContext(FirebaseContext);
   const [theme, setTheme] = useState(light);
 
+  useEffect(() => {
+    if (user?.theme) {
+      setTheme(dark);
+    } else {
+      setTheme(light);
+    }
+  }, [user]);
+
   const toggleTheme = (item) => {
-    setTheme(item?light:dark);
+    setTheme(item?dark:light);
   };
 
   const value = {

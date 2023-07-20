@@ -10,8 +10,9 @@ import NotifySwitch from './NotifySwitch';
 import CustomTextInput from './CustomTextInput';
 import PickerList from './PickerList';
 import CountDown from './CountDown';
+import Payment from './Payment';
 
-export { AlertBox, PatchNotes, Preferences, Language, ThemeSwitch, NotifySwitch, CustomTextInput, PickerList, CountDown };
+export { AlertBox, PatchNotes, Preferences, Language, ThemeSwitch, NotifySwitch, CustomTextInput, PickerList, CountDown, Payment };
 
 const generateBGColor = () => {
   const randomColor = Math.floor(Math.random() * 16777215)
@@ -401,14 +402,34 @@ export const ChatContainer = styled.View`
 // Header Chat
 export const HeaderChatContainer = styled.View`
   flex-direction: row;
-  align-items: flex-start;
+  align-items: center;
+  justify-content: space-between;
   width: 100%;
   height: 66px;
   border-bottom-width: 1px;
   border-color: ${({ theme }) => theme.border};
 `;
+// Count
+export const CountContainer = styled.View`
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+`;
+export const CountTitles = styled.Text`
+  font-family: 'Nunito-Bold';
+  font-size: 18px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  color: ${({ theme }) => theme.textDark};
+`;
 // Presets
 export const PresetsContainer = styled.View`
+  flex: 1;
+  width: 100%;
+  align-items: space-between;
+  flex-direction: row;
+`;
+export const PresetsContent = styled.View`
   flex: 1;
   width: 100%;
   align-items: center;
@@ -438,7 +459,7 @@ export const SuggestionsText = styled.Text`
 // Plans
 export const PlansContainer = styled.ScrollView`
   flex: 1;
-  width: '100%';
+  width: 100%;
   flex-direction: column;
 `;
 export const PlansSection = styled.View`
@@ -559,6 +580,23 @@ export const PlansInfoImage = styled.Image`
   width: 900px;
   height: 550px;
 `;
+// Sliders
+export const SlidersContainer = styled.View`
+  flex: 1;
+  width: 100%;
+  flex-direction: column;
+`;
+export const SlidersInfoContent = styled.View`
+  flex: 1;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+`;
+export const SlidersInfoImage = styled.Image`
+  resize: auto;
+  width: 100%;
+  height: 100%;
+`;
 
 // Messages
 export const MessagesContainer = styled.View`
@@ -665,7 +703,7 @@ export const InputContainer = styled.View`
   flex: 1;
   flex-direction: row;
   align-items: center;
-  background-color: #E5E5E5;
+  background-color: ${({ theme }) => theme.bgInput};
   border-radius: 30px;
   margin: 0 5%;
 `;
@@ -727,7 +765,7 @@ export const ToolsButtonText = styled.Text`
 export const ActionSearchContainer = styled.View`
   flex-direction: row;
   align-items: center;
-  background-color: #E5E5E5;
+  background-color: ${({ theme }) => theme.bgInput};
   border-radius: 30px;
 `;
 export const ActionSearchSearchBox = styled.TextInput`
@@ -1002,6 +1040,12 @@ export const PeopleButton = styled.TouchableOpacity`
   border-width: 1px;
   border-color: ${({ theme }) => theme.border};
 `;
+export const PeopleText = styled.Text`
+  font-family: 'Nunito';
+  text-align: center;
+  font-size: 16px;
+  color: ${({ theme }) => theme.text};
+`;
 // Person
 export const PersonContainer = styled.View`
   flex-direction: column;
@@ -1112,6 +1156,9 @@ export const DirectItemSection = styled.View`
 export const DirectItemPicture = styled.View`
   justify-content: center;
   align-items: center;
+  border-radius: 100px;
+  border-width: 3px;
+  border-color: ${({ color }) => color};
 `;
 export const DirectItemState = styled.View`
   width: 14px;
@@ -1135,6 +1182,12 @@ export const DirectItemStateSection = styled.View`
 export const DirectItemNotify = styled.View`
   align-items: flex-end;
   padding: 10px;
+`;
+export const DirectItemText = styled.Text`
+  font-family: 'Nunito';
+  text-align: center;
+  font-size: 20px;
+  color: ${({ theme }) => theme.text};
 `;
 
 // User
@@ -1183,6 +1236,23 @@ export const UserText = styled.Text`
   font-family: 'Nunito';
   text-align: center;
   font-size: 15px;
+  color: ${({ theme }) => theme.text};
+`;
+// Profile
+export const UserProfileInput = styled.TextInput`
+  flex: 1;
+  font-family: 'Nunito';
+  width: 100%;
+  padding: 10px;
+  margin-left: 10px;
+  color: ${({ theme }) => theme.text};
+  outline-width: 0;
+  outline-style: none;
+`;
+export const UserProfileText = styled.Text`
+  font-family: 'Nunito';
+  text-align: center;
+  font-size: 16px;
   color: ${({ theme }) => theme.text};
 `;
 
@@ -1236,7 +1306,7 @@ export const SettingsDivider = styled.View`
   justify-content: center;
   align-self: center;
   border-bottom-width: 2px;
-  border-color: ${({ theme }) => theme.border}; SettingsDiv
+  border-color: ${({ theme }) => theme.border};
 `;
 export const SettingsSection = styled.View`
   flex: 1;
@@ -1249,18 +1319,18 @@ export const SettingsDiv = styled.View`
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  padding: 2px;
+  padding: 5px;
 `;
 export const SettingsTitle = styled.Text`
   font-family: 'Nunito-Medium';
   text-align: center;
-  font-size: 16px;
+  font-size: 18px;
   color: ${({ theme }) => theme.text};
 `;
 export const SettingsText = styled.Text`
   font-family: 'Nunito';
   text-align: center;
-  font-size: 14px;
+  font-size: 16px;
   color: ${({ theme }) => theme.text};
 `;
 
@@ -1281,7 +1351,7 @@ export const NewsContainer = styled.View`
 `;
 export const NewsContent = styled.View`
   width: 100%;
-  margin-top: 20px
+  margin-top: 20px;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -1297,7 +1367,7 @@ export const NewsSlideImage = styled.Image`
   align-items: center;
   width: calc(376.47px / 1.4);
   height: calc(911px / 1.4);
-  resize-mode: contain;
+  resize: contain;
   margin: 0 10px;
 `;
 
@@ -1383,4 +1453,355 @@ export const AuthFooterSection = styled.View`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+`;
+
+// Account
+export const AccountContainer = styled.View`
+  flex: 1;
+  width: 100%;
+  align-items: center;
+  flex-direction: column;
+`;
+// Header
+export const AccountHeader = styled.View`
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+`;
+// Top
+export const AccountTop = styled.View`
+  width: 100%;
+  height: 60px;
+  padding: 0 18px;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: ${({ theme }) => theme.primary};
+`;
+export const AccountTopSection = styled.View`
+  flex: 1;
+  width: 100%;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  margin-left: 40px;
+`;
+export const AccountTopButton = styled.TouchableOpacity`
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+`;
+export const AccountTopTitle = styled.Text`
+  font-family: 'Nunito-ExtraBold';
+  text-align: center;
+  font-size: 32px;
+  color: ${({ theme }) => theme.text};
+  margin-left: 20px;
+`;
+export const AccountTopText = styled.Text`
+  font-family: 'Nunito-Medium';
+  text-align: center;
+  font-size: 18px;
+  color: ${({ theme }) => theme.textDark};
+`;
+export const AccountTopSectionButton = styled.TouchableOpacity`
+  padding: 0 30px;
+`;
+export const AccountTopProfile = styled.View`
+  padding: 20px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+`;
+export const AccountNav = styled.View`
+  width: 100%;
+  height: 40px;
+  margin-top: 15px;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom-width: 2px;
+  border-color: ${({ theme }) => theme.border};
+`;
+export const AccountNavSection = styled.View`
+  flex: 1;
+  width: 100%;
+  flex-Direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  margin-left: 40px;
+`;
+export const AccountNavTitle = styled.Text`
+  font-family: 'Nunito-Bold';
+  text-align: center;
+  font-size: 24px;
+  color: ${({ theme }) => theme.primary};
+  margin-left: 25px;
+`;
+export const AccountNavButton = styled.TouchableOpacity`
+  margin: 0 20px;
+  border-bottom-width: 2px;
+  border-color: ${({ color }) => color};
+`;
+export const AccountNavText = styled.Text`
+  font-family: 'Nunito-Medium';
+  text-align: center;
+  font-size: 16px;
+  padding: 8px 0;
+  color: ${({ theme }) => theme.text};
+`;
+// Content
+export const AccountContent = styled.View`
+  flex: 1;
+  width: 100%;
+  align-items: center;
+  flex-direction: column;
+`;
+export const AccountPhoto = styled.View`
+  width: 120px;
+  height: 120px;
+  border-radius: 100px;
+  margin: 5px 10px;
+  border: 5px solid ${({ theme }) => theme.primary};
+  justify-content: center;
+  align-items: center;
+`;
+export const AccountScrollView = styled.ScrollView`
+  width: 100%;
+  flex-direction: column;
+`;
+export const AccountSection = styled.View`
+  width: 40%;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+  padding: 0 40px;
+`;
+export const AccountView = styled.View`
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
+export const AccountButton = styled.TouchableOpacity`
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  color: ${({ theme }) => theme.background};
+`;
+// Content - Account
+export const ContentAccount = styled.View`
+  width: 60%;
+  margin-bottom: 100px;
+  flex-direction: column;
+  justify-content: center;
+  align-self: center;
+  align-items: center;
+`;
+export const ContentAccountProfile = styled.View`
+  width: 98%;
+  margin-top: 50px;
+  margin-bottom: 30px;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+`;
+export const ContentAccountSection = styled.View`
+  width: 100%;
+  padding: 20px 5px;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom-width: 2px;
+  border-color: ${({ theme }) => theme.border};
+`;
+export const ContentAccountTextInput = styled.TextInput`
+  padding: 10px 60px;
+  text-align: left;
+  font-family: 'Nunito-SemiBold';
+  font-size: 18px;
+  outline-width: 0;
+  outline-style: none;
+  border-radius: 20px;
+  border-width: 2px;
+  border-color: ${({ theme }) => theme.border};
+  color: ${({ theme }) => theme.text};
+`;
+export const ContentAccountTitle = styled.Text`
+  font-family: 'Nunito-ExtraBold';
+  text-align: left;
+  font-size: 30px;
+  color: ${({ theme }) => theme.text};
+`;
+export const ContentEditHeader = styled.View`
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+`;
+export const ContentEditHeaderButton = styled.TouchableOpacity`
+  flex-direction: row;
+  padding: 0 35px;
+  margin-left: 30px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  border-width: 2px;
+  border-color: ${({ theme }) => theme.border};
+`;
+export const ContentAccountText = styled.Text`
+  font-family: 'Nunito-Bold';
+  text-align: center;
+  font-size: 20px;
+  color: ${({ theme }) => theme.text};
+`;
+export const ContentAccountValue = styled.Text`
+  font-family: 'Nunito';
+  text-align: center;
+  font-size: 18px;
+  color: ${({ theme }) => theme.text};
+`;
+export const ContentAccountButtonText = styled.Text`
+  font-family: 'Nunito-Bold';
+  text-align: center;
+  font-size: 20px;
+  color: ${({ color, theme }) => color === 'delete' ? theme.error:theme.primary};
+`;
+// Content - Invoicing
+export const ContentInvoicing = styled.View`
+  width: 60%;
+  margin-bottom: 100px;
+  flex-direction: column;
+  justify-content: center;
+  align-self: center;
+  align-items: center;
+`;
+export const ContentInvoicingProfile = styled.View`
+  width: 98%;
+  margin-top: 50px;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+`;
+export const ContentInvoicingSection = styled.View`
+  width: 100%;
+  padding: 20px 5px;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom-width: 2px;
+  border-color: ${({ theme }) => theme.border};
+`;
+export const ContentInvoicingTitle = styled.Text`
+  font-family: 'Nunito-ExtraBold';
+  text-align: center;
+  font-size: 30px;
+  color: ${({ theme }) => theme.text};
+`;
+export const ContentInvoicingText = styled.Text`
+  font-family: 'Nunito-Bold';
+  text-align: center;
+  font-size: 20px;
+  color: ${({ theme }) => theme.text};
+`;
+export const ContentInvoicingValue = styled.Text`
+  font-family: 'Nunito';
+  text-align: center;
+  font-size: 18px;
+  color: ${({ theme }) => theme.text};
+`;
+export const ContentInvoicingButtonText = styled.Text`
+  font-family: 'Nunito-Bold';
+  text-align: center;
+  font-size: 20px;
+  color: ${({ color, theme }) => color === 'delete' ? theme.error:theme.primary};
+`;
+export const ContentInvoicingButton = styled.TouchableOpacity`
+  width: 100%;
+  height: 80px;
+  padding: 0 20px;
+  margin-top: 30px;
+  margin-bottom: 40px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 20px;
+  border-width: 2px;
+  border-color: ${({ theme }) => theme.border};
+`;
+export const ContentInvoicingPay = styled.View`
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+`;
+export const ContentInvoicingHistory = styled.View`
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+`;
+export const ContentInvoicingDesc = styled.View`
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+`;
+// Content - Notify
+export const ContentNotify = styled.View`
+  width: 60%;
+  margin-bottom: 100px;
+  flex-direction: column;
+  justify-content: center;
+  align-self: center;
+  align-items: center;
+`;
+export const ContentNotifyProfile = styled.View`
+  width: 98%;
+  margin-top: 50px;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+`;
+export const ContentNotifySection = styled.View`
+  width: 100%;
+  margin: 20px 20px;
+  padding: 20px 5px;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+`;
+export const ContentNotifyTitle = styled.Text`
+  font-family: 'Nunito-ExtraBold';
+  text-align: center;
+  font-size: 30px;
+  color: ${({ theme }) => theme.text};
+`;
+// Footer
+export const AccountFooter = styled.View`
+  position: absolute;
+  right: 2%;
+  bottom: 5%;
+  padding: 3px 8px;
+  border-radius: 100px;
+  background-color: ${({ theme }) => theme.primary};
+`;
+export const AccountFooterButton = styled.TouchableOpacity`
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  color: ${({ theme }) => theme.background};
+`;
+export const AccountFooterSection = styled.View`
+  width: 32px;
+  height: 32px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 100px;
+  border-width: 2px;
+  border-color: ${({ theme }) => theme.background};
+`;
+export const AccountFooterText = styled.Text`
+  font-family: 'Nunito-Bold';
+  text-align: center;
+  font-size: 18px;
+  margin: 10px;
+  color: ${({ theme }) => theme.background};
 `;

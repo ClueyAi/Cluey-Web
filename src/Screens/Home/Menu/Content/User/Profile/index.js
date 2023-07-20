@@ -1,28 +1,31 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useContext } from "react";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import UserAvatar from "react-native-user-avatar";
 import * as ImagePicker from "expo-image-picker";
 import PropTypes from "prop-types";
 
-import { FirebaseContext } from "../../../../../../api/firebase";
-import { ThemeContext } from "../../../../../../components/theme";
-import { LocaleContext } from "../../../../../../components/locale";
+import { FirebaseContext } from "/src/api/firebase";
+import { ThemeContext } from "/src/components/theme";
+import { LocaleContext } from "/src/components/locale";
 import {
   Input,
-  TextInput,
   ButtonEmpyte,
   Profile,
   Picture,
   ProfilePicture,
   PictureEdit,
   Infor,
-  H3
-} from "../../../../../../components/global";
+} from "/src/components/global";
+
+import {
+  UserProfileInput,
+  UserProfileText
+} from '../../../../../components'
 
 const User = ({ editingName, handleEditName }) => {
   const { locale } = useContext(LocaleContext);
   const { theme } = useContext(ThemeContext);
-  const { user, updateUserPhoto, updateUserName } = useContext(FirebaseContext);
+  const { user, updateUserPhoto, updateDisplayName } = useContext(FirebaseContext);
   const [userName, setUserName] = useState(user?.displayName);
 
   const handleEditPhoto = async () => {
@@ -60,7 +63,7 @@ const User = ({ editingName, handleEditName }) => {
   const onEditName = async () => {
     const displayName = userName;
     try {
-      await updateUserName(displayName);
+      await updateDisplayName(displayName);
     } catch (error) {
       console.error(error);
     }
@@ -89,9 +92,10 @@ const User = ({ editingName, handleEditName }) => {
       {editingName ?
         <Infor style={{marginTop: 10}}>
           <Input style={{ width: "50%", height: 30 }}>
-            <TextInput
+            <UserProfileInput
               style={{ height: 50 }}
               value={userName}
+              theme={theme}
               selectionColor={theme.primary}
               enterKeyHint="done"
               autoFocus
@@ -122,7 +126,7 @@ const User = ({ editingName, handleEditName }) => {
             }}
             onPress={handleEditName}
           >
-            <H3 style={{ marginRight: 10 }}>{user?.displayName}</H3>
+            <UserProfileText theme={theme} style={{ marginRight: 10 }}>{user?.displayName}</UserProfileText>
             <Ionicons name="create-outline" size={19} color={theme.textGray} />
           </ButtonEmpyte>
         </Infor>

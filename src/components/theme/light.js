@@ -1,6 +1,7 @@
 export default {
   background: '#FFF',
   bgSlider: '#F9C961',
+  bgInput: '#E5E5E5',
   backgroundSecondary: '#EEE',
   backgroundHover: '#FDF5C964',
   transparent: '#00000000',

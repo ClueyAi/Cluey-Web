@@ -1,13 +1,13 @@
 import React, { useContext } from "react";
 
-import { LocaleContext } from "../../../../components/locale";
-import { FirebaseContext } from "../../../../api/firebase";
-import { ThemeContext } from "../../../../components/theme";
+import { LocaleContext } from "/src/components/locale";
+import { FirebaseContext } from "/src/api/firebase";
+import { ThemeContext } from "/src/components/theme";
 import {
   View,
   H0, P,
   ButtonEmpyte,
-} from "../../../../components/global";
+} from "/src/components/global";
 
 import {
   AuthHeaderLinkText

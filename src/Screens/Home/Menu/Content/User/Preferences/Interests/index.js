@@ -2,8 +2,8 @@ import React, { useContext, useState, useEffect } from 'react';
 import { FlatList } from 'react-native';
 import PropTypes from 'prop-types';
 
-import { LocaleContext } from '../../../../../../../components/locale';
-import { ThemeContext } from '../../../../../../../components/theme';
+import { LocaleContext } from '/src/components/locale';
+import { ThemeContext } from '/src/components/theme';
 
 import {
   InterestsContainer,

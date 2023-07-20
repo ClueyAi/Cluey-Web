@@ -1,7 +1,6 @@
 import React, { useContext } from 'react';
-import PropTypes from 'prop-types';
-import { LocaleContext } from '../../../../../../components/locale';
-import { ThemeContext, shadow } from '../../../../../../components/theme';
+import { LocaleContext } from '/src/components/locale';
+import { ThemeContext, shadow } from '/src/components/theme';
 
 import { 
   ToolsContainer,

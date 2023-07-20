@@ -1,6 +1,7 @@
 export default {
   background: '#2A2B2E',
   bgSlider: '#F9C961',
+  bgInput: '#454545',
   backgroundSecondary: '#EEE',
   backgroundHover: '#FDF5C964',
   transparent: '#00000000',
@@ -13,7 +14,7 @@ export default {
   textGray: '#757575',
   textDark: '#FFFFFF80',
   link: '#FFBF0090',
-  border: '#0000001F',
+  border: '#FFFFFF1F',
   error: '#FF0000',
   inputError: '#EEBBBB',
   placeholder: '#A4A4A4',

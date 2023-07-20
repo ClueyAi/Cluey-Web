@@ -2,8 +2,8 @@ import React, { useContext, useState, useEffect } from 'react';
 import { FlatList } from 'react-native';
 import PropTypes from 'prop-types';
 
-import { LocaleContext } from '../../../../../../../components/locale';
-import { ThemeContext, shadow } from '../../../../../../../components/theme';
+import { LocaleContext } from '/src/components/locale';
+import { ThemeContext, shadow } from '/src/components/theme';
 
 import {
   FocusContainer,

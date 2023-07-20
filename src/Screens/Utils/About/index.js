@@ -2,30 +2,21 @@ import React, { useContext } from 'react'
 import AntDesign from '@expo/vector-icons/AntDesign';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import UserAvatar from 'react-native-user-avatar';
-import PropTypes from "prop-types";
 
-import { LocaleContext} from '../../../components/locale';
-import { ThemeContext } from '../../../components/theme';
+import { LocaleContext} from '/src/components/locale';
+import { ThemeContext } from '/src/components/theme';
 import { 
-  Container,
-  Body,
-  Main,
   Div,
   View,
-  ScrollView,
-  H0, H1, H1Mini, H3, H3Bold, H5, P, PMini,
+  H1, H1Mini, H3, H3Bold, P, PMini,
   ButtonEmpyte,
   Picture,
   Image,
-  Footer,
-  Team, Mentor,
-  Partners,
-} from '../../../components/global';
+} from '/src/components/global';
 
 import {
   AboutContainer,
   AboutHeader,
-  AboutHeaderText,
   AboutContent,
   AboutSection,
   AboutView,
@@ -62,7 +53,7 @@ const About = () => {
       <AboutContent>
         <AboutHeader theme={theme}>
           <View style={{alignItems: 'center', justifyContent: 'center'}}>
-            <ButtonEmpyte style={{color: '#fff', paddingHorizontal: 5}} onPress={handleBack}>
+            <ButtonEmpyte style={{color: theme.background, paddingHorizontal: 5}} onPress={handleBack}>
               <Ionicons name="chevron-back" size={32} color={theme.text} />
             </ButtonEmpyte>
           </View>
@@ -141,21 +132,21 @@ const About = () => {
       </AboutContent>
       <AboutFooter theme={theme}>
         <ButtonEmpyte 
-          style={{color: '#fff'}}
+          style={{color: theme.background}}
           onPress={handlePolicy}  
         >
           <P>{locale.global.app.policy_terms.title}</P>
         </ButtonEmpyte>
         <H3 style={{marginTop: 5}}>{locale.global.app.contact_us.title}</H3>
         <Div style={{flexDirection: 'row', padding: 5}}>
-          <ButtonEmpyte style={{color: '#fff', paddingHorizontal: 5}} onPress={() => handleOpenLink(locale.global.app.contact_us.website)}>
-            <AntDesign name="earth" size={28} color="#757575" />
+          <ButtonEmpyte style={{color: theme.background, paddingHorizontal: 5}} onPress={() => handleOpenLink(locale.global.app.contact_us.website)}>
+            <AntDesign name="earth" size={28} color={theme.border} />
           </ButtonEmpyte>
-          <ButtonEmpyte style={{color: '#fff', paddingHorizontal: 5}} onPress={() => handleOpenLink(locale.global.app.contact_us.github)}>
-            <AntDesign name="github" size={28} color="#757575" />
+          <ButtonEmpyte style={{color: theme.background, paddingHorizontal: 5}} onPress={() => handleOpenLink(locale.global.app.contact_us.github)}>
+            <AntDesign name="github" size={28} color={theme.border}  />
           </ButtonEmpyte>
-          <ButtonEmpyte style={{color: '#fff', paddingHorizontal: 5}} onPress={() => handleOpenLink(locale.global.app.contact_us.facebook)}>
-            <AntDesign name="facebook-square" size={28} color="#757575" />
+          <ButtonEmpyte style={{color: theme.background, paddingHorizontal: 5}} onPress={() => handleOpenLink(locale.global.app.contact_us.facebook)}>
+            <AntDesign name="facebook-square" size={28} color={theme.border}  />
           </ButtonEmpyte>
         </Div>
       </AboutFooter>

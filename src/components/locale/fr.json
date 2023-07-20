@@ -16,7 +16,8 @@
     "openai": {
       "context": "Considérez ces termes comme le contexte de notre conversation: ",
       "focus": "Mes focus sont: ",
-      "interests": "Mes intérêts sont: "
+      "interests": "Mes intérêts sont: ",
+      "error": "@error"
     },
     "app": {
       "name": "Cluey",
@@ -367,6 +368,12 @@
     "account" : {
       "title": "Conta"
     },
+    "invoicing" : {
+      "title": "Faturação"
+    },
+    "plans" : {
+      "title": "Planos"
+    },
     "preferences" : {
       "title": "Preferências"
     },
@@ -405,8 +412,34 @@
     "description": "Choisissez votre emplacement"
   },
   "account": {
-    "title": "Compte",
-    "description": "configuration de votre compte"
+    "title": "Conta",
+    "description": "configurando sua conta",
+    "header": {
+      "community": "Comunidade",
+      "blog": "Blog",
+      "invite": "Convidar amigos",
+      "help": "Ajuda"
+    },
+    "profile": {
+      "title": "Perfil",
+      "photo": "Foto",
+      "name": "Nome",
+      "email": "Endereço de email",
+      "user-name": "Nome de utilizador",
+      "country": "País",
+      "uid": "ID do utilizador"
+    },
+    "security": {
+      "title": "Segurança",
+      "password": {
+        "title": "Palavra-passe",
+        "button": "Alterar palavra-passe"
+      },
+      "delete": {
+        "title": "Eliminar conta Cluey",
+        "button": "Eliminar conta"
+      }
+    }
   },
   "about": {
     "title": "À propos"

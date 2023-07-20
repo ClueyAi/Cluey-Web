@@ -1,7 +1,6 @@
 import React, {useState, useEffect, useContext} from 'react';
 import { Dimensions } from 'react-native';
-import { useLocation } from 'react-router-dom';
-import { ThemeContext } from '../../../components/theme'
+import { ThemeContext } from '/src/components/theme'
 
 import { MenuContainer, HamburguerContainer, HamburguerContent } from '../../components';
 
@@ -10,7 +9,6 @@ import Content from './Content';
 import Nav from './Nav';
 
 const Menu = () => {
-  const location = useLocation();
   const {theme} = useContext(ThemeContext);
   const [selected, setSelected] = useState(0);
   const [isSmallScreen, setIsSmallScreen] = useState(false);
@@ -21,7 +19,6 @@ const Menu = () => {
   }
 
   useEffect(() => {
-    console.log(location.state);
     setSelected(selected? selected: 0);
 
     const handleScreenWidth = () => {
@@ -50,10 +47,10 @@ const Menu = () => {
             <Header selected={selected} handleSelected={handleSelected} />
             <Content selected={selected} handleSelected={handleSelected} />
           </HamburguerContent>
-        : null}
+          : null}
       </HamburguerContainer>
     );
-  };
+  }
 
   if (!isSmallScreen) {
     return (
@@ -62,7 +59,7 @@ const Menu = () => {
         <Content selected={selected} handleSelected={handleSelected} />
       </MenuContainer>
     );
-  };
+  }
 }
 
 export default Menu;

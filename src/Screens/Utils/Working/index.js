@@ -1,6 +1,6 @@
 import React, {useContext} from 'react';
-import { ThemeContext } from '../../../components/theme';
-import { LocaleContext } from '../../../components/locale';
+import { ThemeContext } from '/src/components/theme';
+import { LocaleContext } from '/src/components/locale';
 
 import { WorkingContainer, WorkingImage, WorkingTitle, WorkingText } from '../components';
 
@@ -10,7 +10,7 @@ const Working = () => {
 
   return (
     <WorkingContainer theme={theme}>
-      <WorkingImage source={require('../../../../assets/images/working.png')} />
+      <WorkingImage source={require('/assets/images/working.png')} />
       <WorkingTitle theme={theme}>{locale.working.title}</WorkingTitle>
       <WorkingText theme={theme}>{locale.working.description}</WorkingText>
     </WorkingContainer>
