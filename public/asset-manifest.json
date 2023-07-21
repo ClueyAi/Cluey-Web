@@ -1,8 +1,9 @@
 {
   "files": {
-    "main.js": "/static/js/main.deb568f0.js",
-    "static/js/671.fcab78b0.js": "/static/js/671.fcab78b0.js",
+    "main.js": "/static/js/main.c6310cb0.js",
+    "static/js/148.0bc8e1c6.js": "/static/js/148.0bc8e1c6.js",
     "static/media/screen2.png": "/static/media/screen2.a499799996bd7b9e5ec3.png",
+    "static/media/b1.png": "/static/media/b1.2108ea3edd4ec8baeb47.png",
     "static/media/screen1.png": "/static/media/screen1.ba12b8b4c18fb5de9273.png",
     "static/media/Ionicons.ttf": "/static/media/Ionicons.3517aeaa34b2f8cd8eef.ttf",
     "static/media/MaterialIcons.ttf": "/static/media/MaterialIcons.120b4c7bbd155bd0a04d.ttf",
@@ -12,6 +13,7 @@
     "static/media/Nunito-SemiBold.ttf": "/static/media/Nunito-SemiBold.77c1e330694154d3efed.ttf",
     "static/media/Nunito-Bold.ttf": "/static/media/Nunito-Bold.f4338623f94e6079de97.ttf",
     "static/media/Nunito-ExtraBold.ttf": "/static/media/Nunito-ExtraBold.99f1fa27c5aaa2c5afb6.ttf",
+    "static/media/paypal.png": "/static/media/paypal.e5903e4ad1ac0f166577.png",
     "static/media/AntDesign.ttf": "/static/media/AntDesign.163adab9dbd7cb1ed12a.ttf",
     "static/media/Entypo.ttf": "/static/media/Entypo.fc6169344c041cffcdae.ttf",
     "static/media/plans.png": "/static/media/plans.d4896ecbcd90605c943f.png",
@@ -285,11 +287,11 @@
     "favicon-16.png": "/favicon-16.png",
     "serve.json": "/serve.json",
     "manifest.json": "/manifest.json",
-    "main.deb568f0.js.map": "/static/js/main.deb568f0.js.map",
-    "671.fcab78b0.js.map": "/static/js/671.fcab78b0.js.map"
+    "main.c6310cb0.js.map": "/static/js/main.c6310cb0.js.map",
+    "148.0bc8e1c6.js.map": "/static/js/148.0bc8e1c6.js.map"
   },
   "entrypoints": [
-    "static/js/671.fcab78b0.js",
-    "static/js/main.deb568f0.js"
+    "static/js/148.0bc8e1c6.js",
+    "static/js/main.c6310cb0.js"
   ]
 }

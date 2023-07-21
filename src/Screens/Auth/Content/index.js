@@ -20,9 +20,9 @@ const Content = () => {
     const loadScreen = () => {
       setScreen(location.state?.route==='Login'?
         0: location.state?.route==='Register'?
-        1: location.state?.route==='Forgot'?
-        2: location.state?.route==='Verify'?
-        3: 0
+          1: location.state?.route==='Forgot'?
+            2: location.state?.route==='Verify'?
+              3: 0
       );
     };
     loadScreen();
@@ -32,16 +32,16 @@ const Content = () => {
     <ContentContainer>
       {(() => {
         switch (screen) {
-          case 0:
-            return <Login />;
-          case 1:
-            return <Register />;
-          case 2:
-            return <Forgot />;
-          case 3:
-            return <Verify />;
-          default:
-            return null;
+        case 0:
+          return <Login />;
+        case 1:
+          return <Register />;
+        case 2:
+          return <Forgot />;
+        case 3:
+          return <Verify />;
+        default:
+          return null;
         }
       })()}
       <Footer />

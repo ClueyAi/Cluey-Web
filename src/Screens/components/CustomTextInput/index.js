@@ -2,6 +2,7 @@ import React, { useState, useContext, forwardRef, useImperativeHandle, useRef, u
 import { TextInput, Animated } from 'react-native';
 import styled from 'styled-components/native';
 import { ThemeContext } from '/src/components/theme';
+import PropTypes from 'prop-types';
 
 const StyledTextInput = styled(TextInput)`
   font-family: 'Nunito';
@@ -27,7 +28,7 @@ const PlaceholderText = styled.Text`
   justify-content: center;
 `;
 
-const CustomTextInput = forwardRef(({ name, email, placeholder, validation, ...rest }, ref) => {
+const CustomTextInput = forwardRef(({ email, placeholder, validation, ...rest }, ref) => {
   const { theme } = useContext(ThemeContext);
   const [isFocused, setIsFocused] = useState(false);
   const [text, setText] = useState('');
@@ -84,5 +85,11 @@ const CustomTextInput = forwardRef(({ name, email, placeholder, validation, ...r
     </>
   );
 });
+
+CustomTextInput.propTypes = {
+  email: PropTypes.string,
+  placeholder: PropTypes.string,
+  validation: PropTypes.func,
+};
 
 export default CustomTextInput;

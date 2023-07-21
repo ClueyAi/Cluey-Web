@@ -138,6 +138,7 @@ const Form = () => {
   return (
     <View style={{ width: '100%', alignItems: 'flex-start', marginLeft: 25, marginTop: 20 }}>
       <AuthInput
+        theme={theme}
         style={{
           ...shadow,
           borderColor: `${

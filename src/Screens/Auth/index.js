@@ -10,7 +10,7 @@ import Content from './Content';
 const Auth = () => {
   return (
     <AuthContainer>
-      <News />
+
       <Content />
     </AuthContainer>
   );

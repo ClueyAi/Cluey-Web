@@ -55,7 +55,7 @@ const Suggests = ({ item }) => {
               marginLeft: 15,
             }}
           >
-            <H4>{item.name}</H4>
+            <H4 style={{color: theme.text}}>{item.name}</H4>
           </Infor>
         </Profile>
       </View>

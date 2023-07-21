@@ -187,6 +187,7 @@ export const FirebaseProvider = ({ children }) => {
     return await docRef.set({
       uid: authUser?.uid,
       createdAt: authUser?.metadata?.creationTime,
+      credits: 10000,
       updatedAt: timestamp,
       displayName: authUser?.displayName? authUser.displayName: userName,
       userName: authUser?.userName?authUser?.userName:'@'+userName,
