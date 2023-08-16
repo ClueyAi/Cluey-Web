@@ -45,7 +45,7 @@ const Menu = () => {
         {isOpen?
           <HamburguerContent theme={theme}>
             <Header selected={selected} handleSelected={handleSelected} />
-            <Content selected={selected} handleSelected={handleSelected} />
+            <Content selected={selected} />
           </HamburguerContent>
           : null}
       </HamburguerContainer>
@@ -56,7 +56,7 @@ const Menu = () => {
     return (
       <MenuContainer>
         <Header selected={selected} handleSelected={handleSelected} />
-        <Content selected={selected} handleSelected={handleSelected} />
+        <Content selected={selected} />
       </MenuContainer>
     );
   }

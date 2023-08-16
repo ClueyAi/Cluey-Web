@@ -16,7 +16,6 @@ import Tools from './Tools';
 const Actions = ({id}) => {
   const {theme} = useContext(ThemeContext);
   const {chats} = useContext(FirebaseContext);
-  const [friend, seFriend] = useState([]);
   const [chat, setChat] = useState([]);
   const [vTools, setVTools] = useState(false);
   const [vSearch, setVSearch] = useState(false);
@@ -39,7 +38,6 @@ const Actions = ({id}) => {
   useEffect(() => {
     if (chats) {
       const currentChat = chats?.find((chat) => chat.id === id);
-      seFriend(currentChat?.friendData);
       setChat(currentChat);
     }
   }, [chats, id]);
@@ -64,7 +62,7 @@ const Actions = ({id}) => {
           <ActionsButton onPress={handleSearch}>
             <Ionicons name="search-outline" size={30} color={theme.textDark} />
           </ActionsButton>
-          {vTools?<Tools />:null}
+          {vTools?<Tools id={id} />:null}
           <ActionsButton onPress={handleOptions}>
             {vTools?
               <Ionicons name="md-close" size={38} color={theme.textDark} />:

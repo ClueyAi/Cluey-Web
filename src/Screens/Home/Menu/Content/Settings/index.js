@@ -1,5 +1,6 @@
 import React, { useContext, useState } from "react";
 import Ionicons from "@expo/vector-icons/Ionicons";
+import EvilIcons from "@expo/vector-icons/EvilIcons";
 import Flag from 'react-native-flags';
 import PropTypes from 'prop-types';
 
@@ -16,6 +17,7 @@ import {
   SettingsContent,
   SettingsScrollView,
   SettingsItem,
+  SettingsHeaderSection,
   SettingsHeaderTitle,
   SettingsWideButton,
   SettingsDivider,
@@ -25,7 +27,7 @@ import {
   SettingsText,
 } from '../../../../components';
 
-const Settings = ({ handleSelected }) => {
+const Settings = () => {
   const {user, editNotify, editTheme, signOut} = useContext(FirebaseContext);
   const {locale} = useContext(LocaleContext);
   const {theme, toggleTheme} = useContext(ThemeContext);
@@ -69,7 +71,7 @@ const Settings = ({ handleSelected }) => {
   };
 
   const handleAccount = () => {
-    handleSelected(9);
+    window.open('/account', '_blank');
   };
 
   return (
@@ -78,7 +80,10 @@ const Settings = ({ handleSelected }) => {
       <SettingsContent>
         <SettingsScrollView>
           <SettingsItem theme={theme}>
-            <SettingsHeaderTitle theme={theme}>{locale.settings.account.title}</SettingsHeaderTitle>
+            <SettingsHeaderSection>
+              <SettingsHeaderTitle theme={theme}>{locale.settings.account.title}</SettingsHeaderTitle>
+              <EvilIcons name="external-link" style={{marginHorizontal: 4}} size={22} color={theme.text} />
+            </SettingsHeaderSection>
             <SettingsWideButton theme={theme} onPress={handleAccount}>
               <Ionicons name="person-outline" style={{width: 30}} size={22} color={theme.text} />
               <SettingsSection theme={theme}>

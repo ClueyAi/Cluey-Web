@@ -1,16 +1,19 @@
 import React, { useContext, useState, useEffect } from 'react';
 import { FlatList  } from 'react-native';
+import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 import PropTypes from 'prop-types';
+import { LocaleContext } from '/src/components/locale';
 import { FirebaseContext } from '/src/api/firebase';
 import { shadow, ThemeContext } from '/src/components/theme';
 
-import { ChatsContainer, ChatsButton } from '../../../../components';
+import { ChatsContainer, ChatsButton, ChatsButtonAdd, AddContainer, AddText } from '../../../../components';
 import { navigate, hover } from '../../../../functions';
 
 import Item from './Item';
 
 const Chats = () => {
-  const {chats, editChat, deleteChat} = useContext(FirebaseContext);
+  const {locale} = useContext(LocaleContext);
+  const {chats, editChat, archivedChat} = useContext(FirebaseContext);
   const {theme} = useContext(ThemeContext);
   const [editing, setEditing] = useState(false);
   const [privateChats, setPrivateChats] = useState(null);
@@ -20,13 +23,17 @@ const Chats = () => {
     await editChat(chatId, newName);
   };
 
-  const handlerDeleteChat = async (chatId) => {
-    await deleteChat(chatId);
+  const handlerArchivedChat = async (chatId) => {
+    await archivedChat(chatId);
   };
 
   const handlerChat = (item) => {
     goTo('/', {state: {id: item.id}});
-  };  
+  };
+
+  const handlerAddChat = () => {
+    goTo('/', {state: {id: null}});
+  };
   
   const RenderItem = ({ item }) => {
     const { isHovered, handleMouseEnter, handleMouseLeave } = hover();
@@ -40,7 +47,7 @@ const Chats = () => {
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
       >
-        <Item item={item} handlerDeleteChat={handlerDeleteChat} handlerEditChatName={handlerEditChatName} editing={editing} setEditing={setEditing} />
+        <Item item={item} handlerDeleteChat={handlerArchivedChat} handlerEditChatName={handlerEditChatName} editing={editing} setEditing={setEditing} />
       </ChatsButton>
     )
   }
@@ -56,9 +63,15 @@ const Chats = () => {
 
   return (
     <ChatsContainer>
+      <ChatsButtonAdd onPress={handlerAddChat}>
+        <AddContainer>
+          <AddText theme={theme}>{locale.private.item.title}</AddText>
+          <MaterialIcons name="add" size={22} color={theme.text} />
+        </AddContainer>
+      </ChatsButtonAdd>
       <FlatList
         data={privateChats}
-        style={{width: '100%', paddingTop: 10}}
+        style={{width: '100%'}}
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => <RenderItem item={item} />}
       />

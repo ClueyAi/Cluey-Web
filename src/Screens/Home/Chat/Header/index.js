@@ -5,6 +5,7 @@ import { FirebaseContext } from '/src/api/firebase';
 
 import { HeaderChatContainer } from '../../../components';
 
+import Back from './Back';
 import Count from './Count';
 
 const Header = ({id}) => {
@@ -17,18 +18,25 @@ const Header = ({id}) => {
     const currentChat = chats?.find((chat) => chat.id === id);
     setChat(currentChat)
 
-    if (chat?.type === 'private') {
-      setVisible(true);
-    } else {
+    if (chat?.type === 'group') {
       setVisible(false);
+    } else {
+      setVisible(true);
     }
   }, [chats, chat, id]);
 
-  if (visible) {
+  if (visible && chat) {
     return (
       <HeaderChatContainer theme={theme}>
+        <Back id={id} />
         <Count id={id} />
-        <Count id={id} />
+      </HeaderChatContainer>
+    );
+  }
+
+  if (visible) {
+    return (
+      <HeaderChatContainer style={{justifyContent: 'flex-end'}} theme={theme}>
         <Count id={id} />
       </HeaderChatContainer>
     );

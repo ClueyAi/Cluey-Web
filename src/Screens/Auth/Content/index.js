@@ -5,7 +5,6 @@ import {
   ContentContainer,
 } from '../../components'
 
-import News from '../News';
 import Login from './Login';
 import Register from './Register';
 import Forgot from './Forgot';

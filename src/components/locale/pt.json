@@ -192,7 +192,7 @@
     "content": {
       "title": "Verificação enviada com sucesso!",
       "description": "Receberá um e-mail com o link para verificar sua conta, associados ao e-mail registado.",
-      "alert_tittle": "Importante!",
+      "alert_title": "Importante!",
       "alert_msg": "Lembre-se de verificar também sua caixa de 'spam'.",
       "button": {
         "text": "Continuar"
@@ -258,7 +258,7 @@
     "success": {
       "title": "Recuperação de senha solicitada com sucesso!",
       "description": "Receberá um e-mail com os passos para recuperar a palavra-passe da sua conta, associados ao e-mail introduzido.",
-      "alert_tittle": "Importante!",
+      "alert_title": "Importante!",
       "alert_msg": "Lembre-se de verificar também sua caixa de 'spam'.",
       "button": {
         "text": "Continuar"
@@ -316,13 +316,16 @@
       }
     },
     "teams": {
-      "title": "Equipes",
-      "description": "suas equipes"
+      "title": "Equipas",
+      "description": "Suas equipas"
     },
     "chat_box": {
       "placeholder": "Digite sua mensagem...",
       "placeholder1": "Oi ",
       "placeholder2": ", como posso ajudá-lo?"
+    },
+    "search_box": {
+      "placeholder": "Buscar..."
     },
     "send_button": {
       "text": "Remetente",
@@ -336,6 +339,12 @@
       "input": {
         "placeholder": "Pesquisar um contato"
       }
+    }
+  },
+  "private": {
+    "title": "Falar",
+    "item": {
+      "title": "Chats"
     }
   },
   "tools": {

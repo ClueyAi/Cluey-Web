@@ -16,7 +16,7 @@ import { navigate, hover } from '../../../../functions';
 import Suggests from './Suggests';
 
 const Presets = () => {
-  const {createPrivateChat, createUserPrivateMessage, createAiPrivateMessage} = useContext(FirebaseContext);
+  const {createPrivateChat, createUserPrivateMessage, createAiPrivateMessage, putCredits} = useContext(FirebaseContext);
   const {locale} = useContext(LocaleContext);
   const {theme} = useContext(ThemeContext);
 
@@ -44,6 +44,7 @@ const Presets = () => {
         if (chatId) {
           await createUserPrivateMessage(chatId, textValue);
           await createAiPrivateMessage(chatId, textValue);
+          await putCredits();
         }
       } catch (error) {
         console.error(error);

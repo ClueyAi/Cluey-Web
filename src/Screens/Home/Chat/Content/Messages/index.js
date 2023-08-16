@@ -21,6 +21,7 @@ const Messages = ({chat}) => {
       {messages ? 
         <FlatList
           data={messages}
+          style={{width: '100%'}}
           inverted
           keyExtractor={(item, index) => index.toString()}
           renderItem={({ item }) => <Message data={item} />}

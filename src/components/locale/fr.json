@@ -253,7 +253,7 @@
     "success": {
       "title": "Récupération du mot de passe demandée avec succès !",
       "description": "Vous recevrez un e-mail avec les étapes pour récupérer le mot de passe de votre compte, associé à l'e-mail saisi.",
-      "alert_tittle": "Important!",
+      "alert_title": "Important!",
       "alert_msg": "N'oubliez pas de vérifier également votre dossier 'spam'.",
       "Button": {
         "text": "Continuer à se connecter",
@@ -319,6 +319,9 @@
       "placeholder": "Rechercher des...",
       "placeholder1": "Salut ",
       "placeholder2": ", comment puis-je t'aider?"
+    },
+    "search_box": {
+      "placeholder": "Buscar..."
     },
     "send_button": {
       "text": "Expéditeur",

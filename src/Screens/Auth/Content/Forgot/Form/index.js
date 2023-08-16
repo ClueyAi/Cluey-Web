@@ -80,7 +80,7 @@ const Form = () => {
         <View style={{width: '50%', marginTop: 10, marginBottom: 20}}>
           <AuthText theme={theme}>{locale.forgot.success.description}</AuthText>
         </View>
-        <AuthTitle>{locale.forgot.success.alert_tittle}</AuthTitle>
+        <AuthTitle>{locale.forgot.success.alert_title}</AuthTitle>
         <View style={{width: '50%', marginTop: 10, marginBottom: 10}}>
           <AuthText theme={theme}>{locale.forgot.success.alert_msg}</AuthText>
         </View>

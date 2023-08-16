@@ -160,11 +160,11 @@ export const FirebaseProvider = ({ children }) => {
   }, [authUser, isAuth]);
 
   const signIn = async (email, password) => {
-    await auth.signInWithEmailAndPassword(email, password)
+    await auth.signInWithEmailAndPassword(email, password);
   };
 
   const signUp = async (email, password) => {
-    await auth.createUserWithEmailAndPassword(email, password)
+    await auth.createUserWithEmailAndPassword(email, password);
   };
 
   const emailVerify = async () => {
@@ -182,9 +182,8 @@ export const FirebaseProvider = ({ children }) => {
   const putUser = async () => {
     const timestamp = new Date().toLocaleString();
     const userName = authUser?.email.split("@")[0];
-
-    const docRef = firestore.collection('users').doc(authUser?.uid);
-    return await docRef.set({
+    
+    const userData = {
       uid: authUser?.uid,
       createdAt: authUser?.metadata?.creationTime,
       credits: 10000,
@@ -194,7 +193,10 @@ export const FirebaseProvider = ({ children }) => {
       email: authUser?.email,
       emailVerified: authUser?.emailVerified,
       photoURL: authUser?.photoURL? authUser?.photoURL: null,
-    }, { merge: true })
+    };
+
+    const docRef = firestore.collection('users').doc(authUser?.uid);
+    return await docRef.set(userData, { merge: true });
   };
 
   const updateUserPhoto = async (uri) => {
@@ -428,8 +430,29 @@ export const FirebaseProvider = ({ children }) => {
     return await docRef.update({name: newName, updatedAt: timestamp});
   };
 
+  const archivedChat = async (chatId) => {
+    const timestamp = new Date().toLocaleString();
+
+    const documentRef = firestore.collection('users').doc(authUser?.uid).collection('chats').doc(chatId);
+    const documentSnapshot = await documentRef.get();
+    
+    if (documentSnapshot.exists) {
+      const archivedDocumentRef = firestore.collection('users').doc(authUser?.uid).collection('archived').doc(chatId);
+      await archivedDocumentRef.set(documentSnapshot.data());
+      const updatedData = {
+        ...documentSnapshot.data(),
+        updatedAt: timestamp,
+        archivedAt: timestamp
+      };
+      await archivedDocumentRef.set(updatedData), { merge: true }; 
+      await documentRef.delete();
+    } else {
+      console.log('No such document!');
+    }
+  };
+
   const deleteChat = async (chatId) => {
-    const docRef = firestore.collection('users').doc(authUser?.uid).collection('chats').doc(chatId);
+    const docRef = firestore.collection('users').doc(authUser?.uid).collection('archived').doc(chatId);
     return await docRef.delete();
   };
 
@@ -508,8 +531,8 @@ export const FirebaseProvider = ({ children }) => {
         messages: arrayUnion(message),
       });
     });
-    await firestore.collection('users').doc(friend.uid).collection('chats').doc(chatId).set(chat, { merge: true }).then(() => {
-      firestore.collection('users').doc(friend.uid).collection('chats').doc(chatId).update({
+    await firestore.collection('users').doc(friend?.uid).collection('chats').doc(chatId).set(chat, { merge: true }).then(() => {
+      firestore.collection('users').doc(friend?.uid).collection('chats').doc(chatId).update({
         messages: arrayUnion(message),
       });
     });
@@ -606,6 +629,7 @@ export const FirebaseProvider = ({ children }) => {
     createUserPrivateMessage,
     createAiPrivateMessage,
     editChat,
+    archivedChat,
     deleteChat,
     createDirectUserChat,
     createDirectFriendChat,

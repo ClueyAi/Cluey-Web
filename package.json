@@ -4,13 +4,15 @@
   "main": "node_modules/expo/AppEntry.js",
   "scripts": {
     "start": "npx expo start --web",
+    "mobile": "npx expo start",
     "dev": "npx expo start --dev-client",
     "doctor": "npx expo-doctor",
     "fix": "npx expo-doctor --fix-dependencies",
     "bkp": "node bkp.js",
     "build": "npx expo export:web",
     "deploy": "firebase deploy",
-    "prod": "npx expo export:web && node bkp_public.js && rm -rf public/* && cp -r web-build/* public/ && rm -rf web-build && cp 404.html public/ && firebase deploy"
+    "prod": "npx expo export:web && node bkp_public.js && rm -rf public/* && cp -r web-build/* public/ && rm -rf web-build && cp 404.html public/ && firebase deploy",
+    "prodW": "npx expo export:web; node bkp_public.js; Remove-Item -Recurse public/*; Copy-Item -Recurse web-build/* public/; Remove-Item -Recurse web-build; Copy-Item 404.html public/; firebase deploy"
   },
   "dependencies": {
     "@expo/config-plugins": "^6.0.1",

@@ -253,7 +253,7 @@
     "success": {
       "title": "¡Recuperación de contraseña solicitada con éxito!",
       "description": "Recibirás un correo electrónico con los pasos para recuperar la contraseña de tu cuenta, asociado al correo ingresado.",
-      "alert_tittle": "¡Importante!",
+      "alert_title": "¡Importante!",
       "alert_msg": "Recuerda revisar también tu carpeta de 'spam'.",
       "Button": {
         "text": "Continuar para iniciar sesión",
@@ -319,6 +319,9 @@
       "placeholder": "Escribe tu mensaje...",
       "placeholder1": "Hola ",
       "placeholder2": ", ¿Le puedo ayudar en algo?"
+    },
+    "search_box": {
+      "placeholder": "Buscar..."
     },
     "send_button": {
       "text": "Remitente",

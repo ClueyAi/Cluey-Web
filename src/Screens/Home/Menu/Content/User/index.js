@@ -93,7 +93,7 @@ const User = () => {
                       <UserTitle theme={theme}>{locale.country_config.title}</UserTitle>
                       {country?
                         <UserCountry>
-                          <Flag code={country?.iso} style={{marginHorizontal: 5}} size={16}/>
+                          <Flag code={country?.iso} style={{marginRight: 4}} size={16}/>
                           <UserText theme={theme}>{country?.name}</UserText>
                         </UserCountry>
                         :

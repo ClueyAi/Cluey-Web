@@ -253,7 +253,7 @@
     "success": {
       "title": "Password recovery successfully requested!",
       "description": "You will receive an email with the steps to recover your account password, associated with the email entered.",
-      "alert_tittle": "Important!",
+      "alert_": "Important!",
       "alert_msg": "Remember to also check your 'spam' folder.",
       "Button": {
         "text": "Continue to Sign In",
@@ -319,6 +319,9 @@
       "placeholder": "Type your message...",
       "placeholder1": "Hi ",
       "placeholder2": ", how can I help you?"
+    },
+    "search_box": {
+      "placeholder": "Buscar..."
     },
     "send_button": {
       "text": "Sender",

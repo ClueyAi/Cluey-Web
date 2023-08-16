@@ -4,7 +4,8 @@ import PropTypes from "prop-types";
 
 import { FirebaseContext } from '/src/api/firebase';
 import { ThemeContext } from '/src/components/theme';
-import { 
+import {
+  Button,
   InfoContainer,
   InfoPicture,
   InfoState,
@@ -13,7 +14,7 @@ import {
 
 const Input = ({id}) => {
   const {theme} = useContext(ThemeContext);
-  const {appStatus, chats} = useContext(FirebaseContext);
+  const {appStatus, appInfo, chats} = useContext(FirebaseContext);
   const [chat, setChat] = useState([]);
   const [friend, seFriend] = useState([]);
   const [isPrivate, setIsprivate] = useState(false);
@@ -39,6 +40,27 @@ const Input = ({id}) => {
     }
   };
 
+  const getStateBot = () => {
+    if (isPrivate) {
+      if (appStatus?.server ) {
+        return theme.secondary;
+      } 
+      if (!appStatus?.server) {
+        return theme.error;
+      } 
+    } else {
+      if (chat?.status === 'online') {
+        return theme.secondary;
+      } else if (chat?.status === 'away') {
+        return theme.primary;
+      } else if (chat?.status === 'busy') {
+        return theme.error;
+      } else {
+        return theme.secondary;
+      }
+    }
+  };
+
   useEffect(() => {
     if (chats) {
       const currentChat = chats?.find((chat) => chat.id === id);
@@ -48,20 +70,41 @@ const Input = ({id}) => {
     }
   }, [chats, id]);
 
-  if (id) {
+  if (chat) {
     return (
-      <InfoContainer>
-        <InfoPicture>
-          <UserAvatar
-            size={45}
-            style={{ width: 45, height: 45, borderRadius: 100, borderWidth: 2 }}
-            name={friend?.displayName}
-            src={friend?.photoURL}
-          />
-        </InfoPicture>
-        <InfoState style={{backgroundColor: getState()}}/>
-        <InfoName theme={theme}>{friend?.displayName}</InfoName>
-      </InfoContainer>
+      <Button>
+        <InfoContainer>
+          <InfoPicture>
+            <UserAvatar
+              size={45}
+              style={{ width: 45, height: 45, borderRadius: 100, borderWidth: 2 }}
+              name={friend?.displayName}
+              src={friend?.photoURL}
+            />
+          </InfoPicture>
+          <InfoState style={{backgroundColor: getState()}}/>
+          <InfoName theme={theme}>{friend?.displayName}</InfoName>
+        </InfoContainer>
+      </Button>
+    );
+  }
+
+  if (!chat) {
+    return (
+      <Button>
+        <InfoContainer>
+          <InfoPicture>
+            <UserAvatar
+              size={45}
+              style={{ width: 45, height: 45, borderRadius: 100, borderWidth: 2 }}
+              name={appInfo?.displayName}
+              src={appInfo?.photoURL}
+            />
+          </InfoPicture>
+          <InfoState style={{backgroundColor: getStateBot()}}/>
+          <InfoName theme={theme}>{appInfo?.displayName}</InfoName>
+        </InfoContainer>
+      </Button>
     );
   }
   

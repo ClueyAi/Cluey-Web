@@ -15,7 +15,7 @@ const Screens = () => {
   const {locale} = useContext(LocaleContext);
 
   useEffect(() => {
-    document.title = locale.global.app.name+'®';
+    document.title = locale.global.app.name;
   }, []);
 
   return (

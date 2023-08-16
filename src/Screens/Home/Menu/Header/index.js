@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import PropTypes from "prop-types";
 import { ThemeContext } from '../../../../components/theme';
 import { FirebaseContext } from '../../../../api/firebase';
@@ -17,6 +17,7 @@ import {
 const Header = ({ selected, handleSelected }) => {
   const { theme } = useContext(ThemeContext);
   const { user } = useContext(FirebaseContext);
+  const [name, setName] = useState('');
 
   const getColor = (index) => {
     if (selected === index) {
@@ -26,11 +27,15 @@ const Header = ({ selected, handleSelected }) => {
     }
   };
 
+  useEffect(() => {
+    setName(user?.displayName?.length > 15 ? user?.displayName?.substring(0, 15) + '...' : user?.displayName);
+  }, [user]);
+
   return (
     <HeaderMenuContainer theme={theme}>
       <HeaderInforSection onPress={() => handleSelected(9)}>
         <HeaderInfor theme={theme}>
-          <HeaderDisplayName style={{color: getColor(9)}}>{user?.displayName}</HeaderDisplayName>
+          <HeaderDisplayName style={{color: getColor(9)}}>{name}</HeaderDisplayName>
           <HeaderUserName style={{color: getColor(9)}} theme={theme}>{user?.userName}</HeaderUserName>
         </HeaderInfor>
       </HeaderInforSection>

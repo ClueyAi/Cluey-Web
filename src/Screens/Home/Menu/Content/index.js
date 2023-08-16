@@ -9,7 +9,7 @@ import User from './User';
 import Settings from './Settings';
 
 import Working from '../../../Utils/Working';
-const Content = ({selected, handleSelected}) => {
+const Content = ({selected}) => {
   if (selected === 0) {
     return (
       <ChatsContainer>
@@ -43,7 +43,7 @@ const Content = ({selected, handleSelected}) => {
   } else if (selected === 5) {
     return (
       <ChatsContainer>
-        <Settings handleSelected={handleSelected}/>
+        <Settings />
       </ChatsContainer>
     );
   } else if (selected === 9) {

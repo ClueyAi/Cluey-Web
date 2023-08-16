@@ -1,8 +1,6 @@
 import React, { useState, useContext, useEffect } from "react";
 import { ActivityIndicator } from "react-native";
-import { useLocation } from 'react-router-dom';
-
-import { LocaleContext } from "/src/components/locale";
+import { LocaleContext } from "../../../../../components/locale";
 import { FirebaseContext } from "/src/api/firebase";
 import { ThemeContext, shadow } from "/src/components/theme";
 import {
@@ -21,7 +19,6 @@ import {
 import { navigate } from '../../../../functions';
 
 const Form = () => {
-  const location = useLocation();
   const { locale } = useContext(LocaleContext);
   const { emailVerify } = useContext(FirebaseContext);
   const { theme } = useContext(ThemeContext);
@@ -49,7 +46,7 @@ const Form = () => {
     if (storedRemainingSeconds > 0) {
       setSended(true);
     }
-  }, [location]);
+  }, []);
 
   return (
     <View style={{ width: '100%', alignItems: 'flex-start', marginLeft: 25, marginTop: 20 }}>
@@ -57,7 +54,7 @@ const Form = () => {
       <View style={{width: '50%', marginTop: 10, marginBottom: 20}}>
         <AuthText theme={theme}>{locale.verify.content.description}</AuthText>
       </View>
-      <AuthTitle>{locale.verify.content.alert_tittle}</AuthTitle>
+      <AuthTitle>{locale.verify.content.alert_}</AuthTitle>
       <View style={{width: '50%', marginTop: 10, marginBottom: 10}}>
         <AuthText theme={theme}>{locale.verify.content.alert_msg}</AuthText>
       </View>

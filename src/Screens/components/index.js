@@ -413,6 +413,12 @@ export const HeaderChatContainer = styled.View`
 export const CountContainer = styled.View`
   flex-direction: row;
   align-items: center;
+  justify-content: flex-end;
+`;
+export const CountContent = styled.View`
+  margin: 0 20px;
+  flex-direction: row;
+  align-items: center;
   justify-content: center;
 `;
 export const CountTitles = styled.Text`
@@ -422,6 +428,30 @@ export const CountTitles = styled.Text`
   margin-top: 10px;
   color: ${({ theme }) => theme.textDark};
 `;
+// Back
+export const BackContainer = styled.View`
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+`;
+export const BackContent = styled.View`
+  margin: 0 20px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+`;
+export const BackTitles = styled.Text`
+  font-family: 'Nunito-Bold';
+  font-size: 18px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  color: ${({ theme }) => theme.textDark};
+`;
+export const BackButton = styled.TouchableOpacity`
+  align-items: center;
+  justify-content: center;
+`;
+
 // Presets
 export const PresetsContainer = styled.View`
   flex: 1;
@@ -580,29 +610,15 @@ export const PlansInfoImage = styled.Image`
   width: 900px;
   height: 550px;
 `;
-// Sliders
-export const SlidersContainer = styled.View`
-  flex: 1;
-  width: 100%;
-  flex-direction: column;
-`;
-export const SlidersInfoContent = styled.View`
-  flex: 1;
-  width: 100%;
-  align-items: center;
-  justify-content: center;
-`;
-export const SlidersInfoImage = styled.Image`
-  resize: auto;
-  width: 100%;
-  height: 100%;
-`;
 
 // Messages
 export const MessagesContainer = styled.View`
   flex: 1;
   width: 100%;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
 `;
 export const MessagesContent = styled.View`
   flex-direction: column;
@@ -881,6 +897,13 @@ export const ChatsContainer = styled.View`
   align-items: center;
   width: 100%;
 `;
+export const ChatsButtonAdd = styled.TouchableOpacity`
+  width: 90%;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 24px 0;
+`;
 export const ChatsButton = styled.TouchableOpacity`
   align-self: center;
   align-content: center;
@@ -951,11 +974,10 @@ export const ContactContainer = styled.View`
 `;
 export const ContactButtonAdd = styled.TouchableOpacity`
   flex: 1;
-  width: 100%;
+  width: 90%;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  width: 90%;
   margin: 24px 0;
 `;
 // Add
@@ -1282,8 +1304,16 @@ export const SettingsItem = styled.View`
   border-left-width: 2px;
   border-color: ${({ theme }) => theme.primary47};
 `;
+export const SettingsHeaderSection = styled.View`
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+`;
 export const SettingsHeaderTitle = styled.Text`
   font-family: 'Nunito-Medium';
+  align-items: center;
+  justify-content: center;
+  justify-self: center;
   text-align: left;
   font-size: 18px;
   margin-left: 5px;
@@ -1340,35 +1370,22 @@ export const AuthContainer = styled.View`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  overflow: hidden;
 `;
 // News
 export const NewsContainer = styled.View`
-  width: 700px;
+  width: auto;
   height: 100%;
   justify-content: center;
   align-items: center;
   background-color: ${({ theme }) => theme.bgSlider};
 `;
-export const NewsContent = styled.View`
-  width: 100%;
-  margin-top: 20px;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-`;
-export const NewsSection = styled.View`
-  width: 100%;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-`;
 export const NewsSlideImage = styled.Image`
   justify-content: center;
   align-items: center;
-  width: calc(376.47px / 1.4);
-  height: calc(911px / 1.4);
+  width: calc(900px / 1.5);
+  height: calc(1918px / 1.5);
   resize: contain;
-  margin: 0 10px;
 `;
 
 // Content

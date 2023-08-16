@@ -16,13 +16,13 @@ const Content = ({ selected }) => {
       <AccountScrollView>
         {selected === 0 ? 
           <Account />
-        :selected === 1 ? 
-          <Invoicing />
-        :selected === 2 ? 
-          <Plans />
-        :selected === 3 ? 
-          <Notify />
-        :null}
+          :selected === 1 ? 
+            <Invoicing />
+            :selected === 2 ? 
+              <Plans />
+              :selected === 3 ? 
+                <Notify />
+                :null}
       </AccountScrollView>
     </AccountContent>
   );

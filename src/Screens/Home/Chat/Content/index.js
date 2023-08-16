@@ -5,7 +5,6 @@ import { FirebaseContext } from '../../../../api/firebase';
 import Messages from './Messages';
 import Plans from './Plans';
 import Presets from './Presets';
-import Sliders from './Sliders';
 
 const Content = ({id}) => {
   const { chats } = useContext(FirebaseContext);
@@ -15,8 +14,8 @@ const Content = ({id}) => {
     const currentChat = chats?.find((chat) => chat.id === id);
     setChat(currentChat)
   }, [chats, id]);
-
-  if (id) {
+  
+  if (chat) {
     return (
       <Messages chat={chat} />
     );
@@ -26,16 +25,6 @@ const Content = ({id}) => {
     <Presets />
   );
 
-
-  /*
-  return (
-    <Plans/>
-  );
-
-  return (
-    <Main/>
-  );*/
-  
 };
 
 Content.propTypes = {

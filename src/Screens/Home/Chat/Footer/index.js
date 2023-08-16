@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useEffect, useContext, useState } from 'react';
 import PropTypes from 'prop-types';
 import { ThemeContext } from '/src/components/theme';
+import { FirebaseContext } from '/src/api/firebase';
 
 import { 
   FooterContainer,
@@ -12,10 +13,27 @@ import Input from './Input';
 import Actions from './Actions';
 
 const Footer = ({id, setSend}) => {
-  const {theme} = React.useContext(ThemeContext);
+  const {theme} = useContext(ThemeContext);
+  const {chats} = useContext(FirebaseContext);
+  const [chat, setChat] = useState([]);
+  
+  useEffect(() => {
+    if (chats) {
+      const currentChat = chats?.find((chat) => chat.id === id);
+      setChat(currentChat);
+    }
+  }, [chats, id]);
 
-  if (!id) {
-    return null;
+  if (chat) {
+    return (
+      <FooterContainer>
+        <FooterContent theme={theme}>
+          <Info id={id} />
+          <Input id={id} setSend={setSend} />
+          <Actions id={id} />
+        </FooterContent>
+      </FooterContainer>
+    );
   }
 
   return (
@@ -23,7 +41,6 @@ const Footer = ({id, setSend}) => {
       <FooterContent theme={theme}>
         <Info id={id} />
         <Input id={id} setSend={setSend} />
-        <Actions id={id} />
       </FooterContent>
     </FooterContainer>
   );

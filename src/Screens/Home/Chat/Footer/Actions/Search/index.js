@@ -36,7 +36,7 @@ const Search = ({ chat }) => {
   return (
     <ActionSearchContainer theme={theme}>
       <ActionSearchSearchBox
-        placeholder={locale.home.chat_box.placeholder}
+        placeholder={locale.home.search_box.placeholder}
         theme={theme}
         value={textValue}
         placeholderTextColor={theme.textDark}
@@ -50,7 +50,7 @@ const Search = ({ chat }) => {
 };
 
 Search.propTypes = {
-  chat: PropTypes.object.isRequired
+  chat: PropTypes.object
 };
 
 export default Search;
