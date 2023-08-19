@@ -16,7 +16,7 @@ const Footer = () => {
   const {theme} = useContext(ThemeContext);
 
   const handleHelp = async () => {
-    window.open('https://cluey.webflow.io/#Ajuda-Cluey', '_blank');
+    window.open('https://cluey.pt/#Ajuda-Cluey', '_blank');
   };
 
   return (

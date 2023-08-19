@@ -10,7 +10,7 @@ const Pro = () => {
   const {theme} = useContext(ThemeContext);
 
   const handlePlans = () => {
-    window.open('https://cluey.webflow.io/#planos');
+    window.open('https://cluey.pt/#planos');
   };
 
   return (

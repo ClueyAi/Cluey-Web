@@ -34,7 +34,7 @@ const Header = () => {
     window.location.reload();
   };
   const handleHelp = () => {
-    window.open('https://cluey.webflow.io/#Ajuda-Cluey', '_blank');
+    window.open('https://cluey.pt/#Ajuda-Cluey', '_blank');
   };
 
   return (

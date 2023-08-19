@@ -22,7 +22,7 @@ const Footer = () => {
   const terms = locale.global.app.policy_terms.terms.title.split(' ')[0];
 
   const handleRules = () => {
-    window.open('https://cluey.webflow.io/termos');
+    window.open('https://cluey.pt/termos');
   };
 
   const handleAbout = () => {

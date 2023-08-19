@@ -45,7 +45,7 @@ const About = () => {
   };
 
   const handlePolicy = async () => {
-    window.open('https://cluey.webflow.io/termos', '_blank');
+    window.open('https://cluey.pt/termos', '_blank');
   };
 /*
   return (
