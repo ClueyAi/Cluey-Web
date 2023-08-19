@@ -33,6 +33,7 @@ export const Button = styled.TouchableOpacity`
   justify-content: center;
   align-items: center;
 `;
+export const View = styled.View``;
 export const LinkButton = styled.TouchableOpacity``;
 
 // Loading
@@ -462,7 +463,8 @@ export const PresetsContainer = styled.View`
 export const PresetsContent = styled.View`
   flex: 1;
   width: 100%;
-  align-items: center;
+  align-self: center;
+  justify-content: center;
   flex-direction: column;
 `;
 export const SuggestionsButton = styled.TouchableOpacity`
@@ -470,13 +472,13 @@ export const SuggestionsButton = styled.TouchableOpacity`
   align-content: center;
   justify-content: center;
   height: 40px;
-  width: 92%;
+  width: auto;
   border-width: 1px;
   border-color: ${({ theme }) => theme.border};
   padding: 0 10px;
   margin-top: 5px;
   margin-bottom: 5px;
-  border-radius: 30px;
+  border-radius: 10px;
 `;
 export const SuggestionsText = styled.Text`
   font-family: 'Nunito-SemiBold';
@@ -486,6 +488,42 @@ export const SuggestionsText = styled.Text`
   padding-bottom: 10px;
   color: ${({ theme }) => theme.text};
 `;
+// Suggests
+export const SuggestsContainer = styled.View`
+  flex: 1;
+  width: 100%;
+  flex-direction: row;
+  justify-content: space-between;
+  z-index: 1;
+`;
+export const SuggestsContent = styled.View`
+  flex: 1;
+  flex-direction: column;
+  align-self: center;
+`;
+export const SuggestsProfile = styled.View`
+  width: 100%;
+  height: 40px;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  padding-left: 10px;
+`;
+export const SuggestsInfor = styled.View`
+  width: auto;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  text-align: center;
+  margin-left: 15px;
+`;
+export const SuggestsText = styled.Text`
+  font-family: 'Nunito-SemiBold';
+  text-align: center;
+  font-size: 14px;
+  color: ${({ theme }) => theme.text};
+`;
+
 // Plans
 export const PlansContainer = styled.ScrollView`
   flex: 1;
@@ -816,7 +854,7 @@ export const HamburguerContainer = styled.View`
 export const HamburguerContent = styled.View`
   flex-direction: column;
   align-items: center;
-  width: 480px;
+  width: 505px;
   border-left-width: 1px;
   border-color: ${({ theme }) => theme.border};
   background-color: ${({ theme }) => theme.background};
@@ -902,7 +940,7 @@ export const ChatsButtonAdd = styled.TouchableOpacity`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  margin: 24px 0;
+  margin: 11px 0;
 `;
 export const ChatsButton = styled.TouchableOpacity`
   align-self: center;
@@ -1222,6 +1260,39 @@ export const UserContent = styled.View`
   flex-direction: column;
   justify-content: space-between;
 `;
+export const UserForm = styled.View`
+  width: 88%;
+  align-items: center;
+`;
+export const UserInput = styled.View`
+  width: 100%;
+  height: 45px;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 30px;
+  border-width: 0.1px;
+  border-color: ${({ theme }) => theme.border};
+  background-color: ${({ theme }) => theme.background};
+`;
+export const UserTextInput = styled.TextInput`
+  flex: 1;
+  font-family: 'Nunito';
+  width: 100%;
+  padding: 10px;
+  margin-left: 10px;
+  color: ${({ theme }) => theme.text};
+  outline-width: 0;
+  outline-style: none;
+`;
+export const UserButton = styled.TouchableOpacity`
+  width: 333px;
+  height: 56px;
+  border-radius: 30px;
+  background-color: ${({ theme }) => theme.primaryc};
+  justify-content: center;
+  align-items: center;
+`;
 export const UserCountry = styled.View`
   flex-direction: row;
   justify-content: center;
@@ -1276,6 +1347,41 @@ export const UserProfileText = styled.Text`
   text-align: center;
   font-size: 16px;
   color: ${({ theme }) => theme.text};
+`;
+export const UserProfile = styled.View`
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
+export const UserPicture = styled.View`
+  justify-content: center;
+  align-items: center;
+`;
+export const UserProfilePicture = styled.View`
+  width: 110px;
+  height: 110px;
+  border-radius: 100px;
+  border: 4px solid ${({ theme }) => theme.primary};
+  justify-content: center;
+  align-items: center;
+`;
+export const UserPictureEdit = styled.View`
+  width: 19px;
+  height: 19px;
+  margin-top: -20px;
+  left: 25px;
+  border-radius: 40px;
+  justify-content: center;
+  align-items: center;
+  background-color: ${({ theme }) => theme.primary};
+`;
+export const UserInfor = styled.View`
+  width: 100%;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 `;
 
 // Setting
@@ -1372,6 +1478,12 @@ export const AuthContainer = styled.View`
   align-items: center;
   overflow: hidden;
 `;
+// Providers
+export const TxtProvider = styled.Text`
+  font-family: 'Nunito-Bold';
+  font-size: 16px;
+  color: ${({ theme }) => theme.textDark};
+`;
 // News
 export const NewsContainer = styled.View`
   width: auto;
@@ -1441,12 +1553,48 @@ export const AuthButton = styled.TouchableOpacity`
   border-radius: 10px;
   background-color: ${({ theme }) => theme.primary};
 `;
+export const AuthButtonTxtButton = styled.Text`
+  font-family: 'Nunito-Bold';
+  font-size: 19px;
+  color: ${({ theme }) => theme.background};
+`;
+export const AuthTextError = styled.Text`
+  font-family: 'Nunito';
+  text-align: center;
+  font-size: 14px;
+  margin-bottom: 10px;
+  color: ${({ theme }) => theme.error};
+`;
+export const AuthTextValid = styled.Text`
+  font-family: 'Nunito';
+  text-align: center;
+  font-size: 14px;
+  margin-bottom: 10px;
+  color: ${({ theme }) => theme.secondary};
+`;
+export const AuthTextAlert= styled.Text`
+  font-family: 'Nunito';
+  text-align: center;
+  font-size: 14px;
+  margin-bottom: 10px;
+  color: ${({ theme }) => theme.primary};
+`;
 // Header
 export const AuthHeaderLinkText = styled.Text`
   font-family: 'Nunito';
   text-align: center;
   font-size: 16px;
   color: ${({ theme }) => theme.primary};
+`;
+export const AuthHeaderText = styled.Text`
+  font-family: 'Nunito-Bold';
+  text-align: center;
+  font-size: 28px;
+`;
+export const AuthHeaderP = styled.Text`
+  font-family: 'Nunito';
+  text-align: center;
+  font-size: 15px;
 `;
 // Footer
 export const AuthFooterContainer = styled.View`
@@ -1730,13 +1878,13 @@ export const ContentInvoicingValue = styled.Text`
 export const ContentInvoicingButtonText = styled.Text`
   font-family: 'Nunito-Bold';
   text-align: center;
+  align-self: center;
   font-size: 20px;
   color: ${({ color, theme }) => color === 'delete' ? theme.error:theme.primary};
 `;
 export const ContentInvoicingButton = styled.TouchableOpacity`
   width: 100%;
-  height: 80px;
-  padding: 0 20px;
+  padding: 10px 20px;
   margin-top: 30px;
   margin-bottom: 40px;
   flex-direction: row;
@@ -1760,6 +1908,18 @@ export const ContentInvoicingDesc = styled.View`
   flex-direction: row;
   align-items: flex-start;
   justify-content: center;
+`;
+export const ContentInvoicingAmount = styled.Text`
+  font-family: 'Nunito';
+  text-align: center;
+  font-size: 18px;
+  color: ${({ theme }) => theme.textDark};
+`;
+export const ContentInvoicingStatus = styled.View`
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  margin-top: 40px;
 `;
 // Content - Notify
 export const ContentNotify = styled.View`

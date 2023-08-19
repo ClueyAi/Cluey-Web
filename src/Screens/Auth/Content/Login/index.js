@@ -2,14 +2,13 @@ import React, { useContext } from "react";
 
 import { LocaleContext } from "/src/components/locale";
 import { ThemeContext } from "/src/components/theme";
-import {
-  View,
-  H0, P,
-  ButtonEmpyte,
-} from "/src/components/global";
 
 import {
-  AuthHeaderLinkText
+  View,
+  LinkButton,
+  AuthHeaderLinkText,
+  AuthHeaderText,
+  AuthHeaderP
 } from '../../../components';
 import { navigate } from '../../../functions';
 
@@ -32,18 +31,18 @@ const Login = () => {
       <View style={{ width: '100%', padding: 20}}>
         <View style={{ marginRight: '4%', marginTop: 10 }}>
           <View style={{flexDirection: "row", width: '100%',  alignItems: 'center', justifyContent: 'flex-end',}}>
-            <P>{locale.signin.button_signup.msg}</P>
-            <ButtonEmpyte
+            <AuthHeaderP>{locale.signin.button_signup.msg}</AuthHeaderP>
+            <LinkButton
               style={{ marginLeft: 2 }}
               onPress={handleSignUp}
             >
               <AuthHeaderLinkText theme={theme}>{locale.signin.button_signup.text}</AuthHeaderLinkText>
-            </ButtonEmpyte>
+            </LinkButton>
           </View>
         </View>
         <View style={{ width: '100%', padding: 20, marginTop: '20%', alignItems: 'flex-start'}}>
-          <H0 style={{ marginBottom: 10 }}>{locale.signin.title}</H0>
-          <P>{locale.signin.description}</P>
+          <AuthHeaderText style={{ marginBottom: 10 }}>{locale.signin.title}</AuthHeaderText>
+          <AuthHeaderP>{locale.signin.description}</AuthHeaderP>
         </View>
         <Form />
         {/*<Provider /> */}  

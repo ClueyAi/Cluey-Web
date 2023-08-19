@@ -194,6 +194,16 @@
     "continue_button": {
       "text": "Continue",
       "accessibility": "continue to Cluey"
+    },
+    "content": {
+      "title": "Verificação enviada com sucesso!",
+      "description": "Receberá um e-mail com o link para verificar sua conta, associados ao e-mail registado.",
+      "alert_title": "Importante!",
+      "alert_msg": "Lembre-se de verificar também sua caixa de 'spam'.",
+      "button": {
+        "text": "Continuar",
+        "accessibility": "continue para o Cluey"
+      }
     }
   },
   "preferences": {
@@ -243,6 +253,10 @@
   "forgot": {
     "title": "Forgot Password?",
     "description": "Recovery your account to Cluey help you.",
+    "button_signin": {
+      "text": "Voltar para login",
+      "accessibility": "go back to sign in screen"
+    },
     "button": {
       "text": "Recovery Now",
       "accessibility": "send email verification to recovery your Cluey account"
@@ -331,7 +345,16 @@
   "directs": {
     "title": "Falar",
     "item": {
-      "title": "Conversas"
+      "title": "Conversas",
+      "input": {
+        "placeholder": "Pesquisar um contato"
+      }
+    }
+  },
+  "private": {
+    "title": "Falar",
+    "item": {
+      "title": "Chats"
     }
   },
   "tools": {
@@ -412,7 +435,10 @@
   },
   "country_config": {
     "title": "Country",
-    "description": "choose your location"
+    "description": "choose your location",
+    "buttons" : {
+      "close": "Close"
+    }
   },
   "account": {
     "title": "Conta",
@@ -443,6 +469,30 @@
         "button": "Eliminar conta"
       }
     }
+  },
+  "invoicing": {
+    "title": "Método de Pagamento",
+    "description": ", pago por ",
+    "cycle": " /mês com ",
+    "asks": " perguntas + AI ART ilimitado",
+    "button": "Editar",
+    "payments": {
+      "title": "Pagamentos",
+      "paypal": "PayPal",
+      "credit_card": "Cartão de crédito",
+      "bank_transfer": "Transferência bancária"
+    },
+    "history": "Histórico de Transações"
+  },
+  "plans": {
+    "title": "Planos",
+    "button":"Alterar plano",
+    "credits": " Perguntas restantes",
+    "art": " | AI ART Prompts ilimitados"
+  },
+  "notify": {
+    "title": "Notificações",
+    "button":"Alterar plano"
   },
   "about": {
     "title": "About"

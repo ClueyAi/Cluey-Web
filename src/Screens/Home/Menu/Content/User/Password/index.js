@@ -6,17 +6,15 @@ import { FirebaseContext } from "/src/api/firebase";
 import { ThemeContext, shadow } from "/src/components/theme";
 import { LocaleContext } from "/src/components/locale";
 import {
-  Form,
-  Input,
-  TextInput,
-  TxtButton,
-  TextAlert,
-  TextValid,
-  TextError,
-  ButtonPrimary,
-} from "/src/components/global";
-import {
-  UserContent
+  UserContent,
+  UserForm,
+  UserInput,
+  UserTextInput,
+  AuthButtonTxtButton,
+  AuthTextError,
+  AuthTextValid,
+  AuthTextAlert,
+  UserButton
 } from '../../../../../components';
 import { navigate } from '../../../../../functions';
 
@@ -108,8 +106,9 @@ const Password = () => {
 
   return (
     <UserContent>
-      <Form style={{flex: 1, marginTop: 40, alignSelf: 'center'}}>
-        <Input
+      <UserForm style={{flex: 1, marginTop: 40, alignSelf: 'center'}}>
+        <UserInput
+          theme={theme}
           style={{
             ...shadow,
 
@@ -119,7 +118,7 @@ const Password = () => {
             }`,
           }}
         >
-          <TextInput
+          <UserTextInput
             ref={currentPasswordRef}
             theme={theme}
             placeholder={locale.password_config.current_password}
@@ -132,8 +131,9 @@ const Password = () => {
             onChangeText={currentPasswordValidate}
             onSubmitEditing={() => {passwordRef.current.focus()}}
           />
-        </Input>
-        <Input
+        </UserInput>
+        <UserInput
+          theme={theme}
           style={{
             ...shadow,
             marginBottom: 10,
@@ -144,7 +144,7 @@ const Password = () => {
             }`,
           }}
         >
-          <TextInput
+          <UserTextInput
             ref={passwordRef}
             theme={theme}
             placeholder={locale.password_config.password}
@@ -186,17 +186,18 @@ const Password = () => {
               color={theme.transparent}
             />
           )}
-        </Input>
+        </UserInput>
         {passwordStrong == false && passwordValid == true ? (
-          <TextAlert theme={theme}>Password medium</TextAlert>
+          <AuthTextAlert theme={theme}>Password medium</AuthTextAlert>
         ) : passwordValid == false && password !== '' ? (
-          <TextError theme={theme}>Password weak</TextError>
+          <AuthTextError theme={theme}>Password weak</AuthTextError>
         ) : passwordStrong == true && password !== '' ? (
-          <TextValid theme={theme}>Password strong</TextValid>
+          <AuthTextValid theme={theme}>Password strong</AuthTextValid>
         ) : (
-          <TextError theme={theme}></TextError>
+          <AuthTextError theme={theme}></AuthTextError>
         )}
-        <Input
+        <UserInput
+          theme={theme}
           style={{
             ...shadow,
             marginBottom: 10,
@@ -207,7 +208,7 @@ const Password = () => {
             }`,
           }}
         >
-          <TextInput
+          <UserTextInput
             ref={rePasswordRef}
             theme={theme}
             placeholder={locale.password_config.confirm_password}
@@ -243,20 +244,21 @@ const Password = () => {
               color={theme.secondary}
             />
           ) : null}
-        </Input>
+        </UserInput>
         {error ? (
-          <TextError theme={theme}>{errorMsg}</TextError>
+          <AuthTextError theme={theme}>{errorMsg}</AuthTextError>
         ) : (
-          <TextError theme={theme}></TextError>
+          <AuthTextError theme={theme}></AuthTextError>
         )}
-        <ButtonPrimary
+        <UserButton
+          theme={theme}
           style={shadow}
           onPress={handleChange}
           accessibilityLabel={locale.password_config.change_button.accessibility}
         >
-          <TxtButton>{locale.password_config.change_button.text}</TxtButton>
-        </ButtonPrimary>
-      </Form>
+          <AuthButtonTxtButton theme={theme}>{locale.password_config.change_button.text}</AuthButtonTxtButton>
+        </UserButton>
+      </UserForm>
     </UserContent>
   );
 };

@@ -5,14 +5,14 @@ import UserAvatar from 'react-native-user-avatar';
 
 import { LocaleContext} from '/src/components/locale';
 import { ThemeContext } from '/src/components/theme';
-import { 
+/*import { 
   Div,
   View,
   H1, H1Mini, H3, H3Bold, P, PMini,
   ButtonEmpyte,
   Picture,
   Image,
-} from '/src/components/global';
+} from '/src/components/global';*/
 
 import {
   AboutContainer,
@@ -47,7 +47,7 @@ const About = () => {
   const handlePolicy = async () => {
     window.open('https://cluey.webflow.io/termos', '_blank');
   };
-
+/*
   return (
     <AboutContainer>
       <AboutContent>
@@ -151,7 +151,8 @@ const About = () => {
         </Div>
       </AboutFooter>
     </AboutContainer>
-  );
+  );*/
+  return 
 };
 
 export default About;

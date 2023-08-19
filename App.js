@@ -9,8 +9,6 @@ import Screens from '/src/Screens/';
 
 console.disableYellowBox = true;
 
-import { Web } from '/src/components/global'
-
 const App = () => {
   const [loaded] = useFonts({
     'Nunito': require('/assets/fonts/Nunito/static/Nunito-Regular.ttf'),
@@ -25,17 +23,15 @@ const App = () => {
   }
 
   return (
-    <Web>
-      <LocaleProvider>
-        <FirebaseProvider>
-          <ProvidersProvider>
-            <ThemeProvider>
-              <Screens />
-            </ThemeProvider>
-          </ProvidersProvider>
-        </FirebaseProvider>
-      </LocaleProvider>
-    </Web>
+    <LocaleProvider>
+      <FirebaseProvider>
+        <ProvidersProvider>
+          <ThemeProvider>
+            <Screens />
+          </ThemeProvider>
+        </ProvidersProvider>
+      </FirebaseProvider>
+    </LocaleProvider>
   );
 };
 

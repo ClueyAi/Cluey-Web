@@ -5,13 +5,11 @@ import { useNavigate } from 'react-router-dom';
 import { LocaleContext } from "/src/components/locale";
 import { ProvidersContext } from "/src/api/providers";
 import { ThemeContext } from "/src/components/theme";
-import {
-  View,
-  TxtProvider,
-} from "/src/components/global";
 
 import {
+  View,
   LinkButton,
+  TxtProvider
 } from '../../../../components'
 
 const Provider = () => {
@@ -40,7 +38,7 @@ const Provider = () => {
 
   return (
     <View style={{width: '100%', marginTop: 30, flexDirection: 'row', alignItems: 'center', justifyContent: 'flex-start'}}>
-      <TxtProvider style={{ marginLeft: 30 }}>
+      <TxtProvider theme={theme} style={{ marginLeft: 30 }}>
         {locale.providers.text}
       </TxtProvider>
       <LinkButton onPress={handleGoogle}>

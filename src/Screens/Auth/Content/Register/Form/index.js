@@ -6,19 +6,17 @@ import Ionicons from "@expo/vector-icons/Ionicons";
 import { LocaleContext } from "/src/components/locale";
 import { FirebaseContext } from "/src/api/firebase";
 import { ThemeContext, shadow } from "/src/components/theme";
-import {
-  View,
-  ButtonEmpyte,
-  TxtButton,
-  TextError,
-  TextAlert,
-  TextValid
-} from "/src/components/global";
 
 import {
+  View,
+  LinkButton,
   CustomTextInput,
   AuthInput,
   AuthButton,
+  AuthButtonTxtButton,
+  AuthTextError,
+  AuthTextValid,
+  AuthTextAlert
 } from '../../../../components';
 import { navigate } from '../../../../functions';
 
@@ -199,18 +197,18 @@ const Form = () => {
           validation={passwordValidate}
           onSubmitEditing={() => {rePasswordRef.current.focus()}}
         />
-        <ButtonEmpyte style={{marginRight: 15}} onPress={handleShowPassword}>
+        <LinkButton style={{marginRight: 15}} onPress={handleShowPassword}>
           <Ionicons name={securePEntry? 'eye-outline': 'eye-off-outline'} size={20} color={theme.text} />
-        </ButtonEmpyte>
+        </LinkButton>
       </AuthInput>
       {passwordStrong == false && passwordValid == true ? (
-        <TextAlert theme={theme}>Password medium</TextAlert>
+        <AuthTextAlert theme={theme}>Password medium</AuthTextAlert>
       ) : passwordValid == false && password !== '' ? (
-        <TextError theme={theme}>Password weak</TextError>
+        <AuthTextError theme={theme}>Password weak</AuthTextError>
       ) : passwordStrong == true && password !== '' ? (
-        <TextValid theme={theme}>Password strong</TextValid>
+        <AuthTextValid theme={theme}>Password strong</AuthTextValid>
       ) : (
-        <TextError theme={theme}></TextError>
+        <AuthTextError theme={theme}></AuthTextError>
       )}
       <AuthInput
         theme={theme}
@@ -242,14 +240,14 @@ const Form = () => {
           validation={rePasswordValidate}
           onSubmitEditing={handleSignUp}
         />
-        <ButtonEmpyte style={{marginRight: 15}} onPress={handleShowRePassword}>
+        <LinkButton style={{marginRight: 15}} onPress={handleShowRePassword}>
           <Ionicons name={secureRPEntry? 'eye-outline': 'eye-off-outline'} size={20} color={theme.text} />
-        </ButtonEmpyte>
+        </LinkButton>
       </AuthInput>
       {error ? (
-        <TextError theme={theme}>{errorMsg}</TextError>
+        <AuthTextError theme={theme}>{errorMsg}</AuthTextError>
       ) : (
-        <TextError theme={theme}> </TextError>
+        <AuthTextError theme={theme}> </AuthTextError>
       )}
       <View style={{width: 400, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between'}}>
         <AuthButton
@@ -260,7 +258,7 @@ const Form = () => {
           {loading ?
             <ActivityIndicator size="small" color={theme.background} />
             :
-            <TxtButton>{locale.signup.button.text}</TxtButton>
+            <AuthButtonTxtButton theme={theme}>{locale.signup.button.text}</AuthButtonTxtButton>
           }
         </AuthButton>
       </View>

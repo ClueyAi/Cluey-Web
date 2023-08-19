@@ -22,7 +22,7 @@ const Header = () => {
   const {user} = useContext(FirebaseContext);
   const {theme} = useContext(ThemeContext);
 
-  const {goBack} = navigate();
+  const {goHome} = navigate();
 
   const handleCommunity = () => {
     window.location.reload();
@@ -39,7 +39,7 @@ const Header = () => {
 
   return (
     <AccountTop theme={theme}>
-      <AccountTopButton>
+      <AccountTopButton onPress={goHome}>
         <Image style={{width: 55, height: 55, marginBottom: -4}} source={require('/assets/images/icon.png')} />
         <AccountTopTitle theme={theme}>{locale.global.app.name}!</AccountTopTitle>
       </AccountTopButton>

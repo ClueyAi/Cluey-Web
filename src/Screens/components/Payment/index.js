@@ -27,7 +27,7 @@ const Payment = ({ payment, setEditPayment }) => {
         <PatchContainer>
           <PatchContent theme={theme} style={shadow}>
             <PatchHeader theme={theme}>
-              <PatchTitle>asd asdklaksd alsdlajsd jasd</PatchTitle>
+              <PatchTitle>{payment}</PatchTitle>
             </PatchHeader>
           </PatchContent>
         </PatchContainer> 

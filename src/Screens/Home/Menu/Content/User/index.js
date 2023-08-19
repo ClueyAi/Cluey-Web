@@ -73,7 +73,8 @@ const User = () => {
           <Profile editingName={editingName} handleEditName={handleEditName} />
           {vEmail?<Email />:
             vPassword?<Password />:
-              vCountry?<CountryPicker onSelect={handleCountrySelect} />:
+              vCountry?
+                <CountryPicker onClose={handleCountry} closeTxt={locale.country_config.buttons.close} onSelect={handleCountrySelect} />:
                 <UserScrollView style={{ marginTop: 30 }}>
                   <UserWideButton onPress={handleChangeEmail}>
                     <UserSection>

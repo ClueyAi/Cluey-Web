@@ -6,18 +6,16 @@ import Ionicons from "@expo/vector-icons/Ionicons";
 import { LocaleContext } from "/src/components/locale";
 import { FirebaseContext } from "/src/api/firebase";
 import { ThemeContext, shadow } from "/src/components/theme";
-import {
-  View,
-  TxtButton,
-  TextError,
-} from "/src/components/global";
 
 import {
+  View,
   CustomTextInput,
   AuthInput,
   AuthButton,
   AuthTitle,
-  AuthText
+  AuthText,
+  AuthButtonTxtButton,
+  AuthTextError
 } from '../../../../components';
 import { navigate } from '../../../../functions';
 
@@ -93,7 +91,7 @@ const Form = () => {
             {loading ?
               <ActivityIndicator size="small" color={theme.background} />
               :
-              <TxtButton>{locale.forgot.success.button.text}</TxtButton>
+              <AuthButtonTxtButton theme={theme}>{locale.forgot.success.button.text}</AuthButtonTxtButton>
             }
           </AuthButton>
         </View>
@@ -134,9 +132,9 @@ const Form = () => {
         />
       </AuthInput>
       {error ? (
-        <TextError theme={theme}>{errorMsg}</TextError>
+        <AuthTextError theme={theme}>{errorMsg}</AuthTextError>
       ) : (
-        <TextError theme={theme}> </TextError>
+        <AuthTextError theme={theme}> </AuthTextError>
       )}
       <View style={{width: 400, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between'}}>
         <AuthButton
@@ -147,7 +145,7 @@ const Form = () => {
           {loading ?
             <ActivityIndicator size="small" color={theme.background} />
             :
-            <TxtButton>{locale.forgot.button.text}</TxtButton>
+            <AuthButtonTxtButton theme={theme}>{locale.forgot.button.text}</AuthButtonTxtButton>
           }
         </AuthButton>
       </View>

@@ -13,7 +13,7 @@ export const FirebaseContext = createContext();
 export const FirebaseProvider = ({ children }) => {
   const {locale} = useContext(LocaleContext);
   const [authUser, setAuthUser] = useState(null);
-  const [isAuth, setIsAuth] = useState(false);
+  const [isAuth, setIsAuth] = useState(null);
   const [appFunc, setAppFunc] = useState(null);
   const [appInfo, setAppInfo] = useState(null);
   const [appStatus, setAppStatus] = useState(null);
@@ -182,11 +182,21 @@ export const FirebaseProvider = ({ children }) => {
   const putUser = async () => {
     const timestamp = new Date().toLocaleString();
     const userName = authUser?.email.split("@")[0];
+    const credits = 10000;
     
     const userData = {
       uid: authUser?.uid,
       createdAt: authUser?.metadata?.creationTime,
-      credits: 10000,
+      credits: credits,
+      payments: {
+        method: 'gift',
+        history: [{
+          name: 'Free - Beta Test',
+          price: 0,
+          credits: credits,
+          createdAt: timestamp,
+        }],
+      },
       updatedAt: timestamp,
       displayName: authUser?.displayName? authUser.displayName: userName,
       userName: authUser?.userName?authUser?.userName:'@'+userName,

@@ -3,14 +3,13 @@ import Ionicons from "@expo/vector-icons/Ionicons";
 import { LocaleContext } from "../../../../components/locale";
 import { FirebaseContext } from "/src/api/firebase";
 import { ThemeContext } from "/src/components/theme";
-import {
-  View,
-  H0, P,
-  ButtonEmpyte,
-} from "/src/components/global";
 
 import {
-  AuthHeaderLinkText
+  View,
+  LinkButton,
+  AuthHeaderLinkText,
+  AuthHeaderText,
+  AuthHeaderP
 } from '../../../components';
 import { navigate } from '../../../functions';
 
@@ -44,18 +43,18 @@ const Verify = () => {
       <View style={{ width: '100%', padding: 20}}>
         <View style={{ marginRight: '4%', marginTop: 10 }}>
           <View style={{flexDirection: "row", width: '100%',  alignItems: 'center', justifyContent: 'flex-end'}}>
-            <ButtonEmpyte
+            <LinkButton
               style={{ marginLeft: 2, flexDirection: 'row', alignItems: 'center', justifyContent: 'center' }}
               onPress={handleSignIn}
             >
               <AuthHeaderLinkText theme={theme}>{locale.forgot.button_signin.text}</AuthHeaderLinkText>
               <Ionicons style={{ padding: 10, marginRight: 5 }} name="log-out-outline" size={18} color={theme.primary} />
-            </ButtonEmpyte>
+            </LinkButton>
           </View>
         </View>
         <View style={{ width: '100%', padding: 20, marginTop: '20%', alignItems: 'flex-start'}}>
-          <H0 style={{ marginBottom: 10 }}>{locale.verify.title}</H0>
-          <P>{locale.verify.description}</P>
+          <AuthHeaderText theme={theme}  style={{ marginBottom: 10 }}>{locale.verify.title}</AuthHeaderText>
+          <AuthHeaderP theme={theme} >{locale.verify.description}</AuthHeaderP>
         </View>
         <Form />
       </View>

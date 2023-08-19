@@ -16,15 +16,15 @@ const navigate = () => {
     nav('/');
   };
 
-  const navRoute = (state) => {
-    nav('/', state);
+  const goAuth = () => {
+    nav('/auth');
   };
 
   return {
     goTo,
     goBack,
     goHome,
-    navRoute
+    goAuth
   };
 };
 

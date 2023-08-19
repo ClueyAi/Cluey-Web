@@ -194,6 +194,16 @@
     "continue_button": {
       "text": "Continuar",
       "accessibility": "seguir a cluey"
+    },
+    "content": {
+      "title": "Verificação enviada com sucesso!",
+      "description": "Receberá um e-mail com o link para verificar sua conta, associados ao e-mail registado.",
+      "alert_title": "Importante!",
+      "alert_msg": "Lembre-se de verificar também sua caixa de 'spam'.",
+      "button": {
+        "text": "Continuar",
+        "accessibility": "continue para o Cluey"
+      }
     }
   },
   "preferences": {
@@ -243,6 +253,10 @@
   "forgot": {
     "title": "¿Has olvidado tu contraseña?",
     "description": "Recupera tu cuenta para que Cluey te ayude.",
+    "button_signin": {
+      "text": "Voltar para login",
+      "accessibility": "go back to sign in screen"
+    },
     "button": {
       "text": "Recuperación ahora",
       "accessibility": "enviar verificación por correo electrónico para recuperar su cuenta de Cley"
@@ -331,7 +345,16 @@
   "directs": {
     "title": "Falar",
     "item": {
-      "title": "Conversas"
+      "title": "Conversas",
+      "input": {
+        "placeholder": "Pesquisar um contato"
+      }
+    }
+  },
+  "private": {
+    "title": "Falar",
+    "item": {
+      "title": "Chats"
     }
   },
   "tools": {
@@ -412,7 +435,10 @@
   },
   "country_config": {
     "title": "País",
-    "description": "Elija su ubicación"
+    "description": "Elija su ubicación",
+    "buttons" : {
+      "close": "Fechar"
+    }
   },
   "account": {
     "title": "Conta",
@@ -443,6 +469,30 @@
         "button": "Eliminar conta"
       }
     }
+  },
+  "invoicing": {
+    "title": "Método de Pagamento",
+    "description": " pago por ",
+    "cycle": ", /mês com ",
+    "asks": " perguntas + AI ART ilimitado",
+    "button": "Editar",
+    "payments": {
+      "title": "Pagamentos",
+      "paypal": "PayPal",
+      "credit_card": "Cartão de crédito",
+      "bank_transfer": "Transferência bancária"
+    },
+    "history": "Histórico de Transações"
+  },
+  "plans": {
+    "title": "Planos",
+    "button":"Alterar plano",
+    "credits": " Perguntas restantes",
+    "art": " | AI ART Prompts ilimitados"
+  },
+  "notify": {
+    "title": "Notificações",
+    "button":"Alterar plano"
   },
   "about": {
     "title": "Acerca de"

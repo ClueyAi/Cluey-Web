@@ -23,31 +23,62 @@ const Invoicing = () => {
   const {locale} = useContext(LocaleContext);
   const {user} = useContext(FirebaseContext);
   const {theme} = useContext(ThemeContext);
-  const [payment, setPayment] = useState(null);
   const [price, setPrice] = useState(null);
-  const [method, setMethod] = useState(null);
   const [editPayment, setEditPayment] = useState(false);
 
   const handlePayment = () => {
     setEditPayment(!editPayment);
   };
 
+  const sortedHistory = user?.payments.history.slice();
+  sortedHistory.sort((a, b) => {
+    const dateA = new Date(a.createdAt);
+    const dateB = new Date(b.createdAt);
+
+    return dateB - dateA;
+  });
+  
+  const paymentMethodImages = {
+    paypal: {
+      url:require('/assets/images/icons/paypal.png'),
+      style: {width: 185, height: 80}
+    },
+    visa: {
+      url:require('/assets/images/icons/visa.png'),
+      style: {width: 260, height: 80}
+    },
+    mastercard: {
+      url:require('/assets/images/icons/mastercard.png'),
+      style: {width: 135, height: 80}
+    },
+    gift: {
+      url:require('/assets/images/icons/gift.png'),
+      style: {width: 80, height: 80}
+    },
+  };
+
+  const mostRecentMethod = sortedHistory[0]?.method;
+  const methodImageSource = 
+    paymentMethodImages[mostRecentMethod] ||
+    {
+      url:require('/assets/images/icons/wallet.png'),
+      style: {width: 80, height: 80}
+    };
+
   useEffect(() => {
-    setPayment(user?.payments.method);
-    setPrice(user?.payments.history.price+'$');
-    setMethod(user?.payments.method.toUpperCase());
+    setPrice('$'+user?.payments.history[0].price);
   }, [user]);
     
   return (
     <ContentInvoicing>
-      {editPayment?<Payment payment={payment} setEditPayment={setEditPayment} />:null}
+      {editPayment?<Payment payment={sortedHistory[0].method} setEditPayment={setEditPayment} />:null}
       <ContentInvoicingProfile>
         <ContentInvoicingTitle theme={theme}>{locale.invoicing.title}</ContentInvoicingTitle>
       </ContentInvoicingProfile>
       <ContentInvoicingSection theme={theme}>
         <ContentInvoicingButton theme={theme} onPress={handlePayment}>
           <ContentInvoicingPay>
-            <Image style={{width: 115, height: 55, marginBottom: -4}} source={require('/assets/images/icons/paypal.png')} />
+            <Image style={methodImageSource.style} source={methodImageSource.url} />
           </ContentInvoicingPay>
           <ContentInvoicingButtonText color="payment" theme={theme}>{locale.invoicing.button}</ContentInvoicingButtonText>
         </ContentInvoicingButton>
@@ -55,28 +86,22 @@ const Invoicing = () => {
       <ContentInvoicingProfile>
         <ContentInvoicingTitle theme={theme}>{locale.invoicing.history}</ContentInvoicingTitle>
       </ContentInvoicingProfile>
-      <ContentInvoicingSection theme={theme}>
-        <ContentInvoicingHistory>
-          <ContentInvoicingText theme={theme}>{user?.payments.history.name}</ContentInvoicingText>
-          <ContentInvoicingDesc>
-            <ContentInvoicingValue theme={theme}>{price}</ContentInvoicingValue>
-            <ContentInvoicingValue theme={theme}>{locale.invoicing.description}</ContentInvoicingValue>
-            <ContentInvoicingValue theme={theme}>{method}</ContentInvoicingValue>
-          </ContentInvoicingDesc>
-        </ContentInvoicingHistory>
-        <ContentInvoicingValue theme={theme}>{user?.payments.history.createdAt}</ContentInvoicingValue>
-      </ContentInvoicingSection>
-      <ContentInvoicingSection theme={theme}>
-        <ContentInvoicingHistory>
-          <ContentInvoicingText theme={theme}>{user?.payments.history.name}</ContentInvoicingText>
-          <ContentInvoicingDesc>
-            <ContentInvoicingValue theme={theme}>{price}</ContentInvoicingValue>
-            <ContentInvoicingValue theme={theme}>{locale.invoicing.description}</ContentInvoicingValue>
-            <ContentInvoicingValue theme={theme}>{method}</ContentInvoicingValue>
-          </ContentInvoicingDesc>
-        </ContentInvoicingHistory>
-        <ContentInvoicingValue theme={theme}>{user?.payments.history.createdAt}</ContentInvoicingValue>
-      </ContentInvoicingSection>
+      {sortedHistory.map((item, index) => (
+        <ContentInvoicingSection  key={index} theme={theme}>
+          <ContentInvoicingHistory>
+            <ContentInvoicingText theme={theme}>{item.name}</ContentInvoicingText>
+            <ContentInvoicingDesc>
+              <ContentInvoicingValue theme={theme}>{price}</ContentInvoicingValue>
+              <ContentInvoicingValue theme={theme}>{locale.invoicing.cycle}</ContentInvoicingValue>
+              <ContentInvoicingValue theme={theme}>{item.credits}</ContentInvoicingValue>
+              <ContentInvoicingValue theme={theme}>{locale.invoicing.asks}</ContentInvoicingValue> 
+              <ContentInvoicingValue theme={theme}>{locale.invoicing.description}</ContentInvoicingValue>
+              <ContentInvoicingValue theme={theme}>{item.method.toUpperCase()}</ContentInvoicingValue>
+            </ContentInvoicingDesc>
+          </ContentInvoicingHistory>
+          <ContentInvoicingValue theme={theme}>{item.createdAt}</ContentInvoicingValue>
+        </ContentInvoicingSection>
+      ))}
     </ContentInvoicing>
   );
 };

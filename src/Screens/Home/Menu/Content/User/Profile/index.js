@@ -7,19 +7,17 @@ import PropTypes from "prop-types";
 import { FirebaseContext } from "/src/api/firebase";
 import { ThemeContext } from "/src/components/theme";
 import { LocaleContext } from "/src/components/locale";
-import {
-  Input,
-  ButtonEmpyte,
-  Profile,
-  Picture,
-  ProfilePicture,
-  PictureEdit,
-  Infor,
-} from "/src/components/global";
 
 import {
+  LinkButton,
   UserProfileInput,
-  UserProfileText
+  UserProfileText,
+  UserInput,
+  UserProfile,
+  UserPicture,
+  UserProfilePicture,
+  UserPictureEdit,
+  UserInfor
 } from '../../../../../components'
 
 const User = ({ editingName, handleEditName }) => {
@@ -71,27 +69,27 @@ const User = ({ editingName, handleEditName }) => {
   };
 
   return (
-    <Profile>
-      <Picture>
-        <ButtonEmpyte
+    <UserProfile>
+      <UserPicture>
+        <LinkButton
           onPress={handleEditPhoto}
         >
-          <ProfilePicture>
+          <UserProfilePicture theme={theme}>
             <UserAvatar
               size={102}
               style={{ width: 102, height: 102, borderRadius: 100 }}
               name={user?.displayName}
               src={user?.photoURL}
             />
-          </ProfilePicture>
-        </ButtonEmpyte>
-        <PictureEdit>
+          </UserProfilePicture>
+        </LinkButton>
+        <UserPictureEdit theme={theme}>
           <Ionicons name="camera" size={14} color={theme.text} />
-        </PictureEdit>
-      </Picture>
+        </UserPictureEdit>
+      </UserPicture>
       {editingName ?
-        <Infor style={{marginTop: 10}}>
-          <Input style={{ width: "50%", height: 30 }}>
+        <UserInfor style={{marginTop: 10}}>
+          <UserInput style={{ width: "50%", height: 30 }}>
             <UserProfileInput
               style={{ height: 50 }}
               value={userName}
@@ -102,23 +100,23 @@ const User = ({ editingName, handleEditName }) => {
               onChangeText={nameValidation}
               onSubmitEditing={onEditName}
             />
-            <ButtonEmpyte
+            <LinkButton
               style={{ marginLeft: 5, marginRight: 10 }}
               onPress={onEditName}
             >
               <Ionicons name="checkmark" size={19} color={theme.secondary} />
-            </ButtonEmpyte>
-            <ButtonEmpyte
+            </LinkButton>
+            <LinkButton
               style={{ marginLeft: 5, marginRight: 10 }}
               onPress={handleEditName}
             >
               <Ionicons name="close" size={19} color={theme.error} />
-            </ButtonEmpyte>
-          </Input>
-        </Infor>
+            </LinkButton>
+          </UserInput>
+        </UserInfor>
         :
-        <Infor style={{marginTop: 10}}>
-          <ButtonEmpyte
+        <UserInfor style={{marginTop: 10}}>
+          <LinkButton
             style={{
               marginLeft: 30,
               flexDirection: "row",
@@ -128,10 +126,10 @@ const User = ({ editingName, handleEditName }) => {
           >
             <UserProfileText theme={theme} style={{ marginRight: 10 }}>{user?.displayName}</UserProfileText>
             <Ionicons name="create-outline" size={19} color={theme.textGray} />
-          </ButtonEmpyte>
-        </Infor>
+          </LinkButton>
+        </UserInfor>
       }
-    </Profile>
+    </UserProfile>
   );
 };
 

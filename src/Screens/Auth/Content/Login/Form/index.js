@@ -6,19 +6,17 @@ import Ionicons from "@expo/vector-icons/Ionicons";
 import { LocaleContext } from "/src/components/locale";
 import { FirebaseContext } from "/src/api/firebase";
 import { ThemeContext, shadow } from "/src/components/theme";
-import {
-  View,
-  ButtonEmpyte,
-  TxtButton,
-  TextError,
-} from "/src/components/global";
 
 import {
+  View,
+  LinkButton,
   CustomTextInput,
   AuthLink,
   AuthLinkText,
   AuthInput,
   AuthButton,
+  AuthButtonTxtButton,
+  AuthTextError
 } from '../../../../components';
 import { navigate } from '../../../../functions';
 
@@ -173,14 +171,14 @@ const Form = () => {
           validation={passwordValidate}
           onSubmitEditing={handleSignIn}
         />
-        <ButtonEmpyte style={{marginRight: 15}} onPress={handleShowPassword}>
+        <LinkButton style={{marginRight: 15}} onPress={handleShowPassword}>
           <Ionicons name={secureTextEntry? 'eye-outline': 'eye-off-outline'} size={20} color={theme.text} />
-        </ButtonEmpyte>
+        </LinkButton>
       </AuthInput>
       {error ? (
-        <TextError theme={theme}>{errorMsg}</TextError>
+        <AuthTextError theme={theme}>{errorMsg}</AuthTextError>
       ) : (
-        <TextError theme={theme}></TextError>
+        <AuthTextError theme={theme}></AuthTextError>
       )}
       <View style={{width: 400, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between'}}>
         <AuthButton
@@ -191,7 +189,7 @@ const Form = () => {
           {loading ?
             <ActivityIndicator size="small" color={theme.background} />
             :
-            <TxtButton>{locale.signin.button.text}</TxtButton>
+            <AuthButtonTxtButton theme={theme}>{locale.signin.button.text}</AuthButtonTxtButton>
           }
         </AuthButton>
         <AuthLink onPress={handleForgot}>

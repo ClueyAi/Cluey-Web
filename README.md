@@ -175,3 +175,24 @@ Neste momento, essas funcionalidade estão disponiveis para os administradores:
 Todos essas funcionalidades, seriá administradar por outra aplicação, que acessa a mesma base de dados, para fazer as alterações necessarias, assim como fazer a contabilidade e administração dos creditos, e oferecer suporte aos utilizadores.
 
 Porem para isso, esse nivel de gestão, com uma interface totalmente dedicada a utilizadores administradores, foi adiada para uma versão futura. Por motivos obvios.
+
+
+
+
+#### SAVE
+
+credits: {
+    total: credits,
+    payments: [{
+      name: 'Free - Beta Test',
+      price: 0,
+      cycle: 'month',
+      method: 'gift',
+      amount: credits,
+      createdAt: timestamp,
+    }],
+    history: [{
+      amount: credits,
+      createdAt: timestamp,
+    }],
+  },

@@ -4,9 +4,6 @@ import { ThemeContext } from "/src/components/theme";
 
 import {
   View,
-} from "/src/components/global";
-
-import {
   LinkButton,
   AuthFooterContainer,
   AuthFooterSection,

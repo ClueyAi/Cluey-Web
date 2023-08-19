@@ -157,11 +157,13 @@
       "password": "Palavra-passe"
     },
     "button": {
-      "text": "Entrar"
+      "text": "Entrar",
+      "accessibility": "entrar e começar a usar o Cluey"
     },
     "button_signup": {
       "text": "Criar conta",
-      "msg": "Ainda não tem uma conta no Cluey? "
+      "msg": "Ainda não tem uma conta no Cluey? ",
+      "accessibility": "criar conta se você não tiver uma conta Cluey"
     }
   },
   "signup": {
@@ -173,21 +175,25 @@
       "confirm_password": "Confirmar"
     },
     "button": {
-      "text": "Registrar"
+      "text": "Registrar",
+      "accessibility": "registrar e começar a usar o Cluey"
     },
     "button_signin": {
       "text": "Iniciar Sessão",
-      "msg": "já tem uma conta no Cluey? "
+      "msg": "já tem uma conta no Cluey? ",
+      "accessibility": "iniciar sessão se você já tiver uma conta Cluey"
     }
   },
   "verify": {
     "title": "Verificar e-mail",
     "description": "Verifique seu e-mail para continuar",
     "verify_button": {
-      "text": "Você não recebeu o e-mail de verificação? "
+      "text": "Você não recebeu o e-mail de verificação? ",
+      "accessibility": "reenviar e-mail de verificação"
     },
     "continue_button": {
-      "text": "Continuar"
+      "text": "Continuar",
+      "accessibility": "continue para o Cluey"
     },
     "content": {
       "title": "Verificação enviada com sucesso!",
@@ -195,7 +201,8 @@
       "alert_title": "Importante!",
       "alert_msg": "Lembre-se de verificar também sua caixa de 'spam'.",
       "button": {
-        "text": "Continuar"
+        "text": "Continuar",
+        "accessibility": "continue para o Cluey"
       }
     }
   },
@@ -247,10 +254,12 @@
     "title": "Repor palavra-passe",
     "description": "Recupere sua conta Cluey",
     "button_signin": {
-      "text": "Voltar para login"
+      "text": "Voltar para login",
+      "accessibility": "voltar para a tela de login"
     },
     "button": {
-      "text": "Recuperar"
+      "text": "Recuperar", 
+      "accessibility": "enviar e-mail de recuperação de senha"
     },
     "text_input": {
       "email": "e-mail"
@@ -261,7 +270,8 @@
       "alert_title": "Importante!",
       "alert_msg": "Lembre-se de verificar também sua caixa de 'spam'.",
       "button": {
-        "text": "Continuar"
+        "text": "Continuar",
+        "accessibility": "continue para a tela de Inicio de Sessão"
       }
     }
   },
@@ -425,7 +435,10 @@
   },
   "country_config": {
     "title": "País",
-    "description": "Escolha a sua localização"
+    "description": "Escolha a sua localização",
+    "buttons" : {
+      "close": "Fechar"
+    }
   },
   "account": {
     "title": "Conta",
@@ -459,7 +472,9 @@
   },
   "invoicing": {
     "title": "Método de Pagamento",
-    "description": " pago por ",
+    "description": ", pago por ",
+    "cycle": " /mês com ",
+    "asks": " perguntas + AI ART ilimitado",
     "button": "Editar",
     "payments": {
       "title": "Pagamentos",
@@ -471,7 +486,9 @@
   },
   "plans": {
     "title": "Planos",
-    "button":"Alterar plano"
+    "button":"Alterar plano",
+    "credits": " Perguntas restantes",
+    "art": " | AI ART Prompts ilimitados"
   },
   "notify": {
     "title": "Notificações",

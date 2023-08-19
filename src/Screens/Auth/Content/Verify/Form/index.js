@@ -3,18 +3,16 @@ import { ActivityIndicator } from "react-native";
 import { LocaleContext } from "../../../../../components/locale";
 import { FirebaseContext } from "/src/api/firebase";
 import { ThemeContext, shadow } from "/src/components/theme";
-import {
-  View,
-  TxtButton,
-} from "/src/components/global";
 
 import {
+  View,
   CountDown,
   AuthLink,
   AuthLinkText,
   AuthButton,
   AuthTitle,
-  AuthText
+  AuthText,
+  AuthButtonTxtButton
 } from '../../../../components';
 import { navigate } from '../../../../functions';
 
@@ -71,7 +69,7 @@ const Form = () => {
           {loading ?
             <ActivityIndicator size="small" color={theme.background} />
             :
-            <TxtButton>{locale.verify.continue_button.text}</TxtButton>
+            <AuthButtonTxtButton theme={theme}>{locale.verify.continue_button.text}</AuthButtonTxtButton>
           }
         </AuthButton>
       </View>

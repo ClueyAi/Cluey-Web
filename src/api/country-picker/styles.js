@@ -29,10 +29,17 @@ export const CountryPickerName = styled.Text`
   font-family: 'Nunito-Medium';
   font-size: 18px;
   margin-left: 10px;
+  color: #000000D0;
 `;
-export const CountryPickerDivider = styled.TouchableOpacity`
-  width: 90%
+export const CountryPickerDivider = styled.View`
+  width: 90%;
   border-bottom-width: 1px;
   border-color: #00000040;
   margin-bottom: 10px;
+`;
+export const CountryPickerClose = styled.TouchableOpacity`
+  flex-direction: row;
+  justify-content: center;
+  align-self: flex-start;
+  margin: 0px 5px 30px 30px;
 `;

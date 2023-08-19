@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
-import PropTypes from "prop-types";
 
 import { LocaleContext } from "../../../components/locale";
+import { ThemeContext } from "../../../components/theme";
 import {
   Container,
   Body,
@@ -13,11 +13,12 @@ import {
   Text,
   TextList,
   ButtonEmpyte,
-  FooterSmall,
-} from "../../../components/global";
+  FooterSmall
+} from "../components";
 
 const Rules = () => {
   const { locale } = useContext(LocaleContext);
+  const {theme} = useContext(ThemeContext);
   const [isPolicy, setIsPolicy] = useState(true);
   const [policyColor, setPolicyColor] = useState(FocusColor);
   const [termsColor, setTermsColor] = useState(DefaultColor);
@@ -106,22 +107,22 @@ const Rules = () => {
             <Text>{locale.global.app.policy_terms.terms.p1}</Text>
             <Title>{locale.global.app.policy_terms.terms.t2}</Title>
             <Text>{locale.global.app.policy_terms.terms.p2}</Text>
-            <TextList>
+            <TextList theme={theme}>
               2.1. {locale.global.app.policy_terms.terms["p2.1"]}
             </TextList>
-            <TextList>
+            <TextList heme={theme}>
               2.2. {locale.global.app.policy_terms.terms["p2.2"]}
             </TextList>
-            <TextList>
+            <TextList heme={theme}>
               2.3. {locale.global.app.policy_terms.terms["p2.3"]}
             </TextList>
-            <TextList>
+            <TextList heme={theme}>
               2.4. {locale.global.app.policy_terms.terms["p2.4"]}
             </TextList>
-            <TextList>
+            <TextList heme={theme}>
               2.5. {locale.global.app.policy_terms.terms["p2.5"]}
             </TextList>
-            <TextList>
+            <TextList heme={theme}>
               2.6. {locale.global.app.policy_terms.terms["p2.6"]}
             </TextList>
             <Title>{locale.global.app.policy_terms.terms.t3}</Title>

@@ -5,16 +5,15 @@ import Ionicons from "@expo/vector-icons/Ionicons";
 import { FirebaseContext } from "/src/api/firebase";
 import { ThemeContext, shadow } from "/src/components/theme";
 import { LocaleContext } from "/src/components/locale";
+
 import {
-  Form,
-  Input,
-  TextInput,
-  TxtButton,
-  TextError,
-  ButtonPrimary,
-} from "/src/components/global";
-import {
-  UserContent
+  UserForm,
+  UserInput,
+  UserTextInput,
+  UserContent,
+  AuthButtonTxtButton,
+  AuthTextError,
+  UserButton
 } from '../../../../../components';
 import { navigate} from '../../../../../functions';
 
@@ -105,8 +104,9 @@ const Email = () => {
 
   return (
     <UserContent>
-      <Form style={{ marginTop: 40, alignSelf: 'center'}}>
-        <Input
+      <UserForm style={{ marginTop: 40, alignSelf: 'center'}}>
+        <UserInput
+          theme={theme}
           style={{
             ...shadow,
             marginBottom: 15,
@@ -117,7 +117,7 @@ const Email = () => {
             }`,
           }}
         >
-          <TextInput
+          <UserTextInput
             ref={emailRef}
             value={newEmail}
             theme={theme}
@@ -153,8 +153,8 @@ const Email = () => {
               color={theme.secondary}
             />
           ) : null}
-        </Input>
-        <Input
+        </UserInput>
+        <UserInput
           style={{
             ...shadow,
             marginBottom: 10,
@@ -163,7 +163,7 @@ const Email = () => {
             }`,
           }}
         >
-          <TextInput
+          <UserTextInput
             ref={passwordRef}
             theme={theme}
             placeholder={locale.email_config.password}
@@ -176,20 +176,21 @@ const Email = () => {
             onChangeText={passwordValidate}
             onSubmitEditing={handleChange}
           />
-        </Input>
+        </UserInput>
         {error ? (
-          <TextError theme={theme}>{errorMsg}</TextError>
+          <AuthTextError theme={theme}>{errorMsg}</AuthTextError>
         ) : (
-          <TextError theme={theme}> </TextError>
+          <AuthTextError theme={theme}> </AuthTextError>
         )}
-        <ButtonPrimary
+        <UserButton
+          theme={theme}
           style={shadow}
           onPress={handleChange}
           accessibilityLabel={locale.email_config.change_button.accessible}
         >
-          <TxtButton>{locale.email_config.change_button.text}</TxtButton>
-        </ButtonPrimary>
-      </Form>
+          <AuthButtonTxtButton theme={theme}>{locale.email_config.change_button.text}</AuthButtonTxtButton>
+        </UserButton>
+      </UserForm>
     </UserContent>
   );
 };

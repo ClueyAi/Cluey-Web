@@ -1,8 +1,12 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { FirebaseContext } from '/src/api/firebase';
+import { ThemeContext } from '/src/components/theme';
+import { LocaleContext } from '/src/components/locale';
 
 import {
   AccountContainer,
+  LoadingContainer,
+  LoadingText,
 } from '../components';
 import { navigate } from '../functions';
 
@@ -11,24 +15,41 @@ import Content from './Content';
 import Footer from './Footer';
 
 const Account = () => {
+  const { theme } = useContext(ThemeContext);
+  const { locale } = useContext(LocaleContext);
   const { isAuth } = useContext(FirebaseContext);
   const [selected, setSelected] = useState(0);
-
-  const {goTo} = navigate();
+  const [isLoading, setIsLoading] = useState(true);
+  
+  const {goAuth} = navigate();
+  const name = locale.global.app.name.toUpperCase();
 
   const handleSelected = (item) => {
     setSelected(item);
   };
-  /*
+  
   useEffect(() => {
-    const isLoged = async () => {
-      if (!isAuth) {
-        goTo('/auth');
-      } 
+    if (isAuth !== null) {
+      const isLoged = () => {
+        if (!isAuth) {
+          goAuth();
+          setIsLoading(false);
+        } else if (isAuth) {
+          setIsLoading(false);
+        }
+      }
+      
+      isLoged();
     }
+  }, [isAuth]);
 
-    isLoged();
-  }, [isAuth]);*/
+  if (isLoading) {
+    return (
+      <LoadingContainer theme={theme}>
+        <LoadingText theme={theme}>{name}</LoadingText>
+      </LoadingContainer>
+    );
+  }
 
   return (
     <AccountContainer>

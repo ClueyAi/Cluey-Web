@@ -1,5 +1,59 @@
 import styled from 'styled-components/native';
 
+// Rules
+export const Container = styled.View`
+  flex: 1;
+  width: 100%;
+  align-items: center;
+`;
+export const Body = styled.View`
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+`;
+export const View = styled.View``;
+export const ScrollView = styled.ScrollView`
+  width: 100%;
+  flex-direction: column;
+`;
+export const H1 = styled.Text`
+  font-family: 'Nunito-Bold';
+  text-align: center;
+  font-size: 24px;
+`;
+export const H3Bold = styled.Text`
+  font-family: 'Nunito-Bold';
+  text-align: center;
+  font-size: 16px;
+`;
+export const Title = styled.Text`
+  font-family: 'Nunito-SemiBold';
+  text-align: left;
+  font-size: 16px;
+  margin-bottom: 10px;
+`;
+export const Text = styled.Text`
+  font-family: 'Nunito';
+  text-align: justify;
+  font-size: 15px;
+  margin-bottom: 10px;
+`;
+export const TextList = styled.Text`
+  font-family: 'Nunito';
+  text-align: left;
+  font-size: 15px;
+  margin-bottom: 10px;
+  margin-left: 10px;
+  color: ${({ theme }) => theme.textGray};
+`;
+export const ButtonEmpyte = styled.TouchableOpacity``;
+export const FooterSmall = styled.View`
+  width: 100%;
+  height: 110px;
+  padding-top: 20px;
+  flex-direction: column;
+`;
+
 // Working
 export const WorkingContainer = styled.View`
   flex: 1;
