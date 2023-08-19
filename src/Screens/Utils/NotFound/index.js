@@ -4,7 +4,9 @@ import { View, Text, Image } from 'react-native';
 const NotFound = () => {
 
   useEffect(() => {
-    window.location.href = '/';
+    setInterval(() => {
+      window.location.href = '/';
+    }, 2000);
   }, []);
 
   return (

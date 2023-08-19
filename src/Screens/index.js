@@ -26,7 +26,7 @@ const Screens = () => {
         <Route path="/account" element={<Account/>} />
         <Route path="/rules" element={<Rules/>} />
         <Route path="/about" element={<About/>} />
-        <Route path="*" element={<NotFound/>} />
+        <Route path="/*" element={<NotFound/>} />
       </Routes>
     </Router>
   );
