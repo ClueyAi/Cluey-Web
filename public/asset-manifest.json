@@ -1,22 +1,25 @@
 {
   "files": {
-    "main.js": "/static/js/main.55410165.js",
-    "static/js/258.367ab6e1.js": "/static/js/258.367ab6e1.js",
+    "main.js": "/static/js/main.16dfcbcf.js",
+    "static/js/258.f58d0861.js": "/static/js/258.f58d0861.js",
     "static/media/Ionicons.ttf": "/static/media/Ionicons.3517aeaa34b2f8cd8eef.ttf",
     "static/media/MaterialIcons.ttf": "/static/media/MaterialIcons.120b4c7bbd155bd0a04d.ttf",
+    "static/media/visa.png": "/static/media/visa.d72c49e3b308a59e44b9.png",
     "static/media/FontAwesome.ttf": "/static/media/FontAwesome.1e59d2330b4c6deb84b3.ttf",
     "static/media/Nunito-Medium.ttf": "/static/media/Nunito-Medium.a7c01ee77faba77e24c1.ttf",
     "static/media/Nunito-Regular.ttf": "/static/media/Nunito-Regular.99a3b019e7727ac19479.ttf",
     "static/media/Nunito-SemiBold.ttf": "/static/media/Nunito-SemiBold.77c1e330694154d3efed.ttf",
     "static/media/Nunito-Bold.ttf": "/static/media/Nunito-Bold.f4338623f94e6079de97.ttf",
     "static/media/Nunito-ExtraBold.ttf": "/static/media/Nunito-ExtraBold.99f1fa27c5aaa2c5afb6.ttf",
+    "static/media/mastercard.png": "/static/media/mastercard.869c0933913e582e53b8.png",
     "static/media/paypal.png": "/static/media/paypal.e5903e4ad1ac0f166577.png",
     "static/media/AntDesign.ttf": "/static/media/AntDesign.163adab9dbd7cb1ed12a.ttf",
     "static/media/Entypo.ttf": "/static/media/Entypo.fc6169344c041cffcdae.ttf",
     "static/media/plans.png": "/static/media/plans.d4896ecbcd90605c943f.png",
     "static/media/Feather.ttf": "/static/media/Feather.0f5d9cede2e831f3fc80.ttf",
-    "static/media/logoname.png": "/static/media/logoname.9d85e68742f9184eedcf.png",
+    "static/media/gift.png": "/static/media/gift.9687569ed7dd7ed6eeb8.png",
     "static/media/cluey-sad-white.png": "/static/media/cluey-sad-white.a1ab66c5ccb2d611c7eb.png",
+    "static/media/wallet.png": "/static/media/wallet.a661e7fe98a45401286e.png",
     "favicon.ico": "/favicon.ico",
     "static/media/EvilIcons.ttf": "/static/media/EvilIcons.699664b33ac2837d5bee.ttf",
     "static/media/working.png": "/static/media/working.e7f55bfaadc84c07a0f7.png",
@@ -285,11 +288,11 @@
     "favicon-16.png": "/favicon-16.png",
     "serve.json": "/serve.json",
     "manifest.json": "/manifest.json",
-    "main.55410165.js.map": "/static/js/main.55410165.js.map",
-    "258.367ab6e1.js.map": "/static/js/258.367ab6e1.js.map"
+    "main.16dfcbcf.js.map": "/static/js/main.16dfcbcf.js.map",
+    "258.f58d0861.js.map": "/static/js/258.f58d0861.js.map"
   },
   "entrypoints": [
-    "static/js/258.367ab6e1.js",
-    "static/js/main.55410165.js"
+    "static/js/258.f58d0861.js",
+    "static/js/main.16dfcbcf.js"
   ]
 }
