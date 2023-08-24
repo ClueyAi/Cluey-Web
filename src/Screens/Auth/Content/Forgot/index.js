@@ -38,8 +38,8 @@ const Forgot = () => {
           </View>
         </View>
         <View style={{ width: '100%', padding: 20, marginTop: '20%', alignItems: 'flex-start'}}>
-          <AuthHeaderText style={{ marginBottom: 10 }}>{locale.forgot.title}</AuthHeaderText>
-          <AuthHeaderP>{locale.forgot.description}</AuthHeaderP>
+          <AuthHeaderText theme={theme} style={{ marginBottom: 10 }}>{locale.forgot.title}</AuthHeaderText>
+          <AuthHeaderP theme={theme}>{locale.forgot.description}</AuthHeaderP>
         </View>
         <Form />
       </View>

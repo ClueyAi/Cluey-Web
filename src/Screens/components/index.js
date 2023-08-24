@@ -98,7 +98,7 @@ export const AlertContainer = styled.View`
   flex: 1;
   justify-content: center;
   align-items: center;
-  background-color: ${({ theme }) => theme.textDark};
+  background-color: ${({ theme }) => theme.bgDark};
 `;
 export const AlertContent = styled.View`
   padding: 20px;
@@ -138,7 +138,7 @@ export const AlertButton= styled.TouchableOpacity`
 export const AlertButtonText = styled.Text`
   font-family: 'Nunito-SemiBold';
   font-size: 16px;
-  color: ${({ theme }) => theme.text};
+  color: ${({ theme }) => theme.withe};
 `;
 
 // Preferences
@@ -1477,6 +1477,7 @@ export const AuthContainer = styled.View`
   justify-content: space-between;
   align-items: center;
   overflow: hidden;
+  background-color: ${({ theme }) => theme.background};
 `;
 // Providers
 export const TxtProvider = styled.Text`
@@ -1496,7 +1497,7 @@ export const NewsSlideImage = styled.Image`
   justify-content: center;
   align-items: center;
   width: calc(900px / 1.5);
-  height: calc(1918px / 1.5);
+  height: 100%;
   resize: contain;
 `;
 
@@ -1590,11 +1591,13 @@ export const AuthHeaderText = styled.Text`
   font-family: 'Nunito-Bold';
   text-align: center;
   font-size: 28px;
+  color: ${({ theme }) => theme.text};
 `;
 export const AuthHeaderP = styled.Text`
   font-family: 'Nunito';
   text-align: center;
   font-size: 15px;
+  color: ${({ theme }) => theme.text};
 `;
 // Footer
 export const AuthFooterContainer = styled.View`
@@ -1613,7 +1616,7 @@ export const AuthFooterLinkText = styled.Text`
   color: ${({ theme }) => theme.textDark};
 `;
 export const AuthFooterSection = styled.View`
-  width: 240px;
+  width: 340px;
   padding: 20px;
   flex-direction: row;
   justify-content: space-between;
@@ -1626,6 +1629,7 @@ export const AccountContainer = styled.View`
   width: 100%;
   align-items: center;
   flex-direction: column;
+  background-color: ${({ theme }) => theme.background};
 `;
 // Header
 export const AccountHeader = styled.View`
@@ -1641,7 +1645,7 @@ export const AccountTop = styled.View`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  background-color: ${({ theme }) => theme.primary};
+  background-color: ${({ theme }) => theme.bgInput};
 `;
 export const AccountTopSection = styled.View`
   flex: 1;

@@ -14,20 +14,27 @@ import News from './News';
 import Content from './Content';
 
 const Auth = () => {
-  const { isAuth } = useContext(FirebaseContext);
+  const { isAuth, user } = useContext(FirebaseContext);
   const { theme } = useContext(ThemeContext);
   const { locale } = useContext(LocaleContext);
   const [isLoading, setIsLoading] = useState(true);
 
-  const {goHome} = navigate();
+  const {goHome, goTo} = navigate();
   const name = locale.global.app.name.toUpperCase();
+  const isVerify = user?.emailVerified;
   
   useEffect(() => {
     if (isAuth !== null) {
       const isLoged = () => {
-        if (isAuth) {
+        if (isAuth && isVerify) {
           goHome();
           setIsLoading(false);
+        } else if (isAuth && !isVerify) {
+          const timer = setTimeout(() => {
+            goTo('/auth', {state: {route: 'Verify'}});
+            setIsLoading(false);
+          }, 500);
+          return () => clearTimeout(timer);
         } else if (!isAuth) {
           setIsLoading(false);
         }
@@ -35,7 +42,7 @@ const Auth = () => {
       
       isLoged();
     }
-  }, [isAuth]);
+  }, [isAuth, user]);
 
   if (isLoading) {
     return (
@@ -46,7 +53,7 @@ const Auth = () => {
   }
 
   return (
-    <AuthContainer>
+    <AuthContainer theme={theme}>
       <News />
       <Content />
     </AuthContainer>

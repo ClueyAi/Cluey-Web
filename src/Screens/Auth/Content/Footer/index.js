@@ -3,23 +3,28 @@ import { LocaleContext } from "/src/components/locale";
 import { ThemeContext } from "/src/components/theme";
 
 import {
+  ThemeSwitch,
   View,
   LinkButton,
   AuthFooterContainer,
   AuthFooterSection,
   PickerList,
-  AuthFooterLinkText
+  AuthFooterLinkText,
 } from '../../../components'
 import { navigate } from "../../../functions";
 
 const Footer = () => {
   const {locale} = useContext(LocaleContext);
-  const {theme} = useContext(ThemeContext);
+  const {theme, toggleTheme} = useContext(ThemeContext);
   const {goTo} = navigate();
 
   const about = locale.about.title;
   const privacy = locale.global.app.policy_terms.policy.title.split(' ')[2];
   const terms = locale.global.app.policy_terms.terms.title.split(' ')[0];
+
+  const toggleSwitchTheme = (value) => {
+    toggleTheme(value);
+  };
 
   const handleRules = () => {
     window.open('https://cluey.pt/termos');
@@ -35,6 +40,7 @@ const Footer = () => {
         <PickerList />
       </View>
       <AuthFooterSection>
+        <ThemeSwitch themeState={!theme} circleSize={22} barHeight={15} toggleSwitchTheme={toggleSwitchTheme} />
         <LinkButton onPress={handleAbout}>
           <AuthFooterLinkText theme={theme}>{about}</AuthFooterLinkText>
         </LinkButton>

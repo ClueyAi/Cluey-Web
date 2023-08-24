@@ -1,7 +1,9 @@
 export default {
+  withe: '#FFF',
   background: '#2A2B2E',
+  bgDark: '#00000080',
   bgSlider: '#F9C961',
-  bgInput: '#454545',
+  bgInput: '#1A1B1E',
   backgroundSecondary: '#EEE',
   backgroundHover: '#FDF5C964',
   transparent: '#00000000',
@@ -17,5 +19,5 @@ export default {
   border: '#FFFFFF1F',
   error: '#FF0000',
   inputError: '#EEBBBB',
-  placeholder: '#A4A4A4',
+  placeholder: '#FFFFFF80',
 }

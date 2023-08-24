@@ -8,7 +8,7 @@ const StyledTextInput = styled(TextInput)`
   font-family: 'Nunito';
   width: 100%;
   height: 20px;
-  color: #000;
+  color: ${({ theme }) => theme.text};
   outline-width: 0;
   outline-style: none;
   background-color: transparent;
@@ -26,6 +26,7 @@ const PlaceholderContainer = styled(Animated.View)`
 const PlaceholderText = styled.Text`
   align-items: center;
   justify-content: center;
+  color: ${({ theme }) => theme.placeholder};
 `;
 
 const CustomTextInput = forwardRef(({ email, placeholder, validation, ...rest }, ref) => {
@@ -78,9 +79,10 @@ const CustomTextInput = forwardRef(({ email, placeholder, validation, ...rest },
         onFocus={handleFocus}
         onBlur={handleBlur}
         onChangeText={handleChangeText}
+        theme={theme}
       />
       <PlaceholderContainer style={{ transform: [{ translateY }] }} isFocused={isFocused || text} theme={theme}>
-        <PlaceholderText>{placeholder}</PlaceholderText>
+        <PlaceholderText theme={theme}>{placeholder}</PlaceholderText>
       </PlaceholderContainer>
     </>
   );

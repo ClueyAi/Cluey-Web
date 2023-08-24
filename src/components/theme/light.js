@@ -1,5 +1,7 @@
 export default {
+  withe: '#FFF',
   background: '#FFF',
+  bgDark: '#00000080',
   bgSlider: '#F9C961',
   bgInput: '#E5E5E5',
   backgroundSecondary: '#EEE',

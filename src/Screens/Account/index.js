@@ -17,7 +17,7 @@ import Footer from './Footer';
 const Account = () => {
   const { theme } = useContext(ThemeContext);
   const { locale } = useContext(LocaleContext);
-  const { isAuth } = useContext(FirebaseContext);
+  const { isAuth, user } = useContext(FirebaseContext);
   const [selected, setSelected] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
   
@@ -31,9 +31,12 @@ const Account = () => {
   useEffect(() => {
     if (isAuth !== null) {
       const isLoged = () => {
-        if (!isAuth) {
-          goAuth();
-          setIsLoading(false);
+        if (!isAuth && !user) {
+          const timer = setTimeout(() => {
+            goAuth();
+            setIsLoading(false);
+          }, 500);
+          return () => clearTimeout(timer);
         } else if (isAuth) {
           setIsLoading(false);
         }
@@ -52,7 +55,7 @@ const Account = () => {
   }
 
   return (
-    <AccountContainer>
+    <AccountContainer theme={theme}>
       <Header selected={selected} handleSelected={handleSelected} />
       <Content selected={selected} />
       <Footer />

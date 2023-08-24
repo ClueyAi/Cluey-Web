@@ -31,7 +31,7 @@ const Register = () => {
       <View style={{ width: '100%', padding: 20}}>
         <View style={{ marginRight: '4%', marginTop: 10 }}>
           <View style={{flexDirection: "row", width: '100%',  alignItems: 'center', justifyContent: 'flex-end',}}>
-            <AuthHeaderP>{locale.signup.button_signin.msg}</AuthHeaderP>
+            <AuthHeaderP theme={theme}>{locale.signup.button_signin.msg}</AuthHeaderP>
             <LinkButton
               style={{ marginLeft: 2 }}
               onPress={handleSignIn}
@@ -41,8 +41,8 @@ const Register = () => {
           </View>
         </View>
         <View style={{ width: '100%', padding: 20, marginTop: '20%', alignItems: 'flex-start'}}>
-          <AuthHeaderText style={{ marginBottom: 10 }}>{locale.signup.title}</AuthHeaderText>
-          <AuthHeaderP>{locale.signup.description}</AuthHeaderP>
+          <AuthHeaderText theme={theme} style={{ marginBottom: 10 }}>{locale.signup.title}</AuthHeaderText>
+          <AuthHeaderP theme={theme}>{locale.signup.description}</AuthHeaderP>
         </View>
         <Form />
         {/*<Provider /> */}

@@ -14,8 +14,12 @@ export const ThemeProvider = ({ children }) => {
   const [theme, setTheme] = useState(light);
 
   useEffect(() => {
-    if (user?.theme) {
-      setTheme(dark);
+    if (user) {
+      if (user?.theme) {
+        setTheme(dark);
+      } else {
+        setTheme(light);
+      }
     } else {
       setTheme(light);
     }

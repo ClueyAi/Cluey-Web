@@ -23,7 +23,7 @@ import { navigate } from '../../../../functions';
 const Form = () => {
   const location = useLocation();
   const { locale } = useContext(LocaleContext);
-  const { signUp, putUser } = useContext(FirebaseContext);
+  const { user, signUp, putUser, emailVerify } = useContext(FirebaseContext);
   const { theme } = useContext(ThemeContext);
   const emailRef = useRef(null);
   const passwordRef = useRef(null);
@@ -83,6 +83,8 @@ const Form = () => {
     try {
       await signUp(email, rePassword);
       await putUser();
+      await emailVerify();
+      setShouldGoHome(true);
     } catch (error) {
       setError(error.code);
       if (error.code === "auth/missing-password") {
@@ -115,7 +117,6 @@ const Form = () => {
       }
     } finally {
       setLoading(false);
-      setShouldGoHome(true);
     }
   };
 
@@ -128,10 +129,10 @@ const Form = () => {
 
   useEffect(() => {
     setEmail(location.state?.email??'');
-    if (shouldGoHome) {
+    if (shouldGoHome && user) {
       goHome();
     }
-  }, [location, shouldGoHome]);
+  }, [location, shouldGoHome, user]);
 
   return (
     <View style={{ width: '100%', alignItems: 'flex-start', marginLeft: 25, marginTop: 20 }}>

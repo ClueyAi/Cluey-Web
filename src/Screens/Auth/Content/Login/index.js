@@ -31,7 +31,7 @@ const Login = () => {
       <View style={{ width: '100%', padding: 20}}>
         <View style={{ marginRight: '4%', marginTop: 10 }}>
           <View style={{flexDirection: "row", width: '100%',  alignItems: 'center', justifyContent: 'flex-end',}}>
-            <AuthHeaderP>{locale.signin.button_signup.msg}</AuthHeaderP>
+            <AuthHeaderP theme={theme}>{locale.signin.button_signup.msg}</AuthHeaderP>
             <LinkButton
               style={{ marginLeft: 2 }}
               onPress={handleSignUp}
@@ -41,8 +41,8 @@ const Login = () => {
           </View>
         </View>
         <View style={{ width: '100%', padding: 20, marginTop: '20%', alignItems: 'flex-start'}}>
-          <AuthHeaderText style={{ marginBottom: 10 }}>{locale.signin.title}</AuthHeaderText>
-          <AuthHeaderP>{locale.signin.description}</AuthHeaderP>
+          <AuthHeaderText theme={theme} style={{ marginBottom: 10 }}>{locale.signin.title}</AuthHeaderText>
+          <AuthHeaderP theme={theme}>{locale.signin.description}</AuthHeaderP>
         </View>
         <Form />
         {/*<Provider /> */}  

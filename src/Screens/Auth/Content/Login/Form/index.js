@@ -128,6 +128,7 @@ const Form = () => {
           value={email}
           email={email}
           theme={theme}
+          color={theme.text}
           placeholder={locale.signin.text_input.email}
           placeholderTextColor={theme.placeholder}
           selectionColor={theme.primary}

@@ -32,18 +32,18 @@ const AlertBox = ({ data }) => {
         <AlertContainer theme={theme}>
           <AlertContent theme={theme} style={shadow} ref={alertContentRef}>
             <AlertSection>
-              <AlertMessage>{data.message1}</AlertMessage>
-              <AlertUser>{data.name}</AlertUser>
-              <AlertMessage>{data.message2}</AlertMessage>
+              <AlertMessage theme={theme}>{data.message1}</AlertMessage>
+              <AlertUser theme={theme}>{data.name}</AlertUser>
+              <AlertMessage theme={theme}>{data.message2}</AlertMessage>
             </AlertSection>
             <AlertAction>
               {data.onConfirm?
                 <AlertButton style={{backgroundColor: theme.error}} onPress={data.onConfirm}>
-                  <AlertButtonText theme={theme} style={{color: theme.background}}>{data.messageConfirm}</AlertButtonText>
+                  <AlertButtonText theme={theme}>{data.messageConfirm}</AlertButtonText>
                 </AlertButton>: null}
               {data.onCancel?
                 <AlertButton style={{backgroundColor: theme.textDark}} onPress={data.onCancel}>
-                  <AlertButtonText theme={theme} style={{color: theme.background}}>{data.messageCancel}</AlertButtonText>
+                  <AlertButtonText theme={theme}>{data.messageCancel}</AlertButtonText>
                 </AlertButton>: null}
             </AlertAction>
           </AlertContent>
