@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.js": "/static/js/main.27eb45a1.js",
-    "static/js/258.f58d0861.js": "/static/js/258.f58d0861.js",
+    "main.js": "/static/js/main.3fe00ffb.js",
+    "static/js/258.9681be51.js": "/static/js/258.9681be51.js",
     "static/media/Ionicons.ttf": "/static/media/Ionicons.3517aeaa34b2f8cd8eef.ttf",
     "static/media/MaterialIcons.ttf": "/static/media/MaterialIcons.120b4c7bbd155bd0a04d.ttf",
     "static/media/visa.png": "/static/media/visa.d72c49e3b308a59e44b9.png",
@@ -288,11 +288,11 @@
     "favicon-16.png": "/favicon-16.png",
     "serve.json": "/serve.json",
     "manifest.json": "/manifest.json",
-    "main.27eb45a1.js.map": "/static/js/main.27eb45a1.js.map",
-    "258.f58d0861.js.map": "/static/js/258.f58d0861.js.map"
+    "main.3fe00ffb.js.map": "/static/js/main.3fe00ffb.js.map",
+    "258.9681be51.js.map": "/static/js/258.9681be51.js.map"
   },
   "entrypoints": [
-    "static/js/258.f58d0861.js",
-    "static/js/main.27eb45a1.js"
+    "static/js/258.9681be51.js",
+    "static/js/main.3fe00ffb.js"
   ]
 }
