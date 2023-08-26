@@ -17,7 +17,7 @@ const Input = ({id}) => {
   const {appStatus, appInfo, chats} = useContext(FirebaseContext);
   const [chat, setChat] = useState([]);
   const [friend, seFriend] = useState([]);
-  const [isPrivate, setIsprivate] = useState(false);
+  const [isPrivate, setIsprivate] = useState(true);
 
   const getState = () => {
     if (isPrivate) {
@@ -66,7 +66,9 @@ const Input = ({id}) => {
       const currentChat = chats?.find((chat) => chat.id === id);
       setChat(currentChat);
       seFriend(currentChat?.userData);
-      currentChat?.type === 'private'?setIsprivate(true):setIsprivate(false);
+      if (currentChat?.type) {
+        currentChat?.type === 'private'?setIsprivate(true):setIsprivate(false);
+      }
     }
   }, [chats, id]);
 
