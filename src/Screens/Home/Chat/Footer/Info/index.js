@@ -28,14 +28,14 @@ const Input = ({id}) => {
         return theme.error;
       } 
     } else {
-      if (chat?.status === 'online') {
+      if (friend?.status === 'online') {
         return theme.secondary;
-      } else if (chat?.status === 'away') {
+      } else if (friend?.status === 'away') {
         return theme.primary;
-      } else if (chat?.status === 'busy') {
+      } else if (friend?.status === 'busy') {
         return theme.error;
       } else {
-        return theme.textDark;
+        return theme.textGray;
       }
     }
   };
@@ -49,14 +49,14 @@ const Input = ({id}) => {
         return theme.error;
       } 
     } else {
-      if (chat?.status === 'online') {
+      if (friend?.status === 'online') {
         return theme.secondary;
-      } else if (chat?.status === 'away') {
+      } else if (friend?.status === 'away') {
         return theme.primary;
-      } else if (chat?.status === 'busy') {
+      } else if (friend?.status === 'busy') {
         return theme.error;
       } else {
-        return theme.secondary;
+        return theme.textGray;
       }
     }
   };

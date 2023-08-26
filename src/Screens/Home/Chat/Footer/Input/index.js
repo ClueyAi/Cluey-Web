@@ -18,7 +18,7 @@ const Input = ({id}) => {
   const textInputRef = useRef(null);
   const {locale} = useContext(LocaleContext);
   const {theme} = useContext(ThemeContext);
-  const { user, appStatus, chats, createPrivateChat, createUserPrivateMessage, createAiPrivateMessage, createUserDirectMessage, putCredits} = useContext(FirebaseContext);
+  const { user, appStatus, chats, createPrivateChat, createUserPrivateMessage, createAiPrivateMessage, createUserDirectMessage, createDirectFriendChat, putCredits} = useContext(FirebaseContext);
   const [textValue, setTextValue] = useState('');
   const [visible, setVisible] = useState(false);
   const [botPlaceholder, setBotPlaceholder] = useState(null);
@@ -59,7 +59,9 @@ const Input = ({id}) => {
         if (item.type === 'direct' && item.id === id) {
           const friend = item.userData;
           try {
-            await createUserDirectMessage(id, friend, textValue);
+            await createDirectFriendChat(friend?.uid, id).then( async () => {
+              await createUserDirectMessage(id, friend, textValue);
+            });
           } catch (error) {
             console.error(error);
           }

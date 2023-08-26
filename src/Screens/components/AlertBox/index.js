@@ -7,6 +7,7 @@ import {
   AlertContainer,
   AlertContent,
   AlertSection,
+  AlertTitle,
   AlertMessage,
   AlertUser,
   AlertAction,
@@ -31,6 +32,7 @@ const AlertBox = ({ data }) => {
       <TouchableWithoutFeedback onPress={handleOutsidePress}>
         <AlertContainer theme={theme}>
           <AlertContent theme={theme} style={shadow} ref={alertContentRef}>
+            <AlertTitle theme={theme}>{data.title}</AlertTitle>
             <AlertSection>
               <AlertMessage theme={theme}>{data.message1}</AlertMessage>
               <AlertUser theme={theme}>{data.name}</AlertUser>

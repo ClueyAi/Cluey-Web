@@ -20,6 +20,7 @@ const Messages = ({chat}) => {
     <MessagesContainer>
       {messages ? 
         <FlatList
+          showsVerticalScrollIndicator={false}
           data={messages}
           style={{width: '100%'}}
           inverted
@@ -30,6 +31,7 @@ const Messages = ({chat}) => {
     </MessagesContainer>
   );
 };
+
 
 Messages.propTypes = {
   chat: PropTypes.object

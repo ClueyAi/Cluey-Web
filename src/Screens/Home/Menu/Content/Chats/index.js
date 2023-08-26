@@ -63,12 +63,12 @@ const Chats = () => {
 
   return (
     <ChatsContainer>
-      <ChatsButtonAdd onPress={handlerAddChat}>
-        <AddContainer>
-          <AddText theme={theme}>{locale.private.item.title}</AddText>
-          <MaterialIcons name="add" size={22} color={theme.text} />
-        </AddContainer>
-      </ChatsButtonAdd>
+      <AddContainer>
+        <AddText theme={theme}>{locale.directs.item.title}</AddText>
+        <ChatsButtonAdd onPress={handlerAddChat}>
+          <MaterialIcons name="add" size={24} color={theme.text} />
+        </ChatsButtonAdd>
+      </AddContainer>
       <FlatList
         data={privateChats}
         style={{width: '100%'}}

@@ -13,7 +13,8 @@ import {
   DirectItemInfo,
   DirectItemStateSection,
   DirectItemNotify,
-  DirectItemText
+  DirectItemText,
+  DirectItemSmallText
 } from "../../../../../../components";
 
 const Item = ({ item }) => {
@@ -22,7 +23,7 @@ const Item = ({ item }) => {
   const friend = item?.userData;
   const chat = item;
   const lastMessage= chat?.messages.length > 0 ? chat?.messages[chat?.messages.length - 1].text : '';
-  const messagePreview = lastMessage?.length > 35 ? lastMessage?.substring(0, 35) + '...' : lastMessage;
+  const messagePreview = lastMessage?.length > 34 ? lastMessage?.substring(0, 34) + '...' : lastMessage;
 
   const fullTime = chat?.updatedAt.split(" ")[1];
   const time = fullTime.split(":")[0] + ":" + fullTime.split(":")[1];
@@ -38,14 +39,14 @@ const Item = ({ item }) => {
   };
 
   const getState = () => {
-    if (chat?.status === 'online') {
+    if (friend?.status === 'online') {
       return theme.secondary;
-    } else if (chat?.status === 'away') {
+    } else if (friend?.status === 'away') {
       return theme.primary;
-    } else if (chat?.status === 'busy') {
+    } else if (friend?.status === 'busy') {
       return theme.error;
     } else {
-      return theme.textDark;
+      return theme.textGray;
     }
   };
 
@@ -64,14 +65,14 @@ const Item = ({ item }) => {
           <DirectItemState style={{backgroundColor: getState()}}/>
           <DirectItemInfo>
             <DirectItemText theme={theme}>{friend?.displayName}</DirectItemText>
-            <DirectItemText theme={theme}>{messagePreview?messagePreview:' '}</DirectItemText>
+            <DirectItemSmallText theme={theme}>{messagePreview?messagePreview:' '}</DirectItemSmallText>
           </DirectItemInfo>
         </DirectItemSection>
         <DirectItemStateSection>
           <DirectItemNotify>
             <AntDesign name="check" size={22} color={getNotify()} />
           </DirectItemNotify>
-          <DirectItemText theme={theme}>{time}</DirectItemText>
+          <DirectItemSmallText theme={theme}>{time}</DirectItemSmallText>
         </DirectItemStateSection>
       </DirectItemContent>
     </DirectItemContainer>

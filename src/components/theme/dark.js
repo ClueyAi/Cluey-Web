@@ -4,7 +4,7 @@ export default {
   bgDark: '#00000080',
   bgSlider: '#F9C961',
   bgInput: '#1A1B1E',
-  backgroundSecondary: '#EEE',
+  backgroundSecondary: '#1A1B1E',
   backgroundHover: '#FDF5C964',
   transparent: '#00000000',
   primary: '#FFBF00',

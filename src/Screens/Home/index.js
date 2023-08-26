@@ -12,7 +12,7 @@ import Chat from './Chat';
 const Home = () => {
   const { theme } = useContext(ThemeContext);
   const { locale } = useContext(LocaleContext);
-  const { isAuth, user, appStatus, appFunc, signOut, unreadPatchNotes, setReadedPatch, putUser } = useContext(FirebaseContext);
+  const { isAuth, user, appStatus, appFunc, signOut, unreadPatchNotes, setReadedPatch } = useContext(FirebaseContext);
   const { newPatch, newPatchOptions, patch } = patchnote();
   const [isLoading, setIsLoading] = useState(true);
   const [hasUpdate, setHasUpdate] = useState(false);
@@ -28,9 +28,6 @@ const Home = () => {
     if (appFunc?.forceLogoutAll) {
       signOut();
       window.location.reload();
-    }
-    if (isAuth && !user) {
-      putUser();
     }
 
     if (isAuth && isVerify && hasPreferences && isLoading) {
@@ -63,7 +60,7 @@ const Home = () => {
       patch(unreadPatchNotes, locale);
     }
     
-  }, [isAuth, appFunc, hasPreferences, isVerify, unreadPatchNotes, isLoading]);
+  }, [isAuth, appFunc, hasPreferences, isVerify, unreadPatchNotes, isLoading, user]);
   
   if (isLoading) {
     return (

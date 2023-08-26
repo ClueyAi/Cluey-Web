@@ -19,8 +19,8 @@ const Direct = () => {
   
   const handlerChat = async (item) => {
     try {
-      createDirectUserChat(item?.uid).then((chatId) => {
-        createDirectFriendChat(item?.uid, chatId);
+      await createDirectUserChat(item?.uid).then(async (chatId) => {
+        await createDirectFriendChat(item?.uid, chatId);
         if (chatId != null) {
           goTo('/', {state: {id: chatId}});
         }

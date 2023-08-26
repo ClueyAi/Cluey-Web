@@ -58,7 +58,7 @@ const Plans = () => {
             <ContentInvoicingValue theme={theme}>{mostRecentItem.credits}</ContentInvoicingValue>
             <ContentInvoicingValue theme={theme}>{locale.invoicing.asks}</ContentInvoicingValue>
             <ContentInvoicingValue theme={theme}>{locale.invoicing.description}</ContentInvoicingValue>
-            <ContentInvoicingValue theme={theme}>{mostRecentItem.method.toUpperCase()}</ContentInvoicingValue>
+            <ContentInvoicingValue theme={theme}>{mostRecentItem.method?.toUpperCase()}</ContentInvoicingValue>
           </ContentInvoicingDesc>
           <ContentInvoicingStatus>
             <ContentInvoicingAmount theme={theme}>{user?.credits}</ContentInvoicingAmount>

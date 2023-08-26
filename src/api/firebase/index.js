@@ -165,10 +165,27 @@ export const FirebaseProvider = ({ children }) => {
 
   const signUp = async (email, password) => {
     await auth.createUserWithEmailAndPassword(email, password);
+    await auth.currentUser.sendEmailVerification({
+      locale: locale.language.locale
+    });
   };
 
   const emailVerify = async () => {
-    return await auth.currentUser.sendEmailVerification()
+    if (authUser?.emailVerified) {
+      const timestamp = new Date().toLocaleString();
+      
+      const userData = {
+        updatedAt: timestamp,
+        emailVerified: authUser?.emailVerified,
+      };
+
+      const docRef = firestore.collection('users').doc(authUser?.uid);
+      return docRef.set(userData, { merge: true });
+    } else {
+      await auth.currentUser.sendEmailVerification({
+        locale: locale.language.locale
+      });
+    }
   };
 
   const forgot = async (email) => {
@@ -180,33 +197,37 @@ export const FirebaseProvider = ({ children }) => {
   };
 
   const putUser = async () => {
-    const timestamp = new Date().toLocaleString();
-    const userName = authUser?.email.split("@")[0];
-    const credits = 10000;
-    
-    const userData = {
-      uid: authUser?.uid,
-      createdAt: authUser?.metadata?.creationTime,
-      credits: credits,
-      payments: {
-        method: 'gift',
-        history: [{
-          name: 'Free - Beta Test',
-          price: 0,
-          credits: credits,
-          createdAt: timestamp,
-        }],
-      },
-      updatedAt: timestamp,
-      displayName: authUser?.displayName? authUser.displayName: userName,
-      userName: authUser?.userName?authUser?.userName:'@'+userName,
-      email: authUser?.email,
-      emailVerified: authUser?.emailVerified,
-      photoURL: authUser?.photoURL? authUser?.photoURL: null,
-    };
+    const getAuth = auth.onAuthStateChanged(user => {
+      const timestamp = new Date().toLocaleString();
+      const userName = user?.email.split("@")[0];
+      const credits = 10000;
+      
+      const userData = {
+        uid: user?.uid,
+        createdAt: user?.metadata?.creationTime.toLocaleString(),
+        credits: credits,
+        payments: {
+          history: [{
+            method: 'gift',
+            name: 'Free - Beta Test',
+            price: 0,
+            credits: credits,
+            createdAt: timestamp,
+          }],
+        },
+        status: 'online',
+        updatedAt: timestamp,
+        displayName: user?.displayName? user?.displayName: userName,
+        userName: user?.userName?user?.userName:'@'+userName,
+        email: user?.email,
+        emailVerified: user?.emailVerified,
+        photoURL: user?.photoURL? user?.photoURL: null,
+      };
 
-    const docRef = firestore.collection('users').doc(authUser?.uid);
-    return await docRef.set(userData, { merge: true });
+      const docRef = firestore.collection('users').doc(user?.uid);
+      return docRef.set(userData, { merge: true });
+    });
+    getAuth();
   };
 
   const updateUserPhoto = async (uri) => {
@@ -223,7 +244,14 @@ export const FirebaseProvider = ({ children }) => {
       photoURL: photoURL
     })
 
-    await putUser();
+    const timestamp = new Date().toLocaleString();
+    const userData = {
+      updatedAt: timestamp,
+      photoURL: user?.photoURL? user?.photoURL: null,
+    };
+
+    const docRef = firestore.collection('users').doc(authUser?.uid);
+    return docRef.set(userData, { merge: true });
   };
 
   const updateDisplayName = async (displayName) => {
@@ -261,7 +289,15 @@ export const FirebaseProvider = ({ children }) => {
       locale: locale.language.locale
     });
 
-    await putUser();
+    const timestamp = new Date().toLocaleString();
+    const userData = {
+      updatedAt: timestamp,
+      email: user?.email,
+      emailVerified: user?.emailVerified,
+    };
+
+    const docRef = firestore.collection('users').doc(authUser?.uid);
+    return docRef.set(userData, { merge: true });
   };
 
   const updateUserPassword = async (currentPassword, newPassword) => {
@@ -434,38 +470,6 @@ export const FirebaseProvider = ({ children }) => {
     });
   };
 
-  const editChat = async (chatId, newName) => {
-    const timestamp = new Date().toLocaleString();
-    const docRef = firestore.collection('users').doc(authUser?.uid).collection('chats').doc(chatId);
-    return await docRef.update({name: newName, updatedAt: timestamp});
-  };
-
-  const archivedChat = async (chatId) => {
-    const timestamp = new Date().toLocaleString();
-
-    const documentRef = firestore.collection('users').doc(authUser?.uid).collection('chats').doc(chatId);
-    const documentSnapshot = await documentRef.get();
-    
-    if (documentSnapshot.exists) {
-      const archivedDocumentRef = firestore.collection('users').doc(authUser?.uid).collection('archived').doc(chatId);
-      await archivedDocumentRef.set(documentSnapshot.data());
-      const updatedData = {
-        ...documentSnapshot.data(),
-        updatedAt: timestamp,
-        archivedAt: timestamp
-      };
-      await archivedDocumentRef.set(updatedData), { merge: true }; 
-      await documentRef.delete();
-    } else {
-      console.log('No such document!');
-    }
-  };
-
-  const deleteChat = async (chatId) => {
-    const docRef = firestore.collection('users').doc(authUser?.uid).collection('archived').doc(chatId);
-    return await docRef.delete();
-  };
-
   const createDirectUserChat = async (item) => {
     const timestamp = new Date().toLocaleString();
     const chat = {
@@ -518,7 +522,7 @@ export const FirebaseProvider = ({ children }) => {
       const docID = chatRef.doc(chatId);
       const newChatRef = await docID.set(chat);
   
-      return newChatRef.id;
+      return newChatRef?.id;
     } else {
       return chatQuerySnapshot.docs[0].id;
     }
@@ -546,6 +550,51 @@ export const FirebaseProvider = ({ children }) => {
         messages: arrayUnion(message),
       });
     });
+  };
+
+  const editChat = async (chatId, newName) => {
+    const timestamp = new Date().toLocaleString();
+    const docRef = firestore.collection('users').doc(authUser?.uid).collection('chats').doc(chatId);
+    return await docRef.update({name: newName, updatedAt: timestamp});
+  };
+
+  const archivedChat = async (chatId) => {
+    const timestamp = new Date().toLocaleString();
+  
+    const documentRef = firestore.collection('users').doc(authUser?.uid).collection('chats').doc(chatId);
+    const documentSnapshot = await documentRef.get();
+  
+    if (documentSnapshot.exists) {
+      const archivedDocumentRef = firestore.collection('users').doc(authUser?.uid).collection('archived').doc(chatId);
+      const archivedDocumentSnapshot = await archivedDocumentRef.get();
+  
+      if (archivedDocumentSnapshot.exists) {
+        await archivedDocumentRef.set(
+          {
+            ...documentSnapshot.data(),
+            updatedAt: timestamp,
+            archivedAt: timestamp,
+            messages: arrayUnion(...documentSnapshot.data().messages),
+          },
+          { merge: true }
+        );
+      } else {
+        const newData = {
+          ...documentSnapshot.data(),
+          updatedAt: timestamp,
+          archivedAt: timestamp,
+        };
+        await archivedDocumentRef.set(newData);
+      }
+      await documentRef.delete();
+    } else {
+      console.log('No such document!');
+    }
+  };
+
+  const deleteChat = async (chatId) => {
+    const docRef = firestore.collection('users').doc(authUser?.uid).collection('archived').doc(chatId);
+    return await docRef.delete();
   };
 
   const setReadedPatch = async (patchIds) => {
@@ -605,6 +654,16 @@ export const FirebaseProvider = ({ children }) => {
       updatedAt: timestamp,
     }, { merge: true })
   };
+
+  const ChangeStatus = async (newStatus) => {
+    const timestamp = new Date().toLocaleString();
+
+    const docRef = firestore.collection('users').doc(authUser?.uid);
+    return await docRef.set({
+      status: newStatus,
+      updatedAt: timestamp,
+    }, { merge: true })
+  };
   
   const value = {
     authUser,
@@ -647,7 +706,8 @@ export const FirebaseProvider = ({ children }) => {
     setReadedPatch,
     editNotify,
     editTheme,
-    putCredits
+    putCredits,
+    ChangeStatus
   };
 
   return <FirebaseContext.Provider value={value}>{children}</FirebaseContext.Provider>;

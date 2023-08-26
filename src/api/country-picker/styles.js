@@ -4,7 +4,7 @@ export const CountryPickerContainer = styled.View`
   flex: 1;
   width: 100%;
   align-items: center;
-  margin-top: 50px;
+  margin-top: 30px;
 `;
 export const CountryPickerContent = styled.View`
   width: 90%;
@@ -27,7 +27,8 @@ export const CountryPickerSection = styled.View`
 `;
 export const CountryPickerName = styled.Text`
   font-family: 'Nunito-Medium';
-  font-size: 18px;
+  font-size: 16px;
+  margin-top: 2px;
   margin-left: 10px;
   color: #000000D0;
 `;
@@ -41,5 +42,5 @@ export const CountryPickerClose = styled.TouchableOpacity`
   flex-direction: row;
   justify-content: center;
   align-self: flex-start;
-  margin: 0px 5px 30px 30px;
+  margin: 0px 5px 25px 25px;
 `;

@@ -43,6 +43,7 @@ const Menu = () => {
       <HamburguerContainer theme={theme}>
         <Nav handlerMenu={handlerMenu} isOpen={isOpen} setIsOpen={setIsOpen} selected={selected} handleSelected={handleSelected} />
         {isOpen?
+        
           <HamburguerContent theme={theme}>
             <Header selected={selected} handleSelected={handleSelected} />
             <Content selected={selected} />

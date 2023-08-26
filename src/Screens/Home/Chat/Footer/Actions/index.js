@@ -4,8 +4,10 @@ import Entypo from '@expo/vector-icons/Entypo';
 import PropTypes from "prop-types";
 
 import { FirebaseContext } from '/src/api/firebase';
+import { LocaleContext } from '../../../../../components/locale';
 import { ThemeContext } from '/src/components/theme';
-import { 
+import {
+  AlertBox,
   ActionsContainer,
   ActionsButton,
 } from '../../../../components';
@@ -15,16 +17,41 @@ import Tools from './Tools';
 
 const Actions = ({id}) => {
   const {theme} = useContext(ThemeContext);
+  const {locale} = useContext(LocaleContext);
   const {chats} = useContext(FirebaseContext);
   const [chat, setChat] = useState([]);
   const [vTools, setVTools] = useState(false);
   const [vSearch, setVSearch] = useState(false);
+  const [visible, setVisible] = useState(false);
+  const [data, setData] = useState(null);
 
   const handleSpeech = async () => {
-    alert("Fale alguma coisa!");
+    const options = {
+      title: locale.alert.working.title,
+      message1: locale.alert.working.message1,
+      message2: locale.alert.working.message2,
+      name: 'Speech',
+      onCancel: () => {
+        setVisible(false);
+      },
+      messageCancel: locale.alert.ok
+    };
+    setData(options);
+    setVisible(true);
   };
   const handleAttacch = async () => {
-    alert("Escolha um ficheiro!");
+    const options = {
+      title: locale.alert.working.title,
+      message1: locale.alert.working.message1,
+      message2: locale.alert.working.message2,
+      name: 'Attach',
+      onCancel: () => {
+        setVisible(false);
+      },
+      messageCancel: locale.alert.ok
+    };
+    setData(options);
+    setVisible(true);
   };
   const handleSearch = async () => {
     setVSearch(!vSearch);
@@ -45,7 +72,8 @@ const Actions = ({id}) => {
   if (id) {
     return (
       vSearch ?
-        <ActionsContainer theme={theme}>  
+        <ActionsContainer theme={theme}>
+          {visible?<AlertBox data={data} />:null}
           <Search chat={chat} />
           <ActionsButton onPress={handleSearch}>
             <Ionicons name="md-close" size={36} color={theme.textDark} />
@@ -53,6 +81,7 @@ const Actions = ({id}) => {
         </ActionsContainer>
         :
         <ActionsContainer theme={theme}>  
+          {visible?<AlertBox data={data} />:null}
           <ActionsButton onPress={handleSpeech}>
             <Ionicons name="mic-outline" size={36} color={theme.textDark} />
           </ActionsButton>

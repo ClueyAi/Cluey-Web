@@ -24,7 +24,7 @@ import {
   SettingsSection,
   SettingsDiv,
   SettingsTitle,
-  SettingsText,
+  SettingsText
 } from '../../../../components';
 
 const Settings = () => {
@@ -114,11 +114,10 @@ const Settings = () => {
                 <SettingsDiv>
                   <SettingsText theme={theme}>{locale.language.name}</SettingsText>
                   <Flag code={locale.language.iso} style={{marginLeft: 5}} size={16} />
-                  {vLanguage?<Language vLanguage={vLanguage} setVLanguage={setVLanguage} />:null}
                 </SettingsDiv>
               </SettingsSection>
             </SettingsWideButton>
-            <SettingsDivider theme={theme} />
+            {vLanguage?<Language setVLanguage={setVLanguage} />:<SettingsDivider theme={theme} />}
             <SettingsWideButton theme={theme} onPress={toggleSwitchTheme}>
               <Ionicons name="color-palette-outline" style={{width: 30}} size={24} color={theme.text} />
               <SettingsSection theme={theme}>

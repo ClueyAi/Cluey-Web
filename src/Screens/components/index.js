@@ -11,8 +11,9 @@ import CustomTextInput from './CustomTextInput';
 import PickerList from './PickerList';
 import CountDown from './CountDown';
 import Payment from './Payment';
+import StatusPicker from './StatusPicker';
 
-export { AlertBox, PatchNotes, Preferences, Language, ThemeSwitch, NotifySwitch, CustomTextInput, PickerList, CountDown, Payment };
+export { AlertBox, PatchNotes, Preferences, Language, ThemeSwitch, NotifySwitch, CustomTextInput, PickerList, CountDown, Payment, StatusPicker };
 
 const generateBGColor = () => {
   const randomColor = Math.floor(Math.random() * 16777215)
@@ -72,15 +73,12 @@ export const HomeContainer = styled.View`
 
 // Language
 export const LanguageContainer = styled.View`
-  position: absolute;
-  top: 15%;
-  right: 0%;
+  width: 100%;
+  margin-left: 2px;
   padding: 10px;
-  border-radius: 15px;
-  border-width: 1px;
-  border-color: ${({ theme }) => theme.border};
-  background-color: ${({ theme }) => theme.background};
-  z-index: 1;
+  align-items: center;
+  justify-content: center;
+  background-color: ${({ theme }) => theme.border};
 `;
 export const LanguageButton = styled.TouchableOpacity`
   width: 95px;
@@ -91,6 +89,46 @@ export const LanguageButton = styled.TouchableOpacity`
   border-radius: 15px;
   border-width: 2px;
   border-color: ${({ theme }) => theme.border};
+`;
+export const LanguageText = styled.Text`
+  font-family: 'Nunito-Bold';
+  font-size: 16px;
+  margin-bottom: 10px;
+  color: ${({ theme }) => theme.text};
+`;
+
+// StatusPicker
+export const StatusPickerContainer = styled.View`
+  width: 100%;
+  padding: 10px;
+  align-items: center;
+  justify-content: center;
+`;
+export const StatusPickerButton = styled.TouchableOpacity`
+  width: 95px;
+  height: 95px;
+  justify-content: center;
+  align-items: center;
+  margin: 5px;
+  border-radius: 15px;
+  border-width: 2px;
+  border-color: ${({ theme }) => theme.border};
+`;
+export const StatusPickerText = styled.Text`
+  font-family: 'Nunito-Bold';
+  font-size: 16px;
+  margin-bottom: 10px;
+  color: ${({ theme }) => theme.text};
+`;
+export const StatusPickerState = styled.View`
+  align-self: center;
+  justify-self: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border-width: 1px;
+  margin-top: 5px;
+  margin-bottom: 5px;
 `;
 
 // Alert
@@ -112,6 +150,12 @@ export const AlertSection = styled.View`
   flex-direction: row;
   justify-content: center;
   margin-bottom: 10px;
+`;
+export const AlertTitle = styled.Text`
+  font-family: 'Nunito-Bold';
+  font-size: 22px;
+  margin-bottom: 10px;
+  color: ${({ theme }) => theme.text};
 `;
 export const AlertMessage = styled.Text`
   font-family: 'Nunito';
@@ -929,18 +973,21 @@ export const HeaderButton = styled.TouchableOpacity`
   margin: 0 13px;
 `;
 // Chats
-export const ChatsContainer = styled.View`
+export const ChatsContentContainer = styled.View`
   flex: 1;
   flex-direction: column;
   align-items: center;
   width: 100%;
 `;
-export const ChatsButtonAdd = styled.TouchableOpacity`
-  width: 90%;
-  flex-direction: row;
-  justify-content: space-between;
+export const ChatsContainer = styled.View`
   align-items: center;
-  margin: 11px 0;
+  flex-direction: column;
+  width: 100%;
+`;
+export const ChatsButtonAdd = styled.TouchableOpacity`
+  margin: 0 5px;
+  justify-content: center;
+  align-items: center;
 `;
 export const ChatsButton = styled.TouchableOpacity`
   align-self: center;
@@ -1010,7 +1057,8 @@ export const ContactContainer = styled.View`
   flex-direction: column;
   width: 100%;
 `;
-export const ContactButtonAdd = styled.TouchableOpacity`
+// Add
+export const AddContainer = styled.View`
   flex: 1;
   width: 90%;
   flex-direction: row;
@@ -1018,11 +1066,15 @@ export const ContactButtonAdd = styled.TouchableOpacity`
   align-items: center;
   margin: 24px 0;
 `;
-// Add
-export const AddContainer = styled.View`
-  width: 100%;
+export const ContactButtons = styled.TouchableOpacity`
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
+  align-items: center;
+`;
+export const ContactButtonAdd = styled.TouchableOpacity`
+  margin: 0 5px;
+  justify-content: center;
+  align-items: center;
 `;
 export const AddText = styled.Text`
   font-family: 'Nunito-SemiBold';
@@ -1228,20 +1280,21 @@ export const DirectItemState = styled.View`
   border-width: 1px;
 `;
 export const DirectItemInfo = styled.View`
+  height: 60px;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   align-items: flex-start;
   text-align: center;
   margin-left: 10px;
 `;
 export const DirectItemStateSection = styled.View`
-  height: 100%;
+  height: 60px;
   flex-direction: column;
   justify-content: space-between;
 `;
 export const DirectItemNotify = styled.View`
   align-items: flex-end;
-  padding: 10px;
+  padding: 5px;
 `;
 export const DirectItemText = styled.Text`
   font-family: 'Nunito';
@@ -1249,8 +1302,20 @@ export const DirectItemText = styled.Text`
   font-size: 20px;
   color: ${({ theme }) => theme.text};
 `;
+export const DirectItemSmallText = styled.Text`
+  font-family: 'Nunito';
+  text-align: center;
+  font-size: 18px;
+  color: ${({ theme }) => theme.textDark};
+`;
 
 // User
+export const UserClose = styled.TouchableOpacity`
+  flex-direction: row;
+  justify-content: center;
+  align-self: flex-start;
+  margin: 0px 5px 30px 30px;
+`;
 export const UserContainer = styled.ScrollView`
   flex: 1;
   width: 100%;
@@ -1289,7 +1354,7 @@ export const UserButton = styled.TouchableOpacity`
   width: 333px;
   height: 56px;
   border-radius: 30px;
-  background-color: ${({ theme }) => theme.primaryc};
+  background-color: ${({ theme }) => theme.primary};
   justify-content: center;
   align-items: center;
 `;
@@ -1331,6 +1396,84 @@ export const UserText = styled.Text`
   font-size: 15px;
   color: ${({ theme }) => theme.text};
 `;
+// Email 
+export const EmailContainer = styled.View`
+  width: 100%;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-top: 25px;
+`;
+export const EmailForm = styled.View`
+  width: 88%;
+  align-items: center;
+`;
+export const EmailInput = styled.View`
+  width: 100%;
+  height: 45px;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 30px;
+  border-width: 0.1px;
+  border-color: ${({ theme }) => theme.border};
+  background-color: ${({ theme }) => theme.background};
+`;
+export const EmailTextInput = styled.TextInput`
+  flex: 1;
+  font-family: 'Nunito';
+  width: 100%;
+  padding: 10px;
+  margin-left: 10px;
+  color: ${({ theme }) => theme.text};
+  outline-width: 0;
+  outline-style: none;
+`;
+export const EmailButton = styled.TouchableOpacity`
+  width: 333px;
+  height: 56px;
+  border-radius: 30px;
+  background-color: ${({ theme }) => theme.primary};
+  justify-content: center;
+  align-items: center;
+`;
+export const EmailCountry = styled.View`
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+`;
+export const EmailScrollView = styled.ScrollView`
+  width: 100%;
+  flex-direction: column;
+`;
+export const EmailH1 = styled.Text`
+  font-family: 'Nunito-Bold';
+  text-align: center;
+  font-size: 24px;
+  color: ${({ theme }) => theme.text};
+`;
+export const EmailWideButton = styled.TouchableOpacity`
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  padding: 10px 30px;
+`;
+export const EmailSection = styled.View`
+  justify-content: center;
+  align-items: flex-start;
+`;
+export const EmailTitle = styled.Text`
+  font-family: 'Nunito-SemiBold';
+  text-align: center;
+  font-size: 16px;
+  color: ${({ theme }) => theme.text};
+`;
+export const EmailText = styled.Text`
+  font-family: 'Nunito';
+  text-align: center;
+  font-size: 15px;
+  color: ${({ theme }) => theme.text};
+`;
 // Profile
 export const UserProfileInput = styled.TextInput`
   flex: 1;
@@ -1362,7 +1505,7 @@ export const UserProfilePicture = styled.View`
   width: 110px;
   height: 110px;
   border-radius: 100px;
-  border: 4px solid ${({ theme }) => theme.primary};
+  border: 4px solid ${({ color }) => color};
   justify-content: center;
   align-items: center;
 `;
@@ -1374,7 +1517,7 @@ export const UserPictureEdit = styled.View`
   border-radius: 40px;
   justify-content: center;
   align-items: center;
-  background-color: ${({ theme }) => theme.primary};
+  background-color: ${({ color }) => color};
 `;
 export const UserInfor = styled.View`
   width: 100%;
@@ -1468,6 +1611,13 @@ export const SettingsText = styled.Text`
   text-align: center;
   font-size: 16px;
   color: ${({ theme }) => theme.text};
+`;
+// Status
+export const StatusContainer = styled.View`
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  margin-top: 25px;
 `;
 
 // Auth
@@ -1876,7 +2026,7 @@ export const ContentInvoicingText = styled.Text`
 export const ContentInvoicingValue = styled.Text`
   font-family: 'Nunito';
   text-align: center;
-  font-size: 18px;
+  font-size: 16px;
   color: ${({ theme }) => theme.text};
 `;
 export const ContentInvoicingButtonText = styled.Text`

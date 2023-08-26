@@ -175,7 +175,7 @@
       "confirm_password": "Confirmar"
     },
     "button": {
-      "text": "Registrar",
+      "text": "Registar",
       "accessibility": "registrar e começar a usar o Cluey"
     },
     "button_signin": {
@@ -259,13 +259,13 @@
     },
     "button": {
       "text": "Recuperar", 
-      "accessibility": "enviar e-mail de recuperação de senha"
+      "accessibility": "enviar e-mail de recuperação de palavra-passe"
     },
     "text_input": {
       "email": "e-mail"
     },
     "success": {
-      "title": "Recuperação de senha solicitada com sucesso!",
+      "title": "Recuperação de palavra-passe solicitada com sucesso!",
       "description": "Receberá um e-mail com os passos para recuperar a palavra-passe da sua conta, associados ao e-mail introduzido.",
       "alert_title": "Importante!",
       "alert_msg": "Lembre-se de verificar também sua caixa de 'spam'.",
@@ -409,28 +409,28 @@
     }
   },
   "email_config": {
-    "title": "Mude o e-mail",
+    "title": "Alterar e-mail",
     "subtitle": "Altere o e-mail da sua conta Cluey",
     "description": "e-mail da sua conta",
     "email": "Novo Email",
-    "password": "senha",
+    "password": "Palavra-passe",
     "success": "E-mail alterado com sucesso!",
     "change_button": {
-      "text": "Mude o e-mail",
-      "accessibility": "mude seu e-mail"
+      "text": "Alterar",
+      "accessibility": "alterar seu e-mail"
     }
   },
   "password_config": {
-    "title": "Alterar a senha",
-    "subtitle": "Altere a senha da sua conta Cluey",
-    "description": "a senha da sua conta",
-    "current_password": "Senha atual",
-    "password": "Nova Senha",
-    "confirm_password": "Confirme sua senha",
-    "success": "Senha alterada com sucesso!",
+    "title": "Alterar palavra-passe",
+    "subtitle": "Altere sua palavra-passe",
+    "description": "a palavra-passe da sua conta",
+    "current_password": "Palavra-passe atual",
+    "password": "Nova Palavra-passe",
+    "confirm_password": "Confirme sua palavra-passe",
+    "success": "Palavra-passe alterada com sucesso!",
     "change_button": {
-      "text": "Alterar a senha",
-      "accessibility": "Mude sua senha"
+      "text": "Alterar",
+      "accessibility": "Mude sua palavra-passe"
     }
   },
   "country_config": {
@@ -439,6 +439,16 @@
     "buttons" : {
       "close": "Fechar"
     }
+  },
+  "status_config": {
+    "title": "Status",
+    "description": "Escolha a seu status"
+  },
+  "status": {
+    "online": "Online",
+    "away": "Ausente",
+    "busy": "Ocupado",
+    "offline": "Offline"
   },
   "account": {
     "title": "Conta",
@@ -518,8 +528,8 @@
     "cancel": "Cancelar",
     "close": "Fechar",
     "password_change": {
-      "title": "Senha alterada com sucesso!",
-      "message": "Sua senha foi alterada com sucesso. "
+      "title": "Palavra-passe alterada com sucesso!",
+      "message": "Sua palavra-passe foi alterada com sucesso. "
     },
     "email_change": {
       "title": "E-mail alterado com sucesso!",
@@ -540,6 +550,11 @@
       "message1": "Tem certeza de que deseja apagar ",
       "message2": " dos seus contactos?"
     },
+    "working": {
+      "title": "Estamos a trabalhar nisto!",
+      "message1": "Logo estará disponível para você, a funcionalidade ",
+      "message2": " . Agradecemos a sua compreensão."
+    },
     "server": {
       "offline_text": "Desculpe, Cluey está offline no momento!"
     }
@@ -557,8 +572,8 @@
     "auth_missing_email": "Por favor introduza o seu e-mail",
     "auth_invalid_email": "por favor digite um email válido",
     "auth_email_already_in_use": "Email já em uso",
-    "auth_missing_password": "Por favor, insira sua senha",
-    "auth_invalid_password": "por favor coloque uma senha válida",
-    "auth_wrong_password": "Senha incorreta"
+    "auth_missing_password": "Por favor, insira sua palavra-passe",
+    "auth_invalid_password": "por favor coloque uma palavra-passe válida",
+    "auth_wrong_password": "Palavra-passe incorreta"
   }
 }

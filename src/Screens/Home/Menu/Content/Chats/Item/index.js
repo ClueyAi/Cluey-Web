@@ -19,7 +19,7 @@ const Item = ({ item, editing, setEditing, handlerEditChatName, handlerDeleteCha
   const { theme } = useContext(ThemeContext);
   const [chatName, setChatName] = useState(item.name? item.name : '');
 
-  const name = item.name?.length > 35 ? item.name?.substring(0, 35) + '...' : item.name;
+  const name = item.name?.length > 34 ? item.name?.substring(0, 34) + '...' : item.name;
 
   const chatNameValidation = (text) => {
     setChatName(text);

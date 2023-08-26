@@ -38,7 +38,7 @@ const CountryPicker = ({ onClose, onSelect, closeTxt }) => {
   return (
     <CountryPickerContainer>
       <CountryPickerClose onPress={onClose}>
-        <Ionicons name="close" size={20} color={'#00000060'}/>
+        <Ionicons name="close" size={24} color={'#00000060'}/>
         <CountryPickerName>{closeTxt}</CountryPickerName>
       </CountryPickerClose>
       <CountryPickerContent>

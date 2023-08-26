@@ -96,10 +96,10 @@ const Invoicing = () => {
               <ContentInvoicingValue theme={theme}>{item.credits}</ContentInvoicingValue>
               <ContentInvoicingValue theme={theme}>{locale.invoicing.asks}</ContentInvoicingValue> 
               <ContentInvoicingValue theme={theme}>{locale.invoicing.description}</ContentInvoicingValue>
-              <ContentInvoicingValue theme={theme}>{item.method.toUpperCase()}</ContentInvoicingValue>
+              <ContentInvoicingValue theme={theme}>{item.method?.toUpperCase()}</ContentInvoicingValue>
             </ContentInvoicingDesc>
           </ContentInvoicingHistory>
-          <ContentInvoicingValue theme={theme}>{item.createdAt}</ContentInvoicingValue>
+          <ContentInvoicingValue theme={theme}>{item.createdAt.substring(0, 10)}</ContentInvoicingValue>
         </ContentInvoicingSection>
       ))}
     </ContentInvoicing>

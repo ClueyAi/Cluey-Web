@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from "prop-types";
 
-import { ChatsContainer } from '../../../components';
+import { ChatsContentContainer } from '../../../components';
 
 import Chats from './Chats';
 import Contacts from './Contacts';
@@ -12,45 +12,45 @@ import Working from '../../../Utils/Working';
 const Content = ({selected}) => {
   if (selected === 0) {
     return (
-      <ChatsContainer>
+      <ChatsContentContainer>
         <Contacts />
-      </ChatsContainer>
+      </ChatsContentContainer>
     );
   } else if (selected === 1) {
     return (
-      <ChatsContainer>
+      <ChatsContentContainer>
         <Chats />
-      </ChatsContainer>
+      </ChatsContentContainer>
     );
   } else if (selected === 2) {
     return (
-      <ChatsContainer>
+      <ChatsContentContainer>
         <Working />
-      </ChatsContainer>
+      </ChatsContentContainer>
     );
   } else if (selected === 3) {
     return (
-      <ChatsContainer>
+      <ChatsContentContainer>
         <Working />
-      </ChatsContainer>
+      </ChatsContentContainer>
     );
   } else if (selected === 4) {
     return (
-      <ChatsContainer>
+      <ChatsContentContainer>
         <Working />
-      </ChatsContainer>
+      </ChatsContentContainer>
     );
   } else if (selected === 5) {
     return (
-      <ChatsContainer>
+      <ChatsContentContainer>
         <Settings />
-      </ChatsContainer>
+      </ChatsContentContainer>
     );
   } else if (selected === 9) {
     return (
-      <ChatsContainer>
+      <ChatsContentContainer>
         <User />
-      </ChatsContainer>
+      </ChatsContentContainer>
     );
   }
 };

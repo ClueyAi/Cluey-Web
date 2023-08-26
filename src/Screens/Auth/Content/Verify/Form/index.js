@@ -30,12 +30,13 @@ const Form = () => {
     setSended(!sended);  
   };
 
-  const handleVerify = () => {
-    emailVerify();
+  const handleVerify = async () => {
+    await emailVerify();
     handleSendRecovery();
   };
 
-  const handleContinue = () => {
+  const handleContinue = async () => {
+    await emailVerify();
     goHome();
   };
 

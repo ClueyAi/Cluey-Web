@@ -67,6 +67,7 @@ const Form = () => {
       await signIn(email, password);
       await putUser();
       setShouldGoHome(true);
+      setLoading(false);
     } catch (error) {
       setError(error.code);
       if (error.code === "auth/missing-password") {
@@ -86,8 +87,6 @@ const Form = () => {
         setEmailValid(emailValid == true ? true : false);
         setPasswordValid(passwordValid == true ? true : false);
       }
-    } finally {
-      setLoading(false);
     }
   };
 

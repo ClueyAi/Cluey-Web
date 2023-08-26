@@ -26,6 +26,18 @@ const User = ({ editingName, handleEditName }) => {
   const { user, updateUserPhoto, updateDisplayName } = useContext(FirebaseContext);
   const [userName, setUserName] = useState(user?.displayName);
 
+  const getState = () => {
+    if (user?.status === 'online') {
+      return theme.secondary;
+    } else if (user?.status === 'away') {
+      return theme.primary;
+    } else if (user?.status === 'busy') {
+      return theme.error;
+    } else {
+      return theme.textGray;
+    }
+  };
+
   const handleEditPhoto = async () => {
     pickImage();
   };
@@ -74,7 +86,7 @@ const User = ({ editingName, handleEditName }) => {
         <LinkButton
           onPress={handleEditPhoto}
         >
-          <UserProfilePicture theme={theme}>
+          <UserProfilePicture theme={theme} color={getState()}>
             <UserAvatar
               size={102}
               style={{ width: 102, height: 102, borderRadius: 100 }}
@@ -83,7 +95,7 @@ const User = ({ editingName, handleEditName }) => {
             />
           </UserProfilePicture>
         </LinkButton>
-        <UserPictureEdit theme={theme}>
+        <UserPictureEdit theme={theme} color={getState()}>
           <Ionicons name="camera" size={14} color={theme.text} />
         </UserPictureEdit>
       </UserPicture>

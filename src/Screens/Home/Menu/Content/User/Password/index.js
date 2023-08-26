@@ -1,25 +1,27 @@
 import React, { useState, useContext, useRef } from "react";
 import { Alert } from "react-native";
 import Ionicons from "@expo/vector-icons/Ionicons";
+import PropTypes from "prop-types";
 
 import { FirebaseContext } from "/src/api/firebase";
 import { ThemeContext, shadow } from "/src/components/theme";
 import { LocaleContext } from "/src/components/locale";
 import {
-  UserContent,
-  UserForm,
-  UserInput,
-  UserTextInput,
+  UserClose,
+  EmailContainer,
+  EmailForm,
+  EmailInput,
+  EmailTextInput,
   AuthButtonTxtButton,
   AuthTextError,
   AuthTextValid,
   AuthTextAlert,
-  UserButton
+  EmailButton
 } from '../../../../../components';
 import { navigate } from '../../../../../functions';
 
 
-const Password = () => {
+const Password = ({ setVPassword }) => {
   const { locale } = useContext(LocaleContext);
   const { updateUserPassword } = useContext(FirebaseContext);
   const { theme } = useContext(ThemeContext);
@@ -39,6 +41,10 @@ const Password = () => {
   const [errorMsg, setErrorMsg] = useState('');
   const [errorPassword, setErrorPassword] = useState("errorPassword");
   const {goHome} = navigate();
+
+  const handleClose = () => {
+    setVPassword(false);
+  };
 
   const currentPasswordValidate = (text) => {
     setCurrentPassword(text);
@@ -105,9 +111,12 @@ const Password = () => {
   };
 
   return (
-    <UserContent>
-      <UserForm style={{flex: 1, marginTop: 40, alignSelf: 'center'}}>
-        <UserInput
+    <EmailContainer>
+      <UserClose onPress={handleClose}>
+        <Ionicons name="chevron-back" size={24} color={theme.textDark}/>
+      </UserClose>
+      <EmailForm style={{flex: 1, marginTop: 10, alignSelf: 'center'}}>
+        <EmailInput
           theme={theme}
           style={{
             ...shadow,
@@ -118,7 +127,7 @@ const Password = () => {
             }`,
           }}
         >
-          <UserTextInput
+          <EmailTextInput
             ref={currentPasswordRef}
             theme={theme}
             placeholder={locale.password_config.current_password}
@@ -131,8 +140,8 @@ const Password = () => {
             onChangeText={currentPasswordValidate}
             onSubmitEditing={() => {passwordRef.current.focus()}}
           />
-        </UserInput>
-        <UserInput
+        </EmailInput>
+        <EmailInput
           theme={theme}
           style={{
             ...shadow,
@@ -144,7 +153,7 @@ const Password = () => {
             }`,
           }}
         >
-          <UserTextInput
+          <EmailTextInput
             ref={passwordRef}
             theme={theme}
             placeholder={locale.password_config.password}
@@ -186,7 +195,7 @@ const Password = () => {
               color={theme.transparent}
             />
           )}
-        </UserInput>
+        </EmailInput>
         {passwordStrong == false && passwordValid == true ? (
           <AuthTextAlert theme={theme}>Password medium</AuthTextAlert>
         ) : passwordValid == false && password !== '' ? (
@@ -196,7 +205,7 @@ const Password = () => {
         ) : (
           <AuthTextError theme={theme}></AuthTextError>
         )}
-        <UserInput
+        <EmailInput
           theme={theme}
           style={{
             ...shadow,
@@ -208,7 +217,7 @@ const Password = () => {
             }`,
           }}
         >
-          <UserTextInput
+          <EmailTextInput
             ref={rePasswordRef}
             theme={theme}
             placeholder={locale.password_config.confirm_password}
@@ -244,23 +253,27 @@ const Password = () => {
               color={theme.secondary}
             />
           ) : null}
-        </UserInput>
+        </EmailInput>
         {error ? (
           <AuthTextError theme={theme}>{errorMsg}</AuthTextError>
         ) : (
           <AuthTextError theme={theme}></AuthTextError>
         )}
-        <UserButton
+        <EmailButton
           theme={theme}
           style={shadow}
           onPress={handleChange}
           accessibilityLabel={locale.password_config.change_button.accessibility}
         >
           <AuthButtonTxtButton theme={theme}>{locale.password_config.change_button.text}</AuthButtonTxtButton>
-        </UserButton>
-      </UserForm>
-    </UserContent>
+        </EmailButton>
+      </EmailForm>
+    </EmailContainer>
   );
+};
+
+Password.propTypes = {
+  setVPassword: PropTypes.func,
 };
 
 export default Password;

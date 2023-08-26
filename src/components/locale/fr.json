@@ -440,6 +440,16 @@
       "close": "Fechar"
     }
   },
+  "status_config": {
+    "title": "Status",
+    "description": "Escolha a seu status"
+  },
+  "status": {
+    "online": "Online",
+    "away": "Ausente",
+    "busy": "Ocupado",
+    "offline": "Offline"
+  },
   "account": {
     "title": "Conta",
     "description": "configurando sua conta",
@@ -539,6 +549,11 @@
       "title": "Você tem certeza?",
       "message1": "Tem certeza de que deseja apagar ",
       "message2": " dos seus contactos?"
+    },
+    "working": {
+      "title": "Estamos a trabalhar nisto!",
+      "message1": "Logo estará disponível para você, a funcionalidade ",
+      "message2": " . Agradecemos a sua compreensão."
     },
     "server": {
       "offline_text": "Desculpe, Cluey está offline no momento!"

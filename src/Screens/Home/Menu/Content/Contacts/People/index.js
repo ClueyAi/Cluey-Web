@@ -50,6 +50,7 @@ const People = ({handlerAddContact}) => {
 
   const handlerDeleteContact = (item) => {
     const options = {
+      title: locale.alert.delete_contact.title,
       message1: locale.alert.delete_contact.message1,
       message2: locale.alert.delete_contact.message2,
       name: item.displayName,

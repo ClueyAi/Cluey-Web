@@ -1,23 +1,25 @@
 import React, { useState, useContext, useRef } from "react";
 import { Alert } from "react-native";
 import Ionicons from "@expo/vector-icons/Ionicons";
+import PropTypes from "prop-types";
 
 import { FirebaseContext } from "/src/api/firebase";
 import { ThemeContext, shadow } from "/src/components/theme";
 import { LocaleContext } from "/src/components/locale";
 
 import {
-  UserForm,
-  UserInput,
-  UserTextInput,
-  UserContent,
+  UserClose,
+  EmailContainer,
+  EmailForm,
+  EmailInput,
+  EmailTextInput,
   AuthButtonTxtButton,
   AuthTextError,
-  UserButton
+  EmailButton
 } from '../../../../../components';
 import { navigate} from '../../../../../functions';
 
-const Email = () => {
+const Email = ({ setVEmail }) => {
   const { locale } = useContext(LocaleContext);
   const { updateUserEmail } = useContext(FirebaseContext);
   const { theme } = useContext(ThemeContext);
@@ -33,6 +35,10 @@ const Email = () => {
   const [errorMsg, setErrorMsg] = useState('');
   const [errorEmail, setErrorEmail] = useState('');
   const {goHome} = navigate();
+
+  const handleClose = () => {
+    setVEmail(false);
+  };
 
   const emailValidate = (text) => {
     // eslint-disable-next-line no-useless-escape
@@ -103,9 +109,12 @@ const Email = () => {
   };
 
   return (
-    <UserContent>
-      <UserForm style={{ marginTop: 40, alignSelf: 'center'}}>
-        <UserInput
+    <EmailContainer>
+      <UserClose onPress={handleClose}>
+        <Ionicons name="chevron-back" size={24} color={theme.textDark}/>
+      </UserClose>
+      <EmailForm style={{ marginTop: 10, alignSelf: 'center'}}>
+        <EmailInput
           theme={theme}
           style={{
             ...shadow,
@@ -117,7 +126,7 @@ const Email = () => {
             }`,
           }}
         >
-          <UserTextInput
+          <EmailTextInput
             ref={emailRef}
             value={newEmail}
             theme={theme}
@@ -153,8 +162,9 @@ const Email = () => {
               color={theme.secondary}
             />
           ) : null}
-        </UserInput>
-        <UserInput
+        </EmailInput>
+        <EmailInput
+          theme={theme}
           style={{
             ...shadow,
             marginBottom: 10,
@@ -163,7 +173,7 @@ const Email = () => {
             }`,
           }}
         >
-          <UserTextInput
+          <EmailTextInput
             ref={passwordRef}
             theme={theme}
             placeholder={locale.email_config.password}
@@ -176,23 +186,27 @@ const Email = () => {
             onChangeText={passwordValidate}
             onSubmitEditing={handleChange}
           />
-        </UserInput>
+        </EmailInput>
         {error ? (
           <AuthTextError theme={theme}>{errorMsg}</AuthTextError>
         ) : (
           <AuthTextError theme={theme}> </AuthTextError>
         )}
-        <UserButton
+        <EmailButton
           theme={theme}
           style={shadow}
           onPress={handleChange}
           accessibilityLabel={locale.email_config.change_button.accessible}
         >
           <AuthButtonTxtButton theme={theme}>{locale.email_config.change_button.text}</AuthButtonTxtButton>
-        </UserButton>
-      </UserForm>
-    </UserContent>
+        </EmailButton>
+      </EmailForm>
+    </EmailContainer>
   );
+};
+
+Email.propTypes = {
+  setVEmail: PropTypes.func,
 };
 
 export default Email;
