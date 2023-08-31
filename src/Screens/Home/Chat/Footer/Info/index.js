@@ -18,6 +18,7 @@ const Input = ({id}) => {
   const [chat, setChat] = useState([]);
   const [friend, seFriend] = useState([]);
   const [isPrivate, setIsprivate] = useState(true);
+  const [name, setName] = useState('');
 
   const getState = () => {
     if (isPrivate) {
@@ -62,14 +63,25 @@ const Input = ({id}) => {
   };
 
   useEffect(() => {
-    if (chats) {
-      const currentChat = chats?.find((chat) => chat.id === id);
-      setChat(currentChat);
-      seFriend(currentChat?.userData);
-      if (currentChat?.type) {
-        currentChat?.type === 'private'?setIsprivate(true):setIsprivate(false);
+    const getChat = () => {
+      if (chats && id) {
+        const currentChat = chats?.find((chat) => chat.id === id);
+        setChat(currentChat);
+        seFriend(currentChat?.userData);
+        setName(currentChat?.userData?.displayName?.length > 15 ? currentChat?.userData?.displayName?.substring(0, 15) + '...' : currentChat?.userData?.displayName);
+        if (currentChat?.type) {
+          currentChat?.type === 'private'?setIsprivate(true):setIsprivate(false);
+        }
+      } else {
+        const currentChat = chats?.find((chat) => chat.id === id);
+        setChat(currentChat);
+        seFriend(currentChat?.userData);
+        setName(currentChat?.userData?.displayName?.length > 15 ? currentChat?.userData?.displayName?.substring(0, 15) + '...' : currentChat?.userData?.displayName);
+        setIsprivate(true);
       }
     }
+
+    getChat();
   }, [chats, id]);
 
   if (chat) {
@@ -85,7 +97,7 @@ const Input = ({id}) => {
             />
           </InfoPicture>
           <InfoState style={{backgroundColor: getState()}}/>
-          <InfoName theme={theme}>{friend?.displayName}</InfoName>
+          <InfoName theme={theme}>{name}</InfoName>
         </InfoContainer>
       </Button>
     );

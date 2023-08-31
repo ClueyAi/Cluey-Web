@@ -5,16 +5,13 @@ import UserAvatar from 'react-native-user-avatar';
 
 import { LocaleContext} from '/src/components/locale';
 import { ThemeContext } from '/src/components/theme';
-/*import { 
-  Div,
-  View,
-  H1, H1Mini, H3, H3Bold, P, PMini,
-  ButtonEmpyte,
-  Picture,
-  Image,
-} from '/src/components/global';*/
 
 import {
+  View,
+  Div,
+  H1, H1Mini, H3, H3Bold, P, PMini,
+  ButtonEmpyte,
+  Image,
   AboutContainer,
   AboutHeader,
   AboutContent,
@@ -47,7 +44,7 @@ const About = () => {
   const handlePolicy = async () => {
     window.open('https://cluey.pt/termos', '_blank');
   };
-/*
+
   return (
     <AboutContainer>
       <AboutContent>
@@ -114,18 +111,18 @@ const About = () => {
             <H1 style={{marginTop: 40}}>{locale.global.partners.title}</H1>
             <AboutSection>
               <ButtonEmpyte onPress={() => handleOpenLink(locale.global.partners.islagaia.site_url)}>
-                <Picture>
+                <Div>
                   <Image style = {{ width: 302.4, height: 127.68 }} source={{uri: locale.global.partners.islagaia.logo_url}}/>
-                </Picture>   
+                </Div>   
               </ButtonEmpyte>
             </AboutSection>
             <View style={{flexDirection: 'row', marginTop: 60, alignItems: 'center', justifyContent: 'center'}}>
               <Image style={{width: 152, height: 112}} source={require('../../../../assets/images/logoname.png')} />
               <H1Mini style={{fontSize: 16, padding: 2}}>©</H1Mini>
             </View>
-            <View style={{marginTop: 20, marginBottom: 180, alignItems: 'center'}}>
-              <H3Bold>{locale.global.app.resume_title}</H3Bold>
-              <P style={{width: '60%', textAlign: 'center', marginTop: 5}}>{locale.global.app.resume}</P>
+            <View style={{marginTop: 20, marginBottom: 280, alignItems: 'center'}}>
+              <H1>{locale.global.app.resume_title}</H1>
+              <H3 style={{width: '60%', textAlign: 'center', marginTop: 5}}>{locale.global.app.resume}</H3>
             </View>
           </AboutView>
         </AboutScrollView>
@@ -151,8 +148,7 @@ const About = () => {
         </Div>
       </AboutFooter>
     </AboutContainer>
-  );*/
-  return 
+  );
 };
 
 export default About;

@@ -803,7 +803,7 @@ export const InputContainer = styled.View`
   align-items: center;
   background-color: ${({ theme }) => theme.bgInput};
   border-radius: 30px;
-  margin: 0 5%;
+  margin: 0 3%;
 `;
 export const InputTextBox = styled.TextInput`
   font-family: 'Nunito';

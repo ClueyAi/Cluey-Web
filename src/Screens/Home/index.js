@@ -20,11 +20,11 @@ const Home = () => {
 
   const {goTo} = navigate();
   const name = locale.global.app.name.toUpperCase();
-  const isVerify = user?.emailVerified??false;
-  const hasPreferences = user?.preferences??false;
-  const hasNewUpdate = appStatus?.newUpdate;
   
   useEffect(() => {
+    const isVerify = user?.emailVerified??false;
+    const hasPreferences = user?.preferences??false;
+    const hasNewUpdate = appStatus?.newUpdate;
     if (appFunc?.forceLogoutAll) {
       signOut();
       window.location.reload();
@@ -60,7 +60,7 @@ const Home = () => {
       patch(unreadPatchNotes, locale);
     }
     
-  }, [isAuth, appFunc, hasPreferences, isVerify, unreadPatchNotes, isLoading, user]);
+  }, [isAuth, appFunc, unreadPatchNotes, isLoading, user]);
   
   if (isLoading) {
     return (

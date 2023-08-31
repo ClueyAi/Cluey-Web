@@ -1,5 +1,14 @@
 import styled from 'styled-components/native';
 
+// Global
+export const View = styled.View``;
+export const Div = styled.View`
+  align-items: center;
+  justify-content: center;
+`;
+export const ButtonEmpyte = styled.TouchableOpacity``;
+export const Image = styled.Image``;
+
 // Rules
 export const Container = styled.View`
   flex: 1;
@@ -11,7 +20,6 @@ export const Body = styled.View`
   justify-content: center;
   align-items: center;
 `;
-export const View = styled.View``;
 export const ScrollView = styled.ScrollView`
   width: 100%;
   flex-direction: column;
@@ -21,10 +29,30 @@ export const H1 = styled.Text`
   text-align: center;
   font-size: 24px;
 `;
+export const H1Mini = styled.Text`
+  font-family: 'Nunito-Bold';
+  text-align: center;
+  font-size: 18px;
+`;
+export const H3 = styled.Text`
+  font-family: 'Nunito';
+  text-align: center;
+  font-size: 16px;
+`;
 export const H3Bold = styled.Text`
   font-family: 'Nunito-Bold';
   text-align: center;
   font-size: 16px;
+`;
+export const P = styled.Text`
+  font-family: 'Nunito';
+  text-align: center;
+  font-size: 14px;
+`;
+export const PMini = styled.Text`
+  font-family: 'Nunito';
+  text-align: center;
+  font-size: 12px;
 `;
 export const Title = styled.Text`
   font-family: 'Nunito-SemiBold';
@@ -46,7 +74,7 @@ export const TextList = styled.Text`
   margin-left: 10px;
   color: ${({ theme }) => theme.textGray};
 `;
-export const ButtonEmpyte = styled.TouchableOpacity``;
+
 export const FooterSmall = styled.View`
   width: 100%;
   height: 110px;
@@ -135,7 +163,8 @@ export const AboutSection = styled.View`
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  margin-top: 10px;
+  margin-top: 15px;
+  margin-bottom: 30px;
   padding: 0 40px;
 `;
 export const AboutView = styled.View`

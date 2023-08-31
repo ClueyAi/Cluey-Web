@@ -1,4 +1,5 @@
 import React, { createContext, useState, useEffect, useContext } from 'react';
+import uuid from 'react-native-uuid';
 import PropTypes from "prop-types";
 // eslint-disable-next-line no-unused-vars
 import CryptoJS from 'crypto-js';
@@ -93,6 +94,21 @@ export const FirebaseProvider = ({ children }) => {
               id: doc.id,
               ...doc.data(),
             };
+
+            // Convert all map messages to array for fix db error
+            /*
+            const query = firestore.collection('users').doc(authUser?.uid).collection('chats');
+            query.get().then((snapshot) => {
+              snapshot.forEach((doc) => {
+                const currentMessages = doc.data().messages;
+                const messagesArray = Object.values(currentMessages);
+                doc.ref.update({ messages: messagesArray }).then(() => {
+                  console.log(`Documento ${doc.id} atualizado.`);
+                });
+              });
+            })
+            */
+          
             const info = 'info';
             const chatRef = firestore.collection('app').doc(info)
               .get().then((doc) => {
@@ -165,9 +181,7 @@ export const FirebaseProvider = ({ children }) => {
 
   const signUp = async (email, password) => {
     await auth.createUserWithEmailAndPassword(email, password);
-    await auth.currentUser.sendEmailVerification({
-      locale: locale.language.locale
-    });
+    await auth.currentUser.sendEmailVerification();
   };
 
   const emailVerify = async () => {
@@ -182,9 +196,7 @@ export const FirebaseProvider = ({ children }) => {
       const docRef = firestore.collection('users').doc(authUser?.uid);
       return docRef.set(userData, { merge: true });
     } else {
-      await auth.currentUser.sendEmailVerification({
-        locale: locale.language.locale
-      });
+      await auth.currentUser.sendEmailVerification();
     }
   };
 
@@ -285,9 +297,7 @@ export const FirebaseProvider = ({ children }) => {
     );
     await auth.currentUser.reauthenticateWithCredential(credential);
     await auth.currentUser.updateEmail(newEmail);
-    await auth.currentUser.sendEmailVerification({
-      locale: locale.language.locale
-    });
+    await auth.currentUser.sendEmailVerification();
 
     const timestamp = new Date().toLocaleString();
     const userData = {
@@ -429,6 +439,7 @@ export const FirebaseProvider = ({ children }) => {
       updatedAt: timestamp,
     };
     const message = {
+      mid: uuid.v4(),
       uid: authUser?.uid,
       name: name,
       createdAt: timestamp,
@@ -458,6 +469,7 @@ export const FirebaseProvider = ({ children }) => {
       updatedAt: timestamp,
     };
     const message = {
+      mid: uuid.v4(),
       uid: appInfo?.uid,
       name: name,
       createdAt: timestamp,
@@ -535,6 +547,7 @@ export const FirebaseProvider = ({ children }) => {
       updatedAt: timestamp,
     };
     const message = {
+      mid: uuid.v4(),
       uid: authUser?.uid,
       name: name,
       createdAt: timestamp,

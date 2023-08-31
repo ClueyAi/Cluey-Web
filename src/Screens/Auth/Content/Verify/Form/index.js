@@ -18,11 +18,11 @@ import { navigate } from '../../../../functions';
 
 const Form = () => {
   const { locale } = useContext(LocaleContext);
-  const { emailVerify } = useContext(FirebaseContext);
+  const { user, emailVerify } = useContext(FirebaseContext);
   const { theme } = useContext(ThemeContext);
-
+  const storedRemainingSeconds = parseInt(localStorage.getItem('remainingSeconds'))
   const [loading] = useState(false);
-  const [sended, setSended] = useState(false);
+  const [sended, setSended] = useState(storedRemainingSeconds>0?true:false);
 
   const {goHome} = navigate();
 
@@ -32,15 +32,21 @@ const Form = () => {
 
   const handleVerify = async () => {
     await emailVerify();
-    handleSendRecovery();
   };
 
   const handleContinue = async () => {
-    await emailVerify();
     goHome();
   };
 
   useEffect(() => {
+    if (user?.emailVerified) {
+      goHome();
+    } else {
+      if (!sended) {
+        emailVerify();
+        setSended(true);
+      }
+    }
     const storedRemainingSeconds = parseInt(localStorage.getItem('remainingSeconds'));
     if (storedRemainingSeconds > 0) {
       setSended(true);
