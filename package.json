@@ -12,7 +12,7 @@
     "build": "npx expo export:web",
     "deploy": "firebase deploy",
     "prod": "npx expo export:web && node bkp_public.js && rm -rf public/* && cp -r web-build/* public/ && rm -rf web-build && cp 404.html public/ && firebase deploy",
-    "prodW": "npx expo export:web; node bkp_public.js; Remove-Item -Recurse public/*; Copy-Item -Recurse web-build/* public/; Remove-Item -Recurse web-build; Copy-Item 404.html public/; firebase deploy"
+    "prodW": "node prod.js"
   },
   "dependencies": {
     "@expo/config-plugins": "^6.0.1",

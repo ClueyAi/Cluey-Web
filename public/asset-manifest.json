@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.js": "/static/js/main.b3b377f4.js",
-    "static/js/258.9681be51.js": "/static/js/258.9681be51.js",
+    "main.js": "/static/js/main.d993937d.js",
+    "static/js/126.a08909ad.js": "/static/js/126.a08909ad.js",
     "static/media/Ionicons.ttf": "/static/media/Ionicons.3517aeaa34b2f8cd8eef.ttf",
     "static/media/MaterialIcons.ttf": "/static/media/MaterialIcons.120b4c7bbd155bd0a04d.ttf",
     "static/media/visa.png": "/static/media/visa.d72c49e3b308a59e44b9.png",
@@ -17,6 +17,7 @@
     "static/media/Entypo.ttf": "/static/media/Entypo.fc6169344c041cffcdae.ttf",
     "static/media/plans.png": "/static/media/plans.d4896ecbcd90605c943f.png",
     "static/media/Feather.ttf": "/static/media/Feather.0f5d9cede2e831f3fc80.ttf",
+    "static/media/logoname.png": "/static/media/logoname.9d85e68742f9184eedcf.png",
     "static/media/gift.png": "/static/media/gift.9687569ed7dd7ed6eeb8.png",
     "static/media/cluey-sad-white.png": "/static/media/cluey-sad-white.a1ab66c5ccb2d611c7eb.png",
     "static/media/wallet.png": "/static/media/wallet.a661e7fe98a45401286e.png",
@@ -288,11 +289,11 @@
     "favicon-16.png": "/favicon-16.png",
     "serve.json": "/serve.json",
     "manifest.json": "/manifest.json",
-    "main.b3b377f4.js.map": "/static/js/main.b3b377f4.js.map",
-    "258.9681be51.js.map": "/static/js/258.9681be51.js.map"
+    "main.d993937d.js.map": "/static/js/main.d993937d.js.map",
+    "126.a08909ad.js.map": "/static/js/126.a08909ad.js.map"
   },
   "entrypoints": [
-    "static/js/258.9681be51.js",
-    "static/js/main.b3b377f4.js"
+    "static/js/126.a08909ad.js",
+    "static/js/main.d993937d.js"
   ]
 }
