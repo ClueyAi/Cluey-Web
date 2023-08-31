@@ -11,8 +11,7 @@
     "bkp": "node bkp.js",
     "build": "npx expo export:web",
     "deploy": "firebase deploy",
-    "prod": "npx expo export:web && node bkp_public.js && rm -rf public/* && cp -r web-build/* public/ && rm -rf web-build && cp 404.html public/ && firebase deploy",
-    "prodW": "node prod.js"
+    "prod": "node prod.js"
   },
   "dependencies": {
     "@expo/config-plugins": "^6.0.1",

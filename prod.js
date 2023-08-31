@@ -1,11 +1,13 @@
 const { exec, execSync  } = require('child_process');
 const fs = require('fs-extra');
+const path = require('path');
+const ncp = require('ncp').ncp;
 
 function executeCommand(command) {
   return new Promise((resolve, reject) => {
     exec(command, (error, stdout, stderr) => {
       if (error) {
-        console.error(`Erro ao executar o comando: ${command}`);
+        console.error(`Error when executing the command: ${command}`);
         console.error(stderr);
         reject(error);
       } else {
@@ -19,16 +21,15 @@ function executeCommand(command) {
 async function removeFilesAndDirectories(path) {
   try {
     await fs.remove(path);
-    console.log(`Arquivos e diretórios removidos com sucesso: ${path}`);
+    console.log(`Files and Directories successfully removed: ${path}`);
   } catch (error) {
-    console.error(`Erro ao remover arquivos e diretórios: ${path}`);
+    console.error(`Error removing files and directories: ${path}`);
     throw error;
   }
 }
 
 const commands = [
   'npx expo export:web',
-  'node bkp_public.js',
 ];
 
 async function executeCommandsInSeries() {
@@ -37,21 +38,42 @@ async function executeCommandsInSeries() {
   }
 }
 
+const backupFolderPath = '.public_bkp';
+
+if (!fs.existsSync(backupFolderPath)) {
+  fs.mkdirSync(backupFolderPath);
+}
+
+const now = new Date();
+const timestampFolderName = `backup_${now.getTime()}`;
+const timestampFolderPath = path.join(backupFolderPath, timestampFolderName);
+fs.mkdirSync(timestampFolderPath);
+
+const publicFolderPath = 'public';
+ncp(publicFolderPath, timestampFolderPath, (error) => {
+  if (error) {
+    console.error('Error to copy file:', error);
+  } else {
+    console.log(`Backup created on ${timestampFolderPath}`);
+  }
+});
+
+
 executeCommandsInSeries()
   .then(async () => {
     await removeFilesAndDirectories('public/*');
     await fs.copy('web-build', 'public');
     await fs.copy('404.html', 'public/404.html');
-    console.log('Todos os comandos foram executados com sucesso.');
-    console.log('Arquivos e diretórios foram copiados e removidos.');
+    console.log('All commands were successfully executed.');
+    console.log('Files and directories were copied and removed.');
 
     try {
       execSync('firebase deploy');
-      console.log('Firebase deploy bem-sucedido.');
+      console.log('Successful Deploy Firebase.');
     } catch (error) {
-      console.error('Erro ao executar o comando Firebase deploy:', error);
+      console.error('Error running the deploy firebase command:', error);
     }
   })
   .catch((error) => {
-    console.error('Erro ao executar os comandos:', error);
+    console.error('Error when executing the commands:', error);
   });
