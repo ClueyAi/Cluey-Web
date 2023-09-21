@@ -100,7 +100,7 @@ const User = () => {
               vCountry?
                 <CountryPicker onClose={handleCountry} closeTxt={locale.country_config.buttons.close} onSelect={handleCountrySelect} />:
                 vStatus?<Status setVStatus={setVStatus} />:
-                  <UserScrollView style={{ marginTop: 30 }}>
+                  <UserScrollView style={{ marginTop: 30 }} showsVerticalScrollIndicator={false}>
                     <UserWideButton onPress={handleState}>
                       <UserSection>
                         <UserTitle theme={theme}>{locale.status_config.title}</UserTitle>

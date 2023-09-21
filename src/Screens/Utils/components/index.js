@@ -121,6 +121,7 @@ export const AboutContainer = styled.View`
   width: 100%;
   align-items: center;
   flex-direction: column;
+  background-color: ${({ theme }) => theme.background};
 `;
 export const AboutHeader = styled.View`
   width: 100%;
@@ -129,7 +130,7 @@ export const AboutHeader = styled.View`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  background-color: ${({ theme }) => theme.primary};
+  background-color: ${({ theme }) => theme.background};
 `;
 export const AboutHeaderText = styled.Text`
   font-family: 'Nunito-Bold';
@@ -148,7 +149,7 @@ export const AboutPhoto = styled.View`
   width: 120px;
   height: 120px;
   border-radius: 100px;
-  margin: 5px 10px;
+  margin: 5px 40px;
   border: 5px solid ${({ theme }) => theme.primary};
   justify-content: center;
   align-items: center;
@@ -156,15 +157,14 @@ export const AboutPhoto = styled.View`
 export const AboutScrollView = styled.ScrollView`
   width: 100%;
   flex-direction: column;
-  padding-top: 20px;
 `;
 export const AboutSection = styled.View`
   width: 40%;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  margin-top: 15px;
-  margin-bottom: 30px;
+  margin-top: 20px;
+  margin-bottom: 40px;
   padding: 0 40px;
 `;
 export const AboutView = styled.View`
@@ -176,9 +176,8 @@ export const AboutView = styled.View`
 export const AboutFooter = styled.View`
   position: absolute;
   width: 100%;
-  height: 120px;
   padding-top: 10px;
   bottom: 0;
   flex-direction: column;
-  background-color: ${({ theme }) => theme.primary};
+  background-color: ${({ theme }) => theme.background};
 `;

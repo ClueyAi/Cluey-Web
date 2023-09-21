@@ -78,7 +78,7 @@ const Settings = () => {
     <SettingsContainer>
       {vLogout?<AlertBox data={data} />:null}
       <SettingsContent>
-        <SettingsScrollView>
+        <SettingsScrollView showsVerticalScrollIndicator={false}>
           <SettingsItem theme={theme}>
             <SettingsHeaderSection>
               <SettingsHeaderTitle theme={theme}>{locale.settings.account.title}</SettingsHeaderTitle>

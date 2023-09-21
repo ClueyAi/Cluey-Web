@@ -15,10 +15,11 @@ const Content = ({id}) => {
     const currentChat = chats?.find((chat) => chat.id === id);
     setChat(currentChat)
 
+    //Notification
+    /*
     if (currentChat) {
       const chatRef = firestore.collection('users').doc(user?.uid).collection('chats').doc(id);
 
-      //Dev
       const unsubscribe = chatRef.onSnapshot((doc) => {
         const messages = doc.data().messages || [];
         const lastMessage = messages[messages.length - 1];
@@ -41,11 +42,13 @@ const Content = ({id}) => {
           }
         }
       });
+      
 
       return () => {
         unsubscribe();
       };
     }
+    */
   }, [chats, id]);
   
   if (chat) {

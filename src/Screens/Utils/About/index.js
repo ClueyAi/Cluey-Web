@@ -1,5 +1,4 @@
 import React, { useContext } from 'react'
-import AntDesign from '@expo/vector-icons/AntDesign';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import UserAvatar from 'react-native-user-avatar';
 
@@ -9,7 +8,7 @@ import { ThemeContext } from '/src/components/theme';
 import {
   View,
   Div,
-  H1, H1Mini, H3, H3Bold, P, PMini,
+  H1, H1Mini, H3, PMini,
   ButtonEmpyte,
   Image,
   AboutContainer,
@@ -22,6 +21,8 @@ import {
   AboutFooter
 } from '../components'
 import { navigate } from "../../functions";
+
+import Footer from '../Footer';
 
 const About = () => {
   const {locale} = useContext(LocaleContext);
@@ -41,27 +42,20 @@ const About = () => {
     openInNewTab(url);
   };
 
-  const handlePolicy = async () => {
-    window.open('https://cluey.pt/termos', '_blank');
-  };
-
   return (
-    <AboutContainer>
+    <AboutContainer theme={theme}>
       <AboutContent>
-        <AboutHeader theme={theme}>
-          <View style={{alignItems: 'center', justifyContent: 'center'}}>
-            <ButtonEmpyte style={{color: theme.background, paddingHorizontal: 5}} onPress={handleBack}>
-              <Ionicons name="chevron-back" size={32} color={theme.text} />
-            </ButtonEmpyte>
-          </View>
-          <View style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}>
-            <Image style={{width: 58, height: 58, marginBottom: -2}} source={require('../../../../assets/images/icon.png')} />
-          </View>
-          <View style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}>
-            <Ionicons name="chevron-back" size={32} color={theme.transparent} />
-          </View>
-        </AboutHeader>
-        <AboutScrollView>
+        <AboutScrollView showsVerticalScrollIndicator={false}>
+          <AboutHeader theme={theme}>
+            <View style={{alignItems: 'center', justifyContent: 'center'}}>
+              <ButtonEmpyte style={{color: theme.background, paddingHorizontal: 5}} onPress={handleBack}>
+                <Ionicons name="chevron-back" size={32} color={theme.text} />
+              </ButtonEmpyte>
+            </View>
+            <View style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}>
+              <Ionicons name="chevron-back" size={32} color={theme.transparent} />
+            </View>
+          </AboutHeader>
           <AboutView>
             <H1>{locale.global.team.title}</H1>
             <AboutSection>
@@ -70,7 +64,7 @@ const About = () => {
                   <UserAvatar size={112} style={{width: 112, height: 112, borderRadius: 100}} name={locale.global.team.designer.name} src={locale.global.team.designer?.photo_url}/>
                 </AboutPhoto>
                 <H3>{locale.global.team.designer.name}</H3>
-                <PMini>{locale.global.team.designer.office}</PMini>             
+                <PMini>{locale.global.team.designer.office}</PMini>        
               </ButtonEmpyte>
               <ButtonEmpyte onPress={() => handleOpenLink(locale.global.team.developer.site_url)}>
                 <AboutPhoto theme={theme}>
@@ -121,31 +115,12 @@ const About = () => {
               <H1Mini style={{fontSize: 16, padding: 2}}>©</H1Mini>
             </View>
             <View style={{marginTop: 20, marginBottom: 280, alignItems: 'center'}}>
-              <H1>{locale.global.app.resume_title}</H1>
-              <H3 style={{width: '60%', textAlign: 'center', marginTop: 5}}>{locale.global.app.resume}</H3>
             </View>
           </AboutView>
         </AboutScrollView>
       </AboutContent>
       <AboutFooter theme={theme}>
-        <ButtonEmpyte 
-          style={{color: theme.background}}
-          onPress={handlePolicy}  
-        >
-          <P>{locale.global.app.policy_terms.title}</P>
-        </ButtonEmpyte>
-        <H3 style={{marginTop: 5}}>{locale.global.app.contact_us.title}</H3>
-        <Div style={{flexDirection: 'row', padding: 5}}>
-          <ButtonEmpyte style={{color: theme.background, paddingHorizontal: 5}} onPress={() => handleOpenLink(locale.global.app.contact_us.website)}>
-            <AntDesign name="earth" size={28} color={theme.border} />
-          </ButtonEmpyte>
-          <ButtonEmpyte style={{color: theme.background, paddingHorizontal: 5}} onPress={() => handleOpenLink(locale.global.app.contact_us.github)}>
-            <AntDesign name="github" size={28} color={theme.border}  />
-          </ButtonEmpyte>
-          <ButtonEmpyte style={{color: theme.background, paddingHorizontal: 5}} onPress={() => handleOpenLink(locale.global.app.contact_us.facebook)}>
-            <AntDesign name="facebook-square" size={28} color={theme.border}  />
-          </ButtonEmpyte>
-        </Div>
+        <Footer />
       </AboutFooter>
     </AboutContainer>
   );

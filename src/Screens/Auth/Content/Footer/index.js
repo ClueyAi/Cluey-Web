@@ -27,7 +27,7 @@ const Footer = () => {
   };
 
   const handleRules = () => {
-    window.open('https://cluey.pt/termos');
+    window.open('https://cluey.pt/termos.html', '_blank');
   };
 
   const handleAbout = () => {
