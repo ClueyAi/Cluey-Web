@@ -1,8 +1,10 @@
 # <a href='https://app.cluey.pt'>Cluey-Web</a>
 Cluey App for Web
 
-![Cover](/public/screenshots/Cover.png)
-![Web](/public/screenshots/web.png)
+<p align="center">
+  <img src="/public/screenshots/Cover.png" alt="Cover">
+  <img src="/public/screenshots/web.png" alt="Web">
+</p>
 
 ### Future Features
 - Add responsive to all components on left menu.
