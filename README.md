@@ -1,6 +1,9 @@
 # <a href='https://app.cluey.pt'>Cluey-Web</a>
 Cluey App for Web
 
+![Cover](/public/screenshots/Cover.png)
+![Web](/public/screenshots/web.png)
+
 ### Future Features
 - Add responsive to all components on left menu.
 - Add New Cluey chat button and function.
