@@ -123,76 +123,73 @@ Cluey App for Web
 > <code>yarn prod</code>
 
 
-# COMO EU FARIA:
+# Future implementations:
 
-## 1. Sistema de Read Mark
+## 1. Read Mark System
 
-Adicionaria um registro na base de dados, dentro de cada usuario, para verificar se eles estão logados. Se SIM: (Verrificaria se o status do usuario é online, se SIM: Marcaria como recebido [unico V azul], se NÃO: Marcaria como não recebido [unico V cinza].) Se NÃO: Marcaria como não recebido [unico V cinza].
+I would add a record to the database, within each user, to check if they are logged in. If YES: (I would check if the user's status is online, if YES: I would mark it as received [single blue V], if NO: I would mark it as not received [single gray V].) If NO: I would mark it as not received [single gray V ].
 
-Adicionaria um registro de abertura do chat, para comparar a data da ultima abertura, com a data, da ultima mensagem, e marcar como lida, as mensagens anteriores a ultima abertura. Caso o usuario estiver com status, offline, away ou busy, não marcaria como lida, mas sim como recebido. Porem também não poderia ver o status de leitura das mensagens enviadas, em quanto estiver nesses status.
+I would add a chat opening record, to compare the date of the last opening with the date of the last message, and mark the messages prior to the last opening as read. If the user is in status, offline, away or busy, it would not be marked as read, but rather as received. However, you would also not be able to see the reading status of sent messages, while you are in these statuses.
 
-Exige uma logica complexa, para funcionar corretamente, por isso essa funcionalidade, foi adiada para uma versão futura.
+It requires complex logic to function correctly, which is why this functionality has been postponed to a future version.
 
-## 2. Sistema de Notificações
+## 2. Notification System
 
-Atualmente já existe um registro de status dos botões on/off do sistema de notificações, registrando o valor na base de dados. Apenas precisaria criar uma função para alternar de acordo com o valor do registro. Utilizando biblioteca nativas de cada plataforma, para ter acesso as notificações, e no caso de uma nova instalação, e o valor do registro for on, verificar isso no loading e pedir os acessos necessarios ao recurso. Caso seja off, só pedir acesso, quando utilizar o botão para mudar o valor para on.
+Currently, there is already a status record for the notification system on/off buttons, recording the value in the database. You would just need to create a function to switch according to the registry value. Using native libraries for each platform, to access notifications, and in the case of a new installation, and the registry value is on, check this upon loading and request the necessary access to the resource. If it is off, just ask for access, when using the button to change the value to on.
 
-Não é uma funcionalidade exencial para essa fase do projeto, por isso, foi adiada para uma versão futura.
+It is not an essential feature for this phase of the project, which is why it was postponed to a future version.
 
-## 3. Sistema de Resposta em Streaming
+## 3. Streaming Response System
 
-Atualmente a resposta da IA, é registrada na base de dados, para depois ser exibida... Para esse sistema funcionar, seria necessario exibir a mensagem em tempo real, com uma funcionalidade nativa da API OpenAI, para exibir a resposta em streaming, e não apenas quando a IA terminar de responder. Mas quando a resposta for finalizada, ai sim, registrar na base de dados, e depois substituir a mensagem em tempo real, pela mensagem registrada na base de dados.
+Currently, the AI's response is recorded in the database, and then displayed... For this system to work, it would be necessary to display the message in real time, with a native functionality of the OpenAI API, to display the response in streaming, and not just when the AI has finished responding. But when the response is completed, then register it in the database, and then replace the message in real time with the message registered in the database.
 
-Porem para isso, existe uma complexidade, de tratamento da mensagem em streaming, por isso essa funcionalidade, foi adiada para uma versão futura.
+However, there is a complexity involved in processing the streaming message, which is why this functionality was postponed to a future version.
 
-## 5. Sistema de Contabilidade de Creditos
+## 5. Credit Accounting System
 
-Atualmente está funcionando de forma simbolica, fazendo uma adição padrão de 10000 creditos de interação, para qualquer utilizador no ato do registro, e depois fazendo uma subtração de 1 credito, para cada interação. Para esse sistema funcionar, como deveria, precisaria de um sistema preciso de contabilidade, para garantir que nenhum erro aconteça, já que os creditos teram um valor real, e não pode existe falhas, que gerarão situações de injustiça, ou alterações manuais.
+It is currently working symbolically, making a standard addition of 10,000 interaction credits for any user upon registration, and then subtracting 1 credit for each interaction. For this system to work as it should, it would need an accurate accounting system, to ensure that no errors occur, since the credits will have a real value, and there cannot be any failures, which will generate unfair situations, or manual changes.
 
-Porem para isso, existe uma complexidade, de tratamento da mensagem em streaming, por isso essa funcionalidade, foi adiada para uma versão futura.
+However, there is a complexity involved in processing the streaming message, which is why this functionality was postponed to a future version.
 
-## 6. Sistema de Administração do Sistema
+## 6. System Administration System
 
-Atualmente, feito manualmente na base de dados, existem valores, salvos em variaveis, que são interpretados pelo sistema, para executar funções externas aos utilizadores, que seram acessadas pelos administradores do sistema, com diferentes niveis.
+Currently, done manually in the database, there are values, saved in variables, which are interpreted by the system, to perform functions external to users, which will be accessed by system administrators, at different levels.
 
-Neste momento, essas funcionalidade estão disponiveis para os administradores:
-#### Funções
-- forceLogoutAll(bool) // Forçar logout de todos os utilizadores, para casos extremos, de mudanças no sistema ou base de dados.
+Currently, these features are available to administrators:
+#### Functions
+- forceLogoutAll(bool) // Force logout of all users, in extreme cases of changes to the system or database.
 
-#### Informações
+#### Information
 - displayName(string) // Cluey
-- photoURL(string) // Foto que será exibida no perfil da AI Cluey
-- uid(string) // ID unico, aleatoriamente gerado para o perfil da AI Cluey
-- userName(string) // Nome de usuario, que será exibido no perfil da AI Cluey
+- photoURL(string) // Photo that will be displayed on the AI Cluey profile
+- uid(string) // Unique ID, randomly generated for the Cluey AI profile
+- userName(string) // Username, which will be displayed on the AI Cluey profile
 
 #### Status
-- server(bool) // Status da AI Cluey, para saber se ela está online ou offline
-- newUpdate(bool) // Status de atualização, para saber se existe uma nova atualização disponivel
+- server(bool) // Cluey AI status, to know if it is online or offline
+- newUpdate(bool) // Update status, to know if there is a new update available
 
 #### Patch Notes
-- documentos comm informações sobre as atualizações do sistema, em array, para ser listado para os utilizadores, quando tem uma nova atualização disponivel, com id unicopara cada atualização. Assim marcando baseado no ID, como lido, para que o usuario não volte a receber a mesma atualização, e também para que o usuario possa ver as atualizações anteriores, caso queira.
+- documents with information about system updates, in an array, to be listed for users, when a new update is available, with a unique id for each update. Thus marking based on the ID, as read, so that the user does not receive the same update again, and also so that the user can see previous updates, if they wish.
 
-Todos essas funcionalidades, seriá administradar por outra aplicação, que acessa a mesma base de dados, para fazer as alterações necessarias, assim como fazer a contabilidade e administração dos creditos, e oferecer suporte aos utilizadores.
+All these functionalities would be managed by another application, which accesses the same database, to make the necessary changes, as well as accounting and managing credits, and offering support to users.
 
-Porem para isso, esse nivel de gestão, com uma interface totalmente dedicada a utilizadores administradores, foi adiada para uma versão futura. Por motivos obvios.
-
-
-
+However, to achieve this, this level of management, with an interface entirely dedicated to administrator users, was postponed to a future version. For obvious reasons.
 
 #### SAVE
 
 credits: {
-    total: credits,
-    payments: [{
-      name: 'Free - Beta Test',
-      price: 0,
-      cycle: 'month',
-      method: 'gift',
-      amount: credits,
-      createdAt: timestamp,
-    }],
-    history: [{
-      amount: credits,
-      createdAt: timestamp,
-    }],
-  },
+     total: credits,
+     payments: [{
+       name: 'Free - Beta Test',
+       price: 0,
+       cycle: 'month',
+       method: 'gift',
+       amount: credits,
+       createdAt: timestamp,
+     }],
+     history: [{
+       amount: credits,
+       createdAt: timestamp,
+     }],
+   },
